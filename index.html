@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Star Binder - Keybind Utility for Star Citizen</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
+  <script defer src="script.js"></script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+</head>
+
+<body>
+
+  <div class="content">
+    <img class="headerImage" src="\assets\header.webp" width="60%">
+
+    <div id="tagContainer"></div>
+    <div id="subTagContainer"></div>
+
+    <div class="content-keybinds-border">
+      <div class="content-keybinds-wrapper">
+        <div class="searchbar-row">
+          <div class="searchbar-container">
+            <button class="searchbar-button" type="button"></button>
+            <input type="text" id="keybindSearch" placeholder="Filter keybinds..." />
+          </div>
+
+          <div class="inputType-select">
+            <button class="button button-inputSelect-keyboard" type="button">Mouse / Keyboard</button>
+            <button class="button button-inputSelect-controller" type="button">Controller</button>
+            <div class="button-wrap">
+              <button class="button button-inputSelect-joystick" type="button">Joystick</button>
+            </div>
+          </div>
+          <div class="helpText">Double-click to rebind • Hold to clear</div>
+        </div>
+
+        <div class="content-keybinds"></div>
+      </div>
+
+
+      <!-- Corners -->
+      <img class="corner top-left" src="assets/ContainerBorder/top-left.webp" alt="">
+      <img class="corner top-right" src="assets/ContainerBorder/top-left.webp" alt="">
+      <img class="corner bottom-left" src="assets/ContainerBorder/bottom-left.webp" alt="">
+      <img class="corner bottom-right" src="assets/ContainerBorder/bottom-left.webp" alt="">
+
+      <!-- Top row -->
+      <img class="side top-left" src="assets/ContainerBorder/topAdjacent.webp" alt="">
+      <div class="side top-middle"></div>
+      <img class="side top-right" src="assets/ContainerBorder/topAdjacent.webp" alt="">
+
+      <!-- Bottom row -->
+      <img class="side bottom-left" src="assets/ContainerBorder/topAdjacent.webp" alt="">
+      <div class="side bottom-middle"></div>
+      <img class="side bottom-right" src="assets/ContainerBorder/topAdjacent.webp" alt="">
+
+      <!-- Left column -->
+      <img class="side left-middle" src="assets/ContainerBorder/leftMain.webp" alt="">
+      <div class="side left-up"></div>
+      <div class="side left-down"></div>
+
+      <!-- Right column -->
+      <img class="side right-middle" src="assets/ContainerBorder/leftMain.webp" alt="">
+      <div class="side right-up"></div>
+      <div class="side right-down"></div>
+    </div>
+
+
+
+    <div class="footer">
+      <div class="footer__left">
+        <div class="footer__buttons">
+          <div class="button-wrapper">
+            <button class="button button--clear"></button>
+            <span class="tooltip-text">Clear all current binds.</span>
+          </div>
+          <div class="button-wrapper">
+            <button class="button button--import"></button>
+            <span class="tooltip-text">Load an existing keybind configuration.</span>
+          </div>
+          <div class="button-wrapper">
+            <button class="button button--export"></button>
+            <span class="tooltip-text">Create XML ready for import to SC.</span>
+          </div>
+          <!--div class="button-wrapper">
+            <button id="copyActionMapJSON" class="button button--debug">Copy JSON</button>
+            <span class="tooltip-text">Copy all action names as JSON (debug only)</span>
+          </div--->
+
+        </div>
+
+
+
+        <div class="footer__toggles">
+          <div class="toggle-container">
+            <label class="toggle-switch tri-state" id="boundActionsToggle">
+              <span class="slider"></span>
+            </label>
+            <span class="toggle-label">All actions</span>
+          </div>
+
+          <div class="toggle-container">
+            <label class="toggle-switch">
+              <input type="checkbox" id="conflictsToggle">
+              <span class="slider"></span>
+            </label>
+            <span class="toggle-label">Show conflicts</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__keybind-info">
+        <div class="footer__keybind-text">[text]</div>
+        <div class="footer__keybind-tags"></div>
+      </div>
+    </div>
+
+
+    <!--script>
+      // Copy JSON button handler
+      document.getElementById("copyActionMapJSON").addEventListener("click", () =>
+      {
+        if (!actionMapsMasterList || !Array.isArray(actionMapsMasterList))
+        {
+          console.error("actionMapsMasterList is not defined or not an array");
+          return;
+        }
+
+        const actionsStringArray = [];
+        actionMapsMasterList.forEach(a =>
+        {
+          if (a.actionName) actionsStringArray.push(a.actionName);
+        });
+
+        const actionMapJSON = {};
+        actionsStringArray.forEach(actionName =>
+        {
+          if (actionName && !actionMapJSON[actionName])
+          {
+            actionMapJSON[actionName] = { label: "", description: "", keywords: [] };
+          }
+        });
+
+        const jsonString = JSON.stringify(actionMapJSON, null, 2);
+        navigator.clipboard.writeText(jsonString)
+          .then(() => alert("Action Map JSON copied to clipboard!"))
+          .catch(err => console.error("Failed to copy:", err));
+      });
+    </script-->
+
+</body>
+
+</html>
