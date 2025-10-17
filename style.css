@@ -126,7 +126,7 @@ CONTENT
     box-sizing: border-box;
 
     background-color: var(--lighter-bg);
-    background-image: url('assets/ContainerBorder/centre.webp');
+    background-image: url('./assets/ContainerBorder/centre.webp');
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 2;
@@ -192,7 +192,7 @@ CONTENT
     left: calc(var(--border-thickness) * 2);
     right: calc(var(--border-thickness) * 2);
     height: var(--border-thickness);
-    background-image: url('assets/ContainerBorder/middleSquish.webp');
+    background-image: url('./assets/ContainerBorder/middleSquish.webp');
     background-repeat: repeat-x;
     background-size: auto 100%;
 }
@@ -217,7 +217,7 @@ CONTENT
     left: calc(var(--border-thickness) * 2);
     right: calc(var(--border-thickness) * 2);
     height: var(--border-thickness);
-    background-image: url('assets/ContainerBorder/middleSquish.webp');
+    background-image: url('./assets/ContainerBorder/middleSquish.webp');
     background-repeat: repeat-x;
     background-size: auto 100%;
     transform: scaleY(-1);
@@ -236,7 +236,7 @@ CONTENT
     bottom: calc(var(--border-thickness) * 2);
     left: 0;
     width: var(--border-thickness);
-    background-image: url('assets/ContainerBorder/leftMain.webp');
+    background-image: url('./assets/ContainerBorder/leftMain.webp');
     background-repeat: repeat-y;
     background-size: 100% auto;
 }
@@ -246,7 +246,7 @@ CONTENT
     left: 0;
     width: var(--border-thickness);
     height: var(--border-thickness);
-    background-image: url('assets/ContainerBorder/leftSquish2.webp');
+    background-image: url('./assets/ContainerBorder/leftSquish2.webp');
     background-size: 100% 100%;
 }
 
@@ -255,7 +255,7 @@ CONTENT
     left: 0;
     width: var(--border-thickness);
     height: var(--border-thickness);
-    background-image: url('assets/ContainerBorder/leftSquish.webp');
+    background-image: url('./assets/ContainerBorder/leftSquish.webp');
     background-size: 100% 100%;
 }
 
@@ -265,7 +265,7 @@ CONTENT
     bottom: calc(var(--border-thickness) * 2);
     right: 0;
     width: var(--border-thickness);
-    background-image: url('assets/ContainerBorder/leftMain.webp');
+    background-image: url('./assets/ContainerBorder/leftMain.webp');
     background-repeat: repeat-y;
     background-size: 100% auto;
     transform: scaleX(-1);
@@ -276,7 +276,7 @@ CONTENT
     right: 0;
     width: var(--border-thickness);
     height: var(--border-thickness);
-    background-image: url('assets/ContainerBorder/leftSquish2.webp');
+    background-image: url('./assets/ContainerBorder/leftSquish2.webp');
     background-size: 100% 100%;
     transform: scaleX(-1);
 }
@@ -286,7 +286,7 @@ CONTENT
     right: 0;
     width: var(--border-thickness);
     height: var(--border-thickness);
-    background-image: url('assets/ContainerBorder/leftSquish.webp');
+    background-image: url('./assets/ContainerBorder/leftSquish.webp');
     background-size: 100% 100%;
     transform: scaleX(-1);
 }
@@ -548,8 +548,8 @@ img,
     font-size: 0.8rem;
     width: 5rem;
     height: 4rem;
-    -webkit-mask: url('assets/button_ExportLoad.svg') no-repeat center / contain;
-    mask: url('assets/button_ExportLoad.svg') no-repeat center / contain;
+    -webkit-mask: url('./assets/button_ExportLoad.svg') no-repeat center / contain;
+    mask: url('./assets/button_ExportLoad.svg') no-repeat center / contain;
     background-color: var(--accent2);
     transition: transform 0.15s ease-out;
     overflow: visible;
@@ -569,15 +569,15 @@ img,
 }
 
 .button--clear::before {
-    background: url('assets/icon_clear.svg') no-repeat center / contain;
+    background: url('./assets/icon_clear.svg') no-repeat center / contain;
 }
 
 .button--import::before {
-    background: url('assets/icon_load.svg') no-repeat center / contain;
+    background: url('./assets/icon_load.svg') no-repeat center / contain;
 }
 
 .button--export::before {
-    background: url('assets/icon_export.svg') no-repeat center / contain;
+    background: url('./assets/icon_export.svg') no-repeat center / contain;
 }
 
 /* Hover border */
@@ -587,7 +587,7 @@ img,
     content: '';
     position: absolute;
     inset: 0;
-    background: url('assets/button_ExportLoad_borderSelected.svg') no-repeat center / contain;
+    background: url('./assets/button_ExportLoad_borderSelected.svg') no-repeat center / contain;
     pointer-events: none;
     z-index: 1;
 }
@@ -849,8 +849,8 @@ KEYWORD TAGS
     user-select: none;
     box-shadow: inset 0 -3px 8px #00000033;
 
-    -webkit-mask: url('assets/button_Tag.svg') no-repeat center / 100% 100%;
-    mask: url('assets/button_Tag.svg') no-repeat center / 100% 100%;
+    -webkit-mask: url('./assets/button_Tag.svg') no-repeat center / 100% 100%;
+    mask: url('./assets/button_Tag.svg') no-repeat center / 100% 100%;
 
     transition: border-color 0.2s, color 0.4s, background 0.4s;
 }
@@ -1002,8 +1002,8 @@ SEARCH BAR  (which also holds the input select buttons)
     -webkit-text-stroke: 0.7px #00000077;
     -webkit-text-fill-color: var(--primaryText);
 
-    -webkit-mask: url('assets/button_Search.svg') no-repeat center;
-    mask: url('assets/button_Search.svg') no-repeat center;
+    -webkit-mask: url('./assets/button_Search.svg') no-repeat center;
+    mask: url('./assets/button_Search.svg') no-repeat center;
 
     transition: box-shadow 0.2s ease-out, border 0.2s ease-out;
     position: relative;
@@ -1013,7 +1013,7 @@ SEARCH BAR  (which also holds the input select buttons)
     content: '';
     position: absolute;
     inset: 1rem;
-    background: url('assets/icon_Search.svg') no-repeat center / contain;
+    background: url('./assets/icon_Search.svg') no-repeat center / contain;
     pointer-events: none;
 }
 
@@ -1049,8 +1049,8 @@ SEARCH BAR  (which also holds the input select buttons)
     position: relative;
     z-index: 0;
 
-    -webkit-mask: url('assets/searchbar.svg') no-repeat center;
-    mask: url('assets/searchbar.svg') no-repeat center;
+    -webkit-mask: url('./assets/searchbar.svg') no-repeat center;
+    mask: url('./assets/searchbar.svg') no-repeat center;
 
     box-shadow:
         inset -1px -2px 8px rgba(0, 0, 0, 0.15),
@@ -1166,8 +1166,8 @@ MKB / CONTROLLER / JOYSTICK BUTTONS STYLE
     height: 3.5rem;
     padding: 3rem 4rem;
     background-color: var(--accent2);
-    -webkit-mask: url('assets/button_Large.svg') no-repeat center / contain;
-    mask: url('assets/button_Large.svg') no-repeat center / contain;
+    -webkit-mask: url('./assets/button_Large.svg') no-repeat center / contain;
+    mask: url('./assets/button_Large.svg') no-repeat center / contain;
 }
 
 .button-inputSelect-keyboard.selected::after,
@@ -1176,7 +1176,7 @@ MKB / CONTROLLER / JOYSTICK BUTTONS STYLE
     content: '';
     position: absolute;
     inset: 0;
-    background: url('assets/button_Large_borderSelected.svg') no-repeat center / contain;
+    background: url('./assets/button_Large_borderSelected.svg') no-repeat center / contain;
     pointer-events: none;
 }
 
