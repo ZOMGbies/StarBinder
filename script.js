@@ -2204,13 +2204,13 @@ function setActivationModeButtonIcon(buttonObject, bindObject)
     switch (activationMode)
     {
         case activationModeType.PRESS:
-            icon.src = './assets/tapIcons/icon_Press.svg';
+            icon.src = './assets/tapIcons/icon_press.svg';
             break;
         case activationModeType.TAP:
-            icon.src = './assets/tapIcons/icon_Tap.svg';
+            icon.src = './assets/tapIcons/icon_tap.svg';
             break;
         case activationModeType.DOUBLETAP_NONBLOCKING:
-            icon.src = './assets/tapIcons/icon_DoubleTap.svg';
+            icon.src = './assets/tapIcons/icon_doubleTap.svg';
             break;
         case activationModeType.DOUBLETAP_BLOCKING:
             icon.src = './assets/tapIcons/icon_doubleTap_Blocking.svg';
