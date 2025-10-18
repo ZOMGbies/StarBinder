@@ -645,6 +645,7 @@ class MappedAction
         this.setBind(InputState.current, "")
         this.setBindDevice(InputState.current, "1")
         this.setActivationMode(this.getDefaultActivationMode(InputState.current), InputState.current)
+        onUserChangedBind(this)
     }
 
     //========================================
@@ -683,6 +684,7 @@ class MappedAction
 
 async function init()
 {
+
     //read json
     try
     {
@@ -719,9 +721,11 @@ async function init()
     subTagContainer.addEventListener('click', onClickFilterTag);
 
     // now both DOM and XML load in a controlled order
-    await loadAndParseDataminedXML();
-    initFuse();       // <--- Fuse.js initialized after XML loads
 
+    // await loadAndParseDataminedXML();
+    await initActionMaps();
+
+    initFuse();       // <--- Fuse.js initialized after XML loads
 
     // then show binds
     generateMainCategoryTags();
@@ -788,6 +792,8 @@ async function init()
     btnSelectInput_Joystick.addEventListener("click", e => setInputMode(InputModeSelection.JOYSTICK));
     btnSelectInput_Keyboard.click()
     ClearKeybindDescription();
+    loadMappedActions();
+
 }
 
 //#endregion
@@ -1656,6 +1662,7 @@ async function applyKeybind(bindstring, deviceIndex, bind)
     stopPollingGamepads();
     stopPollingJoysticks();
     cancelRecordTimer();
+    onUserChangedBind(getCurrentBindFromSelectedRow())
 }
 
 function getBindPrefix(deviceNumber = 1, currentState = InputState.current)
@@ -2330,6 +2337,7 @@ function onClickSelectActivationMode(e)
             if (bindObject)
             {
                 bindObject.setActivationMode(selectedActivationMode, InputState.current);
+                onUserChangedBind(bindObject);
                 setActivationModeButtonIcon(btn, bindObject);
             }
 
@@ -2793,7 +2801,7 @@ async function onClickClearAllKeybinds()
     const ok = await confirmClearAllKeybinds(`Are you sure you want to clear all ${ InputState.current } binds?`);
     if (!ok) return;
 
-    actionMapsMasterList.forEach(a => a.setBind(InputState.current, ""));
+    actionMapsMasterList.forEach(a => a.clearBind());
     updatefilteredNames();
 }
 
@@ -3219,3 +3227,96 @@ function parseJoystickInputToStarCitizenBind(input)
 
 
 
+/////////////////////////////////////////////
+
+function serializeMappedAction(action)
+{
+    return {
+        actionName: action.actionName,
+        binds: Object.fromEntries(
+            Object.entries(action.bind).map(([mode, b]) => [
+                mode,
+                { input: b.input, deviceIndex: b.deviceIndex, activationMode: b.activationMode }
+            ])
+        )
+    };
+}
+
+function deserializeMappedAction(data, existingAction)
+{
+    for (const [mode, bindData] of Object.entries(data.binds))
+    {
+        if (existingAction.bind[mode])
+        {
+            existingAction.bind[mode].input = bindData.input;
+            existingAction.bind[mode].deviceIndex = bindData.deviceIndex;
+            existingAction.bind[mode].activationMode = bindData.activationMode;
+        }
+    }
+}
+function saveUserChanges()
+{
+    const savedActions = actionMapsMasterList.map(serializeMappedAction);
+    localStorage.setItem("userMappedActions", JSON.stringify(savedActions));
+}
+async function loadMappedActions()
+{
+    const baseActions = await loadAndParseDataminedXML();
+
+    const savedJson = localStorage.getItem("userMappedActions");
+    if (savedJson)
+    {
+        const savedActions = JSON.parse(savedJson);
+
+        savedActions.forEach(saved =>
+        {
+            const action = baseActions.find(a => a.actionName === saved.actionName);
+            if (action)
+            {
+                deserializeMappedAction(saved, action);
+            }
+        });
+    }
+
+    return baseActions;
+}
+function onUserChangedBind(actionObject)
+{
+    const newInput = actionObject.getBind()
+    const newDeviceIndex = actionObject.getBindDevice();
+    const newActivationMode = actionObject.getActivationMode();
+    actionObject.bind[InputState.current].input = newInput;
+    actionObject.bind[InputState.current].deviceIndex = newDeviceIndex;
+    actionObject.bind[InputState.current].activationMode = newActivationMode;
+    console.log("called");
+    saveUserChanges();
+}
+async function initActionMaps()
+{
+    const actions = await loadAndParseDataminedXML();
+
+    const savedJson = localStorage.getItem("userMappedActions");
+    if (savedJson)
+    {
+        const savedActions = JSON.parse(savedJson);
+        savedActions.forEach(saved =>
+        {
+            const action = actions.find(a => a.actionName === saved.actionName);
+            if (action)
+            {
+                // Apply saved user changes
+                for (const [mode, bindData] of Object.entries(saved.binds))
+                {
+                    if (action.bind[mode])
+                    {
+                        action.bind[mode].input = bindData.input;
+                        action.bind[mode].deviceIndex = bindData.deviceIndex;
+                        action.bind[mode].activationMode = bindData.activationMode;
+                    }
+                }
+            }
+        });
+    }
+
+    return actions;
+}
