@@ -77,7 +77,9 @@ CONTENT
 
 .content {
     display: flex;
-    flex: 1;
+    /* flex: 1; */
+    flex: 1 0 auto;
+    /* don’t hog the full height, allow overflow below */
     flex-direction: column;
     min-height: auto;
     align-self: center;
@@ -313,7 +315,7 @@ img,
     justify-content: center;
     text-align: center;
 
-    font-family: 'Gobold';
+    font-family: 'Gobold', sans-serif;
     text-transform: uppercase;
     color: var(--primaryText);
     font-size: 1.1rem;
@@ -440,7 +442,7 @@ img,
     text-align: left;
 
     font-size: 0.8rem;
-    font-family: 'Consolas';
+    font-family: 'Consolas', monospace;
     font-weight: 500;
     line-height: 1.3;
     color: var(--primaryText);
@@ -633,7 +635,7 @@ img,
     visibility: hidden;
     background-color: rgba(0, 0, 0, 0.55);
     color: #fff;
-    font-family: 'Aileron Light';
+    font-family: 'Aileron Light', sans-serif;
     font-size: 0.75rem;
     line-height: 1.7;
     letter-spacing: 0.15rem;
@@ -683,7 +685,7 @@ img,
 .tooltip-highlight {
     color: var(--accent);
     display: inline-block;
-    font-family: 'Aileron Light';
+    font-family: 'Aileron Light', sans-serif;
     line-height: 1.7;
     letter-spacing: 0.08rem;
 }
@@ -745,7 +747,7 @@ KEYBIND AREA
     display: grid;
     place-items: center start;
     padding-left: 0.6rem;
-    font-family: xolonium;
+    /* font-family: xolonium; */
 
     user-select: none;
     -webkit-user-select: none;
@@ -784,14 +786,18 @@ KEYBIND AREA
     border-radius: 0.3rem;
     width: 40px;
     height: 40px;
-    background-color: #0a1d29;
+    /* background-color: #0a1d29; */
+    background-color: transparent;
+
     margin-bottom: 0.3rem;
 }
 
 .button-activationMode img {
     width: 100%;
     height: 100%;
-    background-color: #0a1d29;
+    /* background-color: #0a1d29; */
+    background-color: transparent;
+
     object-fit: contain;
     display: block;
 }
@@ -839,7 +845,7 @@ KEYWORD TAGS
     background: var(--lighter-bg);
     color: var(--secondaryText);
 
-    font-family: 'Gobold';
+    font-family: 'Gobold', sans-serif;
     font-size: 1rem;
     text-transform: uppercase;
     text-align: center;
@@ -940,7 +946,7 @@ KEY STYLES
     border-radius: 0.3rem;
     background: var(--secondary-bg);
     color: #ccc;
-    font-family: consolas;
+    font-family: 'Consolas', monospace;
     font-size: 1rem;
     gap: 0.2rem;
 }
@@ -1038,7 +1044,7 @@ SEARCH BAR  (which also holds the input select buttons)
     padding: 0 0.75rem;
     padding-left: 2rem;
     font-size: 1rem;
-    font-family: 'Consolas';
+    font-family: 'Consolas', monospace;
     background: var(--descriptionBackgroundColour);
     color: var(--primaryText);
     border: none;
@@ -1078,7 +1084,7 @@ CONSOLE INPUT FIELD
     max-width: 900%;
     align-items: right;
 
-    font-family: 'Consolas';
+    font-family: 'Consolas', monospace;
     color: var(--primaryText);
     font-size: 0.9rem;
 
@@ -1140,8 +1146,9 @@ CATEGORY STYLES FOR KEYBIND ACTION NAME
 can add new ones to make them look different for different categories
 --------------------------------------------------------------*/
 .keybind__type--defaultKeybindStyle {
-    font-family: 'Xolonium';
-    letter-spacing: 0.05em;
+    font-family: 'Kiona', sans-serif;
+    font-weight: 1000;
+    letter-spacing: 0.1em;
     text-align: end;
 }
 
@@ -1204,7 +1211,7 @@ MKB / CONTROLLER / JOYSTICK BUTTONS STYLE
 
 
 .helpText {
-    font-family: 'Aileron';
+    font-family: 'Aileron', sans-serif;
     font-size: 0.7rem;
     color: var(--primaryText);
 
@@ -1421,4 +1428,348 @@ MKB / CONTROLLER / JOYSTICK BUTTONS STYLE
 
 .activation-dropdown div:hover {
     background: #333;
+}
+
+/* ====================================== */
+/* info section */
+/* ====================================== */
+/* make sure the gold section appears after the flex layout */
+.info-section {
+    flex-shrink: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, #d2b358 0%, #c7a84e 100%);
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.5);
+    color: #0a1d29;
+    padding: 1rem 5%;
+    position: relative;
+    z-index: 0;
+    margin-top: 1rem;
+    opacity: 1;
+    height: auto;
+    overflow: hidden;
+}
+
+.collapsed {
+    margin-top: 1rem;
+    opacity: 0;
+    height: 0;
+
+}
+
+.info-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+
+}
+
+.info-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.info-content h2,
+.info-content h3 {
+    margin-top: 1rem;
+    color: #0a1d29;
+    text-shadow: 0 1px 0 rgba(182, 157, 33, 0.3);
+}
+
+.info-content ul {
+    margin-left: 1.5rem;
+    list-style-type: disc;
+}
+
+.info-section p,
+.info-section li {
+    font-family: 'Verdana';
+
+    font-size: 1rem;
+    color: #0a1d29;
+}
+
+code {
+    font-family: 'Consolas', monospace;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    color: #000;
+    font-size: 0.95em;
+}
+
+.info-content hr {
+    border: none;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.15);
+    margin: 2rem 0;
+}
+
+.info-list {
+    list-style-type: disc;
+    margin-left: 2rem;
+    line-height: 1.7;
+}
+
+.info-list li {
+    margin-bottom: 1rem;
+}
+
+.info-content a {
+    color: #0a1d29;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.info-content a:hover {
+    text-decoration: none;
+}
+
+.info-content code {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0.15rem 0.35rem;
+    border-radius: 3px;
+    font-family: 'Consolas', monospace;
+    font-size: 0.95em;
+    color: #111;
+}
+
+.info-section,
+.info-content {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s ease, opacity 0.4s ease;
+}
+
+.info-toggle {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 7rem;
+    height: 3rem;
+    font-size: 0.9rem;
+    z-index: 1000;
+    transition: transform 0.2s ease;
+}
+
+.info-toggle:hover {
+    transform: scale(1.05);
+}
+
+.exportWarning {
+    font-size: 0.8rem;
+}
+
+/* ************************************************ */
+/*                      FONTS                       */
+/* ************************************************ */
+
+/* ──────────────── */
+/*  AILERON FAMILY  */
+/* ──────────────── */
+@font-face {
+    font-family: 'Aileron';
+    src: url('./assets/fonts/Aileron-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('./assets/fonts/Aileron-BlackItalic.otf') format('opentype');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('./assets/fonts/Aileron-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('./assets/fonts/Aileron-BoldItalic.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('./assets/fonts/Aileron-Heavy.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('./assets/fonts/Aileron-HeavyItalic.otf') format('opentype');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('./assets/fonts/Aileron-Italic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('./assets/fonts/Aileron-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('./assets/fonts/Aileron-LightItalic.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('./assets/fonts/Aileron-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('./assets/fonts/Aileron-SemiBold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('./assets/fonts/Aileron-SemiBoldItalic.otf') format('opentype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('./assets/fonts/Aileron-Thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('./assets/fonts/Aileron-ThinItalic.otf') format('opentype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('./assets/fonts/Aileron-UltraLight.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('./assets/fonts/Aileron-UltraLightItalic.otf') format('opentype');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* ──────────────── */
+/*  CONSOLAS FAMILY */
+/* ──────────────── */
+@font-face {
+    font-family: 'Consolas';
+    src: url('./assets/fonts/consola.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Consolas';
+    src: url('./assets/fonts/consolab.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Consolas';
+    src: url('./assets/fonts/consolai.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Consolas';
+    src: url('./assets/fonts/consolaz.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* ──────────────── */
+/*   GOBOLD FAMILY  */
+/* ──────────────── */
+@font-face {
+    font-family: 'Gobold';
+    src: url('./assets/fonts/Gobold Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gobold';
+    src: url('./assets/fonts/Gobold Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Gobold';
+    src: url('./assets/fonts/Gobold Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gobold';
+    src: url('./assets/fonts/Gobold Bold Italic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* ──────────────── */
+/*   KIONA FAMILY   */
+/* ──────────────── */
+@font-face {
+    font-family: 'Kiona';
+    src: url('./assets/fonts/Kiona-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
 }

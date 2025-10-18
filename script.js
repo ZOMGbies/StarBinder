@@ -1,4 +1,3 @@
-
 //#region Keybind Values
 const keyboardkeys = {
     LeftControl: "lctrl",
@@ -203,8 +202,66 @@ const boundActionsToggle = document.getElementById('boundActionsToggle');
 let showBoundActionsState = 0;
 
 
+const showHelpButton = document.querySelector('.info-toggle')
+const infoClass = document.querySelector('.info-section')
+const infoContent = document.querySelector('.info-content')
+
+showHelpButton.addEventListener("click", () =>
+{
+    const section = infoClass;
+    const content = infoContent;
+
+    if (section.classList.contains("collapsed"))
+    {
+        // Expand
+        showHelpButton.textContent = "Hide help";
+        section.style.height = section.scrollHeight + "px";
+        content.style.height = content.scrollHeight + "px";
+        section.style.opacity = 1;
+        content.style.opacity = 1;
+
+        section.classList.remove("collapsed");
+        content.classList.remove("collapsed");
+
+        // Scroll after a tiny delay so content has started expanding
+        setTimeout(() =>
+        {
+            // Remove fixed height after transition so it grows naturally
+            section.style.height = "auto";
+            content.style.height = "auto";
+            // Scroll content so it is ~20% from the top of viewport
+            const rect = content.getBoundingClientRect();
+            const offset = rect.top + window.scrollY - window.innerHeight * 0.2;
+            window.scrollTo({
+                top: offset,
+                behavior: "smooth"
+            });
+        }, 100); // 100ms delay gives browser time to start the expansion
+    } else
+    {
+        // Collapse
+        showHelpButton.textContent = "Show help";
+        section.style.height = section.scrollHeight + "px"; // set current height
+        content.style.height = content.scrollHeight + "px";
+
+        requestAnimationFrame(() =>
+        {
+            section.style.height = "0px";
+            content.style.height = "0px";
+            section.style.opacity = 0;
+            content.style.opacity = 0;
+        });
+
+        section.classList.add("collapsed");
+        content.classList.add("collapsed");
+    }
+});
+
+
+
+
 //filter tags at the top
-const categoryTags = ["Vehicle", "On Foot", "Comms/Social", "Camera", "None"];
+const categoryTags = ["Vehicle", "On Foot", "Comms/Social", "Camera", "Other"];
 let filteredNames = "";
 
 let recordingActive;
@@ -226,15 +283,28 @@ const textValue_UNBOUND = '';
 //////////////////////////////
 const activationModeType = {
     PRESS: 'press',
+    PRESS_QUICKER: 'press_quicker',
+    PRESS_SHORT: 'delayed_press_quicker',
+    PRESS_MEDIUM: 'delayed_press',
+    PRESS_EXTRA_MEDIUM: 'delayed_press_medium',
+    PRESS_LONG: 'delayed_press_long',
     TAP: 'tap',
-    DOUBLETAP_NONBLOCKING: 'double_tap_nonblocking',
+    TAP_QUICKER: 'tap_quicker',
     DOUBLETAP_BLOCKING: 'double_tap',
-    HOLD_SHORT: 'delayed_press',
-    HOLD_LONG: 'delayed_press_medium',
+    DOUBLETAP_NONBLOCKING: 'double_tap_nonblocking',
     HELD: 'hold',
-    RELEASE: 'hold_no_retrigger',
+    HOLD_SHORT: 'delayed_hold',
+    HOLD_LONG: 'delayed_hold_long',
+    HOLD_NO_RETRIGGER: 'hold_no_retrigger',
+    HOLD_LONG_NO_RETRIGGER: 'delayed_hold_no_retrigger',
+    ALL: 'all',
+    HOLD_TOGGLE: 'hold_toggle',
     SMART_TOGGLE: 'smart_toggle'
 }
+
+
+
+
 
 //////////////////////////////
 //      STATE MACHINE       //
@@ -287,8 +357,11 @@ const keywordCategories =
     "on foot": "on foot",
     "@ui_CCFPS": ["on foot"],
     "@ui_CCEVA": ["on foot", "eva"],
+    "zero_gravity_eva": ["on foot", "eva"],
+    "zero_gravity_traversal": ["on foot", "eva"],
     "@ui_CCEVAZGT": ["on foot", "eva"],
-    "@ui_CGInteraction": ["on foot", "interaction"],
+    "@ui_CGInteraction": ["other", "interaction"],
+    "player_choice": ["other", "interaction"],
     salvage: "salvage",
     mining: "mining",
     'vehicle control': "vehicle control",
@@ -297,15 +370,63 @@ const keywordCategories =
     power: "power",
     combat: "combat",
     equipment: 'equipment',
-    "@ui_CGEASpectator": "other",
+    "@ui_CGEASpectator": ["other", "spectator"],
+    "spectator": ["other", "spectator"],
+    "default": ["other"],
     "@ui_CGUIGeneral": "other",
-    "@ui_CGOpticalTracking": "other",
+    "ui_notification": "other",
+    "@ui_CGOpticalTracking": ["other", "optical tracking", "FOIP/VOIP"],
+    "player_input_optical_tracking": ["other", "optical tracking", "FOIP/VOIP"],
     "mfds": ["vehicle", "mfds"],
     "MFDs": ["vehicle", "mfds"],
-    "emotes": ["comms/social", "emotes"],
-    "none": "None",
+    "Emotes": ["comms/social", "emotes"],
+    "none": "none",
     "vehicle - other": "vehicle - other",
-    "custom": "FLOOF"
+    "ShipSystems": ["vehicle", "systems"],
+    "FlightSystems": ["vehicle", "systems"],
+    "spaceship_radar": ["vehicle", "systems"],
+    "spaceship_scanning": ["vehicle", "systems"],
+    "lights_controller": ["vehicle", "systems", "vehicle - other"],
+    "spaceship_hud": ["vehicle", "vehicle - other"],
+    "RemoteTurret": ["turrets", "remote turrets"],
+    "MobiGlasActions": ["mobiglas", "other"],
+    "WeaponSelection": ["on foot", "combat"],
+    "tractor_beam": ["on foot", "equipment"],
+    "MiningMode": ["vehicle", "mining"],
+    "WeaponSystems": ["vehicle", "weapons"],
+    "ItemActions": ["on foot"],
+    "prone": ["on foot"],
+    "player": ["on foot"],
+    "incapacitated": ["on foot", "on foot - other"],
+    "VehicleActions": ["vehicle"],
+    "PlayerActions": " ",
+    "Notifications": "other",
+    "seat_general": ["vehicle"],
+    "spaceship_general": ["vehicle"],
+    "spaceship_mining": ["vehicle", "mining"],
+    "spaceship_weapons": ["vehicle", "weapons"],
+    "spaceship_missiles": ["vehicle", "weapons"],
+    "spaceship_defensive": ["vehicle", "defences"],
+    "spaceship_power": ["vehicle", "power"],
+    "vehicle_mfd": ["vehicle", "mfds"],
+    "vehicle_driver": ["vehicle"],
+    "vehicle_general": ["vehicle"],
+    "spaceship_salvage": ["vehicle", "salvage"],
+    "spaceship_movement": ["vehicle", "movement"],
+    "spaceship_quantum": ["vehicle", "movement"],
+    "spaceship_docking": ["vehicle", "movement"],
+    "spaceship_view": ["vehicle", "vehicle - other"],
+    "stopwatch": ["vehicle", "vehicle - other"],
+    "spaceship_targeting": ["vehicle", "targeting"],
+    "spaceship_targeting_advanced": ["vehicle", "targeting"],
+    "turret_movement": ["vehicle", "turrets"],
+    "turret_advanced": ["vehicle", "turrets"],
+    "player_emotes": ["comms/social", "emotes"],
+    "spaceship_target_hailing": ["vehicle", "targeting", "vehicle - other", "comms/social", "comms - other"],
+    "view_director_mode": ["camera"],
+    "": ["", ""],
+    "": ["", ""],
+    "": ["", ""],
 }
 
 
@@ -347,27 +468,12 @@ class MappedAction
     description;        //Describes how the keybind works in the game
     keywordTags = [];        //keywords array, for searching and filtering.
 
-    bindableToCurrentInput = {
-        [InputModeSelection.KEYBOARD]: false,
-        [InputModeSelection.CONTROLLER]: false,
-        [InputModeSelection.JOYSTICK]: false,
-        [InputModeSelection.MOUSE]: false
-    }
-
-    inputActivationMode = {
-        //custom, default
-        [InputModeSelection.KEYBOARD]: ["", ""],
-        [InputModeSelection.CONTROLLER]: ["", ""],
-        [InputModeSelection.JOYSTICK]: ["", ""]
-    };
-
     bind = {
-        //[InputModeSelection.INPUTTYPE]: ["bind", "device"]
-        [InputModeSelection.KEYBOARD]: ["", ""],
-        [InputModeSelection.MOUSE]: ["", ""],
-        [InputModeSelection.CONTROLLER]: ["", ""],
-        [InputModeSelection.JOYSTICK]: ["", ""]
-    };
+        [InputModeSelection.KEYBOARD]: { bindable: true, input: "", defaultBind: "", activationMode: "", defaultActivationMode: "", deviceIndex: "1" },
+        [InputModeSelection.MOUSE]: { bindable: true, input: "", defaultBind: "", activationMode: "", defaultActivationMode: "", deviceIndex: "1" },
+        [InputModeSelection.CONTROLLER]: { bindable: true, input: "", defaultBind: "", activationMode: "", defaultActivationMode: "", deviceIndex: "1" },
+        [InputModeSelection.JOYSTICK]: { bindable: true, input: "", defaultBind: "", activationMode: "", defaultActivationMode: "", deviceIndex: "1" }
+    }
 
     constructor({
         actionName,       // "v_strafe_up"
@@ -386,10 +492,10 @@ class MappedAction
     {
         Object.assign(this, arguments[0]);
         this.actionMapName = mapName;
-        if (this.category == "Emotes")
-        {
-            getOrCreateActionKeywords(this.actionName).push("emotes");
-        }
+
+
+        if (this.mapName) getOrCreateActionKeywords(this.actionName).push(this.mapName);
+        if (this.category) getOrCreateActionKeywords(this.actionName).push(this.category);
         if (this.UICategory) getOrCreateActionKeywords(this.actionName).push(this.UICategory);
         else if (this.label?.startsWith("@ui_CIMFD"))
         {
@@ -399,20 +505,23 @@ class MappedAction
         {
             getOrCreateActionKeywords(this.actionName).push("none");
         }
-        this.setBind(InputModeSelection.KEYBOARD, this.keyboardBind ?? this.mouseBind)
-        this.setBind(InputModeSelection.CONTROLLER, this.gamepadBind)
-        this.setBind(InputModeSelection.JOYSTICK, this.joystickBind)
 
         const keywords = new Set(resolveKeywords(getActionKeywords(this.actionName), "Action: " + this.actionName));
 
         keywords.forEach(k => this.keywordTags.push(k));
 
-        if (this.activationMode)
-        {
-            this.setActivationMode(this.activationMode, InputModeSelection.KEYBOARD, this.activationMode)
-            this.setActivationMode(this.activationMode, InputModeSelection.CONTROLLER, this.activationMode)
-            this.setActivationMode(this.activationMode, InputModeSelection.JOYSTICK, this.activationMode)
-        }
+        this.setDefaultBind(InputModeSelection.KEYBOARD, this.keyboardBind ?? this.mouseBind)
+        this.setDefaultBind(InputModeSelection.CONTROLLER, this.gamepadBind)
+        this.setDefaultBind(InputModeSelection.JOYSTICK, this.joystickBind)
+
+        const activtationType = this.activationMode ? this.activationMode : activationModeType.PRESS;
+        this.setActivationMode(activtationType, InputModeSelection.KEYBOARD)
+        this.setActivationMode(activtationType, InputModeSelection.CONTROLLER)
+        this.setActivationMode(activtationType, InputModeSelection.JOYSTICK)
+        this.setDefaultActivationMode(activtationType, InputModeSelection.KEYBOARD)
+        this.setDefaultActivationMode(activtationType, InputModeSelection.CONTROLLER)
+        this.setDefaultActivationMode(activtationType, InputModeSelection.JOYSTICK)
+
         this.setDescription();
 
         // Find index of existing entry with the same actionName
@@ -472,34 +581,71 @@ class MappedAction
 
     getBind(state = InputState.current)
     {
-        return this.bind[state][0];
+        return this.bind[state].input;
+        // return this.bind[state][0];
+    }
+    setBind(state = InputState.current, bindString)
+    {
+        // this.bind[state] = [bindString, deviceIndex];
+        this.bind[state].input = bindString;
+    }
+    getDefaultBind(state = InputState.current)
+    {
+        return this.bind[state].defaultBind;
+        // return this.bind[state][0];
+    }
+    setDefaultBind(state = InputState.current, bindString)
+    {
+        // this.bind[state] = [bindString, deviceIndex];
+        this.bind[state].defaultBind = bindString;
     }
     getBindDevice(state = InputState.current)
     {
-        const deviceNumber = this.bind[state][1] || 1;
+        // const deviceNumber = this.bind[state][1] || 1;
+        const deviceNumber = this.bind[state].deviceIndex || 1;
         return deviceNumber;
     }
-    setBind(state = InputState.current, bindString, deviceIndex = 1)
+    setBindDevice(state = InputState.current, deviceIndex)
     {
-        this.bind[state] = [bindString, deviceIndex];
+        this.bind[state].deviceIndex = deviceIndex;
     }
 
+    // getActivationMode(state = InputState.current, getWhich = 0)
+    // {
+    //     if (!this.inputActivationMode) this.inputActivationMode = {};
 
-    getActivationMode(state = InputState.current, getWhich = 0)
+    //     if (!this.inputActivationMode[state])
+    //         this.inputActivationMode[state] = [null, null];
+
+    //     return this.inputActivationMode[state][getWhich];
+    // }
+
+    // setActivationMode(mode, state = InputState.current, defaultMode = this.inputActivationMode[state][1])
+    // {
+    //     this.inputActivationMode[state] = [mode, defaultMode];
+    // }
+    getActivationMode(state = InputState.current)
     {
-        if (!this.inputActivationMode) this.inputActivationMode = {};
-
-        if (!this.inputActivationMode[state])
-            this.inputActivationMode[state] = [null, null];
-
-        return this.inputActivationMode[state][getWhich];
+        return this.bind[state].activationMode;
     }
-
-    setActivationMode(mode, state = InputState.current, defaultMode = this.inputActivationMode[state][1])
+    setActivationMode(mode, state = InputState.current)
     {
-        this.inputActivationMode[state] = [mode, defaultMode];
+        this.bind[state].activationMode = mode;
     }
-
+    getDefaultActivationMode(state = InputState.current)
+    {
+        return this.bind[state].defaultActivationMode;
+    }
+    setDefaultActivationMode(mode, state = InputState.current)
+    {
+        this.bind[state].defaultActivationMode = mode;
+    }
+    clearBind()
+    {
+        this.setBind(InputState.current, "")
+        this.setBindDevice(InputState.current, "1")
+        this.setActivationMode(this.getDefaultActivationMode(InputState.current), InputState.current)
+    }
 
     //========================================
 
@@ -526,10 +672,7 @@ class MappedAction
             ?.filter(Boolean) // no empty values
             .join('] [') || '';
     }
-    clearBind()
-    {
-        this.setBind(InputState.current, "")
-    }
+
 
 }
 
@@ -644,7 +787,7 @@ async function init()
     btnSelectInput_Controller.addEventListener("click", e => setInputMode(InputModeSelection.CONTROLLER));
     btnSelectInput_Joystick.addEventListener("click", e => setInputMode(InputModeSelection.JOYSTICK));
     btnSelectInput_Keyboard.click()
-    // updatefilteredNames();  Because it's called when input select is set, which is being called somewhere (above 1 line)
+    ClearKeybindDescription();
 }
 
 //#endregion
@@ -736,10 +879,10 @@ async function loadAndParseDataminedXML()
                 actionName,
                 mapName,
                 mapVersion,
-                keyboardBind: action.getAttribute("keyboard") || null,
-                mouseBind: action.getAttribute("mouse") || null,
-                gamepadBind: action.getAttribute("gamepad") || null,
-                joystickBind: action.getAttribute("joystick") || null,
+                keyboardBind: action.getAttribute("keyboard") || "",
+                mouseBind: action.getAttribute("mouse") || "",
+                gamepadBind: action.getAttribute("gamepad") || "",
+                joystickBind: action.getAttribute("joystick") || "",
                 activationMode: action.getAttribute("activationMode") || null,
                 category,
                 label,
@@ -748,21 +891,21 @@ async function loadAndParseDataminedXML()
             });
             mappedActions.push(actionObj);
 
-            if (action.getAttribute("keyboard"))
+            if (!action.getAttribute("keyboard"))
             {
-                actionObj.bindableToCurrentInput[InputModeSelection.KEYBOARD] = true;
+                actionObj.bind[InputModeSelection.KEYBOARD].bindable = false;
             }
-            if (action.getAttribute("mouse"))
+            if (!action.getAttribute("mouse"))
             {
-                actionObj.bindableToCurrentInput[InputModeSelection.MOUSE] = true;
+                actionObj.bind[InputModeSelection.MOUSE].bindable = false;
             }
-            if (action.getAttribute("gamepad"))
+            if (!action.getAttribute("gamepad"))
             {
-                actionObj.bindableToCurrentInput[InputModeSelection.CONTROLLER] = true;
+                actionObj.bind[InputModeSelection.CONTROLLER].bindable = false;
             }
-            if (action.getAttribute("joystick"))
+            if (!action.getAttribute("joystick"))
             {
-                actionObj.bindableToCurrentInput[InputModeSelection.JOYSTICK] = true;
+                actionObj.bind[InputModeSelection.JOYSTICK].bindable = false;
             }
         });
     });
@@ -1049,29 +1192,33 @@ async function importCustomKeybindsXML(fileOrUrl)
 
             // --- Debugging output ---
             // console.log(importActionName, importMapName, importKeyboardBind, importControllerBind, importJoystickBind, importMouseBind);
-            // Find the mappedAction object in the master list
+
             const mappedActionObj = actionMapsMasterList.find(a => a.actionName === importActionName);
 
             if (mappedActionObj)
             {
                 if (importKeyboardBind && !importKeyboardBind.every(v => v === null))
                 {
-                    mappedActionObj.setBind(InputModeSelection.KEYBOARD, importKeyboardBind[1], importKeyboardBind[0]);
+                    mappedActionObj.setBind(InputModeSelection.KEYBOARD, importKeyboardBind[1]);
+                    mappedActionObj.setBindDevice(InputModeSelection.KEYBOARD, importKeyboardBind[0])
                     mappedActionObj.setActivationMode(importKeyboardBind[2], InputModeSelection.KEYBOARD);
                 }
                 if (importControllerBind && !importControllerBind.every(v => v === null))
                 {
-                    mappedActionObj.setBind(InputModeSelection.CONTROLLER, importControllerBind[1], importControllerBind[0]);
+                    mappedActionObj.setBind(InputModeSelection.CONTROLLER, importControllerBind[1]);
+                    mappedActionObj.setBindDevice(InputModeSelection.CONTROLLER, importControllerBind[0])
                     mappedActionObj.setActivationMode(importControllerBind[2], InputModeSelection.CONTROLLER);
                 }
                 if (importJoystickBind && !importJoystickBind.every(v => v === null))
                 {
-                    mappedActionObj.setBind(InputModeSelection.JOYSTICK, importJoystickBind[1], importJoystickBind[0]);
+                    mappedActionObj.setBind(InputModeSelection.JOYSTICK, importJoystickBind[1]);
+                    mappedActionObj.setBindDevice(InputModeSelection.JOYSTICK, importJoystickBind[0])
                     mappedActionObj.setActivationMode(importJoystickBind[2], InputModeSelection.JOYSTICK);
                 }
                 if (importMouseBind && !importMouseBind.every(v => v === null))
                 {
-                    mappedActionObj.setBind(InputModeSelection.MOUSE, importMouseBind[1], importMouseBind[0]);
+                    mappedActionObj.setBind(InputModeSelection.MOUSE, importMouseBind[1]);
+                    mappedActionObj.setBindDevice(InputModeSelection.MOUSE, importMouseBind[0])
                     mappedActionObj.setActivationMode(importMouseBind[2], InputModeSelection.MOUSE);
                 }
             }
@@ -1504,7 +1651,8 @@ async function applyKeybind(bindstring, deviceIndex, bind)
     const actionName = bind.actionName;
     const actionObj = actionMapsMasterList.find(a => a.getActionName() === actionName);
 
-    actionObj.setBind(InputState.current, bindstring, deviceIndex);
+    actionObj.setBind(InputState.current, bindstring);
+    actionObj.setBindDevice(InputState.current, deviceIndex);
     stopPollingGamepads();
     stopPollingJoysticks();
     cancelRecordTimer();
@@ -1538,7 +1686,7 @@ async function showAllBinds(filtered)
     // Render each keybind row
     await listToShow.forEach(b =>
     {
-        if (b.bindableToCurrentInput[InputState.current] || (InputState.current === InputModeSelection.KEYBOARD && b.bindableToCurrentInput[InputModeSelection.MOUSE]))
+        if (b.bind[InputState.current].bindable || (InputState.current === InputModeSelection.KEYBOARD && b.bind[InputModeSelection.MOUSE].bindable))
         {
             renderBindRow(b)
         }
@@ -1802,7 +1950,10 @@ function onClickKeybindElement(e)
 {
     const clickedRow = e.target.closest(".keybind__row");
     if (!clickedRow) return;
-    const consoleInput = clickedRow.querySelector('.keybind__consoleInput')
+
+
+
+    const consoleInput = clickedRow.querySelector('.keybind__consoleInput');
 
     // Remove selection from previous
     document.querySelector('.keybind__row--selected')?.classList.remove('keybind__row--selected');
@@ -1815,14 +1966,19 @@ function onClickKeybindElement(e)
 
     if (consoleInput && document.activeElement === consoleInput)
     {
-        showManualBindHelpInfo()
-    }
-    else
+        showManualBindHelpInfo();
+    } else
     {
         ShowKeybindDescription();
     }
-
+    // Check for CTRL + ALT + click
+    if (b.getDefaultBind() && currentlySelectedKeybindElement === clickedRow && e.ctrlKey && e.altKey)
+    {
+        b.setBind(InputState.current, b.getDefaultBind());
+        updateBindRow();
+    }
 }
+
 
 function navigateToRow(row)
 {
@@ -1910,7 +2066,6 @@ function showConflictMessage(show)
         if (msgEl) msgEl.remove();
     }
 }
-
 function ClearKeybindDescription()
 {
     keybindDescriptionText.textContent = "";
@@ -1923,7 +2078,7 @@ function onSubmitKeybindConsole(e)
     {
         const consoleInput = e.target.closest(".keybind__consoleInput");
         const input = consoleInput.value;
-        const manualKeybind = input && input.trim() ? input.trim() : defaultText;
+        const manualKeybind = input && input.trim() ? input.trim() : "";
         const deviceIndex = parseForDeviceIndex(manualKeybind) || 1;
         const cleanedKeybind = manualKeybind.replace(/^\s*\d+\s*:\s*/, '');
         function parseForDeviceIndex(input)
@@ -1950,12 +2105,14 @@ function showManualBindHelpInfo()
 
     const descriptionText = `<h3><u>Manual Keybind Info</u></h3>
         <strong>(Optional) Device index prefix:</strong> 'n:' sets device index; useful for binding to joystick 2 for example.  No prefix = device #1. <br><br>
-        Note that manually composing keybinds like this allows total freedom to construct any bind the game may permit; but it may simply not work or cause unforeseen issues.<br><br>
+        Note that manually composing keybinds like this allows total freedom to construct any bind the game may permit; but it may simply not work or cause unforeseen issues.<br>
+        To bind left+right mouse click together, use the custom input of 'mouse1_2'; can be used in conjunction with modifier keys.<br><br>
 
         <strong>Examples:</strong><br>
         '<code class="tooltip-highlight">rctrl+a</code>' → Right Ctrl + A<br>
         '<code class="tooltip-highlight">2:lctrl+lshift+pgdown</code>' → Left Ctrl + Left Shift + Page Down, on device #2<br>
-        '<code class="tooltip-highlight">8:ralt+button1</code>' → Right Alt + Trigger on your 8th joystick device
+        '<code class="tooltip-highlight">8:ralt+button1</code>' → Right Alt + Trigger on your 8th joystick device<br>
+        '<code class="tooltip-highlight">lctrl+mouse1_2</code>' → Left Control + Left & Right Click
     `;
 
     const keybindDescriptionText = document.querySelector('.footer__keybind-text');
@@ -2009,7 +2166,7 @@ function onClickAnywhereDeselectKeybind(e)
 
 function onClickRecordKeybind(e)
 {
-    if (e.target.closest('.button-doubleTap')) return;
+    if (e.target.closest('.button-activationMode') || e.target.closest('.keybind__consoleInput')) return;
     if (currentlySelectedKeybindElement)
     {
         recordingActive = true;
@@ -2122,13 +2279,20 @@ function onClickSelectActivationMode(e)
     dropdown.innerHTML = `
         <div data-mode="default">Default</div>
         <div data-mode="${ activationModeType.PRESS }">Press</div>
+        <div data-mode="${ activationModeType.PRESS_QUICKER }">Fast Press</div>
+        <div data-mode="${ activationModeType.PRESS_MEDIUM }">Press when held (short)</div>
+        <div data-mode="${ activationModeType.PRESS_EXTRA_MEDIUM }">Press when held (medium)</div>
+        <div data-mode="${ activationModeType.PRESS_LONG }">Press when held (long)</div>
         <div data-mode="${ activationModeType.TAP }">Tap</div>
+        <div data-mode="${ activationModeType.TAP_QUICKER }">Fast Tap</div>
         <div data-mode="${ activationModeType.DOUBLETAP_NONBLOCKING }">Double Tap (Non-Blocking)</div>
         <div data-mode="${ activationModeType.DOUBLETAP_BLOCKING }">Double Tap (Blocking)</div>
+        <div data-mode="${ activationModeType.HELD }">Hold</div>
         <div data-mode="${ activationModeType.HOLD_SHORT }">Hold (Short)</div>
         <div data-mode="${ activationModeType.HOLD_LONG }">Hold (Long)</div>
-        <div data-mode="${ activationModeType.RELEASE }">On release</div>
-        <div data-mode="${ activationModeType.HELD }">While Held</div>
+        <div data-mode="${ activationModeType.HOLD_NO_RETRIGGER }">Hold (No Retrigger)</div>
+        <div data-mode="${ activationModeType.ALL }">Any/All</div>
+        <div data-mode="${ activationModeType.HOLD_TOGGLE }">Hold Toggle</div>
         <div data-mode="${ activationModeType.SMART_TOGGLE }">Smart Toggle</div>
     `;
 
@@ -2161,10 +2325,7 @@ function onClickSelectActivationMode(e)
                 a => a?.getActionName() === currentlySelectedKeybindElement?.dataset.actionName
             );
 
-            const selectedActivationMode =
-                item.dataset.mode === "default"
-                    ? bindObject.getActivationMode(undefined, 1)
-                    : item.dataset.mode;
+            const selectedActivationMode = item.dataset.mode === "default" ? bindObject.getDefaultActivationMode(InputState.current) : item.dataset.mode;
 
             if (bindObject)
             {
@@ -2197,48 +2358,76 @@ function onClickSelectActivationMode(e)
 function setActivationModeButtonIcon(buttonObject, bindObject)
 {
     buttonObject.innerHTML = '';
-    const activationMode = bindObject.getActivationMode();
+    const activationMode = bindObject.getActivationMode() ? bindObject.getActivationMode() : bindObject.getDefaultActivationMode();
     const icon = document.createElement('img');
     icon.classList.add('activation-icon');
 
+    const iconFileName = activationMode ? activationMode : `press`;
+    icon.src = `./assets/tapIcons/icon_${ iconFileName }.svg`
+
+    let tt_text = "";
     switch (activationMode)
     {
         case activationModeType.PRESS:
-            icon.src = './assets/tapIcons/icon_press.svg';
+            tt_text = "Press the key/button"
+            break;
+        case activationModeType.PRESS_QUICKER:
+            tt_text = "Press or tap"
+            break;
+        case activationModeType.PRESS_SHORT:
+            tt_text = "Like 'Press' but only if held >0.15s"
+            break;
+        case activationModeType.PRESS_MEDIUM:
+            tt_text = "Like 'Press' but only if held >0.25s"
+            break;
+        case activationModeType.PRESS_EXTRA_MEDIUM:
+            tt_text = "Like 'Press' but only if held >0.5s"
+            break;
+        case activationModeType.PRESS_LONG:
+            tt_text = "Like 'Press' but only if held >1.5s"
             break;
         case activationModeType.TAP:
-            icon.src = './assets/tapIcons/icon_tap.svg';
+            tt_text = "Press & release quickly"
             break;
-        case activationModeType.DOUBLETAP_NONBLOCKING:
-            icon.src = './assets/tapIcons/icon_doubleTap.svg';
+        case activationModeType.TAP_QUICKER:
+            tt_text = "Press & release very quickly"
             break;
         case activationModeType.DOUBLETAP_BLOCKING:
-            icon.src = './assets/tapIcons/icon_doubleTap_Blocking.svg';
+            tt_text = "Tap twice, blocks initial tap if double tap is registered."
             break;
-        case activationModeType.HOLD_SHORT:
-            icon.src = './assets/tapIcons/icon_holdShort.svg';
-            break;
-        case activationModeType.HOLD_LONG:
-            icon.src = './assets/tapIcons/icon_holdLong.svg';
-            break;
-        case activationModeType.RELEASE:
-            icon.src = './assets/tapIcons/icon_release.svg';
-            break;
-        case activationModeType.SMART_TOGGLE:
-            icon.src = './assets/tapIcons/icon_smartToggle.svg';
+        case activationModeType.DOUBLETAP_NONBLOCKING:
+            tt_text = "Tap twice, allows initial tap."
             break;
         case activationModeType.HELD:
-            icon.src = './assets/tapIcons/icon_held.svg';
+            tt_text = "Hold to continue activating."
+            break;
+        case activationModeType.HOLD_SHORT:
+            tt_text = "Like Hold, but with a 0.25s delay."
+            break;
+        case activationModeType.HOLD_LONG:
+            tt_text = "Like Hold, but with a 1.5s delay."
+            break;
+        case activationModeType.HOLD_NO_RETRIGGER:
+            tt_text = "IDK?"
+            break;
+        case activationModeType.HOLD_LONG_NO_RETRIGGER:
+            tt_text = "IDK??"
+            break;
+        case activationModeType.ALL:
+            tt_text = "Any/all activation modes combined."
+            break;
+        case activationModeType.HOLD_TOGGLE:
+            tt_text = "Hold/Release to activate/deactivate."
+            break;
+        case activationModeType.SMART_TOGGLE:
+            tt_text = "Tap to toggle, hold/release to activate/deactivate."
             break;
         default:
-            // console.warn(`Unknown activation mode: ${ activationMode }`);
-            icon.src = '';
             break;
     }
-
-    // Optional: accessibility + tooltip
+    const activationModeParsed = activationMode.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
     icon.alt = activationMode;
-    buttonObject.title = `Mode: ${ activationMode }`;
+    buttonObject.title = `${ activationModeParsed }:  ${ tt_text }`;
 
     // Add to the div
     buttonObject.appendChild(icon);
@@ -2400,9 +2589,10 @@ function onShowSubcategoryTags()
     if (!currentTag) return;
 
     const subcategories = {
-        Vehicle: ["Salvage", "Mining", "Turrets", "Defences", "Weapons", "Power", "MFDs", "Vehicle - Other"],
-        "On Foot": ["EVA", "Combat", "Emotes", "Equipment", "Interaction", "On Foot - Other"],
-        "Comms/Social": ["FOIP", "VOIP", "Emotes", "Comms - Other"]
+        Vehicle: ["Salvage", "Mining", "Turrets", "Defences", "Weapons", "Power", "Systems", "MFDs", "Movement", "Targeting", "Vehicle - Other"],
+        "On Foot": ["EVA", "Combat", "Emotes", "Equipment", "On Foot - Other"],
+        "Comms/Social": ["FOIP/VOIP", "Emotes", "Comms - Other"],
+        "Other": ["MobiGlas", "Interaction", "Optical Tracking", "Spectator"]
     };
 
     const parentTag = document.querySelector(`.tag[data-keyword="${ currentTag }"]`);
@@ -2444,9 +2634,9 @@ function onShowSubcategoryTags()
 
 async function onClickExportKeybinds()
 {
-    const profileName = await promptExportKeybinds(bindingsProfileName);
+    const profileName = await promptExportKeybinds();
     if (!profileName) return; // cancelled
-
+    bindingsProfileName = profileName;
     const xmlOutput = exportMappedActionsToXML(actionMapsMasterList);
     const blob = new Blob([xmlOutput], { type: "application/xml" });
     const link = document.createElement("a");
@@ -2539,28 +2729,28 @@ function mergeKeybinds(existingList, importedList)
 }
 
 
-async function promptExportKeybinds(defaultName)
+async function promptExportKeybinds(defaultName = "CustomKeybinds")
 {
     return new Promise(resolve =>
     {
         const modal = document.createElement('div');
         modal.className = 'confirm-modal';
         modal.innerHTML = `
-      <div class="confirm-box">
-        <p>Enter a name for your exported keybinds file:</p>
-        <input 
-          type="text" 
-          class="export-input" 
-          value="${ defaultName || 'StarBinder' }"
-          placeholder="Profile name..."
-          style="width: 100%; margin: 8px 0; padding: 6px;"
-        />
-        <div class="confirm-buttons">
-          <button class="btn-yes">Export</button>
-          <button class="btn-cancel">Cancel</button>
-        </div>
-      </div>
-    `;
+  <div class="confirm-box">
+    <p class="exportWarning"><b>TIP:</b> Back up your SC keybinds by exporting them using the in-game menu or console command: <code class="tooltip-highlight">pp_rebindkeys export all yourfilenamehere</code> before using Star Binder.</p><br><div>Keybinds filename:</div>
+    <input 
+      type="text" 
+      class="export-input" 
+      value="${ defaultName || 'StarBinder' }"
+      placeholder="Profile name..."
+      style="width: 100%; margin: 8px 0; padding: 6px;"
+    />
+    <div class="confirm-buttons">
+      <button class="btn-yes">Export</button>
+      <button class="btn-cancel">Cancel</button>
+    </div>
+  </div>
+`;
         document.body.appendChild(modal);
 
         const input = modal.querySelector('.export-input');
@@ -2569,9 +2759,9 @@ async function promptExportKeybinds(defaultName)
 
         modal.querySelector('.btn-yes').addEventListener('click', () =>
         {
-            const name = input.value.trim() || defaultName || 'StarBinder';
+            const name = input.value.trim() || defaultName || 'x';
             modal.remove();
-            resolve(name);
+            resolve("StarBinder_" + name);
         });
 
         modal.querySelector('.btn-cancel').addEventListener('click', () =>
@@ -2614,14 +2804,14 @@ async function confirmClearAllKeybinds(message)
         const modal = document.createElement('div');
         modal.className = 'confirm-modal';
         modal.innerHTML = `
-      <div class="confirm-box">
-        <p>${ message }</p>
-        <div class="confirm-buttons">
-          <button class="btn-yes">Yes, I'm sure</button>
-          <button class="btn-cancel">Cancel</button>
-        </div>
-      </div>
-    `;
+  <div class="confirm-box">
+    <p>${ message }</p>
+    <div class="confirm-buttons">
+      <button class="btn-yes">Yes, I'm sure</button>
+      <button class="btn-cancel">Cancel</button>
+    </div>
+  </div>
+`;
         document.body.appendChild(modal);
 
         const btnYes = modal.querySelector('.btn-yes');
@@ -2707,7 +2897,7 @@ function pollGamepads()
                 stickDirection = ly > 0 ? ["thumbl", "down"] : ["thumbl", "up"];
             }
 
-            console.log(`Left stick moved ${ stickDirection }`);
+            // console.log(`Left stick moved ${ stickDirection }`);
             gamepadPollId = stickDirection;
         }
 
@@ -2728,8 +2918,8 @@ function pollGamepads()
                 stickDirection = ry > 0 ? ["thumbr", "down"] : ["thumbr", "up"];
             }
 
-            console.log(`Right stick moved ${ stickDirection }`);
-            gamepadPollId = stickDirection;
+            // console.log(`Right stick moved ${ stickDirection }`);
+            gamepadPollId = stickDirection.join("_");
         }
 
         // Example: any button press
@@ -3026,3 +3216,6 @@ function parseJoystickInputToStarCitizenBind(input)
         return 'button' + input;
     }
 }
+
+
+
