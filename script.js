@@ -3320,3 +3320,30 @@ async function initActionMaps()
 
     return actions;
 }
+async function loadAndMergeMappedActions()
+{
+    // 1. Load baseline XML
+    const baseActions = await loadAndParseDataminedXML();
+
+    // 2. Merge saved user changes if available
+    const savedJson = localStorage.getItem("userMappedActions");
+    if (savedJson)
+    {
+        const savedActions = JSON.parse(savedJson);
+
+        savedActions.forEach(saved =>
+        {
+            const action = baseActions.find(a => a.actionName === saved.actionName);
+            if (action)
+            {
+                deserializeMappedAction(saved, action);
+            }
+        });
+    }
+
+    // 3. Update master list for the rest of your code to use
+    actionMapsMasterList.length = 0; // clear
+    baseActions.forEach(a => actionMapsMasterList.push(a));
+
+    return actionMapsMasterList;
+}

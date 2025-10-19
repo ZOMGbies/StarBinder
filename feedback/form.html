@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
+    <link rel="stylesheet" href="./FeedbackStyle.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <title>StarBinder Feedback Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <a href="../index.html" class="feedback-link">[ BACK TO STAR BINDER ]</a>
+    <div class="container">
+        <h1>Send Feedback</h1>
+
+        <div class="paragraphText">
+            <p>While Star Binder technichally supports controller and joystick binding, I fully expect it to be spotty -
+                especially with any joysticks other than a Thrustmaster.<br>
+                Most actions lack a description and only have category tags based on CIG's core keybind doc - which is
+                inconsistent.
+            </p>
+
+            <p>The kind of feedback I'm mostly hoping for right now is basic simple stuff like "no on foot ADS" (I think
+                it is shared with the vehicle ADS bind?), or "couldn't get X to work", or "I dont know how to do Y".</p>
+        </div>
+        <hr>
+
+        <form id="feedbackForm" onsubmit="sendFeedback(event)">
+            <label for="generalFeedback">General Feedback:</label>
+            <textarea id="generalFeedback" name="generalFeedback" rows="4"
+                placeholder="Your thoughts, suggestions, or comments..." required></textarea>
+
+            <label for="missingBinds">Missing keybinds? :</label>
+            <textarea id="missingBinds" name="missingBinds" rows="4"
+                placeholder="Ensure no filters or searches are in place/confirm by searching for it directly; please give the exact action(s) name "></textarea>
+
+            <button type="submit">Send Feedback</button>
+        </form>
+
+        <div id="status" class="status"></div>
+    </div>
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function ()
+        {
+            emailjs.init("Hcw7d4_S1ewp5gj-K");
+        })();
+
+        async function sendFeedback(event)
+        {
+            event.preventDefault();
+            const status = document.getElementById("status");
+            status.textContent = "Sending...";
+            status.className = "status";
+
+            const generalFeedback = document.getElementById("generalFeedback").value.trim();
+            const missingBinds = document.getElementById("missingBinds").value.trim();
+
+            const message = `
+=== General Feedback ===
+${ generalFeedback || "(none)" }
+
+=== Missing Keybinds: ===
+${ missingBinds || "(none)" }
+      `.trim();
+
+            try
+            {
+                await emailjs.send("service_b55xnpb", "template_sh2bm8a", {
+                    message,
+                    general_feedback: generalFeedback,
+                    missing_binds: missingBinds
+                });
+                status.textContent = "✅ Feedback sent successfully — thank you!";
+                status.classList.add("success");
+                document.getElementById("feedbackForm").reset();
+            } catch (err)
+            {
+                console.error(err);
+                status.textContent = "❌ Failed to send feedback. Please try again later.";
+                status.classList.add("error");
+            }
+        }
+    </script>
+    <a href="../index.html" class="feedback-link">[ BACK TO STAR BINDER ]</a>
+</body>
+
+</html>

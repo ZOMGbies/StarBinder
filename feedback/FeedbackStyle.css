@@ -1,0 +1,204 @@
+:root {
+    --default-bg: #0a1d29;
+    --card-bg: #102739;
+    --primaryText: rgb(204, 204, 250);
+    --secondaryText: #868a8c;
+    --accent: #4aa3ff;
+    --accent-hover: #65b7ff;
+    --border: #1b3a52;
+}
+
+body {
+    font-family: "Aileron", "Segoe UI", Roboto, sans-serif;
+    background-color: var(--default-bg);
+    color: var(--primaryText);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 100vh;
+    /* fills screen nicely */
+    height: auto;
+    /* expands with content */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+    position: relative;
+    box-sizing: border-box;
+    padding-bottom: 6rem;
+}
+
+
+h1 {
+    font-family: 'Gobold', sans-serif;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 0.8rem;
+    margin-top: 0.8rem;
+
+    font-weight: 600;
+    font-size: 3rem;
+    letter-spacing: 0.1rem;
+}
+
+label {
+    display: block;
+    margin: 0.5rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+
+    font-size: 1.5rem;
+    font-family: "Aileron", "Segoe UI", Roboto, sans-serif;
+    color: var(--primaryText);
+}
+
+input,
+textarea {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: rgba(12, 30, 46, 0.9);
+    color: var(--secondaryText);
+
+    font-size: 1rem;
+    resize: vertical;
+    transition: border-color 0.2s, background-color 0.2s;
+    font-family: 'Consolas', monospace;
+    font-size: 1.3rem;
+    height: 12rem;
+
+    max-height: 18rem;
+
+    margin-bottom: 2rem;
+}
+
+input:focus,
+textarea:focus {
+    font-family: 'Consolas', monospace;
+    outline: none;
+    border-color: var(--accent);
+    background-color: rgba(18, 40, 60, 0.95);
+    color: var(--primaryText);
+    max-height: 18rem;
+
+}
+
+
+button {
+    position: relative;
+    /* now flows naturally inside .container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    width: 80%;
+    max-width: 400px;
+    margin: 2rem auto;
+    /* centers horizontally and adds spacing above/below */
+
+    font-family: 'Gobold', sans-serif;
+    text-transform: uppercase;
+    color: var(--primaryText);
+    font-size: 1.1rem;
+    letter-spacing: 0.08rem;
+    line-height: 1.5rem;
+    padding: 0.8rem;
+
+    background-color: var(--accent2);
+    border: 1px solid var(--accent2);
+    border-radius: 0.3rem;
+
+    box-shadow:
+        inset 8px 4px 32px rgba(0, 0, 0, 0.2),
+        inset -8px -4px 32px rgba(0, 0, 0, 0.2);
+
+    -webkit-text-stroke: 0.7px #00000077;
+    -webkit-text-fill-color: var(--primaryText);
+
+    transition: box-shadow 0.2s ease-out, border 0.2s ease-out;
+}
+
+
+button:hover {
+    box-shadow: inset 6px 3px 10px rgba(180, 180, 222, 0.1),
+        inset -6px -3px 10px rgba(180, 180, 222, 0.1);
+    cursor: pointer;
+    border-color: rgb(var(--accent-rgb)/0.5);
+    transition: box-shadow 0.1s ease-in, border 0.15s ease-in;
+}
+
+.status {
+    margin-top: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+    opacity: 0.9;
+    transition: color 0.2s ease;
+}
+
+.status.success {
+    color: var(--accent);
+}
+
+.status.error {
+    color: #ff4e6a;
+}
+
+.paragraphText {
+    font-family: "Aileron", sans-serif;
+    color: var(--primaryText);
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.paragraphText p {
+    margin-bottom: 1.2rem;
+}
+
+.feedback-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+    line-height: 5rem;
+    text-align: center;
+    font-family: 'Aileron', sans-serif;
+    font-size: 1.2rem;
+    color: rgb(204, 204, 250);
+    background-color: #0a1d29;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    letter-spacing: 0.2rem;
+    /* margin-top: 0.5rem; */
+}
+
+.feedback-link:hover {
+    color: var(--accent);
+    background-color: #0d2b3f;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: var(--accent);
+    opacity: 0.3;
+    margin: 0rem;
+    margin-bottom: 2rem;
+}
