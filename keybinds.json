@@ -753,103 +753,103 @@
         "keywords": []
     },
     "v_view_yaw_left": {
-        "label": "",
+        "label": "Look left",
         "description": "",
         "keywords": []
     },
     "v_view_yaw_right": {
-        "label": "",
+        "label": "Look right",
         "description": "",
         "keywords": []
     },
     "v_view_yaw": {
-        "label": "",
+        "label": "Look left/right",
         "description": "",
         "keywords": []
     },
     "v_view_yaw_mouse": {
         "label": "",
-        "description": "",
+        "description": "Look left/right",
         "keywords": []
     },
     "v_view_pitch_up": {
-        "label": "",
+        "label": "Look up",
         "description": "",
         "keywords": []
     },
     "v_view_pitch_down": {
-        "label": "",
+        "label": "Look down",
         "description": "",
         "keywords": []
     },
     "v_view_pitch": {
-        "label": "",
+        "label": "Look up/down",
         "description": "",
         "keywords": []
     },
     "v_view_pitch_mouse": {
-        "label": "",
+        "label": "Look up/down",
         "description": "",
         "keywords": []
     },
     "v_view_cycle_fwd": {
-        "label": "",
+        "label": "Cycle camera view",
         "description": "",
         "keywords": []
     },
     "v_view_mode": {
-        "label": "",
+        "label": "Cycle camera orbit mode",
         "description": "",
         "keywords": []
     },
     "v_view_zoom_in": {
-        "label": "",
+        "label": "Zoom in (3rd person view)",
         "description": "",
         "keywords": []
     },
     "v_view_zoom_out": {
-        "label": "",
+        "label": "Zoom out (3rd Person view)",
         "description": "",
         "keywords": []
     },
     "v_view_freelook_mode": {
-        "label": "",
+        "label": "Freelook",
         "description": "",
         "keywords": []
     },
     "v_view_dynamic_zoom_rel": {
-        "label": "",
+        "label": "Dynamic zoom in and out (rel.)",
         "description": "",
         "keywords": []
     },
     "v_view_dynamic_zoom_rel_in": {
-        "label": "",
+        "label": "Dynamic zoom in (rel.)",
         "description": "",
         "keywords": []
     },
     "v_view_dynamic_zoom_rel_out": {
-        "label": "",
+        "label": "Dynamic zoom out (rel.)",
         "description": "",
         "keywords": []
     },
     "v_view_dynamic_zoom_abs": {
-        "label": "",
+        "label": "Dynamic zoom (abs.)",
         "description": "",
         "keywords": []
     },
     "v_view_dynamic_zoom_abs_toggle": {
-        "label": "",
+        "label": "Dynamic zoom toggle (abs.)",
         "description": "",
         "keywords": []
     },
     "v_ads_hold": {
-        "label": "",
-        "description": "",
+        "label": "Vehicle ADS",
+        "description": "On foot, CIG call this 'zoom', but in a ship they call it 'ADS'.  This is the 'zoom while in a ship' mode.",
         "keywords": []
     },
     "v_ads_toggle": {
         "label": "",
-        "description": "",
+        "description": "On foot, CIG call this 'zoom', but in a ship they call it 'ADS'.  This is the 'zoom while in a ship' mode.",
         "keywords": []
     },
     "v_ads_stable_max_zoom_hold": {
@@ -923,293 +923,301 @@
         "keywords": []
     },
     "v_toggle_relative_mouse_mode": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle vjoy/relative mouse mode",
+        "description": "Cycle whether the mouse controls for the ship are a virtual joystick or not.",
+        "keywords": [
+            "Cycle mouse mode (Vjoy/relative)"
+        ]
     },
     "v_toggle_yaw_roll_swap": {
-        "label": "",
+        "label": "Swap Yaw / Roll",
         "description": "",
         "keywords": []
     },
     "v_strafe_up": {
-        "label": "",
+        "label": "Strafe up (abs.)",
         "description": "",
         "keywords": []
     },
     "v_strafe_down": {
-        "label": "",
+        "label": "Strafe down (abs.)",
         "description": "",
         "keywords": []
     },
     "v_strafe_vertical": {
-        "label": "",
+        "label": "Strafe up/down (abs.)",
         "description": "",
         "keywords": []
     },
     "v_strafe_left": {
-        "label": "",
+        "label": "Strafe left (abs.)",
         "description": "",
         "keywords": []
     },
     "v_strafe_right": {
-        "label": "",
+        "label": "Strafe right (abs.)",
         "description": "",
         "keywords": []
     },
     "v_strafe_lateral": {
-        "label": "",
+        "label": "Strafe left / right",
         "description": "",
         "keywords": []
     },
     "v_strafe_forward": {
-        "label": "",
+        "label": "Throttle - Increase",
         "description": "",
         "keywords": []
     },
     "v_strafe_back": {
-        "label": "",
+        "label": "Throttle - Decrease",
         "description": "",
         "keywords": []
     },
     "v_strafe_longitudinal": {
         "label": "",
-        "description": "",
+        "description": "Throttle Forward/Back",
         "keywords": []
     },
     "v_strafe_longitudinal_invert": {
-        "label": "",
+        "label": "Throttle - Forward/Back Invert",
         "description": "",
         "keywords": []
     },
     "v_ifcs_throttle_swap_mode": {
-        "label": "",
+        "label": "Throttle - Cruise Mode - Toggle",
         "description": "",
         "keywords": []
     },
     "v_ifcs_throttle_set_sticky": {
-        "label": "",
+        "label": "Throttle - Cruise Mode - Enable",
         "description": "",
         "keywords": []
     },
     "v_ifcs_throttle_set_normal": {
-        "label": "",
+        "label": "Throttle - Cruise Mode - Disable",
         "description": "",
         "keywords": []
     },
     "v_strafe_trim_set_long": {
-        "label": "",
+        "label": "Throttle - Trim - Set (Long Press)",
         "description": "",
         "keywords": []
     },
     "v_strafe_trim_set_short": {
-        "label": "",
+        "label": "Throttle - Trim - Set (Short Press)",
         "description": "",
         "keywords": []
     },
     "v_strafe_trim_set_100_long": {
-        "label": "",
+        "label": "Throttle - Trim - Set to 100% (Long Press)",
         "description": "",
         "keywords": []
     },
     "v_strafe_trim_set_100_short": {
-        "label": "",
+        "label": "Throttle - Trim - Set to 100% (Short Press)",
         "description": "",
         "keywords": []
     },
     "v_strafe_trim_set_50_long": {
-        "label": "",
+        "label": "Throttle - Trim - Set to 50% (Long Press)",
         "description": "",
         "keywords": []
     },
     "v_strafe_trim_set_50_short": {
-        "label": "",
+        "label": "Throttle - Trim - Set to 50% (Short Press)",
         "description": "",
         "keywords": []
     },
     "v_strafe_trim_reset_long": {
-        "label": "",
+        "label": "Throttle - Trim - Release (Long Press)",
         "description": "",
         "keywords": []
     },
     "v_strafe_trim_reset_short": {
-        "label": "",
+        "label": "Throttle - Trim - Release (Shot Press)",
         "description": "",
         "keywords": []
     },
     "v_ifcs_vector_decoupling_toggle": {
-        "label": "",
-        "description": "",
+        "label": "Decoupled Mode Toggle",
+        "description": "Decoupled Off: The ship will automatically counter-thrust based on your vector to feel as though you're flying in atmosphere.  Decoupled On: Newtonian(ish) physics are applied withtout counter thrust.",
         "keywords": []
     },
     "v_ifcs_vector_decoupling_on": {
-        "label": "",
-        "description": "",
+        "label": "Decoupled Mode On",
+        "description": "Decoupled Off: The ship will automatically counter-thrust based on your vector to feel as though you're flying in atmosphere.  Decoupled On: Newtonian(ish) physics are applied withtout counter thrust.",
         "keywords": []
     },
     "v_ifcs_vector_decoupling_off": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Decoupled Mode Off",
+        "description": "Decoupled Off: The ship will automatically counter-thrust based on your vector to feel as though you're flying in atmosphere.  Decoupled On: Newtonian(ish) physics are applied withtout counter thrust.",
+        "keywords": [
+            ""
+        ]
     },
     "v_afterburner": {
-        "label": "",
+        "label": "Boost",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "afterburner"
+        ]
     },
     "v_ifcs_speed_limiter_up": {
-        "label": "",
+        "label": "Speed Limiter - increase",
         "description": "",
         "keywords": []
     },
     "v_ifcs_speed_limiter_down": {
-        "label": "",
+        "label": "Speed Limiter - decrease",
         "description": "",
         "keywords": []
     },
     "v_ifcs_speed_limiter_increment": {
-        "label": "",
+        "label": "Speed Limiter - Step Up",
         "description": "",
         "keywords": []
     },
     "v_ifcs_speed_limiter_decrement": {
-        "label": "",
+        "label": "Speed Limiter - Step Down",
         "description": "",
         "keywords": []
     },
     "v_ifcs_speed_limiter_rel": {
-        "label": "",
+        "label": "Speed Limiter (rel.)",
         "description": "",
         "keywords": []
     },
     "v_ifcs_speed_limiter_abs": {
-        "label": "",
+        "label": "Speed Limiter (abs.)",
         "description": "",
         "keywords": []
     },
     "v_ifcs_speed_limiter_toggle": {
-        "label": "",
+        "label": "Speed Limiter - Enable/Disable",
         "description": "",
         "keywords": []
     },
     "v_ifcs_speed_limiter_on": {
-        "label": "",
+        "label": "Speed Limiter - Enable",
         "description": "",
         "keywords": []
     },
     "v_ifcs_speed_limiter_off": {
-        "label": "",
+        "label": "Speed Limiter - Disable",
         "description": "",
         "keywords": []
     },
     "v_accel_range_up": {
-        "label": "",
+        "label": "Acceleration Limiter - Increase",
         "description": "",
         "keywords": []
     },
     "v_accel_range_down": {
-        "label": "",
+        "label": "Acceleration Limiter - Decrease",
         "description": "",
         "keywords": []
     },
     "v_accel_range_increment": {
-        "label": "",
+        "label": "Acceleration Limiter - Step Up",
         "description": "",
         "keywords": []
     },
     "v_accel_range_decrement": {
-        "label": "",
+        "label": "Acceleration Limiter - Step Down",
         "description": "",
         "keywords": []
     },
     "v_accel_range_rel": {
-        "label": "",
+        "label": "Acceleration Limiter (rel.)",
         "description": "",
         "keywords": []
     },
     "v_accel_range_abs": {
-        "label": "",
+        "label": "Acceleration Limiter (abs.)",
         "description": "",
         "keywords": []
     },
     "v_space_brake": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Spacebrake",
+        "description": "Counter-thrust in all vectors of movement and come to a stop.",
+        "keywords": [
+            "brake"
+        ]
     },
     "v_lock_rotation": {
-        "label": "",
-        "description": "",
+        "label": "Lock Pitch/Yaw Movement",
+        "description": "Prevent manual left/right/up/down adjustment",
         "keywords": []
     },
     "v_ifcs_gsafe_on": {
-        "label": "",
-        "description": "",
+        "label": "G-Safe On",
+        "description": "G-Safe prevents pilot blackout from excessive G-forces; it achieves this by limiting thrust when G-forces are high in your ship.",
         "keywords": []
     },
     "v_ifcs_gsafe_off": {
-        "label": "",
-        "description": "",
+        "label": "G-Safe Off",
+        "description": "G-Safe prevents pilot blackout from excessive G-forces; it achieves this by limiting thrust when G-forces are high in your ship.",
         "keywords": []
     },
     "v_ifcs_toggle_gforce_safety": {
-        "label": "",
-        "description": "",
+        "label": "G-Safe Toggle",
+        "description": "G-Safe prevents pilot blackout from excessive G-forces; it achieves this by limiting thrust when G-forces are high in your ship.",
         "keywords": []
     },
     "v_ifcs_toggle_esp": {
-        "label": "",
+        "label": "E.S.P Toggle",
         "description": "",
         "keywords": []
     },
     "v_ifcs_esp_hold": {
-        "label": "",
+        "label": "E.S.P Enable Temporarily",
         "description": "",
         "keywords": []
     },
     "v_toggle_landing_system": {
-        "label": "",
+        "label": "Landing System Toggle",
         "description": "",
         "keywords": []
     },
     "v_deploy_landing_system": {
-        "label": "",
+        "label": "Landing System - Deploy",
         "description": "",
         "keywords": []
     },
     "v_retract_landing_system": {
-        "label": "",
+        "label": "Landing System - Retract",
         "description": "",
         "keywords": []
     },
     "v_vtol_toggle": {
-        "label": "",
+        "label": "VTOL Toggle",
         "description": "",
         "keywords": []
     },
     "v_vtol_on": {
-        "label": "",
+        "label": "VTOL On",
         "description": "",
         "keywords": []
     },
     "v_vtol_off": {
-        "label": "",
+        "label": "VTOL Off",
         "description": "",
         "keywords": []
     },
     "v_transform_deploy": {
-        "label": "",
-        "description": "",
+        "label": "Configuration Expand",
+        "description": "For if your ship has different wing modes or similar (e.g. RSI Scorpius, Drake Corsair)",
         "keywords": []
     },
     "v_transform_retract": {
-        "label": "",
-        "description": "",
+        "label": "Configuration Retract",
+        "description": "For if your ship has different wing modes or similar (e.g. RSI Scorpius, Drake Corsair)",
         "keywords": []
     },
     "v_transform_cycle": {
-        "label": "",
-        "description": "",
+        "label": "Configuration Cycle",
+        "description": "For if your ship has different wing modes or similar (e.g. RSI Scorpius, Drake Corsair)",
         "keywords": []
     },
     "v_autoland": {
@@ -1218,83 +1226,89 @@
         "keywords": []
     },
     "v_atc_request": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Request Landing",
+        "description": "Call the local ATC and request a hangar or landing permissions.",
+        "keywords": [
+            "ATC"
+        ]
     },
     "v_atc_loading_area_request": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Request Cargo Loading",
+        "description": "Call the Cargo ATC",
+        "keywords": [
+            "cargo",
+            "hauling",
+            "ATC"
+        ]
     },
     "v_master_mode_cycle": {
-        "label": "",
-        "description": "",
+        "label": "Master Mode Cycle (short press)",
+        "description": "Cycle through your ship's 'Master modes', i.e. nav/normal flight/scanning, possibly mining/salvage too where applicable",
         "keywords": []
     },
     "v_master_mode_cycle_long": {
-        "label": "",
-        "description": "",
+        "label": "Master Mode Cycle (short press)",
+        "description": "Cycle through your ship's 'Master modes', i.e. Quantum flight('nav')/normal flight ('SCM')/scanning, possibly mining/salvage too where applicable",
         "keywords": []
     },
     "v_master_mode_set_nav": {
-        "label": "",
+        "label": "Master Mode - Set to nav",
         "description": "",
         "keywords": []
     },
     "v_master_mode_set_scm": {
-        "label": "",
+        "label": "Master Mode - Set to SCM",
         "description": "",
         "keywords": []
     },
     "v_toggle_jump_request": {
-        "label": "",
-        "description": "",
+        "label": "Jump Drive - Request Jump",
+        "description": "For interacting with wormholes",
         "keywords": []
     },
     "v_ifcs_toggle_gravity_compensation": {
-        "label": "",
+        "label": "Gravity Compensation Toggle",
         "description": "",
         "keywords": []
     },
     "v_ifcs_gravity_compensation_on": {
-        "label": "",
+        "label": "Gravity Compensation On",
         "description": "",
         "keywords": []
     },
     "v_ifcs_gravity_compensation_off": {
-        "label": "",
+        "label": "Gravity Compensation Off",
         "description": "",
         "keywords": []
     },
     "v_auto_precision_mode_toggle": {
-        "label": "",
+        "label": "Automatic Prescision Mode Toggle",
         "description": "",
         "keywords": []
     },
     "v_auto_precision_mode_on": {
-        "label": "",
+        "label": "Automatic Prescision Mode On",
         "description": "",
         "keywords": []
     },
     "v_auto_precision_mode_off": {
-        "label": "",
+        "label": "Automatic Prescision Mode Off",
         "description": "",
         "keywords": []
     },
     "v_ifcs_proximity_assist_toggle": {
         "label": "",
-        "description": "",
+        "description": "Limits thrust when close to objects to prevent over-accellerating into them.",
         "keywords": []
     },
     "v_ifcs_proximity_assist_on": {
         "label": "",
-        "description": "",
+        "description": "Limits thrust when close to objects to prevent over-accellerating into them.",
         "keywords": []
     },
     "v_ifcs_proximity_assist_off": {
         "label": "",
-        "description": "",
+        "description": "Limits thrust when close to objects to prevent over-accellerating into them.",
         "keywords": []
     },
     "v_ifcs_stability_toggle": {
@@ -1343,27 +1357,27 @@
         "keywords": []
     },
     "v_ifcs_reset_gmeter_max": {
-        "label": "",
+        "label": "Reset flight accelerometer",
         "description": "",
         "keywords": []
     },
     "v_flight_advanced_hud_toggle": {
-        "label": "",
-        "description": "",
+        "label": "Advanced HUD toggle",
+        "description": "Toggles between the ship default HUD and the 'new' (old) HUD",
         "keywords": []
     },
     "v_flight_advanced_hud_on": {
         "label": "",
-        "description": "",
+        "description": "Sets the 'new' (old) HUD to ON",
         "keywords": []
     },
     "v_flight_advanced_hud_off": {
         "label": "",
-        "description": "",
+        "description": "Sets the 'new' (old) HUD to OFF, giving you the ship's default HUD",
         "keywords": []
     },
     "v_toggle_qdrive_engagement": {
-        "label": "",
+        "label": "Engage Quantum Drive",
         "description": "",
         "keywords": []
     },
@@ -1378,7 +1392,7 @@
         "keywords": []
     },
     "v_dock_toggle_view": {
-        "label": "",
+        "label": "Docking Camera Toggle",
         "description": "",
         "keywords": []
     },
@@ -2579,28 +2593,37 @@
     },
     "throw_overhand": {
         "label": "",
-        "description": "",
+        "description": "A stronger throw of the item in your hand (incl. grenades)",
         "keywords": []
     },
     "throw_underhand": {
         "label": "",
-        "description": "",
+        "description": "A weaker throw for short range lobs of the item in your hand (incl. grenades)",
         "keywords": []
     },
     "zoom": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "ADS",
+        "description": "This is the ADS action for sights",
+        "keywords": [
+            "on foot",
+            "combat"
+        ]
     },
     "interact_with_scope": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Interact/Steady Scope",
+        "description": "Will toggle night vision scopes and steady sniper scopes",
+        "keywords": [
+            "on foot",
+            "combat"
+        ]
     },
     "toggle_lowered": {
         "label": "",
-        "description": "",
-        "keywords": []
+        "description": "Lower your weapon to appear less aggressive but keep it held and ready.",
+        "keywords": [
+            "on foot",
+            "combat"
+        ]
     },
     "select_primary_pit": {
         "label": "",

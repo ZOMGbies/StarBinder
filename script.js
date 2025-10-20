@@ -586,8 +586,7 @@ class MappedAction
     }
     setBind(state = InputState.current, bindString)
     {
-        // this.bind[state] = [bindString, deviceIndex];
-        this.bind[state].input = bindString;
+        this.bind[state].input = bindString.trim();
     }
     getDefaultBind(state = InputState.current)
     {
@@ -1171,7 +1170,13 @@ async function importCustomKeybindsXML(fileOrUrl)
             action.querySelectorAll("rebind").forEach(rebind =>
             {
                 const input = rebind.getAttribute("input");
-                const activationMode = rebind.getAttribute("activationMode") || null;
+                // const activationMode = rebind.getAttribute("activationMode") || null;
+
+                const activationMode =
+                    rebind.getAttribute("activationMode") ??
+                    (rebind.hasAttribute("multiTap") ? `double_tap` : null);
+
+
                 if (!input) return;
 
                 const { type, bind, device } = parseInput(input);
@@ -3156,6 +3161,12 @@ function pollJoysticks()
                 else
                 {
                     console.log(`UNKNOWN AXIS DEBUG: Axis: ${ i } Value: ${ value }`);
+                    const lx = gp.axes[i]
+                    if (Math.abs(lx) > DEADZONE)
+                    {
+                        const stickDirection = lx > 0 ? "pos" : "neg";
+                        joystickPollId = setInput("unknown input: " + i + "_" + stickDirection);
+                    }
                 }
             }
         });

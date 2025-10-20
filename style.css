@@ -19,8 +19,8 @@
     --buttonSize: 2.2rem;
 
     --rowBackground: #0f2c3e;
-    --minDocWidth: 1200px;
-    --maxDocWidth: 1200px;
+    --minDocWidth: 1000px;
+    --maxDocWidth: 1400px;
 
     --descriptionTag-bg: #1d4c92;
     --descriptionTag-bg-hover: #1c5fc4;
@@ -747,7 +747,6 @@ KEYBIND AREA
     display: grid;
     place-items: center start;
     padding-left: 0.6rem;
-    /* font-family: xolonium; */
 
     user-select: none;
     -webkit-user-select: none;
@@ -756,12 +755,12 @@ KEYBIND AREA
 
 /* Awaiting input state */
 .keybind__value.awaiting {
+    font-family: 'Kiona', sans-serif;
     background: rgba(0, 200, 255, 0.1);
     border-radius: 0.25rem;
-    padding: 0.1rem 0.3rem;
+    padding: 0.5rem 3rem;
     animation: bgPulse 1.5s ease-in-out infinite;
     text-align: left;
-    padding: 0.5rem;
 }
 
 
