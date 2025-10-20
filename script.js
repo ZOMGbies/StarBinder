@@ -1727,9 +1727,8 @@ async function renderBindRow(b)
     const valueDiv = document.createElement('div');
     valueDiv.classList.add('keybind__value');
 
-    valueDiv.innerHTML = ''; // clear previous
-    let bindValue = b.getBind()
-    if (bindValue) valueDiv.appendChild(renderKeybindKeys(bindValue));
+
+
 
 
 
@@ -1760,6 +1759,7 @@ async function renderBindRow(b)
     newRow.appendChild(activationModeIconDiv);
     newRow.appendChild(consoleInputDiv);
     rowContainer.appendChild(newRow);
+    updateBindRow(newRow)
 
 }
 
@@ -1772,11 +1772,12 @@ function updateBindRow(bindRow = currentlySelectedKeybindElement)
         const bind = actionMapsMasterList?.find(a => a?.getActionName() === bindRow?.dataset.actionName);
 
         const bindValue = bind.getBind();
+        const bindDevice = bind.getBindDevice();
 
         if (bindValueDiv)
         {
             bindValueDiv.innerHTML = ''; // clear previous
-            bindValueDiv.appendChild(renderKeybindKeys(`${ bindValue }`));
+            bindValueDiv.appendChild(renderKeybindKeys(bindValue ? `Device ${ bindDevice }: ${ bindValue }` : ``));
             bindValueDiv.classList.remove('awaiting');
             adjustFontSizeBasedOnWidth(bindValueDiv);
         }
@@ -1846,11 +1847,24 @@ function generateMainCategoryTags()
  */
 function renderKeybindKeys(keybindString)
 {
-    // Example: "AltLeft+Insert+ControlRight"
-    const keys = keybindString?.split('+')
+    // Example: "Device 1: AltLeft+Insert+ControlRight"
+    if (!keybindString) return document.createElement('span');
+
+    // Separate "Device x:" from the rest
+    const deviceMatch = keybindString.match(/^Device\s+(\d+):\s*/i);
+    let deviceLabel = null;
+    if (deviceMatch)
+    {
+        deviceLabel = `${ deviceMatch[1] }`;
+        keybindString = keybindString.replace(deviceMatch[0], '');
+    }
+
+    // Now split remaining part by '+'
+    const keys = keybindString.split('+');
     const container = document.createElement('span');
     const leftIndicator = '◀';
     const rightIndicator = '▶';
+
     const replacements = {
         lalt: 'AltLeft',
         ralt: 'AltRight',
@@ -1885,9 +1899,10 @@ function renderKeybindKeys(keybindString)
         mo1_: '',
         np_: 'Num '
     };
+
     function normalizeKeybind(k)
     {
-        if (!k) return
+        if (!k) return;
         for (const [pattern, replacement] of Object.entries(rawTokens))
         {
             k = k.replace(new RegExp(pattern, 'gi'), replacement);
@@ -1900,19 +1915,34 @@ function renderKeybindKeys(keybindString)
 
         return k.trim();
     }
-    keys?.forEach(k =>
+
+    // If device label exists, add it as its own key first
+    if (deviceLabel)
+    {
+        const deviceDiv = document.createElement('span');
+        deviceDiv.classList.add('key', 'key--device');
+        deviceDiv.textContent = deviceLabel;
+        container.appendChild(deviceDiv);
+
+        const colon = document.createElement('span');
+        colon.textContent = ' ';
+        container.appendChild(colon);
+    }
+
+    keys.forEach(k =>
     {
         const keyDiv = document.createElement('span');
         let display = normalizeKeybind(k) || "";
-        if (display?.trim() != '')
+
+        if (display?.trim() !== '')
         {
             keyDiv.classList.add('key');
-            display = display[0]?.toUpperCase() + display.slice(1)
-            const side = display.endsWith('Left') ? leftIndicator : display.endsWith('Right') ? rightIndicator : '';
+            display = display[0].toUpperCase() + display.slice(1);
+            const side = display.endsWith('Left') ? leftIndicator :
+                display.endsWith('Right') ? rightIndicator : '';
             display = display.replace(/ControlLeft|ControlRight/, 'CTRL');
             display = display.replace(/ShiftLeft|ShiftRight/, 'Shift');
             display = display.replace(/AltLeft|AltRight/, 'Alt');
-
             keyDiv.textContent = display;
 
             if (side)
@@ -1920,38 +1950,27 @@ function renderKeybindKeys(keybindString)
                 const indicator = document.createElement('span');
                 indicator.classList.add('side-indicator');
                 indicator.textContent = side;
-                // put arrow on left or right depending on original string
-                if (side == leftIndicator)
-                {
-                    keyDiv.prepend(indicator);
-                } else
-                {
-                    keyDiv.appendChild(indicator);
-                }
+                if (side === leftIndicator) keyDiv.prepend(indicator);
+                else keyDiv.appendChild(indicator);
             }
-
-        }
-        else
+        } else
         {
-            //ADD UNBOUND CSS CLASS HERE?
-            display = textValue_UNBOUND
-            keyDiv.textContent = display;
+            keyDiv.classList.add('key', 'key--unbound');
+            keyDiv.textContent = textValue_UNBOUND;
         }
-
 
         container.appendChild(keyDiv);
 
-        // add a plus between keys
         const plus = document.createElement('span');
         plus.textContent = ' + ';
         container.appendChild(plus);
     });
 
-    // remove last plus
     if (container.lastChild) container.removeChild(container.lastChild);
 
     return container;
 }
+
 
 function onClickKeybindElement(e)
 {
@@ -1979,9 +1998,11 @@ function onClickKeybindElement(e)
         ShowKeybindDescription();
     }
     // Check for CTRL + ALT + click
-    if (b.getDefaultBind() && currentlySelectedKeybindElement === clickedRow && e.ctrlKey && e.altKey)
+    //get default
+    const defaultBind = b.getDefaultBind();
+    if (defaultBind && currentlySelectedKeybindElement === clickedRow && e.ctrlKey && e.altKey)
     {
-        b.setBind(InputState.current, b.getDefaultBind());
+        b.setBind(InputState.current, defaultBind.trim());
         updateBindRow();
     }
 }
@@ -2033,6 +2054,7 @@ function ShowKeybindDescription()
 function checkForConflicts(bindActionMap)
 {
     const thisBindKey = bindActionMap.getBind()?.trim();
+    const bind = bindActionMap.getBind();
     const thisBindName = bindActionMap.getActionName();
 
     if (!thisBindKey) return false;
@@ -2267,9 +2289,9 @@ function cancelRecordBind()
 
 function onClickSelectActivationMode(e)
 {
-    const selectedRow = document.querySelector('.keybind__row--selected');
-    const thisRow = e.target.closest('.keybind__row');
-    if (thisRow !== selectedRow) return;
+    // const selectedRow = document.querySelector('.keybind__row--selected');
+    // const thisRow = e.target.closest('.keybind__row');
+    // if (thisRow !== selectedRow) return;
 
     const btn = e.target.closest('.button-activationMode');
     if (!btn) return;
@@ -3045,7 +3067,7 @@ window.addEventListener('keyup', e =>
 function pollJoysticks()
 {
     const joysticks = navigator.getGamepads ? navigator.getGamepads() : [];
-    const DEADZONE = 0.2; // general small threshold to ignore noise
+    const DEADZONE = 0.02; // general small threshold to ignore noise
 
     for (let gp of joysticks)
     {
@@ -3079,7 +3101,6 @@ function pollJoysticks()
         gp.axes.forEach((value, i) =>
         {
             const prevVal = prev.axes[i] || 0;
-
             if (Math.abs(value - prevVal) > DEADZONE)
             {
                 console.log(`Device ${ gp.index }: Axis ${ i } = ${ value.toFixed(2) }`);
@@ -3091,22 +3112,21 @@ function pollJoysticks()
                     if (Math.abs(lx) > DEADZONE || Math.abs(ly) > DEADZONE)
                     {
                         const stickDirection =
-                            Math.abs(lx) > Math.abs(ly)
-                                ? ["thumbl", lx > 0 ? "right" : "left"]
-                                : ["thumbl", ly > 0 ? "down" : "up"];
+                            Math.abs(lx) > Math.abs(ly) ? lx > 0 ? "right" : "left" : ly > 0 ? "down" : "up";
                         joystickPollId = setInput(stickDirection);
                     }
                 }
 
                 // Twist axis
-                if (i === 5 && Math.abs(value) > DEADZONE)
+                else if (i === 5 && Math.abs(value) > DEADZONE)
                 {
                     const twistDir = value > 0 ? "+" : "-";
-                    joystickPollId = setInput(["rotz", twistDir]);
+                    // joystickPollId = setInput(["rotz", twistDir]);
+                    joystickPollId = setInput("rotz");
                 }
 
                 // Hat switch (axis 9 in your case)
-                if (i === 9)
+                else if (i === 9)
                 {
                     let direction = null;
                     if (value < -0.5) direction = "up";
@@ -3116,22 +3136,26 @@ function pollJoysticks()
 
                     if (direction)
                     {
-                        joystickPollId = setInput(["hat" + (gp.index + 1) + "_" + direction]);
+                        joystickPollId = setInput("hat" + (gp.index + 1) + "_" + direction);
                     }
                 }
-
-                // Slider (axis 6)
-                if (i === 6)
+                //slider
+                else if (i === 6)
                 {
                     const baseline = window._sliderBaseline[gp.index];
                     if (Math.abs(value - baseline) > DEADZONE)
                     {
                         const direction = value > baseline ? "down" : "up";
-                        joystickPollId = setInput(["slider", direction]);
+                        // joystickPollId = setInput("slider", direction);
+                        joystickPollId = setInput("slider" + (gp.index + 1));
                         console.log(
                             `Device ${ gp.index }: Slider moved ${ direction } (baseline ${ baseline.toFixed(2) }, current ${ value.toFixed(2) })`
                         );
                     }
+                }
+                else
+                {
+                    console.log(`UNKNOWN AXIS DEBUG: Axis: ${ i } Value: ${ value }`);
                 }
             }
         });
@@ -3217,11 +3241,14 @@ function parseJoystickInputToStarCitizenBind(input)
 {
     if (input)
     {
-        // const joystickDictionary = {
-        //     // "0": "trigger",
-        // }
-        // return joystickDictionary[input] ?? input
-        return 'button' + input;
+        if (/^\d/.test(input))
+        {
+            return 'button' + input;
+        }
+        else
+        {
+            return input;
+        }
     }
 }
 
@@ -3288,7 +3315,6 @@ function onUserChangedBind(actionObject)
     actionObject.bind[InputState.current].input = newInput;
     actionObject.bind[InputState.current].deviceIndex = newDeviceIndex;
     actionObject.bind[InputState.current].activationMode = newActivationMode;
-    console.log("called");
     saveUserChanges();
 }
 async function initActionMaps()
