@@ -110,13 +110,13 @@ CONTENT
     width: min(max(var(--minDocWidth), 100%), var(--maxDocWidth) + 2*var(--border-thickness));
     height: 840px;
     max-height: calc(100vh - 2rem);
-    min-height: 840px;
+    min-height: 846px;
 
 }
 
 .content-keybinds {
     position: absolute;
-    top: var(--border-thickness);
+    top: calc(var(--border-thickness) *0.45);
     bottom: var(--border-thickness);
     left: var(--border-thickness);
     right: var(--border-thickness);
@@ -134,6 +134,12 @@ CONTENT
     z-index: 2;
 }
 
+.content-keybinds-absolute-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex: 1;
+}
 
 
 /* Corners */
@@ -383,8 +389,7 @@ img,
     margin-right: 5rem;
     margin-left: 1rem;
 
-    box-shadow:
-        inset -1px 0px 6px rgba(123, 159, 216, 0.05),
+    box-shadow: inset -1px 0px 6px rgba(123, 159, 216, 0.05),
         inset 0px -12px 14px rgba(123, 159, 216, 0.05),
         inset 1px 0px 6px rgba(123, 159, 216, 0.05),
         inset 0px 12px 14px rgba(148, 182, 236, 0.05);
@@ -411,8 +416,7 @@ img,
             transparent calc(100% - 2rem),
             var(--accent) calc(100% - 2rem),
             var(--accent) 100%);
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -425,8 +429,7 @@ img,
             transparent calc(100% - 2.2rem),
             #6ec1ff calc(100% - 0rem),
             #6ec1ff 100%);
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -798,13 +801,11 @@ KEYBIND AREA
     object-fit: contain;
     display: block;
     border: 2px solid transparent;
-    background:
-        linear-gradient(to top, #0d2735, #081721) border-box,
+    background: linear-gradient(to top, #0d2735, #081721) border-box,
         linear-gradient(to bottom right, #16425a, #081721) padding-box;
     background-clip: padding-box, border-box;
     /* ensures proper clipping */
-    box-shadow:
-        0 4px 0 #071018,
+    box-shadow: 0 4px 0 #071018,
         -2px 4px 6px rgba(0, 0, 15, 0.4);
     transition: transform 0.1s ease, box-shadow 0.1s ease;
     padding: 0.2rem;
@@ -812,8 +813,7 @@ KEYBIND AREA
 
 .button-activationMode:active img {
     transform: translateY(2px);
-    box-shadow:
-        0 2px 0 #071018,
+    box-shadow: 0 2px 0 #071018,
         -1px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -987,6 +987,7 @@ SEARCH BAR  (which also holds the input select buttons)
     margin-left: var(--border-thickness);
     margin-right: var(--border-thickness);
     grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: auto auto;
     align-items: center;
     max-width: var(--maxDocWidth);
     width: var(--maxDocWidth);
@@ -1019,8 +1020,7 @@ SEARCH BAR  (which also holds the input select buttons)
     font-size: 2rem;
     cursor: pointer;
 
-    box-shadow:
-        inset 8px 4px 32px rgba(0, 0, 0, 0.2),
+    box-shadow: inset 8px 4px 32px rgba(0, 0, 0, 0.2),
         inset -8px -4px 32px rgba(0, 0, 0, 0.2);
 
     -webkit-text-stroke: 0.7px #00000077;
@@ -1076,8 +1076,7 @@ SEARCH BAR  (which also holds the input select buttons)
     -webkit-mask: url('./assets/searchbar.svg') no-repeat center;
     mask: url('./assets/searchbar.svg') no-repeat center;
 
-    box-shadow:
-        inset -1px -2px 8px rgba(0, 0, 0, 0.15),
+    box-shadow: inset -1px -2px 8px rgba(0, 0, 0, 0.15),
         inset -4px -16px 48px rgba(0, 0, 0, 0.10);
 }
 
@@ -1087,8 +1086,7 @@ SEARCH BAR  (which also holds the input select buttons)
 }
 
 .searchbar-container input:focus {
-    box-shadow:
-        inset -4px -16px 48px rgba(222, 222, 255, 0.10);
+    box-shadow: inset -4px -16px 48px rgba(222, 222, 255, 0.10);
 }
 
 
@@ -1118,8 +1116,7 @@ CONSOLE INPUT FIELD
     border-width: 1px;
     border-color: #223;
 
-    box-shadow:
-        inset 4px 4px 8px rgba(0, 0, 0, 0.15),
+    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.15),
         inset -4px -4px 8px rgba(0, 0, 0, 0.15);
 }
 
@@ -1176,6 +1173,8 @@ MKB / CONTROLLER / JOYSTICK BUTTONS STYLE
 --------------------------------------------------------------*/
 .inputType-select {
     display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     gap: 0.6rem;
 
@@ -1189,7 +1188,7 @@ MKB / CONTROLLER / JOYSTICK BUTTONS STYLE
     position: relative;
     width: 7rem;
     height: 3.5rem;
-    padding: 3rem 4rem;
+    padding: 2.5rem 4rem;
     background-color: var(--accent2);
     -webkit-mask: url('./assets/button_Large.svg') no-repeat center / contain;
     mask: url('./assets/button_Large.svg') no-repeat center / contain;
@@ -1204,6 +1203,124 @@ MKB / CONTROLLER / JOYSTICK BUTTONS STYLE
     background: url('./assets/button_Large_borderSelected.svg') no-repeat center / contain;
     pointer-events: none;
 }
+
+/*==========================================*/
+/*==========================================*/
+/*==========================================*/
+/* Row containing label + button */
+.joystick-dropdown-row {
+    display: flex;
+    justify-content: center;
+    /* centers label + button horizontally */
+    align-items: center;
+    gap: 0.5rem;
+    /* space between label and button */
+}
+
+/* The button wrapper, needed for absolute positioning of menu */
+.joystick-dropdown-button-wrapper {
+    position: relative;
+    /* dropdown menu will be absolute inside this */
+    display: inline-block;
+}
+
+/* Button styling */
+/* Button style: modern Windows dropdown */
+.joystick-dropdown-button {
+    border-radius: 0.25rem;
+    height: 2rem;
+    width: 16rem;
+    margin: 0;
+    padding: 0 0.75rem;
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--accent);
+    box-shadow: inset 0 -1px 0 #ccc;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--accent);
+
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.button-text {
+    font-family: 'Aileron', sans-serif;
+    color: var(--primaryText);
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: calc(100% - 1.5rem);
+    vertical-align: middle;
+    ;
+}
+
+/* Hover effect */
+.joystick-dropdown-button:hover {
+    background-color: var(--lighter-bg);
+    border-color: #999;
+}
+
+/* Focus effect */
+.joystick-dropdown-button:focus {
+    outline: none;
+    border-color: #0078d7;
+    /* Windows accent blue */
+    box-shadow: 0 0 0 2px rgba(0, 120, 215, 0.3);
+}
+
+/* Dropdown menu */
+.joystick-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 16rem;
+    width: 16rem;
+    background: var(--rowBackground);
+    border: 1px solid var(--accent);
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+    z-index: 100;
+    display: none;
+}
+
+/* Dropdown items */
+.joystick-dropdown-item {
+    font-family: 'Aileron', sans-serif;
+    color: var(--secondary-text);
+    font-size: 0.7rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.joystick-dropdown-item:hover {
+    background-color: #4da0e469;
+    color: var(--accent);
+}
+
+
+/* Label styling */
+.joystick-dropdown-label {
+    font-weight: bold;
+    color: var(--primaryText);
+}
+
+/*==========================================*/
+/*==========================================*/
+/*==========================================*/
 
 .button:hover {
     box-shadow: inset 6px 16px 20px rgba(200, 200, 222, 0.08),

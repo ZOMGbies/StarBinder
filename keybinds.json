@@ -1,7 +1,7 @@
 {
     "v_emergency_exit": {
         "label": "Emergency Exit",
-        "description": "As of writing, this action powers off the ship (including shields) and makes the user get out of their chair at a normal speed.",
+        "description": "Powers off the ship (including shields) and makes the user get out of their chair at a normal speed (???)",
         "keywords": [
             "vehicle"
         ]
@@ -1035,7 +1035,7 @@
         "keywords": []
     },
     "v_strafe_trim_reset_short": {
-        "label": "Throttle - Trim - Release (Shot Press)",
+        "label": "Throttle - Trim - Release (Short Press)",
         "description": "",
         "keywords": []
     },

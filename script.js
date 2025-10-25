@@ -191,6 +191,7 @@ const subTagContainer = document.getElementById('subTagContainer')
 const btnSelectInput_Keyboard = document.querySelector('.button-inputSelect-keyboard');
 const btnSelectInput_Controller = document.querySelector('.button-inputSelect-controller');
 const btnSelectInput_Joystick = document.querySelector('.button-inputSelect-joystick');
+const btnSelectInput_JoystickModelSelect = document.querySelector('.button-inputSelect-joystickModelSelect');
 
 const footer = document.querySelector('.footer');
 const keybindDescriptionDiv = document.querySelector('.footer__keybind-info');
@@ -437,7 +438,7 @@ function resolveKeywords(jsonObj, _name = "name not specified")
         const mapped = keywordCategories[k];
         if (!mapped)
         {
-            console.log("Error with category name:", k, _name);
+            // console.log("Error with category name:", k, _name);
             return [k];
         }
         return Array.isArray(mapped) ? mapped : [mapped];
@@ -609,20 +610,7 @@ class MappedAction
         this.bind[state].deviceIndex = deviceIndex;
     }
 
-    // getActivationMode(state = InputState.current, getWhich = 0)
-    // {
-    //     if (!this.inputActivationMode) this.inputActivationMode = {};
 
-    //     if (!this.inputActivationMode[state])
-    //         this.inputActivationMode[state] = [null, null];
-
-    //     return this.inputActivationMode[state][getWhich];
-    // }
-
-    // setActivationMode(mode, state = InputState.current, defaultMode = this.inputActivationMode[state][1])
-    // {
-    //     this.inputActivationMode[state] = [mode, defaultMode];
-    // }
     getActivationMode(state = InputState.current)
     {
         return this.bind[state].activationMode;
@@ -789,6 +777,7 @@ async function init()
     btnSelectInput_Keyboard.addEventListener("click", e => setInputMode(InputModeSelection.KEYBOARD));
     btnSelectInput_Controller.addEventListener("click", e => setInputMode(InputModeSelection.CONTROLLER));
     btnSelectInput_Joystick.addEventListener("click", e => setInputMode(InputModeSelection.JOYSTICK));
+    setupJoystickDropdown();
     btnSelectInput_Keyboard.click()
     ClearKeybindDescription();
     loadMappedActions();
@@ -2217,7 +2206,11 @@ function onClickRecordKeybind(e)
             else if (InputState.current === InputModeSelection.JOYSTICK)
             {
                 initializeJoystickBaselines();
-                pollJoysticks();
+                if (!joystickActive)
+                {
+                    joystickActive = true;
+                    joystickPollHandle = requestAnimationFrame(pollJoysticks);
+                }
             }
             else
             {
@@ -3016,6 +3009,8 @@ function parseGamepadInputToStarCitizenBind(input)
 ///////////////////////////////     JOYSTICK TYPE SHIT     ///////////////////////////////
 
 let joystickPollId = null;
+let joystickPollHandle = null; // <-- this tracks the animation frame
+let joystickActive = false;    // optional safety flag
 
 // Global persistent state
 if (!window._prevGamepadStates) window._prevGamepadStates = [];
@@ -3068,16 +3063,107 @@ window.addEventListener('keyup', e =>
     }
 });
 
+let joystickProfile;
+let cachedProfiles = null;
 
+async function GetAllJoystickProfiles()
+{
+    if (!cachedProfiles)
+    {
+        const res = await fetch("./mappingProfile.json");
+        cachedProfiles = await res.json();
+    }
+    return cachedProfiles;
+}
+
+
+async function GetJoystickProfile(name = "Thrustmaster T16000M")
+{
+    try
+    {
+        // Fetch the JSON file
+        const response = await fetch("./mappingProfile.json");
+        const data = await response.json();
+
+        // Return the profile you want (default: Thrustmaster)
+        return data[name];
+    } catch (err)
+    {
+        console.error("Failed to load joystick profile:", err);
+        return null;
+    }
+}
+async function GetJoystickModelsFromJSON()
+{
+    const data = await GetAllJoystickProfiles();
+    return Object.keys(data); // e.g. ["Thrustmaster T16000M", "Other"]
+}
+
+const joystickButton = document.querySelector(".joystick-dropdown-button");
+const joystickDropdown = document.querySelector(".joystick-dropdown-menu");
+async function setupJoystickDropdown()
+{
+
+    // Create or select the span inside the button for text
+    let buttonText = joystickButton.querySelector(".button-text");
+    if (!buttonText)
+    {
+        buttonText = document.createElement("span");
+        buttonText.className = "button-text";
+        // Move current text into span
+        buttonText.textContent = joystickButton.textContent.replace(" ▾", "");
+        joystickButton.textContent = ""; // clear button
+        joystickButton.appendChild(buttonText);
+        // Append arrow
+        joystickButton.insertAdjacentHTML("beforeend", " ▾");
+    }
+
+    // Fetch joystick models
+    const models = await GetJoystickModelsFromJSON();
+
+    // Clear old items
+    joystickDropdown.innerHTML = "";
+
+    models.forEach(model =>
+    {
+        const item = document.createElement("div");
+        item.className = "joystick-dropdown-item";
+        item.textContent = model;
+
+        item.addEventListener("click", async () =>
+        {
+            joystickProfile = await GetJoystickProfile(model);
+            console.log("Loaded joystick profile:", joystickProfile);
+
+            // Hide dropdown
+            joystickDropdown.style.display = "none";
+
+            // Update only the span text
+            buttonText.textContent = model;
+        });
+
+        joystickDropdown.appendChild(item);
+    });
+
+    // Toggle dropdown visibility
+    joystickButton.addEventListener("click", () =>
+    {
+        joystickDropdown.style.display =
+            joystickDropdown.style.display === "block" ? "none" : "block";
+    });
+}
+
+
+
+
+const JOYSTICKDEADZONE = 0.06; // general small threshold to ignore noise
 function pollJoysticks()
 {
     const joysticks = navigator.getGamepads ? navigator.getGamepads() : [];
-    const DEADZONE = 0.02; // general small threshold to ignore noise
 
     for (let gp of joysticks)
     {
         if (!gp) continue;
-
         let joystickPollId = null;
 
         // Helper to assign input consistently
@@ -3095,78 +3181,51 @@ function pollJoysticks()
             };
         }
 
-        if (!window._sliderBaseline[gp.index])
-        {
-            window._sliderBaseline[gp.index] = gp.axes[6]; // slider resting value
-        }
+        if (!window._sliderBaseline[gp.index]) window._sliderBaseline[gp.index] = gp.axes[6]; // slider resting value
 
         const prev = window._prevGamepadStates[gp.index];
-
         // --- Axes: sticks, twist, hat, sliders ---
         gp.axes.forEach((value, i) =>
         {
             const prevVal = prev.axes[i] || 0;
-            if (Math.abs(value - prevVal) > DEADZONE)
+            if (Math.abs(value - prevVal) > JOYSTICKDEADZONE)
             {
+                // Debug
                 console.log(`Device ${ gp.index }: Axis ${ i } = ${ value.toFixed(2) }`);
+                const axesIndex = joystickProfile == "debug" ? -1 : i;
+                // ====
 
-                // Left stick (axes 0 & 1)
-                if (i === 0 || i === 1)
+                switch (axesIndex)
                 {
-                    const lx = gp.axes[0], ly = gp.axes[1];
-                    if (Math.abs(lx) > DEADZONE || Math.abs(ly) > DEADZONE)
-                    {
-                        const stickDirection =
-                            Math.abs(lx) > Math.abs(ly) ? lx > 0 ? "right" : "left" : ly > 0 ? "down" : "up";
-                        joystickPollId = setInput(stickDirection);
-                    }
-                }
-
-                // Twist axis
-                else if (i === 5 && Math.abs(value) > DEADZONE)
-                {
-                    const twistDir = value > 0 ? "+" : "-";
-                    // joystickPollId = setInput(["rotz", twistDir]);
-                    joystickPollId = setInput("rotz");
-                }
-
-                // Hat switch (axis 9 in your case)
-                else if (i === 9)
-                {
-                    let direction = null;
-                    if (value < -0.5) direction = "up";
-                    else if (value > 0.5) direction = "left";  // example, adjust based on your logs
-                    else if (value > 0) direction = "down";
-                    else if (value < 0) direction = "right";
-
-                    if (direction)
-                    {
-                        joystickPollId = setInput("hat" + (gp.index + 1) + "_" + direction);
-                    }
-                }
-                //slider
-                else if (i === 6)
-                {
-                    const baseline = window._sliderBaseline[gp.index];
-                    if (Math.abs(value - baseline) > DEADZONE)
-                    {
-                        const direction = value > baseline ? "down" : "up";
-                        // joystickPollId = setInput("slider", direction);
-                        joystickPollId = setInput("slider" + (gp.index + 1));
-                        console.log(
-                            `Device ${ gp.index }: Slider moved ${ direction } (baseline ${ baseline.toFixed(2) }, current ${ value.toFixed(2) })`
-                        );
-                    }
-                }
-                else
-                {
-                    console.log(`UNKNOWN AXIS DEBUG: Axis: ${ i } Value: ${ value }`);
-                    const lx = gp.axes[i]
-                    if (Math.abs(lx) > DEADZONE)
-                    {
-                        const stickDirection = lx > 0 ? "pos" : "neg";
-                        joystickPollId = setInput("unknown input: " + i + "_" + stickDirection);
-                    }
+                    case joystickProfile.x:
+                        joystickPollId = setInput(HandleJoystickAxis_X(value));
+                        break;
+                    case joystickProfile.y:
+                        joystickPollId = setInput(HandleJoystickAxis_Y(value));
+                        break;
+                    case joystickProfile.z:
+                        joystickPollId = setInput(HandleJoystickAxis_Z(value));
+                        break;
+                    case joystickProfile.hat:
+                        joystickPollId = setInput(HandleJoystickAxis_Hat(value, (gp.index + 1)));
+                        break;
+                    case joystickProfile.slider:
+                        joystickPollId = setInput(HandleJoystickAxis_Slider(value, (gp.index + 1)));
+                        break;
+                    case joystickProfile.wheel:
+                        joystickPollId = setInput(HandleJoystickAxis_Wheel(value, (gp.index + 1)));
+                        break;
+                    default:
+                        {
+                            console.log(`AXIS DEBUG: Axis: ${ i } Value: ${ value }`);
+                            const lx = gp.axes[i]
+                            if (Math.abs(lx) > JOYSTICKDEADZONE)
+                            {
+                                const stickDirection = lx > 0 ? "positive" : "negative";
+                                joystickPollId = setInput("Input Axis Number: " + i + " | Direction of Axes: " + stickDirection);
+                            }
+                        }
+                        break;
                 }
             }
         });
@@ -3175,12 +3234,8 @@ function pollJoysticks()
         gp.buttons.forEach((button, i) =>
         {
             const prevPressed = prev.buttons[i] || false;
-            if (button.pressed !== prevPressed)
-            {
-                console.log(
-                    `Device ${ gp.index }: Button ${ i } ${ button.pressed ? "pressed" : "released" }`
-                );
-            }
+            if (button.pressed !== prevPressed) console.log(`Device ${ gp.index }: Button ${ i } ${ button.pressed ? "pressed" : "released" }`);
+
             if (button.pressed)
             {
                 const joybtn = parseInt(i, 10) + 1;
@@ -3210,10 +3265,218 @@ function pollJoysticks()
             finalizeCapture_Joystick(inputArr, joystickPollId.device);
             return; // stop polling until next frame
         }
-    }
 
-    requestAnimationFrame(pollJoysticks);
+    }
+    // Only continue polling if not stopped
+    if (joystickActive)
+        joystickPollHandle = requestAnimationFrame(pollJoysticks);
 }
+
+function HandleJoystickAxis_X(value)
+{
+    const stickDirection = value > 0 ? "right" : "left";
+    return stickDirection;
+}
+function HandleJoystickAxis_Y(value)
+{
+    const stickDirection = value > 0 ? "down" : "up";
+    return stickDirection;
+}
+function HandleJoystickAxis_Z(value)
+{
+    // const twistDir = value > 0 ? "+" : "-";
+    //twist dir doesn't seem to be needed for recording the bind, but keeping the val here in case I want it
+    return "rotz";
+}
+function HandleJoystickAxis_Hat(value, deviceIndex = 1)
+{
+    let direction = null;
+    if (value < -0.5) direction = "up";
+    else if (value > 0.5) direction = "left";  // example, adjust based on your logs
+    else if (value > 0) direction = "down";
+    else if (value < 0) direction = "right";
+
+    if (direction)
+    {
+        return "hat" + deviceIndex + "_" + direction;
+    }
+}
+function HandleJoystickAxis_Slider(value, deviceIndex = 1)
+{
+    const baseline = window._sliderBaseline[deviceIndex - 1];
+    if (Math.abs(value - baseline) > JOYSTICKDEADZONE)
+    {
+        const direction = value > baseline ? "down" : "up";
+        //direction of slide doesn't seem to be needed for recording the bind, but keeping the val here in case I want it
+        return "slider" + deviceIndex;
+    }
+}
+function HandleJoystickAxis_Wheel(value, deviceIndex = 1)
+{
+    console.log("unfinished");
+}
+
+
+
+// function pollJoysticks()
+// {
+//     console.log(joystickProfile.leftright);
+
+//     const joysticks = navigator.getGamepads ? navigator.getGamepads() : [];
+//     const DEADZONE = 0.06; // general small threshold to ignore noise
+
+//     for (let gp of joysticks)
+//     {
+//         if (!gp) continue;
+
+//         let joystickPollId = null;
+
+//         // Helper to assign input consistently
+//         const setInput = (input) => ({
+//             device: gp.index + 1,
+//             input
+//         });
+
+//         // --- Initialize previous state and slider baseline ---
+//         if (!window._prevGamepadStates[gp.index])
+//         {
+//             window._prevGamepadStates[gp.index] = {
+//                 axes: [...gp.axes],
+//                 buttons: gp.buttons.map(b => b.pressed)
+//             };
+//         }
+
+//         if (!window._sliderBaseline[gp.index])
+//         {
+//             window._sliderBaseline[gp.index] = gp.axes[6]; // slider resting value
+//         }
+
+//         const prev = window._prevGamepadStates[gp.index];
+//         // --- Axes: sticks, twist, hat, sliders ---
+//         gp.axes.forEach((value, i) =>
+//         {
+//             const prevVal = prev.axes[i] || 0;
+//             if (Math.abs(value - prevVal) > DEADZONE)
+//             {
+//                 // console.log(`Device ${ gp.index }: Axis ${ i } = ${ value.toFixed(2) }`);
+
+//                 // if (i == joystickProfile.x) joystickPollId = setInput(HandleJoystickAxis_X(value));
+//                 // else if (i == joystickProfile.y) joystickPollId = setInput(HandleJoystickAxis_Y(value));
+//                 // else if (i === joystickProfile.z) joystickPollId = setInput(HandleJoystickAxis_Z(value));
+//                 // else if (i === joystickProfile.hat) joystickPollId = setInput(HandleJoystickAxis_Hat(value));
+//                 // else if (i === joystickProfile.slider) joystickPollId = setInput(HandleJoystickAxis_Slider(value));
+//                 // else
+//                 // {
+//                 //     console.log(`UNKNOWN AXIS DEBUG: Axis: ${ i } Value: ${ value }`);
+//                 //     const lx = gp.axes[i]
+//                 //     if (Math.abs(lx) > DEADZONE)
+//                 //     {
+//                 //         const stickDirection = lx > 0 ? "pos" : "neg";
+//                 //         joystickPollId = setInput("unknown input: " + i + "_" + stickDirection);
+//                 //     }
+//                 // }
+
+
+//                 // left-right
+//                 if (i == joystickProfile.x)
+//                 {
+//                     const stickDirection = value > 0 ? "right" : "left";
+//                     joystickPollId = setInput(stickDirection);
+//                 }
+//                 // up-down
+//                 else if (i == joystickProfile.y)
+//                 {
+//                     const stickDirection = value > 0 ? "down" : "up";
+//                     joystickPollId = setInput(stickDirection);
+//                 }
+//                 // twist
+//                 else if (i === joystickProfile.twist)
+//                 {
+//                     const twistDir = value > 0 ? "+" : "-";
+//                     //twist dir doesn't seem to be needed for recording the bind, but keeping the val here in case I want it
+//                     joystickPollId = setInput("rotz");
+//                 }
+//                 // Hat switch
+//                 else if (i === joystickProfile.hat)
+//                 {
+//                     let direction = null;
+//                     if (value < -0.5) direction = "up";
+//                     else if (value > 0.5) direction = "left";  // example, adjust based on your logs
+//                     else if (value > 0) direction = "down";
+//                     else if (value < 0) direction = "right";
+
+//                     if (direction)
+//                     {
+//                         joystickPollId = setInput("hat" + (gp.index + 1) + "_" + direction);
+//                     }
+//                 }
+//                 //slider
+//                 else if (i === joystickProfile.slider)
+//                 {
+//                     const baseline = window._sliderBaseline[gp.index];
+//                     if (Math.abs(value - baseline) > DEADZONE)
+//                     {
+//                         const direction = value > baseline ? "down" : "up";
+//                         //direction of slide doesn't seem to be needed for recording the bind, but keeping the val here in case I want it
+//                         joystickPollId = setInput("slider" + (gp.index + 1));
+//                     }
+//                 }
+//                 else
+//                 {
+//                     console.log(`UNKNOWN AXIS DEBUG: Axis: ${ i } Value: ${ value }`);
+//                     const lx = gp.axes[i]
+//                     if (Math.abs(lx) > DEADZONE)
+//                     {
+//                         const stickDirection = lx > 0 ? "pos" : "neg";
+//                         joystickPollId = setInput("unknown input: " + i + "_" + stickDirection);
+//                     }
+//                 }
+//             }
+//         });
+
+//         // --- Buttons ---
+//         gp.buttons.forEach((button, i) =>
+//         {
+//             const prevPressed = prev.buttons[i] || false;
+//             if (button.pressed !== prevPressed)
+//             {
+//                 console.log(
+//                     `Device ${ gp.index }: Button ${ i } ${ button.pressed ? "pressed" : "released" }`
+//                 );
+//             }
+//             if (button.pressed)
+//             {
+//                 const joybtn = parseInt(i, 10) + 1;
+//                 joystickPollId = setInput(`${ joybtn }`);
+//             }
+
+//         });
+
+//         // --- Update previous state for next frame ---
+//         window._prevGamepadStates[gp.index].axes = [...gp.axes];
+//         window._prevGamepadStates[gp.index].buttons = gp.buttons.map(b => b.pressed);
+
+//         // --- Capture first meaningful input ---
+//         if (joystickPollId)
+//         {
+
+//             const heldMods = [];
+//             ['ctrl', 'shift', 'alt'].forEach(key =>
+//             {
+//                 if (modifiers[key].left) heldMods.push(`l${ key }`);
+//                 if (modifiers[key].right) heldMods.push(`r${ key }`);
+//             });
+//             const joystickInput = parseJoystickInputToStarCitizenBind(joystickPollId.input);
+//             const inputArr = heldMods.length > 0
+//                 ? heldMods.join('+') + '+' + joystickInput
+//                 : joystickInput;
+//             finalizeCapture_Joystick(inputArr, joystickPollId.device);
+//             return; // stop polling until next frame
+//         }
+//     }
+
+//     requestAnimationFrame(pollJoysticks);
+// }
 
 // Called once when you start listening for input
 function initializeJoystickBaselines()
@@ -3234,6 +3497,13 @@ function initializeJoystickBaselines()
         window._sliderBaseline[index] = gp.axes[6]; // store initial resting slider value
         // console.log(`Device ${ index }: slider baseline = ${ gp.axes[6].toFixed(2) }`);
     });
+
+    modifiers.ctrl.left = false;
+    modifiers.ctrl.right = false;
+    modifiers.shift.left = false;
+    modifiers.shift.right = false;
+    modifiers.alt.left = false;
+    modifiers.alt.right = false;
 }
 
 
@@ -3241,10 +3511,11 @@ function initializeJoystickBaselines()
 // Later, to stop polling:
 function stopPollingJoysticks()
 {
-    if (joystickPollId !== null)
+    joystickActive = false;
+    if (joystickPollHandle)
     {
-        cancelAnimationFrame(joystickPollId);
-        joystickPollId = null;
+        cancelAnimationFrame(joystickPollHandle);
+        joystickPollHandle = null;
     }
 }
 

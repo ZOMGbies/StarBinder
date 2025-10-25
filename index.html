@@ -50,15 +50,33 @@
           <div class="inputType-select">
             <button class="button button-inputSelect-keyboard" type="button">Mouse / Keyboard</button>
             <button class="button button-inputSelect-controller" type="button">Controller</button>
-            <div class="button-wrap">
-              <button class="button button-inputSelect-joystick" type="button">Joystick</button>
+            <button class="button button-inputSelect-joystick" type="button">Joystick</button>
+          </div>
+
+          <div class="helpText">
+            Double-click to rebind • Hold to clear •<br>CTRL-ALT-Click to set to default
+          </div>
+
+          <div class="joystick-dropdown-row" style=" grid-column: 1 / span 3; grid-row: 2;">
+            <span class="joystick-dropdown-label">Joystick Model:</span>
+            <div class="joystick-dropdown-button-wrapper">
+              <button class="joystick-dropdown-button" type="button">
+                <span class="button-text">Select Joystick Model</span> ▾
+              </button>
+              <div class="joystick-dropdown-menu" style="display: none;">
+                <!-- Options will be dynamically added here -->
+              </div>
             </div>
           </div>
-          <div class="helpText">Double-click to rebind • Hold to clear •<br>CTRL-ALT-Click to set to default</div>
+
+
         </div>
 
-        <div class="content-keybinds"></div>
+        <div class="content-keybinds-absolute-wrapper">
+          <div class="content-keybinds"></div>
+        </div>
       </div>
+
 
 
       <!-- Corners -->
@@ -143,19 +161,16 @@
 
   <section class="info-section collapsed">
     <div class="info-content collapsed">
-      <h2>About the Star Binder keybind tool</h2>
+      <h2>About the Star Binder keybind tool:</h2>
       <p>
         This is an unofficial Star Citizen utility that makes keybinds <i>searchable</i>, <i>filterable</i>, and
-        <i>customisable</i> in a way not possible before.<br><br>
+        <i>customisable</i> in a way not possible before. Unlike the in-game UI, <b>Star Binder</b> lets you combine
+        just about any key combination imaginable, plus you can choose between over fifteen activation modes instead of
+        just "double tap".<br><br>
 
-        Unlike the in-game UI, <b>Star Binder</b> lets you combine just about any key combination imaginable, plus
-        you
-        can choose between over fifteen activation modes instead of just "double tap".<br><br>
-
-        Export your binds to an XML file which can then be ported directly into Star Citizen using the in-game menu.
-        You can also import any (I think) Star Citizen-compatible keybind XML — at least certainly those created by
-        the
-        game or by Star Binder.
+        Star Binder lets you export to an XML file which can then be ported directly into Star Citizen using the in-game
+        menu.
+        You can also import a Star Citizen-compatible keybind XML.
       </p>
       <hr>
       <h3>Star Binder Features</h3>
