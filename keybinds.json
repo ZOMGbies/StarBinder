@@ -205,7 +205,8 @@
         "keywords": [
             "vehicle",
             "turrets"
-        ]
+        ],
+        "relative": true
     },
     "turret_pitch_mouse": {
         "label": "",
@@ -213,7 +214,8 @@
         "keywords": [
             "vehicle",
             "turrets"
-        ]
+        ],
+        "relative": true
     },
     "turret_yaw_left": {
         "label": "",
@@ -237,12 +239,14 @@
         "keywords": [
             "vehicle",
             "turrets"
-        ]
+        ],
+        "relative": true
     },
     "turret_yaw_mouse": {
         "label": "",
         "description": "Left/Right movement of your turret: relative up/down (use maxis_x (left right) or maxis_y (up/down)) I think maxis_z might be scroll wheel).  A non-relative control will probably break this action so it is not advised.",
-        "keywords": []
+        "keywords": [],
+        "relative": true
     },
     "turret_toggle_mouse_mode": {
         "label": "",
@@ -915,12 +919,14 @@
     "v_roll": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [],
+        "relative": true
     },
     "v_roll_mouse": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [],
+        "relative": true
     },
     "v_toggle_relative_mouse_mode": {
         "label": "Cycle vjoy/relative mouse mode",
@@ -947,7 +953,8 @@
     "v_strafe_vertical": {
         "label": "Strafe up/down (abs.)",
         "description": "",
-        "keywords": []
+        "keywords": [],
+        "relative": true
     },
     "v_strafe_left": {
         "label": "Strafe left (abs.)",
@@ -962,7 +969,8 @@
     "v_strafe_lateral": {
         "label": "Strafe left / right",
         "description": "",
-        "keywords": []
+        "keywords": [],
+        "relative": true
     },
     "v_strafe_forward": {
         "label": "Throttle - Increase",
@@ -977,7 +985,8 @@
     "v_strafe_longitudinal": {
         "label": "",
         "description": "Throttle Forward/Back",
-        "keywords": []
+        "keywords": [],
+        "relative": true
     },
     "v_strafe_longitudinal_invert": {
         "label": "Throttle - Forward/Back Invert",
@@ -1086,7 +1095,8 @@
     "v_ifcs_speed_limiter_rel": {
         "label": "Speed Limiter (rel.)",
         "description": "",
-        "keywords": []
+        "keywords": [],
+        "relative": true
     },
     "v_ifcs_speed_limiter_abs": {
         "label": "Speed Limiter (abs.)",
@@ -1131,7 +1141,8 @@
     "v_accel_range_rel": {
         "label": "Acceleration Limiter (rel.)",
         "description": "",
-        "keywords": []
+        "keywords": [],
+        "relative": true
     },
     "v_accel_range_abs": {
         "label": "Acceleration Limiter (abs.)",
@@ -2449,22 +2460,26 @@
     "gp_movex": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [],
+        "relative": true
     },
     "gp_movey": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [],
+        "relative": true
     },
     "gp_rotateyaw": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [],
+        "relative": true
     },
     "gp_rotatepitch": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [],
+        "relative": true
     },
     "jump": {
         "label": "",

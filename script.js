@@ -137,6 +137,10 @@ function getActionKeywords(key)
 {
     return actionMapDictionary[key]?.keywords ?? [];
 }
+function getActionIsRelative(key)
+{
+    return actionMapDictionary[key]?.relative ?? false;
+}
 
 function autoFormatMapName(keybindString)
 {
@@ -488,7 +492,8 @@ class MappedAction
         UICategory,         // "@ui_CCFPS"
         label,            // "@ui_CGINTERACTION"
         description,       // "@ui_CIStrafeUpDesc"
-        version
+        version,
+        optionGroup
     })
     {
         Object.assign(this, arguments[0]);
@@ -498,16 +503,18 @@ class MappedAction
         if (this.mapName) getOrCreateActionKeywords(this.actionName).push(this.mapName);
         if (this.category) getOrCreateActionKeywords(this.actionName).push(this.category);
         if (this.UICategory) getOrCreateActionKeywords(this.actionName).push(this.UICategory);
-        else if (this.label?.startsWith("@ui_CIMFD"))
-        {
-            getOrCreateActionKeywords(this.actionName).push("MFDs");
-        }
-        else
-        {
-            getOrCreateActionKeywords(this.actionName).push("none");
-        }
 
         const keywords = new Set(resolveKeywords(getActionKeywords(this.actionName), "Action: " + this.actionName));
+
+        // const isRelativeAction = getActionIsRelative(this.actionName)
+        if (this.isRelative)
+        {
+            console.log(actionName);
+        }
+        if (this.optionGroup != null)
+        {
+            console.log(optionGroup.getAttribute);
+        }
 
         keywords.forEach(k => this.keywordTags.push(k));
 
@@ -840,6 +847,7 @@ async function loadAndParseDataminedXML()
     const seenActionNames = new Set();
     const excludedCategories = ["debug"];
 
+
     xmlDoc.querySelectorAll("actionmap").forEach(map =>
     {
         const mapName = map.getAttribute("name");
@@ -855,6 +863,24 @@ async function loadAndParseDataminedXML()
             const label = action.getAttribute("UILabel");
             const description = action.getAttribute("UIDescription");
             const category = action.getAttribute("Category");
+
+            const optionGroupName = action.getAttribute("optionGroup");
+            let reltiveOptionGroup = false;
+            if (optionGroupName)
+            {
+                const optionGroupNode = findOptionGroupByName(xmlDoc, optionGroupName);
+                if (optionGroupNode)
+                {
+                    const showCurve = getInheritedAttribute(optionGroupNode, "UIShowCurve");
+                    const showInvert = getInheritedAttribute(optionGroupNode, "UIShowInvert");
+
+                    if (showCurve === "1" && showInvert === "1")
+                    {
+                        reltiveOptionGroup = true;
+                    }
+                }
+            }
+
 
             // Skip if no actionName, duplicate, no UICategory, starts with 'flashui',
             // or none of label/description/category exist
@@ -882,6 +908,7 @@ async function loadAndParseDataminedXML()
                 label,
                 description,
                 UICategory,
+                isRelative: reltiveOptionGroup || null
             });
             mappedActions.push(actionObj);
 
@@ -905,6 +932,28 @@ async function loadAndParseDataminedXML()
     });
     return mappedActions;
 }
+
+
+function findOptionGroupByName(xmlDoc, name)
+{
+    return xmlDoc.querySelector(`optiongroup[name="${ name }"]`);
+}
+
+function getInheritedAttribute(node, attrName)
+{
+    while (node)
+    {
+        if (node.nodeType === 1 && node.hasAttribute(attrName))
+        {
+            const val = node.getAttribute(attrName);
+            if (val !== null && val !== "-1") return val;
+        }
+        node = node.parentElement;
+    }
+    return null;
+}
+
+
 /*
 ==========================================
  KEYBIND ACTIVATION MODE REFERENCE
@@ -3206,6 +3255,15 @@ function pollJoysticks()
                     case joystickProfile.z:
                         joystickPollId = setInput(HandleJoystickAxis_Z(value));
                         break;
+                    case joystickProfile.Rx:
+                        joystickPollId = setInput(HandleJoystickAxis_Rx(value));
+                        break;
+                    case joystickProfile.Ry:
+                        joystickPollId = setInput(HandleJoystickAxis_Ry(value));
+                        break;
+                    case joystickProfile.Rz:
+                        joystickPollId = setInput(HandleJoystickAxis_Rz(value));
+                        break;
                     case joystickProfile.hat:
                         joystickPollId = setInput(HandleJoystickAxis_Hat(value, (gp.index + 1)));
                         break;
@@ -3218,10 +3276,10 @@ function pollJoysticks()
                     default:
                         {
                             console.log(`AXIS DEBUG: Axis: ${ i } Value: ${ value }`);
-                            const lx = gp.axes[i]
-                            if (Math.abs(lx) > JOYSTICKDEADZONE)
+                            const ax = gp.axes[i]
+                            if (Math.abs(ax) > JOYSTICKDEADZONE)
                             {
-                                const stickDirection = lx > 0 ? "positive" : "negative";
+                                const stickDirection = ax > 0 ? "positive" : "negative";
                                 joystickPollId = setInput("Input Axis Number: " + i + " | Direction of Axes: " + stickDirection);
                             }
                         }
@@ -3274,19 +3332,27 @@ function pollJoysticks()
 
 function HandleJoystickAxis_X(value)
 {
-    const stickDirection = value > 0 ? "right" : "left";
-    return stickDirection;
+    return "x"
 }
 function HandleJoystickAxis_Y(value)
 {
-    const stickDirection = value > 0 ? "down" : "up";
-    return stickDirection;
+    return "y"
 }
 function HandleJoystickAxis_Z(value)
 {
-    // const twistDir = value > 0 ? "+" : "-";
-    //twist dir doesn't seem to be needed for recording the bind, but keeping the val here in case I want it
-    return "rotz";
+    return "z"
+}
+function HandleJoystickAxis_Rx(value)
+{
+    return "rotx"
+}
+function HandleJoystickAxis_Ry(value)
+{
+    return "roty"
+}
+function HandleJoystickAxis_Rz(value)
+{
+    return "rotz"
 }
 function HandleJoystickAxis_Hat(value, deviceIndex = 1)
 {
@@ -3655,3 +3721,31 @@ async function loadAndMergeMappedActions()
 
     return actionMapsMasterList;
 }
+
+
+// hidFunc()
+// async function hidFunc()
+// {
+//     if (!("hid" in navigator))
+//     {
+//         console.error("WebHID not supported in this browser. Try Chrome or Edge.");
+//         return;
+//     }
+
+//     // Prompt user to pick a HID device
+//     const devices = await navigator.hid.requestDevice({ filters: [] });
+//     if (devices.length === 0)
+//     {
+//         console.warn("No device selected.");
+//         return;
+//     }
+
+//     const device = devices[0];
+//     console.log("Selected device:", device.productName, device.vendorId.toString(16), device.productId.toString(16));
+
+//     // Open the HID connection
+//     await device.open();
+
+//     console.log("Collections:", device.collections);
+// }
+

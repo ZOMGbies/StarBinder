@@ -91,7 +91,7 @@ CONTENT
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: calc(100% - var(--border-thickness) - 6.8rem);
+    height: calc(100% - var(--border-thickness) - 4.9rem);
     box-sizing: border-box;
 }
 
@@ -108,7 +108,7 @@ CONTENT
 .content-keybinds-border {
     position: relative;
     width: min(max(var(--minDocWidth), 100%), var(--maxDocWidth) + 2*var(--border-thickness));
-    height: 840px;
+    height: 1040px;
     max-height: calc(100vh - 2rem);
     min-height: 846px;
 
@@ -240,7 +240,7 @@ CONTENT
 
 /* Left column */
 .side.left-middle {
-    top: calc(var(--border-thickness) * 2);
+    top: calc(97px + var(--border-thickness) * 2);
     bottom: calc(var(--border-thickness) * 2);
     left: 0;
     width: var(--border-thickness);
@@ -255,7 +255,8 @@ CONTENT
     width: var(--border-thickness);
     height: var(--border-thickness);
     background-image: url('./assets/ContainerBorder/leftSquish2.webp');
-    background-size: 100% 100%;
+    background-size: 100% auto;
+    height: 162px;
 }
 
 .side.left-down {
@@ -264,12 +265,13 @@ CONTENT
     width: var(--border-thickness);
     height: var(--border-thickness);
     background-image: url('./assets/ContainerBorder/leftSquish.webp');
-    background-size: 100% 100%;
+    background-size: 100% auto;
+    height: 162px;
 }
 
 /* Right column */
 .side.right-middle {
-    top: calc(var(--border-thickness) * 2);
+    top: calc(97px + var(--border-thickness) * 2);
     bottom: calc(var(--border-thickness) * 2);
     right: 0;
     width: var(--border-thickness);
@@ -285,7 +287,8 @@ CONTENT
     width: var(--border-thickness);
     height: var(--border-thickness);
     background-image: url('./assets/ContainerBorder/leftSquish2.webp');
-    background-size: 100% 100%;
+    background-size: 100% auto;
+    height: 162px;
     transform: scaleX(-1);
 }
 
@@ -295,7 +298,8 @@ CONTENT
     width: var(--border-thickness);
     height: var(--border-thickness);
     background-image: url('./assets/ContainerBorder/leftSquish.webp');
-    background-size: 100% 100%;
+    background-size: 100% auto;
+    height: 162px;
     transform: scaleX(-1);
 }
 
@@ -1942,28 +1946,28 @@ code {
 /* ──────────────── */
 @font-face {
     font-family: 'Gobold';
-    src: url('./assets/fonts/Gobold Regular.ttf') format('truetype');
+    src: url('./assets/fonts/Gobold Regular.otf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Gobold';
-    src: url('./assets/fonts/Gobold Italic.ttf') format('truetype');
+    src: url('./assets/fonts/Gobold Italic.otf') format('truetype');
     font-weight: 400;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Gobold';
-    src: url('./assets/fonts/Gobold Bold.ttf') format('truetype');
+    src: url('./assets/fonts/Gobold Bold.otf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Gobold';
-    src: url('./assets/fonts/Gobold Bold Italic.ttf') format('truetype');
+    src: url('./assets/fonts/Gobold Bold Italic.otf') format('truetype');
     font-weight: 700;
     font-style: italic;
 }
@@ -1976,4 +1980,11 @@ code {
     src: url('./assets/fonts/Kiona-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
+}
+
+@font-face {
+    font-family: 'Kiona';
+    src: url('./assets/fonts/Kiona-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
 }
