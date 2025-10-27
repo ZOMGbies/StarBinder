@@ -3230,19 +3230,19 @@ function pollJoysticks()
             };
         }
 
-        if (!window._sliderBaseline[gp.index]) window._sliderBaseline[gp.index] = gp.axes[6]; // slider resting value
+        if (!window._sliderBaseline[gp.index])
+            window._sliderBaseline[gp.index] = gp.axes[6]; // slider resting value
 
         const prev = window._prevGamepadStates[gp.index];
+
         // --- Axes: sticks, twist, hat, sliders ---
         gp.axes.forEach((value, i) =>
         {
             const prevVal = prev.axes[i] || 0;
             if (Math.abs(value - prevVal) > JOYSTICKDEADZONE)
             {
-                // Debug
                 console.log(`Device ${ gp.index }: Axis ${ i } = ${ value.toFixed(2) }`);
                 const axesIndex = joystickProfile == "debug" ? -1 : i;
-                // ====
 
                 switch (axesIndex)
                 {
@@ -3265,41 +3265,42 @@ function pollJoysticks()
                         joystickPollId = setInput(HandleJoystickAxis_Rz(value));
                         break;
                     case joystickProfile.hat:
-                        joystickPollId = setInput(HandleJoystickAxis_Hat(value, (gp.index + 1)));
+                        joystickPollId = setInput(HandleJoystickAxis_Hat(value, gp.index + 1));
                         break;
                     case joystickProfile.slider:
-                        joystickPollId = setInput(HandleJoystickAxis_Slider(value, (gp.index + 1)));
+                        joystickPollId = setInput(HandleJoystickAxis_Slider(value, gp.index + 1));
                         break;
                     case joystickProfile.wheel:
-                        joystickPollId = setInput(HandleJoystickAxis_Wheel(value, (gp.index + 1)));
+                        joystickPollId = setInput(HandleJoystickAxis_Wheel(value, gp.index + 1));
                         break;
                     default:
+                        const ax = gp.axes[i];
+                        if (Math.abs(ax) > JOYSTICKDEADZONE)
                         {
-                            console.log(`AXIS DEBUG: Axis: ${ i } Value: ${ value }`);
-                            const ax = gp.axes[i]
-                            if (Math.abs(ax) > JOYSTICKDEADZONE)
-                            {
-                                const stickDirection = ax > 0 ? "positive" : "negative";
-                                joystickPollId = setInput("Input Axis Number: " + i + " | Direction of Axes: " + stickDirection);
-                            }
+                            const stickDirection = ax > 0 ? "positive" : "negative";
+                            joystickPollId = setInput(`Input Axis Number: ${ i } | Direction of Axes: ${ stickDirection }`);
                         }
                         break;
                 }
             }
         });
 
-        // --- Buttons ---
+        // --- Buttons: capture on release instead of press ---
         gp.buttons.forEach((button, i) =>
         {
             const prevPressed = prev.buttons[i] || false;
-            if (button.pressed !== prevPressed) console.log(`Device ${ gp.index }: Button ${ i } ${ button.pressed ? "pressed" : "released" }`);
+            const nowPressed = button.pressed;
 
-            if (button.pressed)
+            // Log button state change
+            if (nowPressed !== prevPressed)
+                console.log(`Device ${ gp.index }: Button ${ i } ${ nowPressed ? "pressed" : "released" }`);
+
+            // ✅ Capture only when button is released
+            if (!nowPressed && prevPressed)
             {
                 const joybtn = parseInt(i, 10) + 1;
                 joystickPollId = setInput(`${ joybtn }`);
             }
-
         });
 
         // --- Update previous state for next frame ---
@@ -3309,26 +3310,28 @@ function pollJoysticks()
         // --- Capture first meaningful input ---
         if (joystickPollId)
         {
-
             const heldMods = [];
             ['ctrl', 'shift', 'alt'].forEach(key =>
             {
                 if (modifiers[key].left) heldMods.push(`l${ key }`);
                 if (modifiers[key].right) heldMods.push(`r${ key }`);
             });
+
             const joystickInput = parseJoystickInputToStarCitizenBind(joystickPollId.input);
             const inputArr = heldMods.length > 0
                 ? heldMods.join('+') + '+' + joystickInput
                 : joystickInput;
+
             finalizeCapture_Joystick(inputArr, joystickPollId.device);
             return; // stop polling until next frame
         }
-
     }
-    // Only continue polling if not stopped
+
+    // Continue polling
     if (joystickActive)
         joystickPollHandle = requestAnimationFrame(pollJoysticks);
 }
+
 
 function HandleJoystickAxis_X(value)
 {
