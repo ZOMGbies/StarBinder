@@ -969,10 +969,10 @@ KEY STYLES
 }
 
 .key--device {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: var(--accent);
     font-family: 'Consolas', monospace;
-    border: 1px solid var(--accent);
+    border: 1px solid var(--accent2);
     border-radius: 1rem;
     padding: 0.25rem 0.5rem;
 
@@ -1729,7 +1729,9 @@ code {
 
 /* ////////// */
 
-
+.bullet-list li {
+    margin-bottom: 0.8em;
+}
 
 /* ////////// */
 

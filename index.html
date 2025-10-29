@@ -23,6 +23,7 @@
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
   <script defer src="./script.js"></script>
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="icon" type="image/png" href=".assets/favicon-256x256.png">
 
 </head>
 
@@ -165,8 +166,8 @@
       <p>
         This is an unofficial Star Citizen utility that makes keybinds <i>searchable</i>, <i>filterable</i>, and
         <i>customisable</i> in a way not possible before. Unlike the in-game UI, <b>Star Binder</b> lets you combine
-        just about any key combination imaginable, plus you can choose between over fifteen activation modes instead of
-        just "double tap".<br><br>
+        just about any key combination imaginable, plus you can choose between a bunch of activation modes, not just
+        "double tap".<br><br>
 
         Star Binder lets you export to an XML file which can then be ported directly into Star Citizen using the in-game
         menu.
@@ -174,58 +175,38 @@
       </p>
       <hr>
       <h3>Star Binder Features</h3>
-      <ul>
-        <li><b>Search</b>: Use the search to filter matching actions based on keywords, the action name, and the
+      <ul class="bullet-list">
+        <li><b>Search & Filter</b>: Use the search or filter matching actions based on keywords, the action name, and
+          the
           categories it
-          appears in. Clear the text and search again to show all keybinds again.</li><br>
-        <li><b>Filter</b>: Click the filters above to filter by that category. Each action also has a set of tags
-          in the description box in the footer; these can <i>also</i> be clicked on to filter. Additionally, you can
-          use
-          the
-          filter
-          toggles to show ONLY actions bound to the same key combination as another action, or ONLY actions that
-          have a
-          key/button
-          assigned, or ONLY empty actions. </li><br>
+          appears in. Clear the text and search again to show all keybinds again.</li>
         <li><b>Advanced bind info</b>: The footer will have further information about the keybind when available -
-          such
-          as a description of how it works or what it's for. This may not always be reliable as the game changes,
-          but
-          currently there's nothing of the sort in-game. Maybe one day this can be sourced from some kind of SC
-          Wiki?
-        </li><br>
-        <li><b>Bind</b>: Double-click any action to record a new input. Hold a selected action with left-click to
-          clear
-          it.</li><br>
-        <li><b>Custom Bind</b>: Construct a bespoke bind string as you see fit e.g.
-          '<code>lctrl + g + h + j</code>'.
-          This is recommended more for "advanced users". A quick reference guide replaces the keybind description at
-          the
-          bottom when you're entering a custom bind; this may prove useful.</li><br>
-        <li><b>Activation Modes</b>: Choose from a range of modes, not just double tap - if in doubt, stick with the
-          default. A short description of how they work appears when you hover on the chosen mode's icon.</li><br>
-        <li><b>Clear</b>: This will clear the keybinds for the selected input only (i.e. if you're viewing
-          joystick keybinds, the controller and keyboard binds will stay).</li><br>
-        <li><b>Import</b>: Any XML that SC or Star Binder has generated can be imported into this utility
-          and edited for later export. In theory, any keybind XML that SC can read/import, this can too.</li><br>
-        <li><b>Export</b>: Convert your keybinds into a Star Citizen-compatible XML file. Be sure to move this to
-          the
-          correct folder and see the guide on importing keybinds if needed.<br>
-          (default:
-          <code>C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\user\client\0\controls\mappings</code>)
+          such as a description of how the action works or what it's for. This may not always be reliable as the game
+          changes.
         </li>
-        <br>
+        <li><b>Bind</b>: Double-click any action to record a new input. Hold a selected action with left-click to
+          clear it. Holding CTRL+ALT and clicking a bind will set it to the in-game default, where such exists.</li>
+        <li><b>Custom Bind</b>: Construct a bespoke bind string as you see fit e.g.
+          '<code>lctrl + g + h + j</code>'. This is recommended more for
+          advanced users.</li>
+        <li><b>Activation Modes</b>: Choose from a range of modes, not just double tap - if in doubt, stick with the
+          default.</li>
+        <li><b>Import</b>: Any XML that SC or Star Binder has generated can be imported into this utility
+          and edited for later export. In theory, any keybind XML that SC can read/import, this can too.</li>
+        <li><b>Export</b>: Convert your keybinds into a Star Citizen-compatible XML file. Be sure to move this to
+          the correct folder and see the guide on importing keybinds if needed.
+          <br><span style="font-size: 0.8em;">
+            Default 'mappings' directory:
+            <code>C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\user\client\0\controls\mappings</code>.
+          </span>
+        </li>
       </ul>
-
       <hr>
+      <p><strong>How do I use these keybinds into Star Citizen?</strong><br>
+        When you're ready, click '<b>export</b>' and choose a file name. This will download the keybind file to your
+        computer; move that file
+        to your SC mappings folder. Then use the in-game options to import the keybind file.<br>
 
-      <p><strong>How do I import these keybinds into Star Citizen?</strong><br>
-        When you're ready, click '<b>export</b>'. This will download an SC-compatible XML file to your browser's
-        downloads folder.
-        Simply move that file to your SC mappings folder (default:
-        <code>C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\user\client\0\controls\mappings</code>).
-        Then
-        all you need to do is use the in-game options to import the keybinds.
       </p>
       <p><strong>How do I import keybinds using the in-game menu?</strong><br>
         CIG have published a guide on this <a
@@ -233,22 +214,14 @@
         There is also a console command: <code>pp_RebindKeys [filename]</code>.
       </p>
       <p><strong>Will my existing keybinds be overwritten?</strong><br>
-        The game's import system is additive, meaning that only what you're modifying is changed.<br>
-        For example, if you only bind MFD actions using Star Binder, all other keybinds will be unaffected.<br>
-
-        It is always recommended to back up your binds using the in-game menu first, so if something does go
-        wrong you can revert (reset all to default <i>then</i> re-import your backup).
+        Potentially. My understanding is that the imported keybinds will replace any non-default keybinds. Therefore it
+        is a good idea to export your keybinds from SC, import them here, <i>then</i> modify them in Star Binder - this
+        way your exported keybinds will include everything.
       </p>
-      <p><strong>Windows has swapped which joystick is registered as primary/secondary, what can I do?</strong><br>
-        <a
-          href="https://support.robertsspaceindustries.com/hc/en-us/articles/360000183328-Create-export-and-import-custom-profiles#h_99136285991520890245046">As
-          CIG explains</a>, you can use the console command <code>pp_resortdevices joystick 1 2</code> to swap
-        sticks 1
-        &
-        2 around.<br>
-        Additionally, in Star Binder, if you want to bind directly to a specific device, edit the prefix in the
-        manual
-        bind string.<br>
+      <p><strong>The primnary joystick is recording in Star Binder as the secondary and vice versa, what can I
+          do?</strong><br>
+        If you want to bind directly to a specific device, you can edit the prefix in the manual bind
+        string. Functionality is coming to tell Star Binder which device is which.<br>
         e.g. <code>2:lctrl+button1</code> will bind to the 2nd device. <code>99:lctrl+button1</code> will bind it to
         the 99th device.
       </p>
@@ -256,47 +229,36 @@
       <hr>
 
       <h3>Known Issues and limitations</h3>
-      <ul>
-        <li><b>Your browser choice matters</b> -- Mouse4 and Mouse5 input cannot be captured/recorded if you are using
+      <ul class="bullet-list">
+        <li>Browser choice matters -- 'Mouse4' and 'Mouse5' input cannot be captured/recorded if you are using
           Firefox. This sucks and I did my best to find a workaround. There is a stagnant bug report with Mozilla from
-          a
-          few years ago about it and that's it. Therefore, Chrome and/or Edge are technically recommended for best
-          compatibility.</li><br>
+          a few years ago about it and that's it. Chrome and/or Edge are recommended for best
+          compatibility.</li>
 
-        <li>Recording some inputs will inevitably also perform actions in your browser. Such as Mouse4 and Mouse5
-          (navigate foreward/back). Where possible this has been prevented, but some can still happen. If necessary,
-          use
-          the manual input.</li><br>
+        <li>Recording some inputs will inevitably also perform actions in your browser. Such as 'Mouse4' and 'Mouse5'
+          (navigate forward/back). Where possible this has been prevented, but some are unavoidable. If necessary,
+          use the manual input.</li>
 
-        <li>It is possible that general settings may override the activation mode (e.g. the 'smart toggle' option for
-          decoupled mode is there and not in the keybinds menu).</li><br>
+        <li>Certain activation modes may be incompatible with some actions. Use 'default' if unsure.</li>
 
-        <li>Certain activation modes may be incompatible with some actions. Use 'default' if unsure.</li><br>
         <li>The 'custom bind' input field allows users to make literally any bind string without guard rails other
-          than
-          a generous character limit. You could set "Eject" to "The Cake is a lie 🍰" and it won't stop or correct you
-          -
-          user beware.</li><br>
-        <li>As of now, it is not known if there are any missing bindable actions. If/when a feedback system is setup
-          perhaps this can be verified by users over time.</li><br>
-        <li><b>Filtering by category</b> may not show all binds for that category. Star Binder uses a mix of
-          auto-parsing CIG's spaghetti keybind data, and manual/bespoke cataloguing. Almost entirely the former as of
-          now.</li><br>
-        <li>You may find you can record bindings, and even see them in the keybind UI in-game - but that isn't a
-          guarantee they will work. e.g. I couldn't get 'F23' or 'contextmenu' to work.</li><br>
+          than character limit. You could set "Eject" to "The Cake is a lie 🍰" and it won't stop or correct you
+          - use as you wish.</li>
 
-        <li>Using irregular key combos (e.g. Eject = "A+B+C") might only work if the 'Activation Mode' is a 'hold'
-          type
-          - TBC/needs testing.</li><br>
+        <li>You may find you can record inputs and even see them in the in-game keybind UI - whether they work depends
+          on whether Star Citizen supports it. e.g. 'F23' or 'contextmenu' do not currently work.</li>
 
         <li><b>Controller Support:</b> PlayStation controllers <i>should</i> work but will show the XBOX buttons
-          (A/B/X/Y); XBOX gamepads (and derivatives like Logitech ones) should work normally.</li><br>
+          (A/B/X/Y); XBOX gamepads (and derivatives like Logitech ones) should work normally.</li>
 
         <li><b>Joystick Support:</b> I currently only have access to the Thrustmaster T.16000M for testing. Therefore
           other models may be unable to record certain binds. This can be overcome by recording the input in SC,
           exporting it, and reading how it's phrased in the XML file (e.g. trigger is 'button1') -- then you can use
           that same term in the custom keybind field.</li>
-        <br>
+
+        <li><b>Device detection:</b> Which joystick is in slot 1 or 2 is determined superficially and may not align with
+          Windows' determination; functionality to address this is coming.</li>
+
       </ul>
     </div>
   </section>

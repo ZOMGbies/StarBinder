@@ -137,10 +137,7 @@ function getActionKeywords(key)
 {
     return actionMapDictionary[key]?.keywords ?? [];
 }
-function getActionIsRelative(key)
-{
-    return actionMapDictionary[key]?.relative ?? false;
-}
+
 
 function autoFormatMapName(keybindString)
 {
@@ -505,16 +502,6 @@ class MappedAction
         if (this.UICategory) getOrCreateActionKeywords(this.actionName).push(this.UICategory);
 
         const keywords = new Set(resolveKeywords(getActionKeywords(this.actionName), "Action: " + this.actionName));
-
-        // const isRelativeAction = getActionIsRelative(this.actionName)
-        if (this.isRelative)
-        {
-            console.log(actionName);
-        }
-        if (this.optionGroup != null)
-        {
-            console.log(optionGroup.getAttribute);
-        }
 
         keywords.forEach(k => this.keywordTags.push(k));
 
