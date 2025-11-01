@@ -137,6 +137,10 @@ function getActionKeywords(key)
 {
     return actionMapDictionary[key]?.keywords ?? [];
 }
+function getActionIsRelative(key)
+{
+    return actionMapDictionary[key]?.relative ?? [];
+}
 
 
 function autoFormatMapName(keybindString)
@@ -193,6 +197,7 @@ const btnSelectInput_Keyboard = document.querySelector('.button-inputSelect-keyb
 const btnSelectInput_Controller = document.querySelector('.button-inputSelect-controller');
 const btnSelectInput_Joystick = document.querySelector('.button-inputSelect-joystick');
 const btnSelectInput_JoystickModelSelect = document.querySelector('.button-inputSelect-joystickModelSelect');
+const joystickDropdownRow = document.querySelector('.joystick-dropdown-row');
 
 const footer = document.querySelector('.footer');
 const keybindDescriptionDiv = document.querySelector('.footer__keybind-info');
@@ -501,7 +506,12 @@ class MappedAction
         if (this.category) getOrCreateActionKeywords(this.actionName).push(this.category);
         if (this.UICategory) getOrCreateActionKeywords(this.actionName).push(this.UICategory);
 
+
         const keywords = new Set(resolveKeywords(getActionKeywords(this.actionName), "Action: " + this.actionName));
+
+        //fallback for when the source XML doesn't explicitly give action as relative
+        //Covers relative and absolute (absolute is for sliders etc)
+        this.isRelative = getActionIsRelative(this.actionName)
 
         keywords.forEach(k => this.keywordTags.push(k));
 
@@ -775,7 +785,6 @@ async function init()
     btnSelectInput_Keyboard.click()
     ClearKeybindDescription();
     loadMappedActions();
-
 }
 
 //#endregion
@@ -803,6 +812,22 @@ function setInputMode(mode)
             btn.classList.remove('selected');
         }
     });
+
+    if (InputState.current === InputModeSelection.JOYSTICK)
+    {
+        if (joystickDropdownRow.classList.contains("collapsed"))
+        {
+            joystickDropdownRow.classList.remove("collapsed");
+        }
+    }
+    else
+    {
+        //hide dropdown
+        if (!joystickDropdownRow.classList.contains("collapsed"))
+        {
+            joystickDropdownRow.classList.add("collapsed");
+        }
+    }
 }
 
 

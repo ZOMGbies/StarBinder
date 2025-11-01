@@ -3,6 +3,7 @@
         "label": "Emergency Exit",
         "description": "Powers off the ship (including shields) and makes the user get out of their chair at a normal speed (???)",
         "keywords": [
+            "seats",
             "vehicle"
         ]
     },
@@ -10,6 +11,7 @@
         "label": "Eject",
         "description": "Emergency eject from your ship's seat, assuming the ship has this feature.",
         "keywords": [
+            "seats",
             "vehicle"
         ]
     },
@@ -17,6 +19,7 @@
         "label": "View: Look behind",
         "description": "Rear view camera for your vehicle",
         "keywords": [
+            "seats",
             "vehicle",
             "camera"
         ]
@@ -25,6 +28,7 @@
         "label": "Mining Mode Toggle",
         "description": "Toggle mining mode in your vehicle.",
         "keywords": [
+            "operator modes",
             "vehicle",
             "mining"
         ]
@@ -33,6 +37,7 @@
         "label": "Salvage Mode Toggle",
         "description": "Toggle salvage mode in your vehicle.",
         "keywords": [
+            "operator modes",
             "vehicle",
             "salvage"
         ]
@@ -41,6 +46,7 @@
         "label": "Scan Mode Toggle",
         "description": "Toggle scan mode in your vehicle.",
         "keywords": [
+            "operator modes",
             "vehicle"
         ]
     },
@@ -48,6 +54,7 @@
         "label": "Quantum Mode Toggle",
         "description": "Toggle Nav/Quantum mode",
         "keywords": [
+            "operator modes",
             "vehicle"
         ]
     },
@@ -55,6 +62,7 @@
         "label": "Missile Mode Toggle",
         "description": "Toggle missile mode in your vehicle",
         "keywords": [
+            "operator modes",
             "vehicle",
             "weapons"
         ]
@@ -63,6 +71,7 @@
         "label": "Guns Mode Toggle",
         "description": "Toggle guns mode in your vehicle",
         "keywords": [
+            "operator modes",
             "vehicle",
             "weapons"
         ]
@@ -71,6 +80,7 @@
         "label": "Flight Mode Toggle",
         "description": "Toggle flight mode in your vehicle",
         "keywords": [
+            "operator modes",
             "vehicle"
         ]
     },
@@ -78,6 +88,7 @@
         "label": "Mining Mode On",
         "description": "Set your ship to mining mode",
         "keywords": [
+            "operator modes",
             "vehicle",
             "mining"
         ]
@@ -86,6 +97,7 @@
         "label": "Salvage Mode On",
         "description": "Set your ship to salvage mode",
         "keywords": [
+            "operator modes",
             "vehicle",
             "salvage"
         ]
@@ -94,6 +106,7 @@
         "label": "Scan Mode On",
         "description": "Set your ship to scan mode",
         "keywords": [
+            "operator modes",
             "vehicle"
         ]
     },
@@ -101,6 +114,7 @@
         "label": "Quantum Mode On",
         "description": "Set your ship to quantum/nav mode",
         "keywords": [
+            "operator modes",
             "vehicle"
         ]
     },
@@ -108,6 +122,7 @@
         "label": "Missile Mode On",
         "description": "Set your ship to missile mode",
         "keywords": [
+            "operator modes",
             "vehicle",
             "weapons"
         ]
@@ -116,6 +131,7 @@
         "label": "Guns Mode On",
         "description": "Set your ship to guns mode",
         "keywords": [
+            "operator modes",
             "vehicle",
             "weapons"
         ]
@@ -124,6 +140,7 @@
         "label": "Flight Mode On",
         "description": "Set your ship to flight mode",
         "keywords": [
+            "operator modes",
             "vehicle"
         ]
     },
@@ -131,6 +148,7 @@
         "label": "Enter Remote Turret (1)",
         "description": "While operating an appropriate station/seat, take control of the ship's first remote turret without needing to cycle through them.",
         "keywords": [
+            "seats",
             "vehicle",
             "turrets"
         ]
@@ -139,6 +157,7 @@
         "label": "Enter Remote Turret (2)",
         "description": "While operating an appropriate station/seat, take control of the ship's second remote turret without needing to cycle through them.",
         "keywords": [
+            "seats",
             "vehicle",
             "turrets"
         ]
@@ -147,6 +166,7 @@
         "label": "Enter Remote Turret (3)",
         "description": "While operating an appropriate station/seat, take control of the ship's third remote turret without needing to cycle through them.",
         "keywords": [
+            "seats",
             "vehicle",
             "turrets"
         ]
@@ -176,7 +196,7 @@
         ]
     },
     "turret_gyromode": {
-        "label": "Toggle Turret Gyromode",
+        "label": "Turret - Gyromode Toggle",
         "description": "Toggle whether the turret aim is independent or affect by the roll/pitch/yaw of the ship itself.",
         "keywords": [
             "vehicle",
@@ -184,190 +204,192 @@
         ]
     },
     "turret_pitch_up": {
-        "label": "",
-        "description": "absolute up",
+        "label": "Turret - Pitch Up",
+        "description": "",
         "keywords": [
             "vehicle",
             "turrets"
         ]
     },
     "turret_pitch_down": {
-        "label": "",
-        "description": "absolute down",
+        "label": "Turret - Pitch Down",
+        "description": "",
         "keywords": [
             "vehicle",
             "turrets"
         ]
     },
     "turret_pitch": {
-        "label": "",
-        "description": "relative up/down",
+        "label": "Turret - Pitch",
+        "description": "",
         "keywords": [
             "vehicle",
             "turrets"
         ]
     },
     "turret_pitch_mouse": {
-        "label": "",
-        "description": "Up/Down movement of your turret: relative up/down (use maxis_x (left right) or maxis_y (up/down)) I think maxis_z might be scroll wheel).  A non-relative control will probably break this action so it is not advised.",
+        "label": "Turret - Pitch",
+        "description": "Up/Down movement of your turret",
         "keywords": [
             "vehicle",
             "turrets"
         ]
     },
     "turret_yaw_left": {
-        "label": "",
-        "description": "absolute left",
+        "label": "Turret - Yaw Left",
+        "description": "",
         "keywords": [
             "vehicle",
             "turrets"
         ]
     },
     "turret_yaw_right": {
-        "label": "",
-        "description": "absolute right",
+        "label": "Turret - Yaw Right",
+        "description": "",
         "keywords": [
             "vehicle",
             "turrets"
         ]
     },
     "turret_yaw": {
-        "label": "",
-        "description": "Left/Right movement of your ship - relative left/right, so it's not recommended to bind this to an absolute input like a button.",
+        "label": "Turret - Yaw",
+        "description": "",
         "keywords": [
             "vehicle",
             "turrets"
         ]
     },
     "turret_yaw_mouse": {
-        "label": "",
-        "description": "Left/Right movement of your turret: relative up/down (use maxis_x (left right) or maxis_y (up/down)) I think maxis_z might be scroll wheel).  A non-relative control will probably break this action so it is not advised.",
+        "label": "Turret - Yaw",
+        "description": "",
         "keywords": []
     },
     "turret_toggle_mouse_mode": {
-        "label": "",
-        "description": "",
+        "label": "Turret - Mouse Movement - Toggle",
+        "description": "Switch between 'vjoy' mouse aim and an FPS style aim.",
         "keywords": [
             "vehicle",
             "turrets"
         ]
     },
     "turret_mouse_mode_cycle": {
-        "label": "",
-        "description": "",
+        "label": "Turret - Mouse Movement - Cycle",
+        "description": "Similar to 'Turret Mouse Movement Toggle' but cycles between more modes",
         "keywords": [
             "vehicle",
             "turrets"
         ]
     },
     "turret_mouse_mode_set_vjoy": {
-        "label": "",
-        "description": "",
+        "label": "Turret - Mouse Movement - Set Vjoy",
+        "description": "Set the current mouse mode to virtual joystick.",
         "keywords": [
             "vehicle",
             "turrets"
         ]
     },
     "turret_mouse_mode_set_1to1": {
-        "label": "",
-        "description": "",
+        "label": "Turret - Mouse Movement - Set Absolute",
+        "description": "Set the current mouse movement mode to FPS style aim.",
         "keywords": [
             "vehicle",
             "turrets"
         ]
     },
     "turret_mouse_mode_set_pointer": {
-        "label": "",
-        "description": "",
+        "label": "Turret - Mouse Movement - Set Pointer",
+        "description": "Set the current mouse movement mode to the pointer style.",
         "keywords": [
             "vehicle",
             "turrets"
         ]
     },
     "turret_esp_toggle": {
-        "label": "",
-        "description": "",
+        "label": "Turret - ESP Toggle",
+        "description": "Enhanced Stick Precision, also known as ESP, dulls the sensitivity curves of the player input on the fly when the crosshair is near the target in order to minimize overshooting and help stay on target. It is similar to aim assist and is primarily intended for joystick users.  There is an invisible circle around the player crosshair. When the pip enters the circle, the joystick input is dampened on a curve. This softens jerky or excessive stick movement common for a lot of people when trying to stay aimed at the pip during hard maneuvering at an evasive target. (https://starcitizen.tools/ESP)",
         "keywords": [
             "vehicle",
-            "turrets"
+            "turrets",
+            "Turret Advanced"
         ]
     },
     "turret_esp_hold": {
-        "label": "",
-        "description": "",
+        "label": "Turret - ESP While Held",
+        "description": "Enhanced Stick Precision, also known as ESP, dulls the sensitivity curves of the player input on the fly when the crosshair is near the target in order to minimize overshooting and help stay on target. It is similar to aim assist and is primarily intended for joystick users.  There is an invisible circle around the player crosshair. When the pip enters the circle, the joystick input is dampened on a curve. This softens jerky or excessive stick movement common for a lot of people when trying to stay aimed at the pip during hard maneuvering at an evasive target. (https://starcitizen.tools/ESP)",
         "keywords": [
             "vehicle",
-            "turrets"
+            "turrets",
+            "Turret Advanced"
         ]
     },
     "turret_recenter": {
-        "label": "",
-        "description": "",
+        "label": "Recenter Turret",
+        "description": "Automatically reorients the turret to face its default position relative to the ship while held.",
         "keywords": [
             "vehicle",
-            "turrets"
+            "turrets",
+            "Turret Advanced"
         ]
     },
     "turret_limiter_toggle": {
-        "label": "",
-        "description": "",
+        "label": "Turret - Speed Limiter On/off",
+        "description": "This is a 'smart toggle' by default, meaning you can hold/release to temporarily toggle, or tap to permanently toggle.  Turns the turret pitch/yaw speed limiter on or off.",
         "keywords": [
             "vehicle",
-            "turrets"
+            "turrets",
+            "Turret Advanced"
         ]
     },
     "turret_limiter_rel": {
-        "label": "",
+        "label": "Turret - Speed Limit Increase/Decrease",
         "description": "",
         "keywords": [
             "vehicle",
-            "turrets"
+            "turrets",
+            "Turret Advanced"
         ]
     },
     "turret_limiter_rel_increase": {
-        "label": "",
+        "label": "Turret - Speed Limit Increase",
         "description": "",
         "keywords": [
             "vehicle",
-            "turrets"
+            "turrets",
+            "Turret Advanced"
         ]
     },
     "turret_limiter_rel_decrease": {
-        "label": "",
+        "label": "Turret - Speed Limit Decrease",
         "description": "",
         "keywords": [
             "vehicle",
-            "turrets"
+            "turrets",
+            "Turret Advanced"
         ]
     },
     "turret_limiter_abs": {
-        "label": "",
-        "description": "",
+        "label": "Turret - Speed Limit Increase/Decrease (abs)",
+        "description": "This should be set to a slider or similar control",
         "keywords": [
             "vehicle",
-            "turrets"
-        ]
-    },
-    "turret_change_firemode": {
-        "label": "",
-        "description": "",
-        "keywords": [
-            "vehicle",
-            "turrets"
+            "turrets",
+            "Turret Advanced"
         ]
     },
     "turret_change_position": {
-        "label": "",
-        "description": "",
+        "label": "Change Turret Position",
+        "description": "For turrets that have 2 or more possible positions.",
         "keywords": [
             "vehicle",
-            "turrets"
+            "turrets",
+            "Turret Advanced"
         ]
     },
     "v_operator_mode_cycle_forward": {
         "label": "",
         "description": "",
         "keywords": [
+            "operator modes",
             "vehicle"
         ]
     },
@@ -375,6 +397,7 @@
         "label": "",
         "description": "",
         "keywords": [
+            "operator modes",
             "vehicle"
         ]
     },
@@ -382,6 +405,7 @@
         "label": "",
         "description": "Destroy your ship from the pilot seat; timer depends on the ship (bigger ships allow more time for evacuation). ",
         "keywords": [
+            "cockpit",
             "vehicle"
         ]
     },
@@ -389,6 +413,7 @@
         "label": "",
         "description": "",
         "keywords": [
+            "cockpit",
             "vehicle"
         ]
     },
@@ -396,6 +421,7 @@
         "label": "",
         "description": "",
         "keywords": [
+            "cockpit",
             "vehicle"
         ]
     },
@@ -403,6 +429,7 @@
         "label": "Flight Ready",
         "description": "Turn on power, engines, and shields with a single action.",
         "keywords": [
+            "cockpit",
             "vehicle",
             "power"
         ]
@@ -411,6 +438,7 @@
         "label": "Open/Close All Doors",
         "description": "Toggle whether the ship's doors/elevators/ramps are all open or closed. Depending on how CIG have setup the ship, this will often include all the component bays and interior doors.",
         "keywords": [
+            "cockpit",
             "vehicle",
             "vehicle - other"
         ]
@@ -419,6 +447,7 @@
         "label": "",
         "description": "Open all doors/elevators/ramps on your ship. Depending on how CIG have setup the ship, this will often include all the component bays and interior doors.",
         "keywords": [
+            "cockpit",
             "vehicle",
             "vehicle - other"
         ]
@@ -427,6 +456,7 @@
         "label": "",
         "description": "Close all doors/elevators/ramps on your ship. Depending on how CIG have setup the ship, this will often include all the component bays and interior doors.",
         "keywords": [
+            "cockpit",
             "vehicle",
             "vehicle - other"
         ]
@@ -435,6 +465,7 @@
         "label": "Lock/Unlock All Doors",
         "description": "Toggle whether the doors/elevators/ramps on your ship are locked or unlocked.  Locked doors can only be opened by the ship owner and their party members.  Unlocked doors can be opened by anyone.",
         "keywords": [
+            "cockpit",
             "vehicle",
             "vehicle - other"
         ]
@@ -443,6 +474,7 @@
         "label": "",
         "description": "Lock all doors/elevators/ramps on your ship.  Locked doors can only be opened by the ship owner and their party members.  Unlocked doors can be opened by anyone.",
         "keywords": [
+            "cockpit",
             "vehicle",
             "vehicle - other"
         ]
@@ -451,6 +483,7 @@
         "label": "",
         "description": "Unlock all doors/elevators/ramps on your ship.  Locked doors can only be opened by the ship owner and their party members.  Unlocked doors can be opened by anyone.",
         "keywords": [
+            "cockpit",
             "vehicle",
             "vehicle - other"
         ]
@@ -459,6 +492,7 @@
         "label": "Lock/Unlock All Ports",
         "description": "Toggle whether the lock state of the ship's ports - Ports must be UNLOCKED in order to remove/replace components, weapoons, or utilities with a tractor beam tool.",
         "keywords": [
+            "cockpit",
             "vehicle",
             "vehicle - other"
         ]
@@ -467,6 +501,7 @@
         "label": "",
         "description": "Lock all of the ship's ports - Ports must be UNLOCKED in order to remove/replace components, weapoons, or utilities with a tractor beam tool.",
         "keywords": [
+            "cockpit",
             "vehicle",
             "vehicle - other"
         ]
@@ -475,6 +510,7 @@
         "label": "",
         "description": "Unlock all of the ship's ports - Ports must be UNLOCKED in order to remove/replace components, weapoons, or utilities with a tractor beam tool.",
         "keywords": [
+            "cockpit",
             "vehicle",
             "vehicle - other"
         ]
@@ -1166,12 +1202,12 @@
         "keywords": []
     },
     "v_ifcs_toggle_esp": {
-        "label": "E.S.P Toggle",
-        "description": "",
+        "label": "ESP Toggle",
+        "description": "Enhanced Stick Precision, also known as ESP, dulls the sensitivity curves of the player input on the fly when the crosshair is near the target in order to minimize overshooting and help stay on target. It is similar to aim assist and is primarily intended for joystick users.  There is an invisible circle around the player crosshair. When the pip enters the circle, the joystick input is dampened on a curve. This softens jerky or excessive stick movement common for a lot of people when trying to stay aimed at the pip during hard maneuvering at an evasive target. (https://starcitizen.tools/ESP)",
         "keywords": []
     },
     "v_ifcs_esp_hold": {
-        "label": "E.S.P Enable Temporarily",
+        "label": "ESP While held",
         "description": "",
         "keywords": []
     },
@@ -1379,797 +1415,1287 @@
     "v_toggle_qdrive_engagement": {
         "label": "Engage Quantum Drive",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quantum travel"
+        ]
     },
     "v_toggle_docking_mode": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "docking"
+        ]
     },
     "v_invoke_docking": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "docking"
+        ]
     },
     "v_dock_toggle_view": {
         "label": "Docking Camera Toggle",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "docking"
+        ]
     },
     "v_auto_targeting_toggle_long": {
-        "label": "",
+        "label": "Auto Targeting - Toggle (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_auto_targeting_toggle_short": {
-        "label": "",
+        "label": "Auto Targeting - Toggle (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_auto_targeting_enable_short": {
-        "label": "",
+        "label": "Auto Targeting - On (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_auto_targeting_enable_long": {
-        "label": "",
+        "label": "Auto Targeting - On (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_auto_targeting_disable_short": {
-        "label": "",
+        "label": "Auto Targeting - Off (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_auto_targeting_disable_long": {
-        "label": "",
+        "label": "Auto Targeting - Off (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_target_toggle_lock_index_1": {
-        "label": "",
+        "label": "Pin Index 1 - Lock/Unlock Pinned Target",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_target_toggle_lock_index_2": {
-        "label": "",
+        "label": "Pin Index 2 - Lock/Unlock Pinned Target",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_target_toggle_lock_index_3": {
-        "label": "",
+        "label": "Pin Index 3 - Lock/Unlock Pinned Target",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_target_toggle_pin_index_1": {
-        "label": "",
+        "label": "Pin/Unpin Target 1",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_target_toggle_pin_index_2": {
-        "label": "",
+        "label": "Pin/Unpin Target 2",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_target_toggle_pin_index_3": {
-        "label": "",
+        "label": "Pin/Unpin Target 3",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_target_toggle_pin_index_1_hold": {
-        "label": "",
+        "label": "Pin/Unpin Target 1 (Hold)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_target_toggle_pin_index_2_hold": {
-        "label": "",
+        "label": "Pin/Unpin Target 1 (Hold)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_target_toggle_pin_index_3_hold": {
-        "label": "",
+        "label": "Pin/Unpin Target 1 (Hold)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_target_pin_selected": {
-        "label": "",
+        "label": "Pin Target",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_target_unpin_selected": {
-        "label": "",
+        "label": "Unpin Target",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_target_pin_selected_hold": {
-        "label": "",
+        "label": "Pin Target (Hold)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_target_unpin_selected_hold": {
-        "label": "",
+        "label": "Unpin Target (Hold)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_target_remove_all_pins": {
-        "label": "",
+        "label": "Remove All Pinned Targets",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_target_lock_selected": {
-        "label": "",
+        "label": "Lock current target",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_target_unlock": {
-        "label": "",
+        "label": "Unlock current target",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_look_ahead_enable": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Look Ahead Toggle",
+        "description": "Toggle whether the pilot's view automatically looks toward the forward vector/horizon (intensity and type will depend on your Game Settings)",
+        "keywords": [
+            "view",
+            "look",
+            "horizon",
+            "pilot",
+            "targeting"
+        ]
     },
     "v_look_ahead_start_target_tracking": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Target Padlock Toggle (Hold)",
+        "description": "The name of this bind in the XML is 'look ahead start target tracking' - This probably toggles whether your Look Ahead mode will look towards the current target.",
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_target_tracking_auto_zoom": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Auto Zoom on selected target toggle (hold)",
+        "description": "Toggle whether your view zooms when a target is selected.",
+        "keywords": [
+            "targeting"
+        ]
     },
     "v_target_under_reticle": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Lock target under reticle",
+        "description": "Have your ship's computer lock onto the ship you're aiming at (not missles, just computer tracking).  The locked target will hear a sound alerting them to your lock.",
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_in_view_back": {
-        "label": "",
+        "label": "Cycle Lock - In View - Back",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_in_view_fwd": {
-        "label": "",
+        "label": "Cycle Lock - In View - Forward",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_in_view_reset": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Lock - In View - Under Reticle",
+        "description": "'Cycle Lock - In View - Reset to First'  may also be another name for this.  Perhaps it cycles between ships under reticle?",
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_pinned_back": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Lock - Pinned - Back",
+        "description": "Cycle locks between pinned targets.",
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_pinned_fwd": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Lock - Pinned - Forward",
+        "description": "Cycle locks between pinned targets.",
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_pinned_reset": {
-        "label": "",
+        "label": "Cycle Lock - Pinned - Reset to First",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_attacker_back": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Lock - Attackers - Back",
+        "description": "Cycle locks between all attackers.",
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_attacker_fwd": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Lock - Attackers - Forward",
+        "description": "Cycle locks between all attackers.",
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_attacker_reset": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Lock - Attackers - Closest",
+        "description": "Lock onto he closest attacker.",
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_hostile_back": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Lock - Hostiles - Back",
+        "description": "Cycles between hostile (red) ships.",
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_hostile_fwd": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Lock - Hostiles- Forward",
+        "description": "Cycles between hostile (red) ships.",
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_hostile_reset": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Lock - Hostiles - Closest",
+        "description": "Lock onto the closest hostile vehicle.",
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_friendly_back": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Lock - Friendlies - Back",
+        "description": "Cycle through non-hostile targets in the area.",
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_friendly_fwd": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Lock - Friendlies - Forward",
+        "description": "Cycle through non-hostile targets in the area.",
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_friendly_reset": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Lock - Friendlies - Closest",
+        "description": "Lock onto the closest friendly vehicle.",
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_all_back": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Lock - All - Back",
+        "description": "Cycle through all vehicles in range of your scanners.",
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_all_fwd": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Lock - All - Forward",
+        "description": "Cycle through all vehicles in range of your scanners.",
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_all_reset": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Lock - All - Closest",
+        "description": "Lock onto the closest vehicle to you.",
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_subitem_back": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Lock - Sub-Target - Back",
+        "description": "Cycle through the current locked-on target's sub-targets to focus fire on them (e.g. turrets, thrusters)",
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_subitem_fwd": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Lock - Sub-Target - Forward",
+        "description": "Cycle through the current locked-on target's sub-targets to focus fire on them (e.g. turrets, thrusters)",
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_cycle_subitem_reset": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Lock - Sub-Target - Reset",
+        "description": "Reset your sub-targeting to the main target.",
+        "keywords": [
+            "target cycling"
+        ]
     },
     "v_target_hail": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Hail Target",
+        "description": "Initiate an in-game video call to the vehicle currently locked on to.",
+        "keywords": [
+            "comms/social",
+            "call",
+            "target hailing"
+        ]
     },
     "v_invoke_ping": {
-        "label": "",
+        "label": "Scan - Activate Ping",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "radar",
+            "flight"
+        ]
     },
     "v_scanning_trigger_scan": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Activate Scanning",
+        "description": "Scans the target under your reticle while held.",
+        "keywords": [
+            "scanning"
+        ]
     },
     "v_inc_scan_focus_level": {
-        "label": "",
+        "label": "Increase Scanning Angle",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "scanning"
+        ]
     },
     "v_dec_scan_focus_level": {
-        "label": "",
+        "label": "Decrease Scanning Angle",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "scanning"
+        ]
     },
     "v_toggle_mining_laser_fire": {
-        "label": "",
+        "label": "Fire Mining Laser",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "mining"
+        ]
     },
     "v_toggle_mining_laser_type": {
-        "label": "",
+        "label": "Switch Mining Laser",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "mining"
+        ]
     },
     "v_increase_mining_throttle": {
-        "label": "",
+        "label": "Mining Laser Power - Increase",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "mining"
+        ]
     },
     "v_decrease_mining_throttle": {
-        "label": "",
+        "label": "Mining Laser Power - Decreae",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "mining"
+        ]
     },
     "v_mining_throttle": {
-        "label": "",
+        "label": "Mining Laser Power - Throttle",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "mining"
+        ]
     },
     "v_mining_use_consumable1": {
-        "label": "",
+        "label": "Activate Mining Module - Slot 1",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "mining"
+        ]
     },
     "v_mining_use_consumable2": {
-        "label": "",
+        "label": "Activate Mining Module - Slot 2",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "mining"
+        ]
     },
     "v_mining_use_consumable3": {
-        "label": "",
+        "label": "Activate Mining Module - Slot 3",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "mining"
+        ]
     },
     "v_mining_use_permanent_modifier": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Activate Mining Module - Permanent Modifier",
+        "description": "Currently in SC this is labelled as a duplicate of activate slot 1, so it's been named here according to its XML name: 'use permanent modifier'",
+        "keywords": [
+            "mining"
+        ]
     },
     "v_jettison_volatile_cargo": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Jettison Volatile Cargo",
+        "description": "If you have volatile mining cargo, such as Quantanium, and it's about to explode, this action will let you jettison your entire cargo to save you and the ship.",
+        "keywords": [
+            "mining"
+        ]
     },
     "tractor_beam_vehicle_increase_distance": {
-        "label": "",
+        "label": "Vehicle Tractor Beam - Increase Distance",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "salvage"
+        ]
     },
     "tractor_beam_vehicle_decrease_distance": {
-        "label": "",
+        "label": "Vehicle Tractor Beam - Decrease Distance",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_toggle_fire_focused": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Fire Focused Salvage Beams - Toggle",
+        "description": "Other controls can set focus to specific beams, this action will then toggle the focussed beam(s) on or off.",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_toggle_fire_left": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Fire Left Salvage Beam",
+        "description": "Toggle fire the left salvage beam, regardless of focus",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_toggle_fire_right": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Fire Right Salvage Beam",
+        "description": "Toggle fire the right salvage beam, regardless of focus",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_toggle_fire_fracture": {
-        "label": "",
+        "label": "Fire Fracture Beam",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_toggle_fire_disintegrate": {
-        "label": "",
+        "label": "Fire Disintigrate Beam",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_toggle_gimbal_mode": {
-        "label": "",
+        "label": "Salvage Mode - Toggle Gimbal",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_reset_gimbal": {
-        "label": "",
+        "label": "Salvage Mode - Gimbal Reset",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_increase_beam_spacing": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Salvage Beam Spacing Increase",
+        "description": "Make the gap between beams bigger.",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_decrease_beam_spacing": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": " Salvage Beam Spacing Decrease",
+        "description": "Bring the beams closer to the central point.",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_beam_spacing_rel": {
-        "label": "",
+        "label": "Salvage Beam Spacing - Relative",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "salvage"
+        ],
+        "relative": true
     },
     "v_salvage_beam_spacing_abs": {
-        "label": "",
+        "label": "Salvage Beam Spacing - Absolute",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "salvage"
+        ],
+        "relative": true
     },
     "v_salvage_toggle_beam_spacing_axis": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Salvage Beam Axis - Toggle",
+        "description": "Toggles between the two salvage beams being parallel horizontal and being parallel vertical.",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_cycle_modifiers_focused": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Focused Salvage Modifiers",
+        "description": "Cycle the mode/modifiers for any salvage beam(s) that have focus (e.g. between different scraper models, and/or a tractor beam).",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_cycle_modifiers_left": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cylce Left Salvage Modifiers",
+        "description": "Cycle the mode/modifiers for the left salvage beam only, regardless of focus.",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_cycle_modifiers_right": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cylce Right Salvage Modifiers",
+        "description": "Cycle the mode/modifiers for the right salvage beam only, regardless of focus.",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_cycle_modifiers_structural": {
-        "label": "",
+        "label": "Cycle Structural Salvage Modes",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_focus_all_heads": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Focus all salvage heads",
+        "description": "Set focus to all of your salvage head. Controls that rely on focus will now affect all your salvage heads.",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_focus_left": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Focus Left Salvage Head",
+        "description": "Set focus to your left salvage head. Controls that rely on focus will now affect only your left salvage head.",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_focus_right": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Focus Right Salvage Head",
+        "description": "Set focus to your right salvage head. Controls that rely on focus will now affect only your right salvage head.",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_focus_fracture": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Focus Fracture Tool",
+        "description": "Set focus to the Fracture Tool.",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_focus_disintegrate": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Focus Disintegration Tool",
+        "description": "Set focus to the Disintegration Tool.",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_nudge_up__left": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Nudge Left Salvage Tool: Up",
+        "description": "Nudges the aim of the salvage beam a little bit in the stated direction.",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_nudge_down__left": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Nudge Left Salvage Tool: Down",
+        "description": "Nudges the aim of the salvage beam a little bit in the stated direction.",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_nudge_left__left": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Nudge Left Salvage Tool: Left",
+        "description": "Nudges the aim of the salvage beam a little bit in the stated direction.",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_nudge_right__left": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Nudge Left Salvage Tool: Right",
+        "description": "Nudges the aim of the salvage beam a little bit in the stated direction.",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_nudge_up__right": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Nudge Right Salvage Tool: Up",
+        "description": "Nudges the aim of the salvage beam a little bit in the stated direction.",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_nudge_down__right": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Nudge Right Salvage Tool: Down",
+        "description": "Nudges the aim of the salvage beam a little bit in the stated direction.",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_nudge_left__right": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Nudge Right Salvage Tool: Left",
+        "description": "Nudges the aim of the salvage beam a little bit in the stated direction.",
+        "keywords": [
+            "salvage"
+        ]
     },
     "v_salvage_nudge_right__right": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Nudge Right Salvage Tool: Right",
+        "description": "Nudges the aim of the salvage beam a little bit in the stated direction.",
+        "keywords": [
+            "salvage"
+        ]
     },
-    "v_weapon_manual_gimbal_cycle_source": {
+    "v_weapon_gimbals_state_toggle": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
-    "v_weapon_gimbal_mode_cycle_all": {
+    "v_weapon_gimbals_state_set_locked": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
-    "v_weapon_gimbal_mode_cycle_fixed_auto": {
+    "v_weapon_gimbals_state_set_unlocked": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
-    "v_weapon_gimbal_mode_set_fixed_long": {
+    "v_weapon_gimbals_unlocked_cycle_source": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
-    "v_weapon_gimbal_mode_set_auto_long": {
+    "v_weapon_aim_type_cycle": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
-    "v_weapon_gimbal_mode_set_manual_long": {
+    "v_weapon_aim_type_set_pip_aiming": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
-    "v_weapon_gimbal_mode_set_fixed": {
+    "v_weapon_aim_type_set_painting": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
-    "v_weapon_gimbal_mode_set_auto": {
+    "v_weapon_aim_type_set_auto": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
-    "v_weapon_gimbal_mode_set_manual": {
+    "v_weapon_staggered_fire_toggle": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
+    },
+    "v_weapon_staggered_fire_on": {
+        "label": "",
+        "description": "",
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
+    },
+    "v_weapon_staggered_fire_off": {
+        "label": "",
+        "description": "",
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_suppress_aim_assists_hold": {
         "label": "",
         "description": "",
-        "keywords": []
-    },
-    "v_weapon_change_firemode": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_pip_toggle_lead_lag": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_pip_set_lag": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_pip_set_lead": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_pip_combination_type_toggle": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_pip_combination_type_set_single": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_pip_combination_type_set_combined_weapon_group": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_pip_prec_line_toggle": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_pip_prec_line_on": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_pip_prec_line_off": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_pip_fade_toggle": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_pip_fade_on": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_pip_fade_off": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_ui_scale_toggle": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_ui_scale_on": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_ui_scale_off": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_convergence_distance_rel": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_convergence_distance_rel_increase": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_convergence_distance_rel_decrease": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_convergence_distance_abs": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_convergence_distance_set_default": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_preset_attack": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_preset_fire_guns0": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_preset_fire_guns1": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_preset_fire_guns2": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_preset_fire_guns3": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_preset_next": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_preset_prev": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_preset_next_overflow": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_preset_prev_overflow": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_preset_guns0": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_preset_guns1": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_preset_guns2": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_preset_guns3": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_preset_emp": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_preset_qid_jammer": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_preset_qid_pulse": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_preset_qid": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - weapons",
+            "vehicle",
+            "weapons"
+        ]
     },
     "v_weapon_toggle_launch_missile": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - missiles",
+            "vehicle",
+            "weapons",
+            "missiles",
+            "torpedoes"
+        ]
     },
     "v_weapon_launch_missile": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - missiles",
+            "vehicle",
+            "weapons",
+            "missiles",
+            "torpedoes"
+        ]
     },
     "v_weapon_cycle_missile_fwd": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - missiles",
+            "vehicle",
+            "weapons",
+            "missiles",
+            "torpedoes"
+        ]
     },
     "v_weapon_cycle_missile_back": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - missiles",
+            "vehicle",
+            "weapons",
+            "missiles",
+            "torpedoes"
+        ]
     },
     "v_weapon_increase_max_missiles": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - missiles",
+            "vehicle",
+            "weapons",
+            "missiles",
+            "torpedoes"
+        ]
     },
     "v_weapon_decrease_max_missiles": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - missiles",
+            "vehicle",
+            "weapons",
+            "missiles",
+            "torpedoes"
+        ]
     },
     "v_weapon_reset_max_missiles": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - missiles",
+            "vehicle",
+            "weapons",
+            "missiles",
+            "torpedoes"
+        ]
     },
     "v_weapon_bombing_toggle_desired_impact_point": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - missiles",
+            "vehicle",
+            "weapons",
+            "missiles",
+            "torpedoes"
+        ]
     },
     "v_weapon_bombing_toggle_desired_impact_point_hold": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - missiles",
+            "vehicle",
+            "weapons",
+            "missiles",
+            "torpedoes"
+        ]
     },
     "v_weapon_bombing_hud_range_increase": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - missiles",
+            "vehicle",
+            "weapons",
+            "missiles",
+            "torpedoes"
+        ]
     },
     "v_weapon_bombing_hud_range_decrease": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - missiles",
+            "vehicle",
+            "weapons",
+            "missiles",
+            "torpedoes"
+        ]
     },
     "v_weapon_bombing_hud_range_reset": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - missiles",
+            "vehicle",
+            "weapons",
+            "missiles",
+            "torpedoes"
+        ]
     },
     "v_weapon_launch_missile_cinematic": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - missiles",
+            "vehicle",
+            "weapons",
+            "missiles",
+            "torpedoes",
+            "camera"
+        ]
     },
     "v_weapon_launch_missile_cinematic_hold": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - missiles",
+            "vehicle",
+            "weapons",
+            "missiles",
+            "torpedoes",
+            "camera"
+        ]
     },
     "v_weapon_countermeasure_decoy_launch": {
         "label": "",
