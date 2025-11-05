@@ -171,7 +171,6 @@ function autoFormatMapName(keybindString)
     if (output.startsWith("foip ")) output = "FOIP: " + output.slice(5);
     if (output.startsWith("pc ")) output = "" + output.slice(3);
     if (output.startsWith("qs ")) output = "QS: " + output.slice(3);
-    if (output.startsWith("view ")) output = "Free Cam: " + output.slice(4);
 
     output = output
         .split(" ")
