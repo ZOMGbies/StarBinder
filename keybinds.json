@@ -516,277 +516,490 @@
         ]
     },
     "v_mfd_interact_cycle_forwards_short": {
-        "label": "",
+        "label": "MFD - Cycle Page - Forwards (Short Press)",
         "description": "",
         "keywords": [
+            "vehicles - multi function displays (mfds)",
             "vehicle",
             "mfds"
         ]
     },
     "v_mfd_interact_cycle_forwards_long": {
-        "label": "",
+        "label": "MFD - Cycle Page - Forwards (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_interact_cycle_backwards_short": {
-        "label": "",
+        "label": "MFD - Cycle Page - Backwards (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_interact_cycle_backwards_long": {
-        "label": "",
+        "label": "MFD - Cycle Page - Backwards (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_movement_up_short": {
-        "label": "",
+        "label": "MFD - Movement - Up (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_movement_up_long": {
-        "label": "",
+        "label": "MFD - Movement - Up (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_movement_down_short": {
-        "label": "",
+        "label": "MFD - Movement - Down (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_movement_down_long": {
-        "label": "",
+        "label": "MFD - Movement - Down (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_movement_left_short": {
-        "label": "",
+        "label": "MFD - Movement - Left (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_movement_left_long": {
-        "label": "",
+        "label": "MFD - Movement - Left (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_movement_right_short": {
-        "label": "",
+        "label": "MFD - Movement - Right (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_movement_right_long": {
-        "label": "",
+        "label": "MFD - Movement - Right (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_primary_short": {
-        "label": "",
+        "label": "MFD - Select - Primary (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_primary_long": {
-        "label": "",
+        "label": "MFD - Select - Primary (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_cast_left_short": {
-        "label": "",
+        "label": "MFD - Select - Left Cast (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_cast_left_long": {
-        "label": "",
+        "label": "MFD - Select - Left Cast (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_cast_right_short": {
-        "label": "",
+        "label": "MFD - Select - Right Cast (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_cast_right_long": {
-        "label": "",
+        "label": "MFD - Select - Right Cast (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_1_short": {
-        "label": "",
+        "label": "MFD - Select - MFD 1 (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_1_long": {
-        "label": "",
+        "label": "MFD - Select - MFD 1 (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_2_short": {
-        "label": "",
+        "label": "MFD - Select - MFD 2 (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_2_long": {
-        "label": "",
+        "label": "MFD - Select - MFD 2 (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_3_short": {
-        "label": "",
+        "label": "MFD - Select - MFD 3 (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_3_long": {
-        "label": "",
+        "label": "MFD - Select - MFD 3 (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_4_short": {
-        "label": "",
+        "label": "MFD - Select - MFD 4 (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_4_long": {
-        "label": "",
+        "label": "MFD - Select - MFD 4 (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_5_short": {
-        "label": "",
+        "label": "MFD - Select - MFD 5 (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_5_long": {
-        "label": "",
+        "label": "MFD - Select - MFD 5 (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_6_short": {
-        "label": "",
+        "label": "MFD - Select - MFD 6 (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_6_long": {
-        "label": "",
+        "label": "MFD - Select - MFD 6 (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_7_short": {
-        "label": "",
+        "label": "MFD - Select - MFD 7 (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_7_long": {
-        "label": "",
+        "label": "MFD - Select - MFD 7 (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_8_short": {
-        "label": "",
+        "label": "MFD - Select - MFD 8 (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_8_long": {
-        "label": "",
+        "label": "MFD - Select - MFD 8 (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_9_short": {
-        "label": "",
+        "label": "MFD - Select - MFD 9 (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_9_long": {
-        "label": "",
+        "label": "MFD - Select - MFD 9 (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_10_short": {
-        "label": "",
+        "label": "MFD - Select - MFD 10 (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_soft_select_mfd_10_long": {
-        "label": "",
+        "label": "MFD - Select - MDF 10 (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_select_view_self_status_short": {
-        "label": "",
+        "label": "MFD - Set Page - Self Status (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_select_view_self_status_long": {
-        "label": "",
+        "label": "MFD - Set Page - Self Status (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_select_view_target_status_short": {
-        "label": "",
+        "label": "MFD - Set Page - Target Status (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_select_view_target_status_long": {
-        "label": "",
+        "label": "MFD - Set Page - Target Status (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_select_view_scanning_short": {
-        "label": "",
+        "label": "MFD - Set Page - Scanning (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_select_view_scanning_long": {
-        "label": "",
+        "label": "MFD - Set Page - Scanning (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_select_view_configuration_short": {
-        "label": "",
+        "label": "MFD - Set Page - Vehicle Configuration (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_select_view_configuration_long": {
-        "label": "",
+        "label": "MFD - Set Page - Vehicle Configuration (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_select_view_comms_short": {
-        "label": "",
+        "label": "MFD - Set Page - Communications (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_select_view_comms_long": {
-        "label": "",
+        "label": "MFD - Set Page - Communications (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_select_view_ifcs_short": {
-        "label": "",
+        "label": "MFD - Set Page - IFCS (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_select_view_ifcs_long": {
-        "label": "",
+        "label": "MFD - Set Page - IFCS (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_select_view_diagnostics_short": {
-        "label": "",
+        "label": "MFD - Set Page - Diagnostics (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_select_view_diagnostics_long": {
-        "label": "",
+        "label": "MFD - Set Page - Diagnostics (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_select_view_resource_network_short": {
-        "label": "",
+        "label": "MFD - Set Page - Resource Network (Short Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_mfd_select_view_resource_network_long": {
-        "label": "",
+        "label": "MFD - Set Page - Resource Network (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - multi function displays (mfds)",
+            "vehicle",
+            "mfds"
+        ]
     },
     "v_view_yaw_left": {
         "label": "Look left",
@@ -879,12 +1092,12 @@
         "keywords": []
     },
     "v_ads_hold": {
-        "label": "Vehicle ADS",
+        "label": "Vehicle ADS (Hold)",
         "description": "On foot, CIG call this 'zoom', but in a ship they call it 'ADS'.  This is the 'zoom while in a ship' mode.",
         "keywords": []
     },
     "v_ads_toggle": {
-        "label": "",
+        "label": "Vehicle ADS (Toggle)",
         "description": "On foot, CIG call this 'zoom', but in a ship they call it 'ADS'.  This is the 'zoom while in a ship' mode.",
         "keywords": []
     },
@@ -959,11 +1172,9 @@
         "keywords": []
     },
     "v_toggle_relative_mouse_mode": {
-        "label": "Cycle vjoy/relative mouse mode",
+        "label": "Cycle mouse mode (Vjoy/Relative)",
         "description": "Cycle whether the mouse controls for the ship are a virtual joystick or not.",
-        "keywords": [
-            "Cycle mouse mode (Vjoy/relative)"
-        ]
+        "keywords": []
     },
     "v_toggle_yaw_roll_swap": {
         "label": "Swap Yaw / Roll",
@@ -1088,9 +1299,7 @@
     "v_ifcs_vector_decoupling_off": {
         "label": "Decoupled Mode Off",
         "description": "Decoupled Off: The ship will automatically counter-thrust based on your vector to feel as though you're flying in atmosphere.  Decoupled On: Newtonian(ish) physics are applied withtout counter thrust.",
-        "keywords": [
-            ""
-        ]
+        "keywords": []
     },
     "v_afterburner": {
         "label": "Boost",
@@ -2101,7 +2310,7 @@
         ]
     },
     "v_weapon_gimbals_state_toggle": {
-        "label": "",
+        "label": "Gimbals State - Toggle",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2110,7 +2319,7 @@
         ]
     },
     "v_weapon_gimbals_state_set_locked": {
-        "label": "",
+        "label": "Gimbals State - Locked",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2119,7 +2328,7 @@
         ]
     },
     "v_weapon_gimbals_state_set_unlocked": {
-        "label": "",
+        "label": "Gimbals State - Unlocked",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2128,7 +2337,7 @@
         ]
     },
     "v_weapon_gimbals_unlocked_cycle_source": {
-        "label": "",
+        "label": "Gimbals Unlocked Cycle Source",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2137,7 +2346,7 @@
         ]
     },
     "v_weapon_aim_type_cycle": {
-        "label": "",
+        "label": "Weapon Aim Type - Cycle",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2146,7 +2355,7 @@
         ]
     },
     "v_weapon_aim_type_set_pip_aiming": {
-        "label": "",
+        "label": "Weapon Aim Type - Set PIP",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2155,7 +2364,7 @@
         ]
     },
     "v_weapon_aim_type_set_painting": {
-        "label": "",
+        "label": "Weapon Aim Type - Set Painting",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2164,7 +2373,7 @@
         ]
     },
     "v_weapon_aim_type_set_auto": {
-        "label": "",
+        "label": "Weapon Aim Type - Set Auto",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2173,8 +2382,8 @@
         ]
     },
     "v_weapon_staggered_fire_toggle": {
-        "label": "",
-        "description": "",
+        "label": "Staggered Fire Toggle",
+        "description": "In staggered fire mode, your guns will fire one after the other instead of at the same time.",
         "keywords": [
             "vehicles - weapons",
             "vehicle",
@@ -2182,8 +2391,8 @@
         ]
     },
     "v_weapon_staggered_fire_on": {
-        "label": "",
-        "description": "",
+        "label": "Staggered Fire On",
+        "description": "In staggered fire mode, your guns will fire one after the other instead of at the same time.",
         "keywords": [
             "vehicles - weapons",
             "vehicle",
@@ -2191,8 +2400,8 @@
         ]
     },
     "v_weapon_staggered_fire_off": {
-        "label": "",
-        "description": "",
+        "label": "Staggered Fire Off",
+        "description": "In normal fire mode, your guns will fire at the same time.",
         "keywords": [
             "vehicles - weapons",
             "vehicle",
@@ -2200,7 +2409,7 @@
         ]
     },
     "v_weapon_suppress_aim_assists_hold": {
-        "label": "",
+        "label": "Suppress Aim Assists (Hold)",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2209,7 +2418,7 @@
         ]
     },
     "v_weapon_pip_toggle_lead_lag": {
-        "label": "",
+        "label": "Lead/Lag PIP toggle",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2218,7 +2427,7 @@
         ]
     },
     "v_weapon_pip_set_lag": {
-        "label": "",
+        "label": "Set Lag PIPs",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2227,7 +2436,7 @@
         ]
     },
     "v_weapon_pip_set_lead": {
-        "label": "",
+        "label": "Set Lead PIPs",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2236,7 +2445,7 @@
         ]
     },
     "v_weapon_pip_combination_type_toggle": {
-        "label": "",
+        "label": "PIP Combination Type Toggle",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2245,7 +2454,7 @@
         ]
     },
     "v_weapon_pip_combination_type_set_single": {
-        "label": "",
+        "label": "PIP Combination Type Set One PIP per weapon",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2254,7 +2463,7 @@
         ]
     },
     "v_weapon_pip_combination_type_set_combined_weapon_group": {
-        "label": "",
+        "label": "PIP Combination Type Set One PIP per weapon type",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2263,7 +2472,7 @@
         ]
     },
     "v_weapon_pip_prec_line_toggle": {
-        "label": "",
+        "label": "PIP Precision Lines Toggle",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2272,7 +2481,7 @@
         ]
     },
     "v_weapon_pip_prec_line_on": {
-        "label": "",
+        "label": "PIP Precision Lines On",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2281,7 +2490,7 @@
         ]
     },
     "v_weapon_pip_prec_line_off": {
-        "label": "",
+        "label": "PIP Precision Lines Off",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2290,7 +2499,7 @@
         ]
     },
     "v_weapon_pip_fade_toggle": {
-        "label": "",
+        "label": "PIP Fading Toggle",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2299,7 +2508,7 @@
         ]
     },
     "v_weapon_pip_fade_on": {
-        "label": "",
+        "label": "PIP Fading On",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2308,7 +2517,7 @@
         ]
     },
     "v_weapon_pip_fade_off": {
-        "label": "",
+        "label": "PIP Fading Off",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2317,7 +2526,7 @@
         ]
     },
     "v_weapon_ui_scale_toggle": {
-        "label": "",
+        "label": "Gunnery UI Magnification Toggle",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2326,7 +2535,7 @@
         ]
     },
     "v_weapon_ui_scale_on": {
-        "label": "",
+        "label": "Gunnery UI Magnification On",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2335,7 +2544,7 @@
         ]
     },
     "v_weapon_ui_scale_off": {
-        "label": "",
+        "label": "Gunnery UI Magnification Off",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2344,8 +2553,8 @@
         ]
     },
     "v_weapon_convergence_distance_rel": {
-        "label": "",
-        "description": "",
+        "label": "Manual Convergence Distance (rel.)",
+        "description": "Set the distance at which your weapons naturally converge to a single focal point.",
         "keywords": [
             "vehicles - weapons",
             "vehicle",
@@ -2353,7 +2562,7 @@
         ]
     },
     "v_weapon_convergence_distance_rel_increase": {
-        "label": "",
+        "label": "Manual Convergence Distance Increase",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2362,7 +2571,7 @@
         ]
     },
     "v_weapon_convergence_distance_rel_decrease": {
-        "label": "",
+        "label": "Manual Convergence Distance Decrease",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2371,8 +2580,8 @@
         ]
     },
     "v_weapon_convergence_distance_abs": {
-        "label": "",
-        "description": "",
+        "label": "Manual Convergence Distance (abs.)",
+        "description": "This kind of action (absolute) is best set to something like a slider",
         "keywords": [
             "vehicles - weapons",
             "vehicle",
@@ -2380,7 +2589,7 @@
         ]
     },
     "v_weapon_convergence_distance_set_default": {
-        "label": "",
+        "label": "Manual Convergence Distance Reset",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2389,7 +2598,7 @@
         ]
     },
     "v_weapon_preset_attack": {
-        "label": "",
+        "label": "Weapon Preset - Fire",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2398,7 +2607,7 @@
         ]
     },
     "v_weapon_preset_fire_guns0": {
-        "label": "",
+        "label": "Weapon Preset - Fire Guns Group 1",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2407,7 +2616,7 @@
         ]
     },
     "v_weapon_preset_fire_guns1": {
-        "label": "",
+        "label": "Weapon Preset - Fire Guns Group 2",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2416,7 +2625,7 @@
         ]
     },
     "v_weapon_preset_fire_guns2": {
-        "label": "",
+        "label": "Weapon Preset - Fire Guns Group 3",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2425,7 +2634,7 @@
         ]
     },
     "v_weapon_preset_fire_guns3": {
-        "label": "",
+        "label": "Weapon Preset - Fire Guns Group 4",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2434,7 +2643,7 @@
         ]
     },
     "v_weapon_preset_next": {
-        "label": "",
+        "label": "Weapon Preset - Next",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2443,7 +2652,7 @@
         ]
     },
     "v_weapon_preset_prev": {
-        "label": "",
+        "label": "Weapon Preset - Previous",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2452,7 +2661,7 @@
         ]
     },
     "v_weapon_preset_next_overflow": {
-        "label": "",
+        "label": "Weapon Preset - Next (overflow)",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2461,7 +2670,7 @@
         ]
     },
     "v_weapon_preset_prev_overflow": {
-        "label": "",
+        "label": "Weapon Preset - Previous (overflow)",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2470,7 +2679,7 @@
         ]
     },
     "v_weapon_preset_guns0": {
-        "label": "",
+        "label": "Weapon Preset - Set Guns Group 1",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2479,7 +2688,7 @@
         ]
     },
     "v_weapon_preset_guns1": {
-        "label": "",
+        "label": "Weapon Preset - Set Guns Group 2",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2488,7 +2697,7 @@
         ]
     },
     "v_weapon_preset_guns2": {
-        "label": "",
+        "label": "Weapon Preset - Set Guns Group 3",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2497,7 +2706,7 @@
         ]
     },
     "v_weapon_preset_guns3": {
-        "label": "",
+        "label": "Weapon Preset - Set Guns Group 4",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2506,7 +2715,7 @@
         ]
     },
     "v_weapon_preset_emp": {
-        "label": "",
+        "label": "Weapon Preset - Set EMPs",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2515,7 +2724,7 @@
         ]
     },
     "v_weapon_preset_qid_jammer": {
-        "label": "",
+        "label": "Weapon Preset - Set Quantum Jammers (short range)",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2524,7 +2733,7 @@
         ]
     },
     "v_weapon_preset_qid_pulse": {
-        "label": "",
+        "label": "Weapon Preset - Set Quantum Snares/Pulse (long range)",
         "description": "",
         "keywords": [
             "vehicles - weapons",
@@ -2533,8 +2742,8 @@
         ]
     },
     "v_weapon_preset_qid": {
-        "label": "",
-        "description": "",
+        "label": "Weapon Preset - Set QIDs",
+        "description": "QID = Quantum Interdiction Device.  Prevents the Quantum Drive from functioning in ships within the area of effect, which prevents jumping and limits speed to SCM speeds.",
         "keywords": [
             "vehicles - weapons",
             "vehicle",
@@ -2542,7 +2751,7 @@
         ]
     },
     "v_weapon_toggle_launch_missile": {
-        "label": "",
+        "label": "Launch Missiles (Tap)",
         "description": "",
         "keywords": [
             "vehicles - missiles",
@@ -2553,7 +2762,7 @@
         ]
     },
     "v_weapon_launch_missile": {
-        "label": "",
+        "label": "Lanch Missiles (Hold)",
         "description": "",
         "keywords": [
             "vehicles - missiles",
@@ -2564,7 +2773,7 @@
         ]
     },
     "v_weapon_cycle_missile_fwd": {
-        "label": "",
+        "label": "Missile Type - Cycle Next",
         "description": "",
         "keywords": [
             "vehicles - missiles",
@@ -2575,7 +2784,7 @@
         ]
     },
     "v_weapon_cycle_missile_back": {
-        "label": "",
+        "label": "Missile Type - Cycle Previous",
         "description": "",
         "keywords": [
             "vehicles - missiles",
@@ -2586,7 +2795,7 @@
         ]
     },
     "v_weapon_increase_max_missiles": {
-        "label": "",
+        "label": "Armed Missiles - Increase",
         "description": "",
         "keywords": [
             "vehicles - missiles",
@@ -2597,7 +2806,7 @@
         ]
     },
     "v_weapon_decrease_max_missiles": {
-        "label": "",
+        "label": "Armed Missiles - Decrease",
         "description": "",
         "keywords": [
             "vehicles - missiles",
@@ -2608,7 +2817,7 @@
         ]
     },
     "v_weapon_reset_max_missiles": {
-        "label": "",
+        "label": "Armed Missiles - Reset",
         "description": "",
         "keywords": [
             "vehicles - missiles",
@@ -2619,7 +2828,7 @@
         ]
     },
     "v_weapon_bombing_toggle_desired_impact_point": {
-        "label": "",
+        "label": "Bombs - Desired Impact Point Toggle",
         "description": "",
         "keywords": [
             "vehicles - missiles",
@@ -2630,7 +2839,7 @@
         ]
     },
     "v_weapon_bombing_toggle_desired_impact_point_hold": {
-        "label": "",
+        "label": "Bombs - Desired Impact Point Toggle (Hold)",
         "description": "",
         "keywords": [
             "vehicles - missiles",
@@ -2641,7 +2850,7 @@
         ]
     },
     "v_weapon_bombing_hud_range_increase": {
-        "label": "",
+        "label": "Bombs - HUD Range - Increase",
         "description": "",
         "keywords": [
             "vehicles - missiles",
@@ -2652,7 +2861,7 @@
         ]
     },
     "v_weapon_bombing_hud_range_decrease": {
-        "label": "",
+        "label": "Bombs - HUD Range - Decrease",
         "description": "",
         "keywords": [
             "vehicles - missiles",
@@ -2663,7 +2872,7 @@
         ]
     },
     "v_weapon_bombing_hud_range_reset": {
-        "label": "",
+        "label": "Bombs - HUD Range - Reset",
         "description": "",
         "keywords": [
             "vehicles - missiles",
@@ -2674,7 +2883,7 @@
         ]
     },
     "v_weapon_launch_missile_cinematic": {
-        "label": "",
+        "label": "Enable Cinematic Camera (Toggle)",
         "description": "",
         "keywords": [
             "vehicles - missiles",
@@ -2686,7 +2895,7 @@
         ]
     },
     "v_weapon_launch_missile_cinematic_hold": {
-        "label": "",
+        "label": "Enable Cinematic Camera (Hold)",
         "description": "",
         "keywords": [
             "vehicles - missiles",
@@ -2698,437 +2907,715 @@
         ]
     },
     "v_weapon_countermeasure_decoy_launch": {
-        "label": "",
+        "label": "Decoy - Launch Burst (tap), Set and Launch Burst (hold)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - shields and countermeasures",
+            "flare"
+        ]
     },
     "v_weapon_countermeasure_decoy_burst_increase": {
-        "label": "",
+        "label": "Decoy - Burst Size - Increase",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - shields and countermeasures",
+            "flare"
+        ]
     },
     "v_weapon_countermeasure_decoy_burst_decrease": {
-        "label": "",
+        "label": "Decoy - Burst Size - Decrease",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - shields and countermeasures",
+            "flare"
+        ]
     },
     "v_weapon_countermeasure_decoy_launch_panic": {
-        "label": "",
+        "label": "Decoy - Panic Launch",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - shields and countermeasures",
+            "flare"
+        ]
     },
     "v_weapon_countermeasure_noise_launch": {
-        "label": "",
+        "label": "Noise Launch",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - shields and countermeasures",
+            "chaff"
+        ]
     },
     "v_shield_raise_level_forward": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Shield - Raise Level - Front",
+        "description": "Shield - Raise Level - Fore",
+        "keywords": [
+            "vehicles - shields and countermeasures"
+        ]
     },
     "v_shield_raise_level_back": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Shield - Raise Level - Rear",
+        "description": "Shield - Raise Level - Aft",
+        "keywords": [
+            "vehicles - shields and countermeasures"
+        ]
     },
     "v_shield_raise_level_left": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Shield - Raise Level - Left",
+        "description": "Shield - Raise Level - Port",
+        "keywords": [
+            "vehicles - shields and countermeasures"
+        ]
     },
     "v_shield_raise_level_right": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Shield - Raise Level - Right",
+        "description": "Shield - Raise Level - Starboard",
+        "keywords": [
+            "vehicles - shields and countermeasures"
+        ]
     },
     "v_shield_raise_level_up": {
-        "label": "",
+        "label": "Shield - Raise Level - Up",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - shields and countermeasures"
+        ]
     },
     "v_shield_raise_level_down": {
-        "label": "",
+        "label": "Shield - Raise Level - Down",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - shields and countermeasures"
+        ]
     },
     "v_shield_reset_level": {
-        "label": "",
+        "label": "Shield - Reset Levels",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - shields and countermeasures"
+        ]
     },
     "v_power_toggle": {
-        "label": "",
+        "label": "Vehicle Power - Toggle",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power"
+        ]
     },
     "v_power_set_on": {
-        "label": "",
+        "label": "Vehicle Power - On",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power"
+        ]
     },
     "v_power_set_off": {
-        "label": "",
+        "label": "Vehicle Power - Off",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power"
+        ]
     },
     "v_power_toggle_thrusters": {
-        "label": "",
+        "label": "Thruster Power - Toggle",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power"
+        ]
     },
     "v_power_set_thrusters_on": {
-        "label": "",
+        "label": "Thruster Power - On",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power"
+        ]
     },
     "v_power_set_thrusters_off": {
-        "label": "",
+        "label": "Thruster Power - Off",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power"
+        ]
     },
     "v_power_toggle_shields": {
-        "label": "",
+        "label": "Shield Power - Toggle",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power"
+        ]
     },
     "v_power_set_shields_on": {
-        "label": "",
+        "label": "Shield Power - On",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power"
+        ]
     },
     "v_power_set_shields_off": {
-        "label": "",
+        "label": "Shield Power - Off",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power"
+        ]
     },
     "v_power_toggle_weapons": {
-        "label": "",
+        "label": "Weapons Power - Toggle",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power"
+        ]
     },
     "v_power_set_weapons_on": {
-        "label": "",
+        "label": "Weapons Power - On",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power"
+        ]
     },
     "v_power_set_weapons_off": {
-        "label": "",
+        "label": "Weapons Power - Off",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power"
+        ]
     },
     "v_power_throttle_down": {
-        "label": "",
+        "label": "Decrease Throttle",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power"
+        ]
     },
     "v_power_throttle_min": {
-        "label": "",
+        "label": "Decrease Throttle to Min",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power"
+        ]
     },
     "v_power_throttle_up": {
-        "label": "",
+        "label": "Increase Throttle",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power"
+        ]
     },
     "v_power_throttle_max": {
-        "label": "",
+        "label": "Increase Throttle to Max",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power",
+            "engineering"
+        ]
     },
     "v_engineering_assignment_engine_increase": {
-        "label": "",
+        "label": "Power Allocation - Engines - Increase (Tap)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power",
+            "engineering"
+        ]
     },
     "v_engineering_assignment_engine_decrease": {
-        "label": "",
+        "label": "Power Allocation - Engines - Decrease (Tap)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power",
+            "engineering"
+        ]
     },
     "v_engineering_assignment_engine_max": {
-        "label": "",
+        "label": "Power Allocation - Engines - Set To Max (Hold)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power",
+            "engineering"
+        ]
     },
     "v_engineering_assignment_engine_min": {
-        "label": "",
+        "label": "Power Allocation - Engines - Set To Min (Hold)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power",
+            "engineering"
+        ]
     },
     "v_engineering_assignment_shields_increase": {
-        "label": "",
+        "label": "Power Allocation - Shields - Increase (Tap)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power",
+            "engineering"
+        ]
     },
     "v_engineering_assignment_shields_decrease": {
-        "label": "",
+        "label": "Power Allocation - Shields - Decrease (Tap)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power",
+            "engineering"
+        ]
     },
     "v_engineering_assignment_shields_max": {
-        "label": "",
+        "label": "Power Allocation - Shields - Set to Max (Hold)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power",
+            "engineering"
+        ]
     },
     "v_engineering_assignment_shields_min": {
-        "label": "",
+        "label": "Power Allocation - Shields - Set to Min (Hold)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power",
+            "engineering"
+        ]
     },
     "v_engineering_assignment_weapons_increase": {
-        "label": "",
+        "label": "Power Allocation - Weapons - Increase (Tap)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power",
+            "engineering"
+        ]
     },
     "v_engineering_assignment_weapons_decrease": {
-        "label": "",
+        "label": "Power Allocation - Weapons - Decrease (Tap)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power",
+            "engineering"
+        ]
     },
     "v_engineering_assignment_weapons_max": {
-        "label": "",
+        "label": "Power Allocation - Weapons - Set to Max (Hold)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power",
+            "engineering"
+        ]
     },
     "v_engineering_assignment_weapons_min": {
-        "label": "",
+        "label": "Power Allocation - Weapons - Set to Min (Hold)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power",
+            "engineering"
+        ]
     },
     "v_engineering_assignment_reset": {
-        "label": "",
+        "label": "Power Allocation - Reset All",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - power",
+            "power",
+            "engineering"
+        ]
     },
     "v_cycle_pitch_ladder_mode": {
         "label": "",
-        "description": "",
-        "keywords": []
+        "description": "Used to show/hide the ladder in your HUD that indicates your angle relative to the horizon.   Now seems to do nothing as the ladder is just always on by default.  Also does not seem to be bindable in game, and even when bound via Star Binder it doesn't appear to do anything.",
+        "keywords": [
+            "flight - HUD",
+            "HUD"
+        ]
     },
     "mobiglas": {
-        "label": "",
+        "label": "Mobiglas",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - HUD",
+            "mobiglas"
+        ]
     },
     "v_hud_open_scoreboard": {
         "label": "",
-        "description": "",
-        "keywords": []
+        "description": "Arena Commander action",
+        "keywords": [
+            "flight - HUD",
+            "HUD",
+            "arena commander",
+            "electronic access"
+        ]
     },
     "v_starmap": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Starmap",
+        "description": "Go to Starmap in Mobiglas",
+        "keywords": [
+            "flight - HUD",
+            "mobiglas",
+            "starmap"
+        ]
     },
     "visor_wipe": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Wipe Helmet Visor",
+        "description": "Wipe away anything covering your view on your helmet. Can be used while flying or on foot.",
+        "keywords": [
+            "flight - HUD",
+            "on foot"
+        ]
     },
     "v_lights": {
-        "label": "",
+        "label": "Headlights (toggle)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "lights",
+            "vehicle"
+        ]
     },
     "v_lights_on": {
-        "label": "",
+        "label": "Headlights On",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "lights",
+            "vehicle"
+        ]
     },
     "v_lights_off": {
-        "label": "",
+        "label": "Headlights Off",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "lights",
+            "vehicle"
+        ]
     },
     "stopwatch_reset": {
-        "label": "",
+        "label": "Stopwatch Reset (Long Press)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "stopwatch",
+            "racing",
+            "vehicle - other",
+            "vehicle"
+        ]
     },
     "stopwatch_trigger": {
-        "label": "",
+        "label": "Stopwatch Start/Pause",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "stopwatch",
+            "racing",
+            "vehicle - other",
+            "vehicle"
+        ]
     },
     "moveleft": {
-        "label": "",
+        "label": "Move Left",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "movement"
+        ]
     },
     "moveright": {
-        "label": "",
+        "label": "Move Right",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "movement"
+        ]
     },
     "moveforward": {
-        "label": "",
+        "label": "Move Forward",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "movement"
+        ]
     },
     "moveback": {
-        "label": "",
+        "label": "Move Backward",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "movement"
+        ]
     },
     "gp_movex": {
-        "label": "",
+        "label": "Move Left / Right",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "movement"
+        ]
     },
     "gp_movey": {
-        "label": "",
+        "label": "Move Forward / Back",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "movement"
+        ]
     },
     "gp_rotateyaw": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Look (Yaw)",
+        "description": "Look Left/Right",
+        "keywords": [
+            "on foot",
+            "movement"
+        ]
     },
     "gp_rotatepitch": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Look (Pitch)",
+        "description": "Look Up/Down",
+        "keywords": [
+            "on foot",
+            "movement"
+        ]
     },
     "jump": {
-        "label": "",
+        "label": "Jump",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "movement"
+        ]
     },
     "jump_hold": {
-        "label": "",
+        "label": "Jump",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "movement"
+        ]
     },
     "jump_release": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "movement"
+        ]
     },
     "crouch": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "movement"
+        ]
     },
     "gp_jump": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "movement"
+        ]
     },
     "gp_crouch": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "movement"
+        ]
     },
     "prone": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "movement"
+        ]
     },
     "sprint": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "movement"
+        ]
     },
     "walk": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "movement"
+        ]
     },
     "leanleft": {
-        "label": "",
+        "label": "Lean Left",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat"
+        ]
     },
     "leanright": {
-        "label": "",
+        "label": "Lean Right",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat"
+        ]
     },
     "ledgegrab": {
-        "label": "",
+        "label": "Ledge Grab",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "movement"
+        ]
     },
     "attack1": {
-        "label": "",
+        "label": "Attack1 / Shoot",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat"
+        ]
     },
     "attackSecondary": {
-        "label": "",
+        "label": "Attack2",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat"
+        ]
     },
     "melee_AttackLightLeft": {
-        "label": "",
+        "label": "Melee - Attack Light - Left",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat"
+        ]
     },
     "melee_AttackLightRight": {
-        "label": "",
+        "label": "Melee - Attack Light - Right",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "melee"
+        ]
     },
     "melee_AttackHeavyLeft": {
-        "label": "",
+        "label": "Melee - Attack Heavy - Left (Hold)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "melee"
+        ]
     },
     "melee_AttackHeavyRight": {
-        "label": "",
+        "label": "Melee - Attack Heavy - Right (Hold)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "melee"
+        ]
     },
     "melee_block": {
-        "label": "",
+        "label": "Melee - Block (Hold)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "melee"
+        ]
     },
     "melee_AttackSyringeStab": {
-        "label": "",
+        "label": "Medical Pen - Inject Other",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "melee"
+        ]
     },
     "melee_dodgeLeft": {
-        "label": "",
+        "label": "Melee - Dodge Left",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "melee"
+        ]
     },
     "melee_dodgeRight": {
-        "label": "",
+        "label": "Melee - Dodge Right",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "melee"
+        ]
     },
     "melee_dodgeBack": {
-        "label": "",
+        "label": "Melee - Dodge Backward",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "melee"
+        ]
     },
     "weapon_melee": {
-        "label": "",
+        "label": "Melee - Weapon Attack",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "melee"
+        ]
     },
     "takedown_nonLethal": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Melee - Non-lethal Takedown",
+        "description": "When close behind another character",
+        "keywords": [
+            "on foot"
+        ]
     },
     "throw_overhand": {
-        "label": "",
+        "label": "Throw - Overarm & Two-Handed",
         "description": "A stronger throw of the item in your hand (incl. grenades)",
-        "keywords": []
+        "keywords": [
+            "on foot"
+        ]
     },
     "throw_underhand": {
-        "label": "",
+        "label": "Throw - Underarm",
         "description": "A weaker throw for short range lobs of the item in your hand (incl. grenades)",
-        "keywords": []
+        "keywords": [
+            "on foot"
+        ]
     },
     "zoom": {
-        "label": "ADS (Aim Down Sights)",
+        "label": "ADS (Aim Down Sight)",
         "description": "This is the ADS action for sights",
         "keywords": [
             "on foot",
@@ -3136,15 +3623,15 @@
         ]
     },
     "interact_with_scope": {
-        "label": "Steady/Interact with Scope",
-        "description": "Will toggle night vision scopes and steady sniper scopes",
+        "label": "Interact with Scope",
+        "description": "Will toggle active ability like night vision on compatible scopes and sights",
         "keywords": [
             "on foot",
             "combat"
         ]
     },
     "toggle_lowered": {
-        "label": "",
+        "label": "Weapon Stance / Lower Weapon - Toggle",
         "description": "Lower your weapon to appear less aggressive but keep it held and ready.",
         "keywords": [
             "on foot",
@@ -3152,1088 +3639,1848 @@
         ]
     },
     "select_primary_pit": {
-        "label": "",
+        "label": "Select Primary Weapon",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "equipment"
+        ]
     },
     "select_secondary_pit": {
-        "label": "",
+        "label": "Select Secondary Weapon",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "equipment"
+        ]
     },
     "select_sidearm_pit": {
-        "label": "",
+        "label": "Select Sidearm",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "equipment"
+        ]
     },
     "select_meleeweapon_pit": {
-        "label": "",
+        "label": "Select Melee",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "melee",
+            "equipment"
+        ]
     },
     "select_gadget_pit": {
-        "label": "",
+        "label": "Select Gadget",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "equipment"
+        ]
     },
     "selectUnarmedCombat": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Unarmed Combat",
+        "description": "'Equip' your fists",
+        "keywords": [
+            "on foot",
+            "combat",
+            "melee"
+        ]
     },
     "nextweapon": {
-        "label": "",
+        "label": "Next Weapon",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "equipment"
+        ]
     },
     "prevweapon": {
-        "label": "",
+        "label": "Previous Weapon",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "equipment"
+        ]
     },
     "reload": {
-        "label": "",
+        "label": "Reload",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "equipment"
+        ]
     },
     "reloadSecondary": {
-        "label": "",
+        "label": "Reload Secondary",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "equipment"
+        ]
     },
     "ammoRepool": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Ammo Repool",
+        "description": "Combine All Ammo",
+        "keywords": [
+            "on foot",
+            "combat",
+            "equipment"
+        ]
     },
     "holster": {
-        "label": "",
+        "label": "Holster Weapon",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "equipment"
+        ]
     },
     "drop": {
-        "label": "",
+        "label": "Drop item",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "equipment"
+        ]
     },
     "inspect": {
-        "label": "",
+        "label": "Inspect Item",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "equipment"
+        ]
     },
     "customize": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Customize Weapon",
+        "description": "Diegetic UI to add/remove attachments to your held weapon based on what you have on your person.",
+        "keywords": [
+            "on foot",
+            "combat",
+            "equipment"
+        ]
     },
     "stabilize": {
-        "label": "",
+        "label": "Hold Breath (ADS) / Steady Scope",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat"
+        ]
     },
     "weapon_auxiliary_action": {
-        "label": "",
+        "label": "Toggle/Activate Underbarrel Attachment Action",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "equipment"
+        ]
     },
     "weapon_change_firemode": {
-        "label": "",
+        "label": "Change Weapon Fire Mode",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "equipment"
+        ]
     },
     "weapon_zeroing_decrease": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "combat",
+            "equipment"
+        ]
     },
     "weapon_zeroing_increase": {
-        "label": "",
+        "label": "Weapon Zeroing Increase/Auto",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot"
+        ]
     },
     "fixed_speed_increment": {
-        "label": "",
+        "label": "Default Movement Speed - Increase",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot"
+        ]
     },
     "fixed_speed_decrement": {
-        "label": "",
+        "label": "Default Movement Speed - Decrease",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot"
+        ]
     },
     "downedRevivalRequest": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Request Medical Rescue (while incapacitated)",
+        "description": "Send up a beacon to request medical rescue.",
+        "keywords": [
+            "on foot",
+            "combat"
+        ]
     },
     "toggle_flashlight": {
-        "label": "",
+        "label": "Flashlight (toggle)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "equipment"
+        ]
     },
     "toggleEquipHelmet": {
-        "label": "",
+        "label": "Toggle Equip Helmet",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "equipment"
+        ]
     },
     "toggleAttachHelmet": {
-        "label": "",
+        "label": "Toggle Attach Helmet",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "equipment"
+        ]
     },
     "toggleHelmetState": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Toggle Helmet State",
+        "description": "This is mixed up in the in-game keybind UI because of a bug/error in the gamefiles (it's given the same UI name as increase walk speed by mistake).  It's not clear what this action does, if anything.  It may depend on the helmet (perhaps there are helmets with retractable visors or something).",
+        "keywords": [
+            "on foot",
+            "equipment"
+        ]
     },
     "thirdperson": {
-        "label": "",
+        "label": "Third Person View (toggle)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "camera"
+        ]
     },
     "free_thirdperson_camera": {
-        "label": "",
+        "label": "Free View Camera (hold)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "camera"
+        ]
     },
     "zoom_out": {
-        "label": "",
+        "label": "Zoom out",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "camera"
+        ]
     },
     "zoom_in": {
-        "label": "",
+        "label": "Zoom in",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "camera"
+        ]
     },
     "ship_recall": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Recall Last Vehicle",
+        "description": "Is this just for Arena Commander?",
+        "keywords": [
+            "on foot",
+            "on foot - other"
+        ]
     },
     "pl_hud_open_scoreboard": {
-        "label": "",
+        "label": "Scoreboard",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "on foot",
+            "arena commander"
+        ]
     },
     "dismiss_corpse_marker": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Dismiss Corpse Marker",
+        "description": "Remove the marker for your corpse from your HUD.",
+        "keywords": [
+            "on foot"
+        ]
     },
     "consume": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Eat/Drink",
+        "description": "Consume the food item held in your hand.",
+        "keywords": [
+            "on foot",
+            "on foot - other",
+            "equipment"
+        ]
     },
     "port_modification_select": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Port Modification Interact",
+        "description": "@ui_CIModifyPortDesc",
+        "keywords": [
+            "on foot"
+        ]
     },
     "force_respawn": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Force Re-spawn (E.V.A. / On Foot)",
+        "description": "Perish and respawn at the relevant location",
+        "keywords": [
+            "on foot"
+        ]
     },
     "prone_rollleft": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Roll Left (while Prone)",
+        "description": "@ui_CIFPSProneRollLeftDesc",
+        "keywords": [
+            "on foot"
+        ]
     },
     "prone_rollright": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Roll Right (while Prone)",
+        "description": "@ui_CIFPSProneRollRightDesc",
+        "keywords": [
+            "on foot"
+        ]
     },
     "tractor_beam_increase_distance": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Tractor Beam - Increase Distance",
+        "description": "Increases the target distance for an object controlled with the Tractor Beam.",
+        "keywords": [
+            "on foot",
+            "equipment"
+        ]
     },
     "tractor_beam_decrease_distance": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Tractor Beam - Decrease Distance",
+        "description": "Decreases the target distance for an object controlled with the Tractor Beam.",
+        "keywords": [
+            "on foot",
+            "equipment"
+        ]
     },
     "weapon_change_mining_throttle": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Hand Mining Throttle - Increase/Decrease",
+        "description": "Adjust the power output of the hand tool while mining",
+        "keywords": [
+            "on foot",
+            "equipment"
+        ],
+        "relative": true
     },
     "incapacitatedRespawn": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Regen (while Incapacitated)",
+        "description": "Perish and respawn at the relevant location",
+        "keywords": [
+            "on foot"
+        ]
     },
     "eva_view_yaw_left": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: View Left",
+        "description": "@ui_CIEVAViewYawLeftDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ]
     },
     "eva_view_yaw_right": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: View Right",
+        "description": "@ui_CIEVAViewYawRightDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ]
     },
     "eva_view_yaw": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: View Left/Right",
+        "description": "@ui_CIEVAViewYawDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ],
+        "relative": true
     },
     "eva_view_yaw_mouse": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: View Left/Right",
+        "description": "@ui_CIEVAViewYawDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ],
+        "relative": true
     },
     "eva_view_pitch_up": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "View Up",
+        "description": "@ui_CIEVAViewPitchUpDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ]
     },
     "eva_view_pitch_down": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: View Down",
+        "description": "@ui_CIEVAViewPitchDownDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ]
     },
     "eva_view_pitch": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: View Up/Down",
+        "description": "@ui_CIEVAViewPitchDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ],
+        "relative": true
     },
     "eva_view_pitch_mouse": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: View Up/Down",
+        "description": "@ui_CIEVAViewPitchDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ],
+        "relative": true
     },
     "eva_roll_left": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: Roll Left",
+        "description": "@ui_CIEVARollLeftDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ]
     },
     "eva_roll_right": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: Roll Right",
+        "description": "@ui_CIEVARollRightDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ]
     },
     "eva_roll": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: Roll Left/Right",
+        "description": "@ui_CIEVARollDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ],
+        "relative": true
     },
     "eva_strafe_up": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: Strafe Up",
+        "description": "@ui_CIEVAStrafeUpDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ]
     },
     "eva_strafe_down": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: Strafe Down",
+        "description": "@ui_CIEVAStrafeDownDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ]
     },
     "eva_strafe_vertical": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: Strafe Up/Down",
+        "description": "@ui_CIEVAStrafeVerticalDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ],
+        "relative": true
     },
     "eva_strafe_left": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: Strafe Left",
+        "description": "@ui_CIEVAStrafeLeftDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ]
     },
     "eva_strafe_right": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: Strafe Right",
+        "description": "@ui_CIEVAStrafeRightDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ]
     },
     "eva_strafe_lateral": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: Strafe Left/Right",
+        "description": "@ui_CIEVAStrafeLateralDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ],
+        "relative": true
     },
     "eva_strafe_forward": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: Strafe Forward",
+        "description": "@ui_CIEVAStrafeForwardDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ]
     },
     "eva_strafe_back": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: Strafe Backward",
+        "description": "@ui_CIEVAStrafeBackDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ]
     },
     "eva_strafe_longitudinal": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: Strafe Forward/Backward",
+        "description": "@ui_CIEVAStrafeLongitudinalDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ],
+        "relative": true
     },
     "eva_brake": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: Brake",
+        "description": "@ui_CIEVABrakeDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ]
     },
     "eva_boost": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: Boost",
+        "description": "@ui_CIEVABoostDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ]
     },
     "eva_toggle_headlook_mode": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: Freelook (Hold)",
+        "description": "@ui_CIEVAFreelookDesc",
+        "keywords": [
+            "on foot",
+            "eva"
+        ]
     },
     "zgt_launch": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: Launch from Surface",
+        "description": "@ui_CIEVALaunchDesc",
+        "keywords": [
+            "on foot",
+            "eva",
+            "zero-g traversal"
+        ]
     },
     "zgt_detach": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: Detach from Surface",
+        "description": "@ui_CIEVADetachDesc",
+        "keywords": [
+            "on foot",
+            "eva",
+            "zero-g traversal"
+        ]
     },
     "zgt_roll_left": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: Roll Left",
+        "description": "@ui_CIEVARollLeftDesc",
+        "keywords": [
+            "on foot",
+            "eva",
+            "zero-g traversal"
+        ]
     },
     "zgt_roll_right": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "EVA: Roll Right",
+        "description": "@ui_CIEVARollRightDesc",
+        "keywords": [
+            "on foot",
+            "eva",
+            "zero-g traversal"
+        ]
     },
     "v_horn": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Horn",
+        "description": "@ui_CIVehicleHornDesc",
+        "keywords": [
+            "ground vehicle - general",
+            "vehicle",
+            "vehicle - other"
+        ]
     },
     "v_move_forward": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Drive Forward",
+        "description": "@ui_CIVehicleDriveForwardDesc",
+        "keywords": [
+            "ground vehicle - movement",
+            "vehicle"
+        ]
     },
     "v_move_back": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Drive Backward",
+        "description": "@ui_CIVehicleDriveBackwardDesc",
+        "keywords": [
+            "ground vehicle - movement",
+            "vehicle"
+        ]
     },
     "v_move": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Drive Forward / Backward",
+        "description": "@ui_CIVehicleDriveAxisDesc",
+        "keywords": [
+            "ground vehicle - movement",
+            "vehicle"
+        ],
+        "relative": true
     },
     "v_brake": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Brake",
+        "description": "@ui_CIVehicleBrakeDesc",
+        "keywords": [
+            "ground vehicle - movement",
+            "vehicle"
+        ]
     },
     "v_boost": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "@ui_CIboost",
+        "description": "@ui_CIboostDesc",
+        "keywords": [
+            "ground vehicle - movement",
+            "vehicle"
+        ]
     },
     "v_mgv_switch_brake_on_idle": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Switch Brake On Idle",
+        "description": "@ui_CI_MGV_ToggleBreakOnIdleDesc",
+        "keywords": [
+            "ground vehicle - movement",
+            "vehicle"
+        ]
     },
     "spectate_next_target": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Spectator Camera Target (Next)",
+        "description": "@ui_CISpectatorTargetNextDesc",
+        "keywords": [
+            "arena commander"
+        ]
     },
     "spectate_prev_target": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Spectator Camera Target (Previous)",
+        "description": "@ui_CISpectatorTargetPrevDesc",
+        "keywords": [
+            "arena commander"
+        ]
     },
     "spectate_toggle_lock_target": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Spectator Camera Lock Target",
+        "description": "@ui_CISpectatorTargetLockDesc",
+        "keywords": [
+            "arena commander"
+        ]
     },
     "spectate_zoom": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Spectator Camera Zoom",
+        "description": "@ui_CISpectatorZoomDesc",
+        "keywords": [
+            "arena commander"
+        ]
     },
     "spectate_zoom_in": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Spectator Camera Zoom In",
+        "description": "@ui_CISpectatorZoomInDesc",
+        "keywords": [
+            "arena commander"
+        ]
     },
     "spectate_zoom_out": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Spectator Camera Zoom Out",
+        "description": "@ui_CISpectatorZoomOutDesc",
+        "keywords": [
+            "arena commander"
+        ]
     },
     "spectate_rotateyaw_mouse": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Spectator Camera Rotate Yaw",
+        "description": "@ui_CISpectatorRotateYawDesc",
+        "keywords": [
+            "arena commander"
+        ]
     },
     "spectate_rotatepitch_mouse": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Spectator Camera Rotate Pitch",
+        "description": "@ui_CISpectatorRotatePitchDesc",
+        "keywords": [
+            "arena commander"
+        ]
     },
     "spectate_rotateyaw": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Spectator Camera Rotate Yaw",
+        "description": "@ui_CISpectatorRotateYawDesc",
+        "keywords": [
+            "arena commander"
+        ]
     },
     "spectate_rotatepitch": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Spectator Camera Rotate Pitch",
+        "description": "@ui_CISpectatorRotatePitchDesc",
+        "keywords": [
+            "arena commander"
+        ]
     },
     "spectate_toggle_hud": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Spectator Camera HUD (Toggle)",
+        "description": "@ui_CISpectatorHudToggleDesc",
+        "keywords": [
+            "arena commander"
+        ]
     },
     "spectate_gen_nextmode": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Spectator Camera Mode (Next)",
+        "description": "@ui_CISpectatorModeNextDesc",
+        "keywords": [
+            "arena commander"
+        ]
     },
     "spectate_gen_prevmode": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Spectator Camera Mode (Previous)",
+        "description": "@ui_CISpectatorModePrevDesc",
+        "keywords": [
+            "arena commander"
+        ]
     },
     "respawn": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Re-spawn",
+        "description": "This has the 'social general' tag because that's what CIG put it as.  This is the AC respawn command or is perhaps redundant.",
+        "keywords": [
+            "social - general",
+            "arena commander"
+        ]
     },
     "pl_exit": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Exit seat",
+        "description": "@ui_CIExitDesc",
+        "keywords": [
+            "social - general",
+            "seats",
+            "vehicle - other"
+        ]
     },
     "notification_accept": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Notification - Accept",
+        "description": "@ui_CIUINotificationAccept",
+        "keywords": [
+            "social - general",
+            "comms/social",
+            "comms - other"
+        ]
     },
     "notification_decline": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Notification - Decline",
+        "description": "@ui_CIUINotificationDecline",
+        "keywords": [
+            "social - general",
+            "comms/social",
+            "comms - other"
+        ]
     },
     "toggle_contact": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "CommLink App (Toggle)",
+        "description": "Opens the global chat in MobiGlas",
+        "keywords": [
+            "social - general",
+            "mobiglas",
+            "comms/social"
+        ]
     },
     "toggle_chat": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Chat Window (Toggle)",
+        "description": "@ui_CIUIChatToggleDesc",
+        "keywords": [
+            "social - general",
+            "comms/social"
+        ]
     },
     "cycle_chat_lobby": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle Chat Lobby",
+        "description": "Press to cycle through subscribed lobbies in chat.",
+        "keywords": [
+            "social - general",
+            "comms/social"
+        ]
     },
     "focus_on_chat_textinput": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Chat Window On/Off",
+        "description": "Show/Hide the chat window on your HUD.",
+        "keywords": [
+            "social - general"
+        ]
     },
     "ui_notification_accept": {
-        "label": "",
+        "label": "Accept Invite",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "social - invites",
+            "comms/social",
+            "comms - other"
+        ]
     },
     "ui_notification_decline": {
-        "label": "",
+        "label": "Reject Invite",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "social - invites",
+            "comms/social",
+            "comms - other"
+        ]
     },
     "ui_notification_ignore": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Ignore Invite (hold)",
+        "description": "Ignore Invite",
+        "keywords": [
+            "social - invites",
+            "comms/social",
+            "comms - other"
+        ]
     },
     "emote_cs_forward": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Forward",
+        "description": "@ui_CIEmoteForwardDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_cs_left": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Left",
+        "description": "@ui_CIEmoteLeftDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_cs_right": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Right",
+        "description": "@ui_CIEmoteRightDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_cs_stop": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Stop",
+        "description": "@ui_CIEmoteStopDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_cs_yes": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Yes",
+        "description": "@ui_CIEmoteYesDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_cs_no": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: No",
+        "description": "@ui_CIEmoteNoDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_agree": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Agree",
+        "description": "@ui_CIEmoteAgreeDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_angry": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Angry",
+        "description": "@ui_CIEmoteAngryDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_atease": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: At Ease",
+        "description": "@ui_CIEmoteAteaseDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_attention": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Attention",
+        "description": "@ui_CIEmoteAttentionDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_blah": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Blah",
+        "description": "@ui_CIEmoteBlahDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_bored": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Bored",
+        "description": "@ui_CIEmoteBoredDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_bow": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Bow",
+        "description": "@ui_CIEmoteBowDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_burp": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Burp",
+        "description": "@ui_CIEmoteBurpDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_cheer": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Cheer",
+        "description": "@ui_CIEmoteCheerDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_chicken": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Chicken",
+        "description": "@ui_CIEmoteChickenDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_clap": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Clap",
+        "description": "@ui_CIEmoteClapDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_come": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Come",
+        "description": "@ui_CIEmoteComeDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_cry": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Cry",
+        "description": "@ui_CIEmoteCryDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_dance": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Dance",
+        "description": "@ui_CIEmoteDanceDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_disagree": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Disagree",
+        "description": "@ui_CIEmoteDisagreeDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_failure": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Failure",
+        "description": "@ui_CIEmoteFailureDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_flex": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Flex",
+        "description": "@ui_CIEmoteFlexDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_flirt": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Flirt",
+        "description": "@ui_CIEmoteFlirtDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_gasp": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Gasp",
+        "description": "@ui_CIEmoteGaspDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_gloat": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Gloat",
+        "description": "@ui_CIEmoteGloatDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_greet": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Greet",
+        "description": "@ui_CIEmoteGreetDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_laugh": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Laugh",
+        "description": "@ui_CIEmoteLaughDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_launch": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Confirm Launch",
+        "description": "Confirms the launch of the vehicle",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_point": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Point",
+        "description": "@ui_CIEmotePointDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_rude": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Rude",
+        "description": "@ui_CIEmoteRudeDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_salute": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Salute",
+        "description": "@ui_CIEmoteSaluteDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_sit": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Sit",
+        "description": "@ui_CIEmoteSitDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_sleep": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Sleep",
+        "description": "@ui_CIEmoteSleepDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_smell": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Smell",
+        "description": "@ui_CIEmoteSmellDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_taunt": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Taunt",
+        "description": "@ui_CIEmoteTauntDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_threaten": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Threaten",
+        "description": "@ui_CIEmoteThreatenDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_wait": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Wait",
+        "description": "@ui_CIEmoteWaitDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_wave": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Wave",
+        "description": "@ui_CIEmoteWaveDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "emote_whistle": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Emote: Whistle",
+        "description": "@ui_CIEmoteWhistleDesc",
+        "keywords": [
+            "social - emotes",
+            "comms/social",
+            "emotes"
+        ]
     },
     "headtrack_enabled": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Enable Head Tracking (Toggle)",
+        "description": "Switches head tracking on / off (Toggle)",
+        "keywords": [
+            "voip, foip and head tracking",
+            "comms/social",
+            "foip/voip"
+        ]
     },
     "headtrack_hold": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Head Tracking (Hold)",
+        "description": "Enables head tracking as long as the button is held down",
+        "keywords": [
+            "voip, foip and head tracking",
+            "comms/social"
+        ]
     },
     "headtrack_recenter_device": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Recenter Head Tracking Device (except TrackIR)",
+        "description": "Recenters head tracking device inputs.",
+        "keywords": [
+            "voip, foip and head tracking",
+            "comms/social"
+        ]
     },
     "headtrack_camera_enabled": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Enable / Disable Head Tracking for 3rd Person Camera (Toggle)",
+        "description": "Enables or disables head tracking in external cameras.",
+        "keywords": [
+            "voip, foip and head tracking",
+            "comms/social"
+        ]
     },
     "foip_pushtotalk": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "VOIP Push To Talk",
+        "description": "VOIP Push To Talk",
+        "keywords": [
+            "voip, foip and head tracking",
+            "comms/social",
+            "foip/voip"
+        ]
     },
     "foip_pushtotalk_proximity": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "VOIP Push To Talk (Proximity only)",
+        "description": "VOIP Push To Talk (Proximity only)",
+        "keywords": [
+            "voip, foip and head tracking",
+            "comms/social",
+            "foip/voip"
+        ]
     },
     "foip_viewownplayer": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "FOIP Selfie Cam",
+        "description": "FOIP Selfie Cam",
+        "keywords": [
+            "voip, foip and head tracking",
+            "comms/social",
+            "foip/voip"
+        ]
     },
     "foip_recalibrate": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "FOIP Recalibrate",
+        "description": "FOIP Recalibrate",
+        "keywords": [
+            "voip, foip and head tracking",
+            "comms/social",
+            "foip/voip"
+        ]
     },
     "foip_cyclechannel": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Cycle through audio channels",
+        "description": "Cycle through audio channels",
+        "keywords": [
+            "voip, foip and head tracking",
+            "comms/social",
+            "foip/voip"
+        ]
     },
     "pc_interaction_mode": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Interaction Mode",
+        "description": "Interaction Mode",
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_interaction_select": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Activate Inner Thought",
+        "description": "Activate Interaction",
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_select": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Activate Inner Thought",
+        "description": "Activate Interaction",
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_focus": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Interaction Mode: Focus",
+        "description": "Focus",
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_zoom_in": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Interaction Mode: Zoom In",
+        "description": "Interaction Mode Zoom In",
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_zoom_out": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Interaction Mode: Zoom Out",
+        "description": "Interaction Mode Zoom Out",
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_screen_focus_left": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Interaction Mode: MFD Focus Left",
+        "description": "@ui_CIMFDSnapLeftDesc",
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction",
+            "mfds"
+        ]
     },
     "pc_screen_focus_right": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Interaction Mode: MFD Focus Right",
+        "description": "@ui_CIMFDSnapRightDesc",
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction",
+            "mfds"
+        ]
     },
     "pc_screen_focus_up": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Interaction Mode: MFD Focus Up",
+        "description": "@ui_CIMFDSnapUpDesc",
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction",
+            "mfds"
+        ]
     },
     "pc_screen_focus_down": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Interaction Mode: MFD Focus Down",
+        "description": "@ui_CIMFDSnapDownDesc",
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction",
+            "mfds"
+        ]
     },
     "pc_personal_thought": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Personal Inner Thought (PIT)",
+        "description": "Personal Inner Thought",
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_camera_orbit": {
-        "label": "",
+        "label": " Camera Orbit",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction",
+            "camera"
+        ]
     },
     "pc_personal_back": {
-        "label": "",
+        "label": "Interaction Mode: Exit",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_pit_inventory": {
-        "label": "",
+        "label": "Personal Inventory",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_pit_looting": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Personal Inventory Loot UI",
+        "description": "Default activation is to hold 'i'.",
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_pit_looting_toggle_view": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Loot UI - Change Page",
+        "description": "Changes between the main and secondary page of the Loot UI",
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_pit_looting_toggle_weapon_attachments": {
-        "label": "",
+        "label": "Loot UI - Toggle Weapon Attachments",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_pit_item_drop": {
-        "label": "",
+        "label": "Drop Item",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction",
+            "on foot",
+            "equipment"
+        ]
     },
     "pc_pit_empty_backpack": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Store All Commodities",
+        "description": "Empty your pack / store all",
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_pit_player_actions": {
-        "label": "",
+        "label": "Player Actions - PIT Category",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_pit_emotes": {
-        "label": "",
+        "label": "Emotes - PIT Category",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_pit_ship_systems": {
-        "label": "",
+        "label": "Ship Systems - PIT Category",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_pit_flight_systems": {
-        "label": "",
+        "label": "Flight Systems - PIT Category",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_pit_vehicle_actions": {
-        "label": "",
+        "label": "Vehicle Actions - PIT Category",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_pit_weapons_systems": {
-        "label": "",
+        "label": "Weapon Systems - PIT Category",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_pit_remote_turrets": {
-        "label": "",
+        "label": "Remote Turret - PIT Category",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_pit_item_actions": {
-        "label": "",
+        "label": "Item Actions - PIT Category",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_pit_weapon_selection": {
-        "label": "",
+        "label": "Weapon Selection - PIT Category",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_pit_mobiglas_actions": {
-        "label": "",
+        "label": "Mobiglas Actions - PIT Category",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_pit_miningmode_actions": {
-        "label": "",
+        "label": "Mining Mode Actions - PIT Category",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "pc_qs_weapons_pit_primary": {
-        "label": "",
+        "label": "Radial Menu - Primary Weapon",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction",
+            "combat"
+        ]
     },
     "pc_qs_weapons_pit_secondary": {
-        "label": "",
+        "label": "Radial Menu - Secondary Weapon",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction",
+            "combat"
+        ]
     },
     "pc_qs_weapons_pit_sidearm": {
-        "label": "",
+        "label": " Radial Menu - Sidearm",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction",
+            "combat"
+        ]
     },
     "pc_qs_grenades": {
-        "label": "",
+        "label": "Radial Menu - Throwables/Grenades",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction",
+            "combat"
+        ]
     },
     "pc_qs_consumables": {
-        "label": "",
+        "label": "Radial Menu - Consumables",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "quick keys, interactions, and inner thought",
+            "other",
+            "interaction"
+        ]
     },
     "view_enable_camview_mode": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Third Person Cam - Advanced Controls Modifier",
+        "description": "Hold this and press the advanced camera controls to change its appearance.",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_switch_to_alternative": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Third Person Cam - Freemove",
+        "description": "Allows the camera to move without the player moving while held.",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_save_view_1": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Camera: Save View 1",
+        "description": "@ui_CIAdvanCamSave1Desc",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_save_view_2": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Camera: Save View 2",
+        "description": "@ui_CIAdvanCamSave2Desc",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_save_view_3": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Camera: Save View 3",
+        "description": "@ui_CIAdvanCamSave3Desc",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_save_view_4": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Camera: Save View 4",
+        "description": "@ui_CIAdvanCamSave4Desc",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_save_view_5": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Camera: Save View 5",
+        "description": "@ui_CIAdvanCamSave5Desc",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_save_view_6": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Camera: Save View 6",
+        "description": "@ui_CIAdvanCamSave6Desc",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_save_view_7": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Camera: Save View 7",
+        "description": "@ui_CIAdvanCamSave7Desc",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_save_view_8": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Camera: Save View 8",
+        "description": "@ui_CIAdvanCamSave8Desc",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_save_view_9": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Camera: Save View 9",
+        "description": "@ui_CIAdvanCamSave9Desc",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_load_view_1": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Camera: Load View 1",
+        "description": "@ui_CIAdvanCamLoad1Desc",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_load_view_2": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Camera: Load View 2",
+        "description": "@ui_CIAdvanCamLoad2Desc",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_load_view_3": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Camera: Load View 3",
+        "description": "@ui_CIAdvanCamLoad3Desc",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_load_view_4": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Camera: Load View 4",
+        "description": "@ui_CIAdvanCamLoad4Desc",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_load_view_5": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Camera: Load View 5",
+        "description": "@ui_CIAdvanCamLoad5Desc",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_load_view_6": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Camera: Load View 6",
+        "description": "@ui_CIAdvanCamLoad6Desc",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_load_view_7": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Camera: Load View 7",
+        "description": "@ui_CIAdvanCamLoad7Desc",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_load_view_8": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Camera: Load View 8",
+        "description": "@ui_CIAdvanCamLoad8Desc",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_load_view_9": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Camera: Load View 9",
+        "description": "@ui_CIAdvanCamLoad9Desc",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_reset_saved": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Camera: Clear Saved View",
+        "description": "@ui_CIAdvanCamClearSaveDesc",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_move_target_X_pos": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Advanced Camera: X Offset Positive",
+        "description": "Offset the camera left/right",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_move_target_X_neg": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Advanced Camera: X Offset Negative",
+        "description": "Offset the camera left/right",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_move_target_Y_pos": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Advanced Camera: Y Offset Positive / Spectator Freecam Focal Point Forward",
+        "description": "Offset the camera forward/backward",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_move_target_Y_neg": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Advanced Camera: Y Offset Negative / Spectator Freecam Focal Point Backward",
+        "description": "Offset the camera forward/backward",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_move_target_Z_pos": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Advanced Camera: Z Offset Positive",
+        "description": "Offset the camera vertically",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_move_target_Z_neg": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Advanced Camera: Z Offset Negative",
+        "description": "Offset the camera vertically",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_fov_in": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Advanced Camera: Increase FoV",
+        "description": "Zoom in to a tighter FOV angle",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_fov_out": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Advanced Camera: Decrease FoV",
+        "description": "Zoom out to a wider FOV angle",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_fstop_in": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Advanced Camera: Increase DoF",
+        "description": "Adjust bokeh effect",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_fstop_out": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Advanced Camera: Decrease DoF",
+        "description": "Adjust bokeh effect",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     },
     "view_restore_defaults": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Reset Current View",
+        "description": "Resets cam to default state",
+        "keywords": [
+            "camera - advanced camera controls",
+            "camera"
+        ]
     }
 }

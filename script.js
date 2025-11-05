@@ -130,8 +130,16 @@ function getActionLabel(key)
 
 function getActionDescription(key)
 {
-    return actionMapDictionary[key]?.description || key + ": No description available.";
+    const desc = actionMapDictionary[key]?.description;
+
+    if (!desc || desc.startsWith("@"))
+    {
+        return key + ": No description available.";
+    }
+
+    return desc;
 }
+
 
 function getActionKeywords(key)
 {
@@ -139,7 +147,7 @@ function getActionKeywords(key)
 }
 function getActionIsRelative(key)
 {
-    return actionMapDictionary[key]?.relative ?? [];
+    return actionMapDictionary[key]?.relative ?? false;
 }
 
 
@@ -306,7 +314,8 @@ const activationModeType = {
     HOLD_LONG_NO_RETRIGGER: 'delayed_hold_no_retrigger',
     ALL: 'all',
     HOLD_TOGGLE: 'hold_toggle',
-    SMART_TOGGLE: 'smart_toggle'
+    SMART_TOGGLE: 'smart_toggle',
+    NONE: 'none'
 }
 
 
@@ -382,8 +391,8 @@ const keywordCategories =
     "default": ["other"],
     "@ui_CGUIGeneral": "other",
     "ui_notification": "other",
-    "@ui_CGOpticalTracking": ["other", "optical tracking", "FOIP/VOIP"],
-    "player_input_optical_tracking": ["other", "optical tracking", "FOIP/VOIP"],
+    "@ui_CGOpticalTracking": ["other", "optical tracking", "foip/voip"],
+    "player_input_optical_tracking": ["other", "optical tracking", "foip/voip"],
     "mfds": ["vehicle", "mfds"],
     "MFDs": ["vehicle", "mfds"],
     "Emotes": ["comms/social", "emotes"],
@@ -473,6 +482,7 @@ class MappedAction
     actionCustomName;  // user-chosen custom name
 
     description;        //Describes how the keybind works in the game
+    UIdescription;
     keywordTags = [];        //keywords array, for searching and filtering.
 
     bind = {
@@ -494,6 +504,7 @@ class MappedAction
         UICategory,         // "@ui_CCFPS"
         label,            // "@ui_CGINTERACTION"
         description,       // "@ui_CIStrafeUpDesc"
+        UIdescription,       // "@ui_CIStrafeUpDesc"
         version,
         optionGroup
     })
@@ -511,15 +522,21 @@ class MappedAction
 
         //fallback for when the source XML doesn't explicitly give action as relative
         //Covers relative and absolute (absolute is for sliders etc)
-        this.isRelative = getActionIsRelative(this.actionName)
+        if (this.isRelative === false || !this.isRelative) this.isRelative = getActionIsRelative(this.actionName)
 
-        keywords.forEach(k => this.keywordTags.push(k));
+        keywords.forEach(k =>
+        {
+            if (!k.startsWith("@"))
+            {
+                this.keywordTags.push(k)
+            }
+        });
 
         this.setDefaultBind(InputModeSelection.KEYBOARD, this.keyboardBind ?? this.mouseBind)
         this.setDefaultBind(InputModeSelection.CONTROLLER, this.gamepadBind)
         this.setDefaultBind(InputModeSelection.JOYSTICK, this.joystickBind)
 
-        const activtationType = this.activationMode ? this.activationMode : activationModeType.PRESS;
+        const activtationType = this.activationMode ? this.activationMode : activationModeType.NONE;
         this.setActivationMode(activtationType, InputModeSelection.KEYBOARD)
         this.setActivationMode(activtationType, InputModeSelection.CONTROLLER)
         this.setActivationMode(activtationType, InputModeSelection.JOYSTICK)
@@ -864,7 +881,7 @@ async function loadAndParseDataminedXML()
     {
         const mapName = map.getAttribute("name");
         const mapVersion = map.getAttribute("version");
-        const UICategory = map.getAttribute("UICategory")
+        const UICategory = map.getAttribute("UILabel")
 
 
         if (excludedCategories.includes(mapName)) return;
@@ -919,6 +936,7 @@ async function loadAndParseDataminedXML()
                 category,
                 label,
                 description,
+                UIdescription: description,
                 UICategory,
                 isRelative: reltiveOptionGroup || null
             });
@@ -1122,21 +1140,21 @@ function exportMappedActionsToXML(actionMapsMasterList)
 
                 const deviceIndex = "kb" + action.getBindDevice(InputModeSelection.KEYBOARD) + "_";
                 xml += `   <rebind input="${ deviceIndex }${ keyboardBind }"`;
-                if (action.getActivationMode(InputModeSelection.KEYBOARD)) xml += ` activationMode="${ action.getActivationMode(InputModeSelection.KEYBOARD) }"`;
+                if (action.getActivationMode(InputModeSelection.KEYBOARD) && action.getActivationMode(InputModeSelection.KEYBOARD) != activationModeType.NONE) xml += ` activationMode="${ action.getActivationMode(InputModeSelection.KEYBOARD) }"`;
                 xml += `/>\n`;
             }
             if (controllerBind && controllerBind?.trim() != "")
             {
                 const deviceIndex = "gp" + action.getBindDevice(InputModeSelection.CONTROLLER) + "_";
                 xml += `   <rebind input="${ deviceIndex }${ controllerBind }"`;
-                if (action.getActivationMode(InputModeSelection.CONTROLLER)) xml += ` activationMode="${ action.getActivationMode(InputModeSelection.CONTROLLER) }"`;
+                if (action.getActivationMode(InputModeSelection.CONTROLLER) && action.getActivationMode(InputModeSelection.CONTROLLER) != activationModeType.NONE) xml += ` activationMode="${ action.getActivationMode(InputModeSelection.CONTROLLER) }"`;
                 xml += `/>\n`;
             }
             if (joystickBind && joystickBind?.trim() != "")
             {
                 const deviceIndex = "js" + action.getBindDevice(InputModeSelection.JOYSTICK) + "_";
                 xml += `   <rebind input="${ deviceIndex }${ joystickBind }"`;
-                if (action.getActivationMode(InputModeSelection.JOYSTICK)) xml += ` activationMode="${ action.getActivationMode(InputModeSelection.JOYSTICK) }"`;
+                if (action.getActivationMode(InputModeSelection.JOYSTICK) && action.getActivationMode(InputModeSelection.JOYSTICK) != activationModeType.NONE) xml += ` activationMode="${ action.getActivationMode(InputModeSelection.JOYSTICK) }"`;
                 xml += `/>\n`;
             }
 
@@ -1783,10 +1801,6 @@ async function renderBindRow(b)
     valueDiv.classList.add('keybind__value');
 
 
-
-
-
-
     const activationModeIconDiv = document.createElement('div');
     activationModeIconDiv.classList.add('button-activationMode');
 
@@ -1804,7 +1818,6 @@ async function renderBindRow(b)
     activationModeIconDiv.appendChild(wrapper);
     setActivationModeButtonIcon(activationModeIconDiv, b)
 
-
     const consoleInputDiv = document.createElement('div');
     addConsoleInputField(b, consoleInputDiv);
 
@@ -1815,7 +1828,6 @@ async function renderBindRow(b)
     newRow.appendChild(consoleInputDiv);
     rowContainer.appendChild(newRow);
     updateBindRow(newRow)
-
 }
 
 function updateBindRow(bindRow = currentlySelectedKeybindElement)
@@ -1832,17 +1844,24 @@ function updateBindRow(bindRow = currentlySelectedKeybindElement)
         if (bindValueDiv)
         {
             bindValueDiv.innerHTML = ''; // clear previous
-            bindValueDiv.appendChild(renderKeybindKeys(bindValue ? `Device ${ bindDevice }: ${ bindValue }` : ``));
-            bindValueDiv.classList.remove('awaiting');
-            adjustFontSizeBasedOnWidth(bindValueDiv);
+            if (bindValue)
+            {
+                bindValueDiv.appendChild(renderKeybindKeys(bindValue ? `Device ${ bindDevice }: ${ bindValue }` : ``));
+                bindValueDiv.classList.remove('awaiting');
+                adjustFontSizeBasedOnWidth(bindValueDiv);
+            }
         }
 
         if (consoleInputField)
         {
             consoleInputField.value = "";
-            consoleInputField.placeholder = bind.getBind() ? bind.getBindDevice() + ":" + bindValue : "";
+            if (bindValue)
+            {
+                consoleInputField.placeholder = bind.getBind() ? bind.getBindDevice() + ":" + bindValue : "";
+            }
         }
         ShowKeybindDescription();
+
     }
 }
 
@@ -1860,7 +1879,6 @@ function addConsoleInputField(bind, div)
 }
 
 
-
 function adjustFontSizeBasedOnWidth(valueDiv)
 {
     let fontSize = 1.1; // rem
@@ -1872,7 +1890,6 @@ function adjustFontSizeBasedOnWidth(valueDiv)
         valueDiv.style.fontSize = fontSize + 'rem';
     }
 }
-
 
 //#region Tag Generation
 function generateMainCategoryTags()
@@ -1889,11 +1906,7 @@ function generateMainCategoryTags()
     });
 }
 
-
-
 //#endregion
-
-
 
 /**
  * Converts a keybind string like "AltLeft+Insert" into styled DOM elements.
@@ -1946,6 +1959,28 @@ function renderKeybindKeys(keybindString)
         multiply: "*",
         add: "+",
         divide: "/",
+        shoulderl: "Left Shoulder Button",
+        shoulderr: "Right Shoulder Button",
+        triggerl_btn: "Left Trigger",
+        triggerr_btn: "Right Trigger",
+        thumbl: "Left Thumb Stick (Button)",
+        thumbr: "Right Thumb Stick (Button)",
+        dpad_up: "Up (D-pad)",
+        dpad_down: "Down (D-pad)",
+        dpad_left: "Left (D-pad)",
+        dpad_right: "Right (D-pad)",
+        thumbl_up: "Up (Left Thumb Stick)",
+        thumbl_down: "Down (Left Thumb Stick)",
+        thumbl_left: "Left (Left Thumb Stick)",
+        thumbl_right: "Right (Left Thumb Stick)",
+        thumbr_up: "Up (Right Thumb Stick)",
+        thumbr_down: "Down (Right Thumb Stick)",
+        thumbr_left: "Left (Right Thumb Stick)",
+        thumbr_right: "Right (Right Thumb Stick)",
+        thumblx: "X-Axis (Left Thumb Stick)",
+        thumbly: "Y-Axis (Left Thumb Stick)",
+        thumbrx: "X-Axis (Right Thumb Stick)",
+        thumbry: "Y-Axis (Right Thumb Stick)",
     };
     const rawTokens = {
         kb1_: '',
@@ -2382,6 +2417,8 @@ function onClickSelectActivationMode(e)
         <div data-mode="${ activationModeType.ALL }">Any/All</div>
         <div data-mode="${ activationModeType.HOLD_TOGGLE }">Hold Toggle</div>
         <div data-mode="${ activationModeType.SMART_TOGGLE }">Smart Toggle</div>
+        <div data-mode="${ activationModeType.NONE }">None</div>
+
     `;
 
     rowContainer.appendChild(dropdown);
@@ -2451,72 +2488,72 @@ function setActivationModeButtonIcon(buttonObject, bindObject)
     const icon = document.createElement('img');
     icon.classList.add('activation-icon');
 
-    const iconFileName = activationMode ? activationMode : `press`;
-    icon.src = `./assets/tapIcons/icon_${ iconFileName }.svg`
-
+    const iconFileName = activationMode ? activationMode : ``;
+    icon.src = iconFileName ? `./assets/tapIcons/icon_${ iconFileName }.svg` : `./assets/tapIcons/icon_all.svg`
     let tt_text = "";
     switch (activationMode)
     {
         case activationModeType.PRESS:
-            tt_text = "Press the key/button"
+            tt_text = ": Press the key/button"
             break;
         case activationModeType.PRESS_QUICKER:
-            tt_text = "Press or tap"
+            tt_text = ": Press or tap"
             break;
         case activationModeType.PRESS_SHORT:
-            tt_text = "Like 'Press' but only if held >0.15s"
+            tt_text = ": Like 'Press' but only if held >0.15s"
             break;
         case activationModeType.PRESS_MEDIUM:
-            tt_text = "Like 'Press' but only if held >0.25s"
+            tt_text = ": Like 'Press' but only if held >0.25s"
             break;
         case activationModeType.PRESS_EXTRA_MEDIUM:
-            tt_text = "Like 'Press' but only if held >0.5s"
+            tt_text = ": Like 'Press' but only if held >0.5s"
             break;
         case activationModeType.PRESS_LONG:
-            tt_text = "Like 'Press' but only if held >1.5s"
+            tt_text = ": Like 'Press' but only if held >1.5s"
             break;
         case activationModeType.TAP:
-            tt_text = "Press & release quickly"
+            tt_text = ": Press & release quickly"
             break;
         case activationModeType.TAP_QUICKER:
-            tt_text = "Press & release very quickly"
+            tt_text = ": Press & release very quickly"
             break;
         case activationModeType.DOUBLETAP_BLOCKING:
-            tt_text = "Tap twice, blocks initial tap if double tap is registered."
+            tt_text = ": Tap twice, blocks initial tap if double tap is registered."
             break;
         case activationModeType.DOUBLETAP_NONBLOCKING:
-            tt_text = "Tap twice, allows initial tap."
+            tt_text = ": Tap twice, allows initial tap."
             break;
         case activationModeType.HELD:
-            tt_text = "Hold to continue activating."
+            tt_text = ": Hold to continue activating."
             break;
         case activationModeType.HOLD_SHORT:
-            tt_text = "Like Hold, but with a 0.25s delay."
+            tt_text = ": Like Hold, but with a 0.25s delay."
             break;
         case activationModeType.HOLD_LONG:
-            tt_text = "Like Hold, but with a 1.5s delay."
+            tt_text = ": Like Hold, but with a 1.5s delay."
             break;
         case activationModeType.HOLD_NO_RETRIGGER:
-            tt_text = "IDK?"
+            tt_text = ": IDK?"
             break;
         case activationModeType.HOLD_LONG_NO_RETRIGGER:
-            tt_text = "IDK??"
+            tt_text = ": IDK??"
             break;
         case activationModeType.ALL:
-            tt_text = "Any/all activation modes combined."
+            tt_text = ": Any/all activation modes combined."
             break;
         case activationModeType.HOLD_TOGGLE:
-            tt_text = "Hold/Release to activate/deactivate."
+            tt_text = ": Hold/Release to activate/deactivate."
             break;
         case activationModeType.SMART_TOGGLE:
-            tt_text = "Tap to toggle, hold/release to activate/deactivate."
+            tt_text = ": Tap to toggle, hold/release to activate/deactivate."
             break;
         default:
+            tt_text = ""
             break;
     }
     const activationModeParsed = activationMode.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
     icon.alt = activationMode;
-    buttonObject.title = `${ activationModeParsed }:  ${ tt_text }`;
+    buttonObject.title = `${ activationModeParsed }${ tt_text }`;
 
     // Add to the div
     buttonObject.appendChild(icon);
@@ -2957,6 +2994,9 @@ function getCurrentBindFromSelectedRow()
 ///////////////////////////////     GAMEPAD TYPE SHIT     ///////////////////////////////
 
 let gamepadPollId = null;
+let modifierHeld = false;     // is button 4 held right now?
+let modifierStartTime = 0;    // track when 4 was pressed (optional safety timeout)
+let modifierTriggered = false;// true if a combo was recorded while 4 was held
 
 function pollGamepads()
 {
@@ -2965,71 +3005,191 @@ function pollGamepads()
     {
         if (!gp) continue;
 
-
-        const DEADZONE = 0.5; // tweak sensitivity
+        const DEADZONE = 0.3;
         let stickDirection = null;
+
+        // Check modifier state
+        const button4 = gp.buttons[4];
+        if (button4?.pressed)
+        {
+            // just pressed
+            if (!modifierHeld)
+            {
+                modifierHeld = true;
+                modifierTriggered = false;
+                modifierStartTime = performance.now();
+            }
+        } else if (modifierHeld && !button4.pressed)
+        {
+            // released
+            if (!modifierTriggered)
+            {
+                // record plain "4" if released without other input
+                gamepadPollId = "4";
+            }
+            modifierHeld = false;
+        }
 
         // Left stick
         const lx = gp.axes[0];
         const ly = gp.axes[1];
-
-        if (Math.abs(lx) > DEADZONE || Math.abs(ly) > DEADZONE)
-        {
-            // Determine dominant axis (horizontal vs vertical)
-            if (Math.abs(lx) > Math.abs(ly))
-            {
-                // Horizontal movement
-                stickDirection = lx > 0 ? ["thumbl", "right"] : ["thumbl", "left"];
-            } else
-            {
-                // Vertical movement
-                stickDirection = ly > 0 ? ["thumbl", "down"] : ["thumbl", "up"];
-            }
-
-            // console.log(`Left stick moved ${ stickDirection }`);
-            gamepadPollId = stickDirection;
-        }
-
         // Right stick
         const rx = gp.axes[2];
         const ry = gp.axes[3];
 
-        if (Math.abs(rx) > DEADZONE || Math.abs(ry) > DEADZONE)
+        // Detect stick movement
+        if (Math.abs(lx) > DEADZONE || Math.abs(ly) > DEADZONE)
         {
-            // Determine dominant axis (horizontal vs vertical)
-            if (Math.abs(rx) > Math.abs(ry))
-            {
-                // Horizontal movement
-                stickDirection = rx > 0 ? ["thumbr", "right"] : ["thumbr", "left"];
-            } else
-            {
-                // Vertical movement
-                stickDirection = ry > 0 ? ["thumbr", "down"] : ["thumbr", "up"];
-            }
-
-            // console.log(`Right stick moved ${ stickDirection }`);
-            gamepadPollId = stickDirection.join("_");
+            stickDirection = Math.abs(lx) > Math.abs(ly)
+                ? (lx > 0 ? "thumbl_right" : "thumbl_left")
+                : (ly > 0 ? "thumbl_down" : "thumbl_up");
+            gamepadPollId = stickDirection;
+        }
+        else if (Math.abs(rx) > DEADZONE || Math.abs(ry) > DEADZONE)
+        {
+            stickDirection = Math.abs(rx) > Math.abs(ry)
+                ? (rx > 0 ? "thumbr_right" : "thumbr_left")
+                : (ry > 0 ? "thumbr_down" : "thumbr_up");
+            gamepadPollId = stickDirection;
         }
 
-        // Example: any button press
+        // Check buttons
         gp.buttons.forEach((button, index) =>
         {
-            if (button.pressed)
+            if (button.pressed && index !== 4)
             {
                 gamepadPollId = `${ index }`;
-                console.log(`Button ${ parseGamepadInputToStarCitizenBind(gamepadPollId) } pressed`);
             }
         });
+
+        // --- Handle modifier combos ---
+        if (modifierHeld && gamepadPollId && gamepadPollId !== "4")
+        {
+            gamepadPollId = `${ parseGamepadInputToStarCitizenBind(4) }+${ parseGamepadInputToStarCitizenBind(gamepadPollId) }`;
+            modifierTriggered = true;
+            modifierHeld = false; // optional: consume modifier after combo
+        }
+
+        // --- Finalize ---
         if (gamepadPollId)
         {
-            const inputArr = parseGamepadInputToStarCitizenBind(gamepadPollId)
+            const inputArr = parseGamepadInputToStarCitizenBind(gamepadPollId);
             finalizeCapture_Controller(inputArr, 1);
-            return
+            return;
         }
     }
 
     requestAnimationFrame(pollGamepads);
 }
+
+
+// function pollGamepads()
+// {
+//     const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
+//     for (let gp of gamepads)
+//     {
+//         if (!gp) continue;
+
+
+//         const DEADZONE = 0.3; // tweak sensitivity
+//         let stickDirection = null;
+
+//         // Left stick
+//         const lx = gp.axes[0];
+//         const ly = gp.axes[1];
+//         // Right stick
+//         const rx = gp.axes[2];
+//         const ry = gp.axes[3];
+
+//         if (Math.abs(lx) > DEADZONE || Math.abs(ly) > DEADZONE)
+//         {
+//             const bindEle = currentlySelectedKeybindElement.dataset;
+//             const actionName = bindEle.actionName;
+//             const bind = actionMapsMasterList.find(a => a.getActionName() === actionName);
+//             // Determine dominant axis (horizontal vs vertical)
+//             if (Math.abs(lx) > Math.abs(ly))
+//             {
+//                 // Horizontal movement
+//                 if (bind && bind.isRelative)
+//                 {
+//                     stickDirection = "thumblx";
+//                 }
+//                 else
+//                 {
+//                     stickDirection = lx > 0 ? "thumbl_right" : "thumbl_left";
+//                 }
+//             }
+//             else
+//             {
+//                 // Vertical movement
+//                 if (bind.isRelative)
+//                 {
+//                     stickDirection = "thumbly";
+//                 }
+//                 else
+//                 {
+//                     stickDirection = ly > 0 ? "thumbl_down" : "thumbl_up";
+//                 }
+//             }
+
+//             // console.log(`Left stick moved ${ stickDirection }`);
+//             gamepadPollId = stickDirection;
+//         }
+
+//         else if (Math.abs(rx) > DEADZONE || Math.abs(ry) > DEADZONE)
+//         {
+//             const bindEle = currentlySelectedKeybindElement.dataset;
+//             const actionName = bindEle.actionName;
+//             const bind = actionMapsMasterList.find(a => a.getActionName() === actionName);
+//             // Determine dominant axis (horizontal vs vertical)
+//             if (Math.abs(rx) > Math.abs(ry))
+//             {
+//                 // Horizontal movement
+//                 if (bind && bind.isRelative)
+//                 {
+//                     stickDirection = "thumbrx";
+//                 }
+//                 else
+//                 {
+//                     stickDirection = rx > 0 ? "thumbr_right" : "thumbr_left";
+//                 }
+//             }
+//             else
+//             {
+//                 // Vertical movement
+//                 if (bind && bind.isRelative)
+//                 {
+//                     stickDirection = "thumbry";
+//                 }
+//                 else
+//                 {
+//                     stickDirection = ry > 0 ? "thumbr_down" : "thumbr_up";
+//                 }
+//             }
+
+//             // console.log(`Left stick moved ${ stickDirection }`);
+//             gamepadPollId = stickDirection;
+//         }
+
+//         // Example: any button press
+//         gp.buttons.forEach((button, index) =>
+//         {
+//             if (button.pressed)
+//             {
+//                 gamepadPollId = `${ index }`;
+//                 console.log(`Button ${ parseGamepadInputToStarCitizenBind(gamepadPollId) } pressed`);
+//             }
+//         });
+//         if (gamepadPollId)
+//         {
+//             const inputArr = parseGamepadInputToStarCitizenBind(gamepadPollId)
+//             finalizeCapture_Controller(inputArr, 1);
+//             return
+//         }
+//     }
+
+//     requestAnimationFrame(pollGamepads);
+// }
 
 // Later, to stop polling:
 function stopPollingGamepads()
@@ -3052,8 +3212,8 @@ function parseGamepadInputToStarCitizenBind(input)
             "3": "Y",
             "4": "shoulderl",
             "5": "shoulderr",
-            "6": "trigerl_btn",
-            "7": "trigerr_btn",
+            "6": "triggerl_btn",
+            "7": "triggerr_btn",
             "8": "back",
             "9": "start",
             "10": "thumbl",
@@ -3398,166 +3558,6 @@ function HandleJoystickAxis_Wheel(value, deviceIndex = 1)
 }
 
 
-
-// function pollJoysticks()
-// {
-//     console.log(joystickProfile.leftright);
-
-//     const joysticks = navigator.getGamepads ? navigator.getGamepads() : [];
-//     const DEADZONE = 0.06; // general small threshold to ignore noise
-
-//     for (let gp of joysticks)
-//     {
-//         if (!gp) continue;
-
-//         let joystickPollId = null;
-
-//         // Helper to assign input consistently
-//         const setInput = (input) => ({
-//             device: gp.index + 1,
-//             input
-//         });
-
-//         // --- Initialize previous state and slider baseline ---
-//         if (!window._prevGamepadStates[gp.index])
-//         {
-//             window._prevGamepadStates[gp.index] = {
-//                 axes: [...gp.axes],
-//                 buttons: gp.buttons.map(b => b.pressed)
-//             };
-//         }
-
-//         if (!window._sliderBaseline[gp.index])
-//         {
-//             window._sliderBaseline[gp.index] = gp.axes[6]; // slider resting value
-//         }
-
-//         const prev = window._prevGamepadStates[gp.index];
-//         // --- Axes: sticks, twist, hat, sliders ---
-//         gp.axes.forEach((value, i) =>
-//         {
-//             const prevVal = prev.axes[i] || 0;
-//             if (Math.abs(value - prevVal) > DEADZONE)
-//             {
-//                 // console.log(`Device ${ gp.index }: Axis ${ i } = ${ value.toFixed(2) }`);
-
-//                 // if (i == joystickProfile.x) joystickPollId = setInput(HandleJoystickAxis_X(value));
-//                 // else if (i == joystickProfile.y) joystickPollId = setInput(HandleJoystickAxis_Y(value));
-//                 // else if (i === joystickProfile.z) joystickPollId = setInput(HandleJoystickAxis_Z(value));
-//                 // else if (i === joystickProfile.hat) joystickPollId = setInput(HandleJoystickAxis_Hat(value));
-//                 // else if (i === joystickProfile.slider) joystickPollId = setInput(HandleJoystickAxis_Slider(value));
-//                 // else
-//                 // {
-//                 //     console.log(`UNKNOWN AXIS DEBUG: Axis: ${ i } Value: ${ value }`);
-//                 //     const lx = gp.axes[i]
-//                 //     if (Math.abs(lx) > DEADZONE)
-//                 //     {
-//                 //         const stickDirection = lx > 0 ? "pos" : "neg";
-//                 //         joystickPollId = setInput("unknown input: " + i + "_" + stickDirection);
-//                 //     }
-//                 // }
-
-
-//                 // left-right
-//                 if (i == joystickProfile.x)
-//                 {
-//                     const stickDirection = value > 0 ? "right" : "left";
-//                     joystickPollId = setInput(stickDirection);
-//                 }
-//                 // up-down
-//                 else if (i == joystickProfile.y)
-//                 {
-//                     const stickDirection = value > 0 ? "down" : "up";
-//                     joystickPollId = setInput(stickDirection);
-//                 }
-//                 // twist
-//                 else if (i === joystickProfile.twist)
-//                 {
-//                     const twistDir = value > 0 ? "+" : "-";
-//                     //twist dir doesn't seem to be needed for recording the bind, but keeping the val here in case I want it
-//                     joystickPollId = setInput("rotz");
-//                 }
-//                 // Hat switch
-//                 else if (i === joystickProfile.hat)
-//                 {
-//                     let direction = null;
-//                     if (value < -0.5) direction = "up";
-//                     else if (value > 0.5) direction = "left";  // example, adjust based on your logs
-//                     else if (value > 0) direction = "down";
-//                     else if (value < 0) direction = "right";
-
-//                     if (direction)
-//                     {
-//                         joystickPollId = setInput("hat" + (gp.index + 1) + "_" + direction);
-//                     }
-//                 }
-//                 //slider
-//                 else if (i === joystickProfile.slider)
-//                 {
-//                     const baseline = window._sliderBaseline[gp.index];
-//                     if (Math.abs(value - baseline) > DEADZONE)
-//                     {
-//                         const direction = value > baseline ? "down" : "up";
-//                         //direction of slide doesn't seem to be needed for recording the bind, but keeping the val here in case I want it
-//                         joystickPollId = setInput("slider" + (gp.index + 1));
-//                     }
-//                 }
-//                 else
-//                 {
-//                     console.log(`UNKNOWN AXIS DEBUG: Axis: ${ i } Value: ${ value }`);
-//                     const lx = gp.axes[i]
-//                     if (Math.abs(lx) > DEADZONE)
-//                     {
-//                         const stickDirection = lx > 0 ? "pos" : "neg";
-//                         joystickPollId = setInput("unknown input: " + i + "_" + stickDirection);
-//                     }
-//                 }
-//             }
-//         });
-
-//         // --- Buttons ---
-//         gp.buttons.forEach((button, i) =>
-//         {
-//             const prevPressed = prev.buttons[i] || false;
-//             if (button.pressed !== prevPressed)
-//             {
-//                 console.log(
-//                     `Device ${ gp.index }: Button ${ i } ${ button.pressed ? "pressed" : "released" }`
-//                 );
-//             }
-//             if (button.pressed)
-//             {
-//                 const joybtn = parseInt(i, 10) + 1;
-//                 joystickPollId = setInput(`${ joybtn }`);
-//             }
-
-//         });
-
-//         // --- Update previous state for next frame ---
-//         window._prevGamepadStates[gp.index].axes = [...gp.axes];
-//         window._prevGamepadStates[gp.index].buttons = gp.buttons.map(b => b.pressed);
-
-//         // --- Capture first meaningful input ---
-//         if (joystickPollId)
-//         {
-
-//             const heldMods = [];
-//             ['ctrl', 'shift', 'alt'].forEach(key =>
-//             {
-//                 if (modifiers[key].left) heldMods.push(`l${ key }`);
-//                 if (modifiers[key].right) heldMods.push(`r${ key }`);
-//             });
-//             const joystickInput = parseJoystickInputToStarCitizenBind(joystickPollId.input);
-//             const inputArr = heldMods.length > 0
-//                 ? heldMods.join('+') + '+' + joystickInput
-//                 : joystickInput;
-//             finalizeCapture_Joystick(inputArr, joystickPollId.device);
-//             return; // stop polling until next frame
-//         }
-//     }
-
-//     requestAnimationFrame(pollJoysticks);
-// }
 
 // Called once when you start listening for input
 function initializeJoystickBaselines()

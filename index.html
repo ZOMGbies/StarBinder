@@ -127,7 +127,7 @@
           <!--div class="button-wrapper">
             <button id="copyActionMapJSON" class="button button--debug">Copy JSON</button>
             <span class="tooltip-text">Copy all action names as JSON (debug only)</span>
-          </div--->
+          </div-->
 
         </div>
 
@@ -264,36 +264,75 @@
   </section>
 
   <!--script>
-      // Copy JSON button handler
-      document.getElementById("copyActionMapJSON").addEventListener("click", () =>
+    document.getElementById("copyActionMapJSON").addEventListener("click", async () =>
+    {
+      if (!actionMapsMasterList || !Array.isArray(actionMapsMasterList))
       {
-        if (!actionMapsMasterList || !Array.isArray(actionMapsMasterList))
-        {
-          console.error("actionMapsMasterList is not defined or not an array");
-          return;
-        }
+        console.error("actionMapsMasterList is not defined or not an array");
+        return;
+      }
 
-        const actionsStringArray = [];
-        actionMapsMasterList.forEach(a =>
-        {
-          if (a.actionName) actionsStringArray.push(a.actionName);
-        });
+      // Fetch and parse global.ini
+      let iniData = {};
+      try
+      {
+        const response = await fetch("./global.ini");
+        const text = await response.text();
 
-        const actionMapJSON = {};
-        actionsStringArray.forEach(actionName =>
+        // Parse key=value pairs (ignores empty lines and comments)
+        text.split(/\r?\n/).forEach(line =>
         {
-          if (actionName && !actionMapJSON[actionName])
+          line = line.trim();
+          if (!line || line.startsWith(";") || line.startsWith("#")) return;
+
+          const [key, ...rest] = line.split("=");
+          if (key && rest.length)
           {
-            actionMapJSON[actionName] = { label: "", description: "", keywords: [] };
+            iniData[key.trim()] = rest.join("=").trim();
           }
         });
+      }
+      catch (err)
+      {
+        console.error("Failed to load global.ini:", err);
+      }
 
-        const jsonString = JSON.stringify(actionMapJSON, null, 2);
-        navigator.clipboard.writeText(jsonString)
-          .then(() => alert("Action Map JSON copied to clipboard!"))
-          .catch(err => console.error("Failed to copy:", err));
+      const actionMapJSON = {};
+
+      actionMapsMasterList.forEach(a =>
+      {
+        if (!a.actionName) return;
+
+        // Resolve localisation keys (strip leading '@')
+        const resolveLocalised = (value, toLower = false) =>
+        {
+          if (!value) return "";
+          let resolved = value;
+
+          if (value.startsWith("@"))
+          {
+            const key = value.slice(1);
+            resolved = iniData[key] || value;
+          }
+
+          return toLower ? resolved.toLowerCase() : resolved;
+        };
+
+        actionMapJSON[a.actionName] = {
+          label: resolveLocalised(a.label),
+          description: resolveLocalised(a.UIdescription),
+          keywords: [resolveLocalised(a.UICategory, true)]
+        };
       });
-    </script-->
+
+      const jsonString = JSON.stringify(actionMapJSON, null, 2);
+      navigator.clipboard.writeText(jsonString)
+        .then(() => alert("Action Map JSON copied to clipboard!"))
+        .catch(err => console.error("Failed to copy:", err));
+    });
+  </script-->
+
+
   <a href="./feedback/form.html" class="feedback-link">[ SEND FEEDBACK / REPORT ISSUE ]</a>
 </body>
 
