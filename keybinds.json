@@ -265,7 +265,7 @@
         "keywords": []
     },
     "turret_toggle_mouse_mode": {
-        "label": "Turret - Mouse Movement - Toggle",
+        "label": "Turret - Mouse Movement Type - Toggle",
         "description": "Switch between 'vjoy' mouse aim and an FPS style aim.",
         "keywords": [
             "vehicle",
@@ -273,7 +273,7 @@
         ]
     },
     "turret_mouse_mode_cycle": {
-        "label": "Turret - Mouse Movement - Cycle",
+        "label": "Turret - Mouse Movement Type - Cycle",
         "description": "Similar to 'Turret Mouse Movement Toggle' but cycles between more modes",
         "keywords": [
             "vehicle",
@@ -281,7 +281,7 @@
         ]
     },
     "turret_mouse_mode_set_vjoy": {
-        "label": "Turret - Mouse Movement - Set Vjoy",
+        "label": "Turret - Mouse Movement Type - Set Vjoy",
         "description": "Set the current mouse mode to virtual joystick.",
         "keywords": [
             "vehicle",
@@ -289,7 +289,7 @@
         ]
     },
     "turret_mouse_mode_set_1to1": {
-        "label": "Turret - Mouse Movement - Set Absolute",
+        "label": "Turret - Mouse Movement Type - Set Absolute",
         "description": "Set the current mouse movement mode to FPS style aim.",
         "keywords": [
             "vehicle",
@@ -297,7 +297,7 @@
         ]
     },
     "turret_mouse_mode_set_pointer": {
-        "label": "Turret - Mouse Movement - Set Pointer",
+        "label": "Turret - Mouse Movement Type - Set Pointer",
         "description": "Set the current mouse movement mode to the pointer style.",
         "keywords": [
             "vehicle",
@@ -1017,8 +1017,8 @@
         "keywords": []
     },
     "v_view_yaw_mouse": {
-        "label": "",
-        "description": "Look left/right",
+        "label": "Look left/right",
+        "description": "",
         "keywords": []
     },
     "v_view_pitch_up": {
@@ -4027,7 +4027,7 @@
         "relative": true
     },
     "eva_view_pitch_up": {
-        "label": "View Up",
+        "label": "EVA: View Up",
         "description": "@ui_CIEVAViewPitchUpDesc",
         "keywords": [
             "on foot",
