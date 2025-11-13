@@ -1775,8 +1775,155 @@ code {
     font-weight: 700;
 }
 
+.swapDevices {
+    height: 2rem;
+    font-size: 0.75rem;
+    color: var(--primaryText);
+    font-family: "Gobold", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.09rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0.2rem;
+    border-radius: 0.3rem;
+    object-fit: contain;
+    display: block;
+    border: 2px solid transparent;
+    background: linear-gradient(to top, #0d2735, #081721) border-box,
+        linear-gradient(to bottom right, #16425a, #081721) padding-box;
+    background-clip: padding-box, border-box;
+    /* ensures proper clipping */
+    box-shadow: 0 4px 0 #071018,
+        -2px 4px 6px rgba(0, 0, 15, 0.4);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    padding: 0.3rem;
+    padding-bottom: 0.2rem;
+}
+
+.swapDevices:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #071018,
+        -1px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.swapDevices:has(img) {
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* super simple styles */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    position: relative;
+
+    background: var(--secondary-bg);
+    padding: 2rem;
+    margin: auto;
+
+    border-radius: 10px;
+
+    font-family: "Gobold";
+    text-align: left;
+
+    width: 64rem;
+    min-height: 32rem;
+}
+
+.modal-content h2 {
+    font-family: "Gobold", sans-serif;
+    letter-spacing: 0.1rem;
+    font-size: 2.5rem;
+    margin: 0.5rem;
+    text-transform: uppercase;
+    color: var(--primaryText);
+}
+
+.modal-content ol,
+p {
+    font-family: "Aileron", sans-serif;
+    font-size: 0.8rem;
+    color: #ccc;
+    padding-left: 3rem;
+    letter-spacing: 0.03rem;
+    line-height: 1.7rem;
+
+}
+
+.quickstart-close-btn {
+    position: absolute;
+    top: 0.1rem;
+    right: 0.25rem;
+    background: none;
+    border: none;
+    font-size: 42px;
+    cursor: pointer;
+    color: #AA2222;
+}
+
+.quickstart-close-btn:hover {
+    color: #EE5555;
+}
+
+.quickstart-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 50vh;
+    object-fit: contain;
+    margin-bottom: 2rem;
 
 
+    /* Smooth edge fade on all sides */
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 2%, black 98%, transparent 100%),
+        linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+    -webkit-mask-composite: intersect;
+    mask-image: linear-gradient(to top, transparent 0%, black 2%, black 98%, transparent 100%),
+        linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+    mask-composite: intersect;
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
+
+.quickstart-image-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    font-size: 14px;
+    color: #ccc;
+    padding-right: 1.3rem;
+}
+
+.image-nav {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #00aa00;
+    transition: color 0.2s;
+}
+
+.image-nav:hover {
+    color: #fff;
+}
+
+.quickstart-image-title {
+    min-width: 150px;
+    text-align: center;
+    font-style: italic;
+    opacity: 0.8;
+}
 
 /* ************************************************ */
 /*                      FONTS                       */
@@ -1992,4 +2139,40 @@ code {
     src: url('./assets/fonts/Kiona-Italic.ttf') format('truetype');
     font-weight: 400;
     font-style: italic;
+}
+
+
+/***************************/
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+
+    /* Apply mask */
+    -webkit-mask: url(#holes-mask);
+    mask: url(#holes-mask);
+
+    /* Ensure correct polarity: white=visible, black=transparent */
+    -webkit-mask-composite: source-over;
+    mask-composite: add;
+
+    pointer-events: none;
+}
+
+
+
+/* Tooltip styling */
+.tooltip {
+    position: absolute;
+    background: #fff;
+    color: #111;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    font-size: 0.9rem;
+    pointer-events: auto;
+    /* allow hovering/clicking tooltip */
 }

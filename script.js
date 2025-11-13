@@ -204,12 +204,22 @@ const btnSelectInput_Keyboard = document.querySelector('.button-inputSelect-keyb
 const btnSelectInput_Controller = document.querySelector('.button-inputSelect-controller');
 const btnSelectInput_Joystick = document.querySelector('.button-inputSelect-joystick');
 const btnSelectInput_JoystickModelSelect = document.querySelector('.button-inputSelect-joystickModelSelect');
+
+const btnSwapDevices = document.querySelector('.swapDevices');
+window._joystickIndexMap = [0, 1]; // logicalDevice[0] = physical index 0, logicalDevice[1] = physical index 1
+
 const joystickDropdownRow = document.querySelector('.joystick-dropdown-row');
 
 const footer = document.querySelector('.footer');
 const keybindDescriptionDiv = document.querySelector('.footer__keybind-info');
 const keybindDescriptionText = keybindDescriptionDiv.querySelector('.footer__keybind-text');
 const keybindDescriptionTags = keybindDescriptionDiv.querySelector('.footer__keybind-tags');
+
+const splashModalMain = document.getElementById('splashModal');
+const splashModal = splashModalMain.querySelector('.modal-content');
+const splashHelpImage = splashModal.querySelector('.quickstart-image')
+const splashHelpImageTitle = splashModal.querySelector('.quickstart-image-title')
+const helpModalCheckbox = document.getElementById('hideModalCheckbox');
 
 const conflictsToggle = document.getElementById('conflictsToggle');
 const boundActionsToggle = document.getElementById('boundActionsToggle');
@@ -721,6 +731,19 @@ async function init()
         }
     });
 
+    showSplashModal();
+
+    document.addEventListener("keydown", function (e)
+    {
+        if (e.key === "Escape")
+        {
+            e.preventDefault();
+            onClickCloseHelpModal();
+        }
+    });
+
+
+
     tagContainer.classList.add('tag-container');
     subTagContainer.classList.add('subTag-container');
 
@@ -791,6 +814,8 @@ async function init()
         clearTimeout(holdTimer);
     });
 
+    btnSwapDevices.addEventListener("click", onClickSwapDevices)
+
 
     ///// GAMEPAD DETECTION  //////
 
@@ -801,6 +826,7 @@ async function init()
     btnSelectInput_Keyboard.click()
     ClearKeybindDescription();
     loadMappedActions();
+    joystickProfile = await GetJoystickProfile("default")
 }
 
 //#endregion
@@ -846,6 +872,73 @@ function setInputMode(mode)
     }
 }
 
+//#region Splash modal
+
+let currentHelpImageIndex = 1;
+const SplashHelpImages = {
+    1: { file: "searchandfilter.webp", title: "Search & Filter" },
+    2: { file: "inputsupport.webp", title: "Supports most devices" },
+    3: { file: "activationmodes.webp", title: "Many Activation Modes" },
+    4: { file: "importexport.webp", title: "Import & Export" },
+    5: { file: "actiondescriptions.webp", title: "Actions have descriptions" },
+    6: { file: "customkeybindbuilder.webp", title: "Bespoke bind editing" }
+}
+
+function showSplashModal()
+{
+    // ✅ Move this code here — not inside another DOMContentLoaded
+    const closeBtn = document.getElementById('closeModal');
+
+    // Check localStorage
+    const hideModal = localStorage.getItem('hideSplashModal');
+
+    if (!hideModal)
+    {
+        splashModalMain.style.display = 'flex';
+
+
+        closeBtn.addEventListener('click', onClickCloseHelpModal);
+
+
+        splashModal.addEventListener('click', onClickNavHelpImage);
+        showHelpImage(1);
+    }
+}
+
+function onClickCloseHelpModal()
+{
+    if (helpModalCheckbox.checked)
+    {
+        localStorage.setItem('hideSplashModal', 'true');
+    }
+    splashModalMain.style.display = 'none';
+}
+function onClickNavHelpImage(e)
+{
+    if (e.target.classList.contains('left'))
+    {
+        currentHelpImageIndex--;
+        if (currentHelpImageIndex < 1) currentHelpImageIndex = 6
+        showHelpImage(currentHelpImageIndex);
+
+
+
+    } else if (e.target.classList.contains('right'))
+    {
+        currentHelpImageIndex++;
+        if (currentHelpImageIndex > 6) currentHelpImageIndex = 1
+        showHelpImage(currentHelpImageIndex);
+    }
+}
+
+function showHelpImage(n)
+{
+    const asset = "./assets/help/" + SplashHelpImages[n].file
+    splashHelpImage.src = asset;
+    splashHelpImageTitle.textContent = SplashHelpImages[n].title;
+}
+
+//#endregion
 
 //#region XML PARSING
 // ========== XML Parsing ==========
@@ -1457,10 +1550,32 @@ function onToggleFilter_BoundActions()
 function onToggleFilter_Conflicts()
 {
     const state = conflictsToggle.checked;
+    if (state) { clearAllFilters() }
     updatefilteredNames();
 }
 
+function clearAllFilters()
+{
+    keybindSearch.value = null;
+    showBoundActionsState = 0;
+    // Gather all tags of all types
+    const allTagDivs = [
+        ...tagContainer.querySelectorAll('.tag'),
+        ...subTagContainer.querySelectorAll('.sub-tag'),
+        ...keybindDescriptionTags.querySelectorAll('.descriptionTag')
+    ];
 
+    // Toggle .active
+    allTagDivs.forEach(tagDiv =>
+    {
+        const tagKeyword = tagDiv.dataset.keyword?.trim().toLowerCase();
+        tagDiv.classList.toggle('active', false);
+    });
+
+    selectedTags = [];
+    hideSubcategoryTags();
+    updatefilteredNames();
+}
 
 //#endregion
 
@@ -1554,19 +1669,8 @@ document.addEventListener('pointerdown', e =>
 
     e.preventDefault();
     cancelRecordTimer();
-    // Allow modifiers + mouse, but not "regular key + mouse"
-    const hasNormalKeys = Array.from(activeCapture.currentKeys)?.some(k => !modifierCodes.has(k));
-    if (hasNormalKeys) return;
-
-    const buttonName = mouseButtons.get(e.button);
-    if (!buttonName) return;
-
-    activeCapture.currentKeys.add(buttonName);
-    activeCapture.currentKeysOrdered.push(buttonName);
-
-    finalizeCapture_Keyboard(activeCapture, 1);
+    if (activeCapture.currentKeys.size === 0) finalizeCapture_Keyboard(activeCapture);
 });
-
 // ---------- Mouse wheel capture ----------
 document.addEventListener('wheel', e =>
 {
@@ -1601,7 +1705,6 @@ document.addEventListener('keyup', e =>
 
     if (activeCapture.currentKeys.size === 0) finalizeCapture_Keyboard(activeCapture);
 });
-
 
 // ---------- Finalize capture ----------
 async function finalizeCapture_Keyboard(input, deviceIndex = 1)
@@ -1857,6 +1960,10 @@ function updateBindRow(bindRow = currentlySelectedKeybindElement)
             if (bindValue)
             {
                 consoleInputField.placeholder = bind.getBind() ? bind.getBindDevice() + ":" + bindValue : "";
+            }
+            else
+            {
+                if (consoleInputField.placeholder != "") consoleInputField.placeholder = ""
             }
         }
         ShowKeybindDescription();
@@ -2145,6 +2252,7 @@ function checkForConflicts(bindActionMap)
     const thisBindKey = bindActionMap.getBind()?.trim();
     const bind = bindActionMap.getBind();
     const thisBindName = bindActionMap.getActionName();
+    const bindDevice = bindActionMap.getBindDevice()
 
     if (!thisBindKey) return false;
 
@@ -2152,7 +2260,7 @@ function checkForConflicts(bindActionMap)
     {
         const key = item.getBind()?.trim();
         if (!key) return false;
-        return key === thisBindKey && item.getActionName() !== thisBindName;
+        return key === thisBindKey && item.getActionName() !== thisBindName && bindDevice === item.getBindDevice();
     });
 
     return hasConflict;
@@ -2376,6 +2484,17 @@ function cancelRecordBind()
             break;
     }
     finalizeCapture_Controller();
+}
+
+//overcomplicated solution IMO; Dear Future Me, if youre losing your shit over this just change it to a bool toggle that does/doesn't parse #1 and #2 as #2 and #1
+function onClickSwapDevices()
+{
+    if (!window._joystickIndexMap)
+        window._joystickIndexMap = [0, 1];
+
+    // Swap the two indices
+    [window._joystickIndexMap[0], window._joystickIndexMap[1]] =
+        [window._joystickIndexMap[1], window._joystickIndexMap[0]];
 }
 
 
@@ -3081,115 +3200,6 @@ function pollGamepads()
     requestAnimationFrame(pollGamepads);
 }
 
-
-// function pollGamepads()
-// {
-//     const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
-//     for (let gp of gamepads)
-//     {
-//         if (!gp) continue;
-
-
-//         const DEADZONE = 0.3; // tweak sensitivity
-//         let stickDirection = null;
-
-//         // Left stick
-//         const lx = gp.axes[0];
-//         const ly = gp.axes[1];
-//         // Right stick
-//         const rx = gp.axes[2];
-//         const ry = gp.axes[3];
-
-//         if (Math.abs(lx) > DEADZONE || Math.abs(ly) > DEADZONE)
-//         {
-//             const bindEle = currentlySelectedKeybindElement.dataset;
-//             const actionName = bindEle.actionName;
-//             const bind = actionMapsMasterList.find(a => a.getActionName() === actionName);
-//             // Determine dominant axis (horizontal vs vertical)
-//             if (Math.abs(lx) > Math.abs(ly))
-//             {
-//                 // Horizontal movement
-//                 if (bind && bind.isRelative)
-//                 {
-//                     stickDirection = "thumblx";
-//                 }
-//                 else
-//                 {
-//                     stickDirection = lx > 0 ? "thumbl_right" : "thumbl_left";
-//                 }
-//             }
-//             else
-//             {
-//                 // Vertical movement
-//                 if (bind.isRelative)
-//                 {
-//                     stickDirection = "thumbly";
-//                 }
-//                 else
-//                 {
-//                     stickDirection = ly > 0 ? "thumbl_down" : "thumbl_up";
-//                 }
-//             }
-
-//             // console.log(`Left stick moved ${ stickDirection }`);
-//             gamepadPollId = stickDirection;
-//         }
-
-//         else if (Math.abs(rx) > DEADZONE || Math.abs(ry) > DEADZONE)
-//         {
-//             const bindEle = currentlySelectedKeybindElement.dataset;
-//             const actionName = bindEle.actionName;
-//             const bind = actionMapsMasterList.find(a => a.getActionName() === actionName);
-//             // Determine dominant axis (horizontal vs vertical)
-//             if (Math.abs(rx) > Math.abs(ry))
-//             {
-//                 // Horizontal movement
-//                 if (bind && bind.isRelative)
-//                 {
-//                     stickDirection = "thumbrx";
-//                 }
-//                 else
-//                 {
-//                     stickDirection = rx > 0 ? "thumbr_right" : "thumbr_left";
-//                 }
-//             }
-//             else
-//             {
-//                 // Vertical movement
-//                 if (bind && bind.isRelative)
-//                 {
-//                     stickDirection = "thumbry";
-//                 }
-//                 else
-//                 {
-//                     stickDirection = ry > 0 ? "thumbr_down" : "thumbr_up";
-//                 }
-//             }
-
-//             // console.log(`Left stick moved ${ stickDirection }`);
-//             gamepadPollId = stickDirection;
-//         }
-
-//         // Example: any button press
-//         gp.buttons.forEach((button, index) =>
-//         {
-//             if (button.pressed)
-//             {
-//                 gamepadPollId = `${ index }`;
-//                 console.log(`Button ${ parseGamepadInputToStarCitizenBind(gamepadPollId) } pressed`);
-//             }
-//         });
-//         if (gamepadPollId)
-//         {
-//             const inputArr = parseGamepadInputToStarCitizenBind(gamepadPollId)
-//             finalizeCapture_Controller(inputArr, 1);
-//             return
-//         }
-//     }
-
-//     requestAnimationFrame(pollGamepads);
-// }
-
 // Later, to stop polling:
 function stopPollingGamepads()
 {
@@ -3325,8 +3335,8 @@ async function setupJoystickDropdown()
 {
 
     // Create or select the span inside the button for text
-    let buttonText = joystickButton.querySelector(".button-text");
-    if (!buttonText)
+    let buttonText = joystickButton?.querySelector(".button-text");
+    if (!buttonText && joystickButton)
     {
         buttonText = document.createElement("span");
         buttonText.className = "button-text";
@@ -3342,7 +3352,7 @@ async function setupJoystickDropdown()
     const models = await GetJoystickModelsFromJSON();
 
     // Clear old items
-    joystickDropdown.innerHTML = "";
+    if (joystickButton) joystickDropdown.innerHTML = "";
 
     models.forEach(model =>
     {
@@ -3362,11 +3372,11 @@ async function setupJoystickDropdown()
             buttonText.textContent = model;
         });
 
-        joystickDropdown.appendChild(item);
+        if (joystickDropdown) joystickDropdown.appendChild(item);
     });
 
     // Toggle dropdown visibility
-    joystickButton.addEventListener("click", () =>
+    if (joystickButton) joystickButton.addEventListener("click", () =>
     {
         joystickDropdown.style.display =
             joystickDropdown.style.display === "block" ? "none" : "block";
@@ -3386,9 +3396,12 @@ function pollJoysticks()
         if (!gp) continue;
         let joystickPollId = null;
 
+        const logicalIndex = window._joystickIndexMap.indexOf(gp.index);
+        const deviceNumber = logicalIndex + 1;
+
         // Helper to assign input consistently
         const setInput = (input) => ({
-            device: gp.index + 1,
+            device: deviceNumber,
             input
         });
 
@@ -3436,13 +3449,13 @@ function pollJoysticks()
                         joystickPollId = setInput(HandleJoystickAxis_Rz(value));
                         break;
                     case joystickProfile.hat:
-                        joystickPollId = setInput(HandleJoystickAxis_Hat(value, gp.index + 1));
+                        joystickPollId = setInput(HandleJoystickAxis_Hat(value, deviceNumber));
                         break;
                     case joystickProfile.slider:
-                        joystickPollId = setInput(HandleJoystickAxis_Slider(value, gp.index + 1));
+                        joystickPollId = setInput(HandleJoystickAxis_Slider(value, deviceNumber));
                         break;
                     case joystickProfile.wheel:
-                        joystickPollId = setInput(HandleJoystickAxis_Wheel(value, gp.index + 1));
+                        joystickPollId = setInput(HandleJoystickAxis_Wheel(value, deviceNumber));
                         break;
                     default:
                         const ax = gp.axes[i];
@@ -3538,7 +3551,7 @@ function HandleJoystickAxis_Hat(value, deviceIndex = 1)
 
     if (direction)
     {
-        return "hat" + deviceIndex + "_" + direction;
+        return "hat" + 1 + "_" + direction;
     }
 }
 function HandleJoystickAxis_Slider(value, deviceIndex = 1)
@@ -3735,31 +3748,4 @@ async function loadAndMergeMappedActions()
 
     return actionMapsMasterList;
 }
-
-
-// hidFunc()
-// async function hidFunc()
-// {
-//     if (!("hid" in navigator))
-//     {
-//         console.error("WebHID not supported in this browser. Try Chrome or Edge.");
-//         return;
-//     }
-
-//     // Prompt user to pick a HID device
-//     const devices = await navigator.hid.requestDevice({ filters: [] });
-//     if (devices.length === 0)
-//     {
-//         console.warn("No device selected.");
-//         return;
-//     }
-
-//     const device = devices[0];
-//     console.log("Selected device:", device.productName, device.vendorId.toString(16), device.productId.toString(16));
-
-//     // Open the HID connection
-//     await device.open();
-
-//     console.log("Collections:", device.collections);
-// }
 
