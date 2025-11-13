@@ -19,6 +19,7 @@
     --buttonSize: 2.2rem;
 
     --rowBackground: #0f2c3e;
+    --minDocWidth: 100px;
     --maxDocWidth: 1400px;
 
     --descriptionTag-bg: #1d4c92;
@@ -353,7 +354,7 @@ img,
     background-color: var(--default-bg);
     padding: 10px;
     display: flex;
-    max-width: calc(var(--maxDocWidth) + (2*var(--border-thickness)));
+    max-width: 74rem;
     align-items: flex-start;
     width: 100%;
     justify-content: space-between;
@@ -388,7 +389,7 @@ img,
 
     background-color: var(--descriptionBackgroundColour);
 
-    margin-right: 5rem;
+    margin-right: 3rem;
     margin-left: 1rem;
 
     box-shadow: inset -1px 0px 6px rgba(123, 159, 216, 0.05),
@@ -704,7 +705,7 @@ KEYBIND AREA
 
 .keybind__row {
     display: grid;
-    grid-template-columns: 20rem 1fr 4rem 18rem;
+    grid-template-columns: 22rem 1fr 4rem 19rem;
     border-radius: 0.3rem;
     align-items: left;
     height: auto;
@@ -992,7 +993,7 @@ SEARCH BAR  (which also holds the input select buttons)
     grid-template-rows: auto auto;
     align-items: center;
     max-width: var(--maxDocWidth);
-    /* width: var(--maxDocWidth); */
+    width: auto;
 }
 
 

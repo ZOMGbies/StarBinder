@@ -206,7 +206,6 @@ const btnSelectInput_Joystick = document.querySelector('.button-inputSelect-joys
 const btnSelectInput_JoystickModelSelect = document.querySelector('.button-inputSelect-joystickModelSelect');
 
 const btnSwapDevices = document.querySelector('.swapDevices');
-window._joystickIndexMap = [0, 1]; // logicalDevice[0] = physical index 0, logicalDevice[1] = physical index 1
 
 const joystickDropdownRow = document.querySelector('.joystick-dropdown-row');
 
@@ -2512,15 +2511,11 @@ function cancelRecordBind()
     finalizeCapture_Controller();
 }
 
+let hasSwappedDevices = false;
 //overcomplicated solution IMO; Dear Future Me, if youre losing your shit over this just change it to a bool toggle that does/doesn't parse #1 and #2 as #2 and #1
 function onClickSwapDevices()
 {
-    if (!window._joystickIndexMap)
-        window._joystickIndexMap = [0, 1];
-
-    // Swap the two indices
-    [window._joystickIndexMap[0], window._joystickIndexMap[1]] =
-        [window._joystickIndexMap[1], window._joystickIndexMap[0]];
+    hasSwappedDevices = !hasSwappedDevices;
 }
 
 
@@ -3422,8 +3417,13 @@ function pollJoysticks()
         if (!gp) continue;
         let joystickPollId = null;
 
-        const logicalIndex = window._joystickIndexMap.indexOf(gp.index);
-        const deviceNumber = logicalIndex + 1;
+        const actualDeviceNumber = gp.index + 1;
+        let deviceNumber = gp.index + 1
+        if (hasSwappedDevices)
+        {
+            if (deviceNumber === 1) deviceNumber = 2;
+            else if (deviceNumber === 2) deviceNumber = 1;
+        }
 
         // Helper to assign input consistently
         const setInput = (input) => ({
