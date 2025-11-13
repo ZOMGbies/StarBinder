@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Star Binder - Keybind Utility for Star Citizen</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Star Binder is a searchable/filterable keybind tool for Star Citizen that's far more powerful and easy to use than the in-game menu.  Exports into a format readable by the game and you can import your current keybinds into Star Binder to edit.">
+    <meta name="keywords" content="Star Binder, Star Citizen, game, keybind, utility, tool">
+
+    <!-- Preload Fonts -->
+    <!-- <link rel="preload" href="./assets/fonts/Aileron-Regular.otf" as="font" type="font/otf" crossorigin>
+
+  <link rel="preload" href="./assets/fonts/consola.ttf" as="font" type="font/ttf" crossorigin>
+
+  <link rel="preload" href="./assets/fonts/Gobold Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="./assets/fonts/Gobold Bold.ttf" as="font" type="font/ttf" crossorigin>
+
+  <link rel="preload" href="./assets/fonts/Kiona-Regular.ttf" as="font" type="font/ttf" crossorigin> -->
+    <!-- Preload Fonts -->
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
+    <script defer src="./script.js"></script>
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+    <link rel="icon" type="image/png" href="./assets/favicon-256x256.png">
+
+</head>
+
+<body>
+    <div class="coffee">
+        If this tool's helpful, you could always
+        <a class="coffeeLink" href="https://buymeacoffee.com/zomgbies"> buy me a coffee</a>☕
+    </div>
+
+
+    <!-- Splash modal -->
+    <div id="splashModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <button id="closeModal" class="quickstart-close-btn">&times;</button>
+            <h2>Quick Start guide for Star Binder</h2>
+            <ol>
+                <li>Export (and backup) your binds from Star Citizen using the in-game options</li>
+                <li>Import those binds to Star Binder</li>
+                <li>Modify your binds as desired</li>
+                <li>Export your keybinds from Star Binder to your game directory</li>
+                <li>Import your new keybinds into Star Citizen using the in-game options</li>
+            </ol>
+
+            <!-- Image controls -->
+            <div class="quickstart-image-controls">
+                <button class="image-nav left">&#10094;</button>
+                <span class="quickstart-image-title">searchandfilter.webp</span>
+                <button class="image-nav right">&#10095;</button>
+            </div>
+
+            <img src="./assets/help/searchandfilter.webp" alt="Star Binder search and filter example"
+                class="quickstart-image">
+
+            <label>
+                <input type="checkbox" id="hideModalCheckbox"> Do not show this again
+            </label>
+        </div>
+    </div>
+
+
+
+    <div class="content">
+        <img class="headerImage" src="./assets/header.webp" width="60%">
+        <h1 style="position:absolute; left:-9999px;">Star Binder</h1>
+        <div id="tagContainer"></div>
+        <div id="subTagContainer"></div>
+
+        <div class="content-keybinds-border">
+            <div class="content-keybinds-wrapper">
+                <div class="searchbar-row">
+                    <div class="searchbar-container">
+                        <button class="searchbar-button" type="button"></button>
+                        <input type="text" id="keybindSearch" placeholder="Filter keybinds..." />
+                    </div>
+
+                    <div class="inputType-select">
+                        <button class="button button-inputSelect-keyboard" type="button">Mouse / Keyboard</button>
+                        <button class="button button-inputSelect-controller" type="button">Controller</button>
+                        <button class="button button-inputSelect-joystick" type="button">Joystick</button>
+                    </div>
+
+                    <div class="helpText">
+                        Double-click to rebind • Hold to clear •<br>CTRL-ALT-Click to set to default
+                    </div>
+
+                    <div class="joystick-dropdown-row collapsed" style=" grid-column: 1 / span 3; grid-row: 2;">
+                        <span class="joystick-dropdown-label">Joystick Model:</span>
+                        <div class="joystick-dropdown-button-wrapper">
+                            <button class="joystick-dropdown-button" type="button">
+                                <span class="button-text">Select Joystick Model</span> ▾
+                            </button>
+                            <div class="joystick-dropdown-menu" style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="content-keybinds-absolute-wrapper">
+                    <div class="content-keybinds"></div>
+                </div>
+            </div>
+
+
+
+            <!-- Corners -->
+            <img class="corner top-left" src="./assets/ContainerBorder/top-left.webp" alt="">
+            <img class="corner top-right" src="./assets/ContainerBorder/top-left.webp" alt="">
+            <img class="corner bottom-left" src="./assets/ContainerBorder/bottom-left.webp" alt="">
+            <img class="corner bottom-right" src="./assets/ContainerBorder/bottom-left.webp" alt="">
+
+            <!-- Top row -->
+            <img class="side top-left" src="./assets/ContainerBorder/topAdjacent.webp" alt="">
+            <div class="side top-middle"></div>
+            <img class="side top-right" src="./assets/ContainerBorder/topAdjacent.webp" alt="">
+
+            <!-- Bottom row -->
+            <img class="side bottom-left" src="./assets/ContainerBorder/topAdjacent.webp" alt="">
+            <div class="side bottom-middle"></div>
+            <img class="side bottom-right" src="./assets/ContainerBorder/topAdjacent.webp" alt="">
+
+            <!-- Left column -->
+            <img class="side left-middle" src="./assets/ContainerBorder/leftMain.webp" alt="">
+            <div class="side left-up"></div>
+            <div class="side left-down"></div>
+
+            <!-- Right column -->
+            <img class="side right-middle" src="./assets/ContainerBorder/leftMain.webp" alt="">
+            <div class="side right-up"></div>
+            <div class="side right-down"></div>
+        </div>
+
+
+
+        <div class="footer">
+            <div class="footer__left">
+                <div class="footer__buttons">
+                    <div class="button-wrapper">
+                        <button class="button button--clear"></button>
+                        <span class="tooltip-text">Clear all current binds.</span>
+                    </div>
+                    <div class="button-wrapper">
+                        <button class="button button--import"></button>
+                        <span class="tooltip-text">Load an existing keybind configuration.</span>
+                    </div>
+                    <div class="button-wrapper">
+                        <button class="button button--export"></button>
+                        <span class="tooltip-text">Create XML ready for import to SC.</span>
+                    </div>
+                    <!--div class="button-wrapper">
+            <button id="copyActionMapJSON" class="button button--debug">Copy JSON</button>
+            <span class="tooltip-text">Copy all action names as JSON (debug only)</span>
+          </div-->
+
+                </div>
+
+
+
+                <div class="footer__toggles">
+                    <div class="toggle-container">
+                        <label class="toggle-switch tri-state" id="boundActionsToggle">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="toggle-label">All actions</span>
+                    </div>
+
+                    <div class="toggle-container">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="conflictsToggle">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="toggle-label">Show conflicts</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__keybind-info">
+                <div class="footer__keybind-text">[text]</div>
+                <div class="footer__keybind-tags"></div>
+            </div>
+        </div>
+        <button class="button info-toggle" type="button">Show Help</button>
+
+    </div>
+
+    <section class="info-section collapsed">
+        <div class="info-content collapsed">
+            <h2>About the Star Binder keybind tool:</h2>
+            <p>
+                This is an unofficial Star Citizen utility that makes keybinds <i>searchable</i>, <i>filterable</i>, and
+                <i>customisable</i> in a way not possible before. Unlike the in-game UI, <b>Star Binder</b> lets you
+                combine
+                just about any key combination imaginable, plus you can choose between a bunch of activation modes, not
+                just
+                "double tap".<br><br>
+
+                Star Binder lets you export to an XML file which can then be ported directly into Star Citizen using the
+                in-game
+                menu.
+                You can also import a Star Citizen-compatible keybind XML.
+            </p>
+            <hr>
+            <h3>Star Binder Features</h3>
+            <ul class="bullet-list">
+                <li><b>Search & Filter</b>: Use the search or filter matching actions based on keywords, the action
+                    name, and
+                    the
+                    categories it
+                    appears in. Clear the text and search again to show all keybinds again.</li>
+                <li><b>Advanced bind info</b>: The footer will have further information about the keybind when available
+                    -
+                    such as a description of how the action works or what it's for. This may not always be reliable as
+                    the game
+                    changes.
+                </li>
+                <li><b>Bind</b>: Double-click any action to record a new input. Hold a selected action with left-click
+                    to
+                    clear it. Holding CTRL+ALT and clicking a bind will set it to the in-game default, where such
+                    exists.</li>
+                <li><b>Custom Bind</b>: Construct a bespoke bind string as you see fit e.g.
+                    '<code>lctrl + g + h + j</code>'. This is recommended more for
+                    advanced users.</li>
+                <li><b>Activation Modes</b>: Choose from a range of modes, not just double tap - if in doubt, stick with
+                    the
+                    default.</li>
+                <li><b>Import</b>: Any XML that SC or Star Binder has generated can be imported into this utility
+                    and edited for later export. In theory, any keybind XML that SC can read/import, this can too.</li>
+                <li><b>Export</b>: Convert your keybinds into a Star Citizen-compatible XML file. Be sure to move this
+                    to
+                    the correct folder and see the guide on importing keybinds if needed.
+                    <br><span style="font-size: 0.8em;">
+                        Default 'mappings' directory:
+                        <code>C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\user\client\0\controls\mappings</code>.
+                    </span>
+                </li>
+            </ul>
+            <hr>
+            <p><strong>How do I use these keybinds into Star Citizen?</strong><br>
+                When you're ready, click '<b>export</b>' and choose a file name. This will download the keybind file to
+                your
+                computer; move that file
+                to your SC mappings folder. Then use the in-game options to import the keybind file.<br>
+
+            </p>
+            <p><strong>How do I import keybinds using the in-game menu?</strong><br>
+                CIG have published a guide on this <a
+                    href="https://support.robertsspaceindustries.com/hc/en-us/articles/360000183328-Create-export-and-import-custom-profiles">here</a>.
+                There is also a console command: <code>pp_RebindKeys [filename]</code>.
+            </p>
+            <p><strong>Will my existing keybinds be overwritten?</strong><br>
+                Potentially. My understanding is that the imported keybinds will replace any non-default keybinds.
+                Therefore it
+                is a good idea to export your keybinds from SC, import them here, <i>then</i> modify them in Star Binder
+                - this
+                way your exported keybinds will include everything.
+            </p>
+            <p><strong>The primnary joystick is recording in Star Binder as the secondary and vice versa, what can I
+                    do?</strong><br>
+                If you want to bind directly to a specific device, you can edit the prefix in the manual bind
+                string. Functionality is coming to tell Star Binder which device is which.<br>
+                e.g. <code>2:lctrl+button1</code> will bind to the 2nd device. <code>99:lctrl+button1</code> will bind
+                it to
+                the 99th device.
+            </p>
+
+            <hr>
+
+            <h3>Known Issues and limitations</h3>
+            <ul class="bullet-list">
+                <li>Browser choice matters -- 'Mouse4' and 'Mouse5' input cannot be captured/recorded if you are using
+                    Firefox. This sucks and I did my best to find a workaround. There is a stagnant bug report with
+                    Mozilla from
+                    a few years ago about it and that's it. Chrome and/or Edge are recommended for best
+                    compatibility.</li>
+
+                <li>Recording some inputs will inevitably also perform actions in your browser. Such as 'Mouse4' and
+                    'Mouse5'
+                    (navigate forward/back). Where possible this has been prevented, but some are unavoidable. If
+                    necessary,
+                    use the manual input.</li>
+
+                <li>Certain activation modes may be incompatible with some actions. Use 'default' if unsure.</li>
+
+                <li>The 'custom bind' input field allows users to make literally any bind string without guard rails
+                    other
+                    than character limit. You could set "Eject" to "The Cake is a lie 🍰" and it won't stop or correct
+                    you
+                    - use as you wish.</li>
+
+                <li>You may find you can record inputs and even see them in the in-game keybind UI - whether they work
+                    depends
+                    on whether Star Citizen supports it. e.g. 'F23' or 'contextmenu' do not currently work.</li>
+
+                <li><b>Controller Support:</b> PlayStation controllers <i>should</i> work but will show the XBOX buttons
+                    (A/B/X/Y); XBOX gamepads (and derivatives like Logitech ones) should work normally.</li>
+
+                <li><b>Joystick Support:</b> I currently only have access to the Thrustmaster T.16000M for testing.
+                    Therefore
+                    other models may be unable to record certain binds. This can be overcome by recording the input in
+                    SC,
+                    exporting it, and reading how it's phrased in the XML file (e.g. trigger is 'button1') -- then you
+                    can use
+                    that same term in the custom keybind field.</li>
+
+                <li><b>Device detection:</b> Which joystick is in slot 1 or 2 is determined superficially and may not
+                    align with
+                    Windows' determination; functionality to address this is coming.</li>
+
+            </ul>
+        </div>
+    </section>
+
+    <!--script>
+    document.getElementById("copyActionMapJSON").addEventListener("click", async () =>
+    {
+      if (!actionMapsMasterList || !Array.isArray(actionMapsMasterList))
+      {
+        console.error("actionMapsMasterList is not defined or not an array");
+        return;
+      }
+
+      // Fetch and parse global.ini
+      let iniData = {};
+      try
+      {
+        const response = await fetch("./global.ini");
+        const text = await response.text();
+
+        // Parse key=value pairs (ignores empty lines and comments)
+        text.split(/\r?\n/).forEach(line =>
+        {
+          line = line.trim();
+          if (!line || line.startsWith(";") || line.startsWith("#")) return;
+
+          const [key, ...rest] = line.split("=");
+          if (key && rest.length)
+          {
+            iniData[key.trim()] = rest.join("=").trim();
+          }
+        });
+      }
+      catch (err)
+      {
+        console.error("Failed to load global.ini:", err);
+      }
+
+      const actionMapJSON = {};
+
+      actionMapsMasterList.forEach(a =>
+      {
+        if (!a.actionName) return;
+
+        // Resolve localisation keys (strip leading '@')
+        const resolveLocalised = (value, toLower = false) =>
+        {
+          if (!value) return "";
+          let resolved = value;
+
+          if (value.startsWith("@"))
+          {
+            const key = value.slice(1);
+            resolved = iniData[key] || value;
+          }
+
+          return toLower ? resolved.toLowerCase() : resolved;
+        };
+
+        actionMapJSON[a.actionName] = {
+          label: resolveLocalised(a.label),
+          description: resolveLocalised(a.UIdescription),
+          keywords: [resolveLocalised(a.UICategory, true)]
+        };
+      });
+
+      const jsonString = JSON.stringify(actionMapJSON, null, 2);
+      navigator.clipboard.writeText(jsonString)
+        .then(() => alert("Action Map JSON copied to clipboard!"))
+        .catch(err => console.error("Failed to copy:", err));
+    });
+  </script-->
+
+
+    <a href="./feedback/form.html" class="feedback-link">[ SEND FEEDBACK / REPORT ISSUE ]</a>
+</body>
+
+</html>
