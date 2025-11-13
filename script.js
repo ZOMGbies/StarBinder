@@ -828,7 +828,7 @@ async function init()
         clearTimeout(holdTimer);
     });
 
-    btnSwapDevices.addEventListener("click", onClickSwapDevices)
+    btnSwapDevices?.addEventListener("click", onClickSwapDevices)
 
 
     ///// GAMEPAD DETECTION  //////
