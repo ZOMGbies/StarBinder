@@ -19,7 +19,6 @@
     --buttonSize: 2.2rem;
 
     --rowBackground: #0f2c3e;
-    --minDocWidth: 100px;
     --maxDocWidth: 1400px;
 
     --descriptionTag-bg: #1d4c92;
@@ -705,7 +704,7 @@ KEYBIND AREA
 
 .keybind__row {
     display: grid;
-    grid-template-columns: 23rem 1fr 4rem 20rem;
+    grid-template-columns: 20rem 1fr 4rem 18rem;
     border-radius: 0.3rem;
     align-items: left;
     height: auto;

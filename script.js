@@ -740,6 +740,21 @@ async function init()
             e.preventDefault();
             onClickCloseHelpModal();
         }
+        if (e.key === "ArrowLeft")
+        {
+            e.preventDefault();
+            currentHelpImageIndex--;
+            if (currentHelpImageIndex < 1) currentHelpImageIndex = 6
+            showHelpImage(currentHelpImageIndex);
+        }
+        if (e.key === "ArrowRight")
+        {
+            e.preventDefault();
+            currentHelpImageIndex++;
+            if (currentHelpImageIndex > 6) currentHelpImageIndex = 1
+            showHelpImage(currentHelpImageIndex);
+        }
+
     });
 
 

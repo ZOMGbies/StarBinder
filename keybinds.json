@@ -1977,7 +1977,7 @@
         ]
     },
     "v_ifcs_proximity_assist_toggle": {
-        "label": "@ui_v_ifcs_proximity_assist_toggle",
+        "label": "Flight Model Proximity Assist Toggle",
         "description": "@ui_v_ifcs_proximity_assist_toggle_desc",
         "keywords": [
             "flight - movement",
@@ -1986,7 +1986,7 @@
         ]
     },
     "v_ifcs_proximity_assist_on": {
-        "label": "@ui_v_ifcs_proximity_assist_on",
+        "label": "Flight Model Proximity Assist On",
         "description": "@ui_v_ifcs_proximity_assist_on_desc",
         "keywords": [
             "flight - movement",
@@ -1995,7 +1995,7 @@
         ]
     },
     "v_ifcs_proximity_assist_off": {
-        "label": "@ui_v_ifcs_proximity_assist_off",
+        "label": "Flight Model Proximity Assist Off",
         "description": "@ui_v_ifcs_proximity_assist_off_desc",
         "keywords": [
             "flight - movement",
@@ -2004,7 +2004,7 @@
         ]
     },
     "v_ifcs_stability_toggle": {
-        "label": "@ui_v_ifcs_stability_toggle",
+        "label": "Flight Model Stability Toggle",
         "description": "@ui_v_ifcs_stability_toggle_desc",
         "keywords": [
             "flight - movement",
@@ -2013,7 +2013,7 @@
         ]
     },
     "v_ifcs_stability_on": {
-        "label": "@ui_v_ifcs_stability_on",
+        "label": "Flight Model Stability On",
         "description": "@ui_v_ifcs_stability_on_desc",
         "keywords": [
             "flight - movement",
@@ -2022,7 +2022,7 @@
         ]
     },
     "v_ifcs_stability_off": {
-        "label": "@ui_v_ifcs_stability_off",
+        "label": "Flight Model Stability Off",
         "description": "@ui_v_ifcs_stability_off_desc",
         "keywords": [
             "flight - movement",
@@ -2031,7 +2031,7 @@
         ]
     },
     "v_ifcs_command_toggle": {
-        "label": "@ui_v_ifcs_command_toggle",
+        "label": "Flight Model Command Toggle",
         "description": "@ui_v_ifcs_command_toggle_desc",
         "keywords": [
             "flight - movement",
@@ -2040,7 +2040,7 @@
         ]
     },
     "v_ifcs_command_on": {
-        "label": "@ui_v_ifcs_command_on",
+        "label": "Flight Model Command On",
         "description": "@ui_v_ifcs_command_on_desc",
         "keywords": [
             "flight - movement",
@@ -2049,7 +2049,7 @@
         ]
     },
     "v_ifcs_command_off": {
-        "label": "@ui_v_ifcs_command_off",
+        "label": "Flight Model Command Off",
         "description": "@ui_v_ifcs_command_off_desc",
         "keywords": [
             "flight - movement",
@@ -2058,7 +2058,7 @@
         ]
     },
     "v_ifcs_core_toggle": {
-        "label": "@ui_v_ifcs_core_toggle",
+        "label": "Flight Model Core Toggle",
         "description": "@ui_v_ifcs_core_toggle_desc",
         "keywords": [
             "flight - movement",
@@ -2067,7 +2067,7 @@
         ]
     },
     "v_ifcs_core_on": {
-        "label": "@ui_v_ifcs_core_on",
+        "label": "Flight Model Core On",
         "description": "@ui_v_ifcs_core_on_desc",
         "keywords": [
             "flight - movement",
@@ -2076,7 +2076,7 @@
         ]
     },
     "v_ifcs_core_off": {
-        "label": "@ui_v_ifcs_core_off",
+        "label": "Flight Model Core Off",
         "description": "@ui_v_ifcs_core_off_desc",
         "keywords": [
             "flight - movement",
