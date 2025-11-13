@@ -537,7 +537,7 @@ class MappedAction
         {
             if (!k.startsWith("@"))
             {
-                this.keywordTags.push(k)
+                if (k.trim() != "") this.keywordTags.push(k)
             }
         });
 
@@ -1669,8 +1669,19 @@ document.addEventListener('pointerdown', e =>
 
     e.preventDefault();
     cancelRecordTimer();
-    if (activeCapture.currentKeys.size === 0) finalizeCapture_Keyboard(activeCapture);
+    // Allow modifiers + mouse, but not "regular key + mouse"
+    const hasNormalKeys = Array.from(activeCapture.currentKeys)?.some(k => !modifierCodes.has(k));
+    if (hasNormalKeys) return;
+
+    const buttonName = mouseButtons.get(e.button);
+    if (!buttonName) return;
+
+    activeCapture.currentKeys.add(buttonName);
+    activeCapture.currentKeysOrdered.push(buttonName);
+
+    finalizeCapture_Keyboard(activeCapture, 1);
 });
+
 // ---------- Mouse wheel capture ----------
 document.addEventListener('wheel', e =>
 {
