@@ -19,7 +19,7 @@
     --buttonSize: 2.2rem;
 
     --rowBackground: #0f2c3e;
-    --minDocWidth: 1000px;
+    --minDocWidth: 100px;
     --maxDocWidth: 1400px;
 
     --descriptionTag-bg: #1d4c92;
@@ -78,12 +78,10 @@ CONTENT
 
 .content {
     display: flex;
-    /* flex: 1; */
     flex: 1 0 auto;
-    /* don’t hog the full height, allow overflow below */
     flex-direction: column;
-    min-height: auto;
     align-self: center;
+    min-height: 0;
 }
 
 .content-keybinds-wrapper {
@@ -123,8 +121,8 @@ CONTENT
     right: var(--border-thickness);
     margin-top: -1rem;
     overflow-y: auto;
-    min-width: var(--minDocWidth)-120px;
-    max-width: var(--maxDocWidth)-120px;
+    min-width: calc(var(--minDocWidth) - 120px);
+    max-width: calc(var(--maxDocWidth) - 120px);
     height: 100%;
     box-sizing: border-box;
 
@@ -995,7 +993,7 @@ SEARCH BAR  (which also holds the input select buttons)
     grid-template-rows: auto auto;
     align-items: center;
     max-width: var(--maxDocWidth);
-    width: var(--maxDocWidth);
+    /* width: var(--maxDocWidth); */
 }
 
 
@@ -1920,6 +1918,9 @@ p {
 
 .quickstart-image-title {
     min-width: 150px;
+    font-family: "Aileron", sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.05rem;
     text-align: center;
     font-style: italic;
     opacity: 0.8;
