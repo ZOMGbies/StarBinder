@@ -19,7 +19,7 @@
         "slider": 6,
         "hat": 9
     },
-    "Other": {
+    "default": {
         "x": 0,
         "y": 1,
         "z": 2,

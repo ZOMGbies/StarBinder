@@ -3,6 +3,7 @@
         "label": "Emergency Exit",
         "description": "Powers off the ship (including shields) and makes the user get out of their chair at a normal speed (???)",
         "keywords": [
+            "vehicles - seats and operator modes",
             "seats",
             "vehicle"
         ]
@@ -11,14 +12,16 @@
         "label": "Eject",
         "description": "Emergency eject from your ship's seat, assuming the ship has this feature.",
         "keywords": [
+            "vehicles - seats and operator modes",
             "seats",
             "vehicle"
         ]
     },
     "v_view_look_behind": {
-        "label": "View: Look behind",
+        "label": "Look behind",
         "description": "Rear view camera for your vehicle",
         "keywords": [
+            "vehicles - seats and operator modes",
             "seats",
             "vehicle",
             "camera"
@@ -28,6 +31,7 @@
         "label": "Mining Mode Toggle",
         "description": "Toggle mining mode in your vehicle.",
         "keywords": [
+            "vehicles - seats and operator modes",
             "operator modes",
             "vehicle",
             "mining"
@@ -37,6 +41,7 @@
         "label": "Salvage Mode Toggle",
         "description": "Toggle salvage mode in your vehicle.",
         "keywords": [
+            "vehicles - seats and operator modes",
             "operator modes",
             "vehicle",
             "salvage"
@@ -46,6 +51,7 @@
         "label": "Scan Mode Toggle",
         "description": "Toggle scan mode in your vehicle.",
         "keywords": [
+            "vehicles - seats and operator modes",
             "operator modes",
             "vehicle"
         ]
@@ -54,6 +60,7 @@
         "label": "Quantum Mode Toggle",
         "description": "Toggle Nav/Quantum mode",
         "keywords": [
+            "vehicles - seats and operator modes",
             "operator modes",
             "vehicle"
         ]
@@ -62,6 +69,7 @@
         "label": "Missile Mode Toggle",
         "description": "Toggle missile mode in your vehicle",
         "keywords": [
+            "vehicles - seats and operator modes",
             "operator modes",
             "vehicle",
             "weapons"
@@ -71,6 +79,7 @@
         "label": "Guns Mode Toggle",
         "description": "Toggle guns mode in your vehicle",
         "keywords": [
+            "vehicles - seats and operator modes",
             "operator modes",
             "vehicle",
             "weapons"
@@ -88,6 +97,7 @@
         "label": "Mining Mode On",
         "description": "Set your ship to mining mode",
         "keywords": [
+            "vehicles - seats and operator modes",
             "operator modes",
             "vehicle",
             "mining"
@@ -97,6 +107,7 @@
         "label": "Salvage Mode On",
         "description": "Set your ship to salvage mode",
         "keywords": [
+            "vehicles - seats and operator modes",
             "operator modes",
             "vehicle",
             "salvage"
@@ -106,6 +117,7 @@
         "label": "Scan Mode On",
         "description": "Set your ship to scan mode",
         "keywords": [
+            "vehicles - seats and operator modes",
             "operator modes",
             "vehicle"
         ]
@@ -114,6 +126,7 @@
         "label": "Quantum Mode On",
         "description": "Set your ship to quantum/nav mode",
         "keywords": [
+            "vehicles - seats and operator modes",
             "operator modes",
             "vehicle"
         ]
@@ -122,6 +135,7 @@
         "label": "Missile Mode On",
         "description": "Set your ship to missile mode",
         "keywords": [
+            "vehicles - seats and operator modes",
             "operator modes",
             "vehicle",
             "weapons"
@@ -131,6 +145,7 @@
         "label": "Guns Mode On",
         "description": "Set your ship to guns mode",
         "keywords": [
+            "vehicles - seats and operator modes",
             "operator modes",
             "vehicle",
             "weapons"
@@ -140,6 +155,7 @@
         "label": "Flight Mode On",
         "description": "Set your ship to flight mode",
         "keywords": [
+            "vehicles - seats and operator modes",
             "operator modes",
             "vehicle"
         ]
@@ -148,6 +164,7 @@
         "label": "Enter Remote Turret (1)",
         "description": "While operating an appropriate station/seat, take control of the ship's first remote turret without needing to cycle through them.",
         "keywords": [
+            "vehicles - seats and operator modes",
             "seats",
             "vehicle",
             "turrets"
@@ -157,6 +174,7 @@
         "label": "Enter Remote Turret (2)",
         "description": "While operating an appropriate station/seat, take control of the ship's second remote turret without needing to cycle through them.",
         "keywords": [
+            "vehicles - seats and operator modes",
             "seats",
             "vehicle",
             "turrets"
@@ -166,6 +184,7 @@
         "label": "Enter Remote Turret (3)",
         "description": "While operating an appropriate station/seat, take control of the ship's third remote turret without needing to cycle through them.",
         "keywords": [
+            "vehicles - seats and operator modes",
             "seats",
             "vehicle",
             "turrets"
@@ -386,17 +405,19 @@
         ]
     },
     "v_operator_mode_cycle_forward": {
-        "label": "",
+        "label": "Next Operator Mode",
         "description": "",
         "keywords": [
+            "vehicles - seats and operator modes",
             "operator modes",
             "vehicle"
         ]
     },
     "v_operator_mode_cycle_back": {
-        "label": "",
+        "label": "Previous Operator Mode",
         "description": "",
         "keywords": [
+            "vehicles - seats and operator modes",
             "operator modes",
             "vehicle"
         ]
@@ -410,7 +431,7 @@
         ]
     },
     "v_cooler_throttle_up": {
-        "label": "",
+        "label": "Cooler Rate - Increase",
         "description": "",
         "keywords": [
             "cockpit",
@@ -418,7 +439,7 @@
         ]
     },
     "v_cooler_throttle_down": {
-        "label": "",
+        "label": "Cooler Rate - Decrease",
         "description": "",
         "keywords": [
             "cockpit",
@@ -426,7 +447,7 @@
         ]
     },
     "v_flightready": {
-        "label": "Flight Ready",
+        "label": "Flight/Systems Ready",
         "description": "Turn on power, engines, and shields with a single action.",
         "keywords": [
             "cockpit",
@@ -1004,622 +1025,1100 @@
     "v_view_yaw_left": {
         "label": "Look left",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_view_yaw_right": {
         "label": "Look right",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_view_yaw": {
         "label": "Look left/right",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_view_yaw_mouse": {
         "label": "Look left/right",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_view_pitch_up": {
         "label": "Look up",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_view_pitch_down": {
         "label": "Look down",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_view_pitch": {
         "label": "Look up/down",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_view_pitch_mouse": {
         "label": "Look up/down",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_view_cycle_fwd": {
         "label": "Cycle camera view",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_view_mode": {
         "label": "Cycle camera orbit mode",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_view_zoom_in": {
         "label": "Zoom in (3rd person view)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_view_zoom_out": {
         "label": "Zoom out (3rd Person view)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_view_freelook_mode": {
         "label": "Freelook",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_view_dynamic_zoom_rel": {
         "label": "Dynamic zoom in and out (rel.)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_view_dynamic_zoom_rel_in": {
         "label": "Dynamic zoom in (rel.)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_view_dynamic_zoom_rel_out": {
         "label": "Dynamic zoom out (rel.)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_view_dynamic_zoom_abs": {
         "label": "Dynamic zoom (abs.)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_view_dynamic_zoom_abs_toggle": {
         "label": "Dynamic zoom toggle (abs.)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_ads_hold": {
         "label": "Vehicle ADS (Hold)",
         "description": "On foot, CIG call this 'zoom', but in a ship they call it 'ADS'.  This is the 'zoom while in a ship' mode.",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_ads_toggle": {
         "label": "Vehicle ADS (Toggle)",
         "description": "On foot, CIG call this 'zoom', but in a ship they call it 'ADS'.  This is the 'zoom while in a ship' mode.",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_ads_stable_max_zoom_hold": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_ads_cycle_tracking": {
         "label": "",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "vehicles - view",
+            "view",
+            "vehicle"
+        ]
     },
     "v_pitch_up": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Pitch up",
+        "description": "@ui_CIPitchUpDesc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_pitch_down": {
-        "label": "",
+        "label": "Pitch down",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_pitch": {
-        "label": "",
+        "label": "Pitch",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_pitch_mouse": {
-        "label": "",
+        "label": "Pitch",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_yaw_left": {
-        "label": "",
+        "label": "Yaw left",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_yaw_right": {
-        "label": "",
+        "label": "Yaw right",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_yaw": {
-        "label": "",
+        "label": "Yaw",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_yaw_mouse": {
-        "label": "",
+        "label": "Yaw",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_roll_left": {
-        "label": "",
+        "label": "Roll left",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_roll_right": {
-        "label": "",
+        "label": "Roll right",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_roll": {
-        "label": "",
+        "label": "Roll",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_roll_mouse": {
-        "label": "",
+        "label": "Roll",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_toggle_relative_mouse_mode": {
-        "label": "Cycle mouse mode (Vjoy/Relative)",
-        "description": "Cycle whether the mouse controls for the ship are a virtual joystick or not.",
-        "keywords": []
+        "label": "Cycle mouse mode (VJoy / Relative)",
+        "description": "Switches the mouse behavior for ship rotations between a relative (FPS style) and a Vjoy mode.",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_toggle_yaw_roll_swap": {
-        "label": "Swap Yaw / Roll",
-        "description": "",
-        "keywords": []
+        "label": "Swap Yaw / Roll (Toggle)",
+        "description": "@ui_CIYawRollSwapDesc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_strafe_up": {
         "label": "Strafe up (abs.)",
-        "description": "",
-        "keywords": []
+        "description": "@ui_CIStrafeUpDesc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_strafe_down": {
         "label": "Strafe down (abs.)",
-        "description": "",
-        "keywords": []
+        "description": "@ui_CIStrafeDownDesc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_strafe_vertical": {
-        "label": "Strafe up/down (abs.)",
-        "description": "",
-        "keywords": []
+        "label": "Strafe up / down (abs.)",
+        "description": "@ui_CIStrafeUpDownDesc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_strafe_left": {
         "label": "Strafe left (abs.)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_strafe_right": {
         "label": "Strafe right (abs.)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_strafe_lateral": {
-        "label": "Strafe left / right",
-        "description": "",
-        "keywords": []
+        "label": "Strafe left / right (abs.)",
+        "description": "@ui_CIStrafeLeftRightDesc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_strafe_forward": {
         "label": "Throttle - Increase",
-        "description": "",
-        "keywords": []
+        "description": "@ui_v_strafe_forward_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_strafe_back": {
         "label": "Throttle - Decrease",
-        "description": "",
-        "keywords": []
+        "description": "@ui_v_strafe_back_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_strafe_longitudinal": {
-        "label": "",
-        "description": "Throttle Forward/Back",
-        "keywords": []
+        "label": "Throttle - Forward / Back",
+        "description": "@ui_v_strafe_longitudinal_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_strafe_longitudinal_invert": {
-        "label": "Throttle - Forward/Back Invert",
-        "description": "",
-        "keywords": []
+        "label": "Throttle - Forward / Back Invert",
+        "description": "Inverts Strafe Longitudinal Absolute Axis Half (Neutral - Backward)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_throttle_swap_mode": {
         "label": "Throttle - Cruise Mode - Toggle",
-        "description": "",
-        "keywords": []
+        "description": "@ui_v_ifcs_throttle_swap_mode_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_throttle_set_sticky": {
         "label": "Throttle - Cruise Mode - Enable",
-        "description": "",
-        "keywords": []
+        "description": "@ui_v_ifcs_throttle_set_sticky_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_throttle_set_normal": {
         "label": "Throttle - Cruise Mode - Disable",
-        "description": "",
-        "keywords": []
+        "description": "@ui_v_ifcs_throttle_set_normal_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_strafe_trim_set_long": {
         "label": "Throttle - Trim - Set (Long Press)",
-        "description": "",
-        "keywords": []
+        "description": "Throttle - Trim - Set (Long Press)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_strafe_trim_set_short": {
         "label": "Throttle - Trim - Set (Short Press)",
-        "description": "",
-        "keywords": []
+        "description": "Throttle - Trim - Set (Short Press)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_strafe_trim_set_100_long": {
-        "label": "Throttle - Trim - Set to 100% (Long Press)",
-        "description": "",
-        "keywords": []
+        "label": "Throttle - Trim - Set To 100% (Long Press)",
+        "description": "Throttle - Trim - Set To 100% (Long Press)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_strafe_trim_set_100_short": {
-        "label": "Throttle - Trim - Set to 100% (Short Press)",
-        "description": "",
-        "keywords": []
+        "label": "Throttle - Trim - Set To 100% (Short Press)",
+        "description": "Throttle - Trim - Set To 100% (Short Press)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_strafe_trim_set_50_long": {
-        "label": "Throttle - Trim - Set to 50% (Long Press)",
-        "description": "",
-        "keywords": []
+        "label": "Throttle - Trim - Set To 50% (Long Press)",
+        "description": "Throttle - Trim - Set To 50% (Long Press)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_strafe_trim_set_50_short": {
-        "label": "Throttle - Trim - Set to 50% (Short Press)",
-        "description": "",
-        "keywords": []
+        "label": "Throttle - Trim - Set To 50% (Short Press)",
+        "description": "Throttle - Trim - Set To 50% (Short Press)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_strafe_trim_reset_long": {
         "label": "Throttle - Trim - Release (Long Press)",
-        "description": "",
-        "keywords": []
+        "description": "Throttle - Trim - Release (Long Press)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_strafe_trim_reset_short": {
         "label": "Throttle - Trim - Release (Short Press)",
-        "description": "",
-        "keywords": []
+        "description": "Throttle - Trim - Release (Short Press)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_vector_decoupling_toggle": {
         "label": "Decoupled Mode Toggle",
         "description": "Decoupled Off: The ship will automatically counter-thrust based on your vector to feel as though you're flying in atmosphere.  Decoupled On: Newtonian(ish) physics are applied withtout counter thrust.",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_vector_decoupling_on": {
         "label": "Decoupled Mode On",
         "description": "Decoupled Off: The ship will automatically counter-thrust based on your vector to feel as though you're flying in atmosphere.  Decoupled On: Newtonian(ish) physics are applied withtout counter thrust.",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_vector_decoupling_off": {
         "label": "Decoupled Mode Off",
         "description": "Decoupled Off: The ship will automatically counter-thrust based on your vector to feel as though you're flying in atmosphere.  Decoupled On: Newtonian(ish) physics are applied withtout counter thrust.",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_afterburner": {
         "label": "Boost",
         "description": "",
         "keywords": [
-            "afterburner"
+            "flight - movement",
+            "flight",
+            "vehicle"
         ]
     },
     "v_ifcs_speed_limiter_up": {
-        "label": "Speed Limiter - increase",
-        "description": "",
-        "keywords": []
+        "label": "Speed Limiter - Increase (hold)",
+        "description": "Speed Limiter - Increase (hold)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_speed_limiter_down": {
-        "label": "Speed Limiter - decrease",
-        "description": "",
-        "keywords": []
+        "label": "Speed Limiter - Decrease (hold)",
+        "description": "Speed Limiter - Decrease (hold)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_speed_limiter_increment": {
-        "label": "Speed Limiter - Step Up",
-        "description": "",
-        "keywords": []
+        "label": "Speed Limiter - Step Up (tap)",
+        "description": "Speed Limiter - Step Up (tap)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_speed_limiter_decrement": {
-        "label": "Speed Limiter - Step Down",
-        "description": "",
-        "keywords": []
+        "label": "Speed Limiter - Step Down (tap)",
+        "description": "Speed Limiter - Step Down (tap)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_speed_limiter_rel": {
-        "label": "Speed Limiter (rel.)",
-        "description": "",
-        "keywords": []
+        "label": "Speed Limiter (rel)",
+        "description": "Speed Limiter (rel)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_speed_limiter_abs": {
-        "label": "Speed Limiter (abs.)",
-        "description": "",
-        "keywords": []
+        "label": "Speed Limiter (abs)",
+        "description": "Speed Limiter (abs)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_speed_limiter_toggle": {
-        "label": "Speed Limiter - Enable/Disable",
-        "description": "",
-        "keywords": []
+        "label": "Speed Limiter - Enable / Disable",
+        "description": "Speed Limiter - Enable / Disable",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_speed_limiter_on": {
         "label": "Speed Limiter - Enable",
-        "description": "",
-        "keywords": []
+        "description": "Speed Limiter - Enable",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_speed_limiter_off": {
         "label": "Speed Limiter - Disable",
-        "description": "",
-        "keywords": []
+        "description": "Speed Limiter - Disable",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_accel_range_up": {
-        "label": "Acceleration Limiter - Increase",
-        "description": "",
-        "keywords": []
+        "label": "Acceleration Limiter - Increase (hold)",
+        "description": "Acceleration Limiter - Increase (hold)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_accel_range_down": {
-        "label": "Acceleration Limiter - Decrease",
-        "description": "",
-        "keywords": []
+        "label": "Acceleration Limiter - Decrease (hold)",
+        "description": "Acceleration Limiter - Decrease (hold)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_accel_range_increment": {
-        "label": "Acceleration Limiter - Step Up",
-        "description": "",
-        "keywords": []
+        "label": "Acceleration Limiter - Step Up (tap)",
+        "description": "Acceleration Limiter - Step Up (tap)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_accel_range_decrement": {
-        "label": "Acceleration Limiter - Step Down",
-        "description": "",
-        "keywords": []
+        "label": "Acceleration Limiter - Step Down (tap)",
+        "description": "Acceleration Limiter - Step Down (tap)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_accel_range_rel": {
-        "label": "Acceleration Limiter (rel.)",
-        "description": "",
-        "keywords": []
+        "label": "Acceleration Limiter (rel)",
+        "description": "Acceleration Limiter (rel)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_accel_range_abs": {
-        "label": "Acceleration Limiter (abs.)",
-        "description": "",
-        "keywords": []
+        "label": "Acceleration Limiter (abs)",
+        "description": "Acceleration Limiter (abs)",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_space_brake": {
         "label": "Spacebrake",
-        "description": "Counter-thrust in all vectors of movement and come to a stop.",
+        "description": "",
         "keywords": [
-            "brake"
+            "flight - movement",
+            "flight",
+            "vehicle"
         ]
     },
     "v_lock_rotation": {
-        "label": "Lock Pitch/Yaw Movement",
-        "description": "Prevent manual left/right/up/down adjustment",
-        "keywords": []
+        "label": "Lock Pitch / Yaw Movement (Toggle / Hold)",
+        "description": "While active no rotational inputs are allowed to your ship. This is useful for arresting movement when you lost control using a mouse.",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_gsafe_on": {
-        "label": "G-Safe On",
-        "description": "G-Safe prevents pilot blackout from excessive G-forces; it achieves this by limiting thrust when G-forces are high in your ship.",
-        "keywords": []
+        "label": "G-Force safety on",
+        "description": "G-Force safety on",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_gsafe_off": {
-        "label": "G-Safe Off",
-        "description": "G-Safe prevents pilot blackout from excessive G-forces; it achieves this by limiting thrust when G-forces are high in your ship.",
-        "keywords": []
+        "label": "G-Force safety off",
+        "description": "G-Force safety off",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_toggle_gforce_safety": {
-        "label": "G-Safe Toggle",
-        "description": "G-Safe prevents pilot blackout from excessive G-forces; it achieves this by limiting thrust when G-forces are high in your ship.",
-        "keywords": []
+        "label": "G-Force Safety On/Off (Toggle / Hold)",
+        "description": "",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_toggle_esp": {
-        "label": "ESP Toggle",
-        "description": "Enhanced Stick Precision, also known as ESP, dulls the sensitivity curves of the player input on the fly when the crosshair is near the target in order to minimize overshooting and help stay on target. It is similar to aim assist and is primarily intended for joystick users.  There is an invisible circle around the player crosshair. When the pip enters the circle, the joystick input is dampened on a curve. This softens jerky or excessive stick movement common for a lot of people when trying to stay aimed at the pip during hard maneuvering at an evasive target. (https://starcitizen.tools/ESP)",
-        "keywords": []
+        "label": "E.S.P. - Toggle On / Off (Press)",
+        "description": "",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_esp_hold": {
-        "label": "ESP While held",
+        "label": "E.S.P. - Enable Temporarily (Hold)",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_toggle_landing_system": {
-        "label": "Landing System Toggle",
+        "label": "Landing Gear Toggle",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_deploy_landing_system": {
-        "label": "Landing System - Deploy",
+        "label": "Landing Gear Deploy",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_retract_landing_system": {
-        "label": "Landing System - Retract",
+        "label": "Landing Gear Retract",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_vtol_toggle": {
         "label": "VTOL Toggle",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_vtol_on": {
         "label": "VTOL On",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_vtol_off": {
         "label": "VTOL Off",
         "description": "",
-        "keywords": []
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_transform_deploy": {
-        "label": "Configuration Expand",
-        "description": "For if your ship has different wing modes or similar (e.g. RSI Scorpius, Drake Corsair)",
-        "keywords": []
+        "label": "Expand Configuration",
+        "description": "Expands the vehicle's configuration.",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_transform_retract": {
-        "label": "Configuration Retract",
-        "description": "For if your ship has different wing modes or similar (e.g. RSI Scorpius, Drake Corsair)",
-        "keywords": []
+        "label": "Retract Configuration",
+        "description": "Retracts the vehicle's configuration.",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_transform_cycle": {
-        "label": "Configuration Cycle",
-        "description": "For if your ship has different wing modes or similar (e.g. RSI Scorpius, Drake Corsair)",
-        "keywords": []
+        "label": "Cycle Configuration",
+        "description": "Cycle between the vehicle's expanded and retracted configurations.",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_autoland": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "Autoland",
+        "description": "Activate Autoland",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_atc_request": {
         "label": "Request Landing",
-        "description": "Call the local ATC and request a hangar or landing permissions.",
+        "description": "Contacts ATC and other landing services.",
         "keywords": [
-            "ATC"
+            "flight - movement",
+            "flight",
+            "vehicle"
         ]
     },
     "v_atc_loading_area_request": {
         "label": "Request Cargo Loading",
-        "description": "Call the Cargo ATC",
+        "description": "@ui_CIATCLoadingRequestDesc",
         "keywords": [
-            "cargo",
-            "hauling",
-            "ATC"
+            "flight - movement",
+            "flight",
+            "vehicle"
         ]
     },
     "v_master_mode_cycle": {
-        "label": "Master Mode Cycle (short press)",
-        "description": "Cycle through your ship's 'Master modes', i.e. nav/normal flight/scanning, possibly mining/salvage too where applicable",
-        "keywords": []
+        "label": "@ui_v_master_mode_cycle",
+        "description": "@ui_v_master_mode_cycle_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_master_mode_cycle_long": {
-        "label": "Master Mode Cycle (short press)",
-        "description": "Cycle through your ship's 'Master modes', i.e. Quantum flight('nav')/normal flight ('SCM')/scanning, possibly mining/salvage too where applicable",
-        "keywords": []
+        "label": "Cycle Master Mode (Long Press)",
+        "description": "@ui_v_master_mode_cycle_long_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_master_mode_set_nav": {
-        "label": "Master Mode - Set to nav",
-        "description": "",
-        "keywords": []
+        "label": "Set Master Mode to Nav",
+        "description": "@ui_v_master_mode_set_nav_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_master_mode_set_scm": {
-        "label": "Master Mode - Set to SCM",
-        "description": "",
-        "keywords": []
+        "label": "Set Master Mode to SCM",
+        "description": "@ui_v_master_mode_set_scm_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_toggle_jump_request": {
         "label": "Jump Drive - Request Jump",
-        "description": "For interacting with wormholes",
-        "keywords": []
+        "description": "@ui_CIJumpDriveJumpRequestDesc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_toggle_gravity_compensation": {
-        "label": "Gravity Compensation Toggle",
-        "description": "",
-        "keywords": []
+        "label": "Gravity Compensation - Toggle",
+        "description": "Gravity Compensation - Toggle",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_gravity_compensation_on": {
-        "label": "Gravity Compensation On",
-        "description": "",
-        "keywords": []
+        "label": "Gravity Compensation - Enable",
+        "description": "@ui_v_ifcs_gravity_compensation_on_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_gravity_compensation_off": {
-        "label": "Gravity Compensation Off",
-        "description": "",
-        "keywords": []
+        "label": "Gravity Compensation - Disable",
+        "description": "@ui_v_ifcs_gravity_compensation_off_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_auto_precision_mode_toggle": {
-        "label": "Automatic Prescision Mode Toggle",
-        "description": "",
-        "keywords": []
+        "label": "Automatic Precision Mode - Toggle",
+        "description": "@ui_v_auto_precision_mode_toggle_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_auto_precision_mode_on": {
-        "label": "Automatic Prescision Mode On",
-        "description": "",
-        "keywords": []
+        "label": "Automatic Precision Mode - Enable",
+        "description": "@ui_v_auto_precision_mode_on_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_auto_precision_mode_off": {
-        "label": "Automatic Prescision Mode Off",
-        "description": "",
-        "keywords": []
+        "label": "Automatic Precision Mode - Disable",
+        "description": "@ui_v_auto_precision_mode_off_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_proximity_assist_toggle": {
-        "label": "",
-        "description": "Limits thrust when close to objects to prevent over-accellerating into them.",
-        "keywords": []
+        "label": "@ui_v_ifcs_proximity_assist_toggle",
+        "description": "@ui_v_ifcs_proximity_assist_toggle_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_proximity_assist_on": {
-        "label": "",
-        "description": "Limits thrust when close to objects to prevent over-accellerating into them.",
-        "keywords": []
+        "label": "@ui_v_ifcs_proximity_assist_on",
+        "description": "@ui_v_ifcs_proximity_assist_on_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_proximity_assist_off": {
-        "label": "",
-        "description": "Limits thrust when close to objects to prevent over-accellerating into them.",
-        "keywords": []
+        "label": "@ui_v_ifcs_proximity_assist_off",
+        "description": "@ui_v_ifcs_proximity_assist_off_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_stability_toggle": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "@ui_v_ifcs_stability_toggle",
+        "description": "@ui_v_ifcs_stability_toggle_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_stability_on": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "@ui_v_ifcs_stability_on",
+        "description": "@ui_v_ifcs_stability_on_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_stability_off": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "@ui_v_ifcs_stability_off",
+        "description": "@ui_v_ifcs_stability_off_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_command_toggle": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "@ui_v_ifcs_command_toggle",
+        "description": "@ui_v_ifcs_command_toggle_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_command_on": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "@ui_v_ifcs_command_on",
+        "description": "@ui_v_ifcs_command_on_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_command_off": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "@ui_v_ifcs_command_off",
+        "description": "@ui_v_ifcs_command_off_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_core_toggle": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "@ui_v_ifcs_core_toggle",
+        "description": "@ui_v_ifcs_core_toggle_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_core_on": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "@ui_v_ifcs_core_on",
+        "description": "@ui_v_ifcs_core_on_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_core_off": {
-        "label": "",
-        "description": "",
-        "keywords": []
+        "label": "@ui_v_ifcs_core_off",
+        "description": "@ui_v_ifcs_core_off_desc",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_ifcs_reset_gmeter_max": {
-        "label": "Reset flight accelerometer",
-        "description": "",
-        "keywords": []
+        "label": "Reset Flight Accelerometer",
+        "description": "Resets the max endured Gs for the accelerometer.",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_flight_advanced_hud_toggle": {
-        "label": "Advanced HUD toggle",
-        "description": "Toggles between the ship default HUD and the 'new' (old) HUD",
-        "keywords": []
+        "label": "Advanced HUD - Toggle",
+        "description": "Advanced HUD - Toggle",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_flight_advanced_hud_on": {
-        "label": "",
-        "description": "Sets the 'new' (old) HUD to ON",
-        "keywords": []
+        "label": "Advanced HUD - Enable",
+        "description": "Advanced HUD - Enable",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_flight_advanced_hud_off": {
-        "label": "",
-        "description": "Sets the 'new' (old) HUD to OFF, giving you the ship's default HUD",
-        "keywords": []
+        "label": "Advanced HUD - Disable",
+        "description": "Advanced HUD - Disable",
+        "keywords": [
+            "flight - movement",
+            "flight",
+            "vehicle"
+        ]
     },
     "v_toggle_qdrive_engagement": {
         "label": "Engage Quantum Drive",

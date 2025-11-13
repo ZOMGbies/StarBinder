@@ -19,7 +19,7 @@
 
   <link rel="preload" href="./assets/fonts/Kiona-Regular.ttf" as="font" type="font/ttf" crossorigin> -->
   <!-- Preload Fonts -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./style.css" />
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
   <script defer src="./script.js"></script>
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
@@ -32,6 +32,37 @@
     If this tool's helpful, you could always
     <a class="coffeeLink" href="https://buymeacoffee.com/zomgbies"> buy me a coffee</a>☕
   </div>
+
+
+  <!-- Splash modal -->
+  <div id="splashModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <button id="closeModal" class="quickstart-close-btn">&times;</button>
+      <h2>Quick Start guide for Star Binder</h2>
+      <ol>
+        <li>Export (and backup) your binds from Star Citizen using the in-game options</li>
+        <li>Import those binds to Star Binder</li>
+        <li>Modify your binds as desired</li>
+        <li>Export your keybinds from Star Binder to your game directory</li>
+        <li>Import your new keybinds into Star Citizen using the in-game options</li>
+      </ol>
+
+      <!-- Image controls -->
+      <div class="quickstart-image-controls">
+        <button class="image-nav left">&#10094;</button>
+        <span class="quickstart-image-title">searchandfilter.webp</span>
+        <button class="image-nav right">&#10095;</button>
+      </div>
+
+      <img src="./assets/help/searchandfilter.webp" alt="Star Binder search and filter example"
+        class="quickstart-image">
+
+      <label>
+        <input type="checkbox" id="hideModalCheckbox"> Do not show this again
+      </label>
+    </div>
+  </div>
+
 
 
   <div class="content">
@@ -59,16 +90,19 @@
           </div>
 
           <div class="joystick-dropdown-row collapsed" style=" grid-column: 1 / span 3; grid-row: 2;">
+            <button class="swapDevices" type="button">Swap Devices 1 & 2</button>
+          </div>
+
+          <!--div class="joystick-dropdown-row collapsed" style=" grid-column: 1 / span 3; grid-row: 2;">
             <span class="joystick-dropdown-label">Joystick Model:</span>
             <div class="joystick-dropdown-button-wrapper">
               <button class="joystick-dropdown-button" type="button">
                 <span class="button-text">Select Joystick Model</span> ▾
               </button>
               <div class="joystick-dropdown-menu" style="display: none;">
-                <!-- Options will be dynamically added here -->
               </div>
             </div>
-          </div>
+          </div-->
 
 
         </div>
