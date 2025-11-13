@@ -1708,7 +1708,7 @@
     },
     "v_space_brake": {
         "label": "Spacebrake",
-        "description": "",
+        "description": "Reverse thrust on all velocity vectors",
         "keywords": [
             "flight - movement",
             "flight",
@@ -1726,7 +1726,7 @@
     },
     "v_ifcs_gsafe_on": {
         "label": "G-Force safety on",
-        "description": "G-Force safety on",
+        "description": "When on, this will limit your thrust along certain vectors, when necessary, in order to prevent the pilot from passing out from the G-forces.",
         "keywords": [
             "flight - movement",
             "flight",
@@ -1735,7 +1735,7 @@
     },
     "v_ifcs_gsafe_off": {
         "label": "G-Force safety off",
-        "description": "G-Force safety off",
+        "description": "When on, this will limit your thrust along certain vectors, when necessary, in order to prevent the pilot from passing out from the G-forces.",
         "keywords": [
             "flight - movement",
             "flight",
@@ -1744,7 +1744,7 @@
     },
     "v_ifcs_toggle_gforce_safety": {
         "label": "G-Force Safety On/Off (Toggle / Hold)",
-        "description": "",
+        "description": "When on, this will limit your thrust along certain vectors, when necessary, in order to prevent the pilot from passing out from the G-forces.",
         "keywords": [
             "flight - movement",
             "flight",
@@ -1752,8 +1752,8 @@
         ]
     },
     "v_ifcs_toggle_esp": {
-        "label": "E.S.P. - Toggle On / Off (Press)",
-        "description": "",
+        "label": "ESP - Toggle On / Off (Press)",
+        "description": "Enhanced Stick Precision, also known as ESP, dulls the sensitivity curves of the player input on the fly when the crosshair is near the target in order to minimize overshooting and help stay on target. It is similar to aim assist and is primarily intended for joystick users.  There is an invisible circle around the player crosshair. When the pip enters the circle, the joystick input is dampened on a curve. This softens jerky or excessive stick movement common for a lot of people when trying to stay aimed at the pip during hard maneuvering at an evasive target. (https://starcitizen.tools/ESP)",
         "keywords": [
             "flight - movement",
             "flight",
@@ -1761,8 +1761,8 @@
         ]
     },
     "v_ifcs_esp_hold": {
-        "label": "E.S.P. - Enable Temporarily (Hold)",
-        "description": "",
+        "label": "ESP - Enable Temporarily (Hold)",
+        "description": "Enhanced Stick Precision, also known as ESP, dulls the sensitivity curves of the player input on the fly when the crosshair is near the target in order to minimize overshooting and help stay on target. It is similar to aim assist and is primarily intended for joystick users.  There is an invisible circle around the player crosshair. When the pip enters the circle, the joystick input is dampened on a curve. This softens jerky or excessive stick movement common for a lot of people when trying to stay aimed at the pip during hard maneuvering at an evasive target. (https://starcitizen.tools/ESP)",
         "keywords": [
             "flight - movement",
             "flight",
@@ -1798,7 +1798,7 @@
     },
     "v_vtol_toggle": {
         "label": "VTOL Toggle",
-        "description": "",
+        "description": "Ships with VTOL mode will shift thrust or rotate entire thrusters to increase vertical thrust flight mode.  VTOL = Vertical Take Off and Landing",
         "keywords": [
             "flight - movement",
             "flight",
@@ -1807,7 +1807,7 @@
     },
     "v_vtol_on": {
         "label": "VTOL On",
-        "description": "",
+        "description": "Ships with VTOL mode will shift thrust or rotate entire thrusters to increase vertical thrust flight mode.  VTOL = Vertical Take Off and Landing",
         "keywords": [
             "flight - movement",
             "flight",
@@ -1816,7 +1816,7 @@
     },
     "v_vtol_off": {
         "label": "VTOL Off",
-        "description": "",
+        "description": "Ships with VTOL mode will shift thrust or rotate entire thrusters to increase vertical thrust flight mode.  VTOL = Vertical Take Off and Landing",
         "keywords": [
             "flight - movement",
             "flight",
@@ -1852,7 +1852,7 @@
     },
     "v_autoland": {
         "label": "Autoland",
-        "description": "Activate Autoland",
+        "description": "Activate Autoland - Automatically land when landing gear is out and you're close to a landable pad.",
         "keywords": [
             "flight - movement",
             "flight",
@@ -1861,7 +1861,7 @@
     },
     "v_atc_request": {
         "label": "Request Landing",
-        "description": "Contacts ATC and other landing services.",
+        "description": "Contacts Air Traffic Control and other landing services to open/close hangar doors etc.",
         "keywords": [
             "flight - movement",
             "flight",
@@ -1870,7 +1870,7 @@
     },
     "v_atc_loading_area_request": {
         "label": "Request Cargo Loading",
-        "description": "@ui_CIATCLoadingRequestDesc",
+        "description": "Request landing access for cargo haulers",
         "keywords": [
             "flight - movement",
             "flight",
@@ -1878,8 +1878,8 @@
         ]
     },
     "v_master_mode_cycle": {
-        "label": "@ui_v_master_mode_cycle",
-        "description": "@ui_v_master_mode_cycle_desc",
+        "label": "Master mode cycle",
+        "description": "",
         "keywords": [
             "flight - movement",
             "flight",
