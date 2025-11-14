@@ -397,7 +397,7 @@
     },
     "turret_change_position": {
         "label": "Change Turret Position",
-        "description": "For turrets that have 2 or more possible positions.",
+        "description": "For turrets that have two or more possible positions.  Such as the tractor turret on the Crusader C1 Spirit`",
         "keywords": [
             "vehicle",
             "turrets",
@@ -1402,7 +1402,7 @@
     },
     "v_strafe_forward": {
         "label": "Throttle - Increase",
-        "description": "@ui_v_strafe_forward_desc",
+        "description": "",
         "keywords": [
             "flight - movement",
             "flight",
@@ -1411,7 +1411,7 @@
     },
     "v_strafe_back": {
         "label": "Throttle - Decrease",
-        "description": "@ui_v_strafe_back_desc",
+        "description": "",
         "keywords": [
             "flight - movement",
             "flight",
@@ -1420,7 +1420,7 @@
     },
     "v_strafe_longitudinal": {
         "label": "Throttle - Forward / Back",
-        "description": "@ui_v_strafe_longitudinal_desc",
+        "description": "",
         "keywords": [
             "flight - movement",
             "flight",
@@ -1438,7 +1438,7 @@
     },
     "v_ifcs_throttle_swap_mode": {
         "label": "Throttle - Cruise Mode - Toggle",
-        "description": "@ui_v_ifcs_throttle_swap_mode_desc",
+        "description": "",
         "keywords": [
             "flight - movement",
             "flight",
@@ -1447,7 +1447,7 @@
     },
     "v_ifcs_throttle_set_sticky": {
         "label": "Throttle - Cruise Mode - Enable",
-        "description": "@ui_v_ifcs_throttle_set_sticky_desc",
+        "description": "",
         "keywords": [
             "flight - movement",
             "flight",
@@ -1456,7 +1456,7 @@
     },
     "v_ifcs_throttle_set_normal": {
         "label": "Throttle - Cruise Mode - Disable",
-        "description": "@ui_v_ifcs_throttle_set_normal_desc",
+        "description": "",
         "keywords": [
             "flight - movement",
             "flight",
@@ -4762,8 +4762,8 @@
         ]
     },
     "v_boost": {
-        "label": "@ui_CIboost",
-        "description": "@ui_CIboostDesc",
+        "label": "Boost",
+        "description": "Make a ground vehicle go faster while driving it.",
         "keywords": [
             "ground vehicle - movement",
             "vehicle"

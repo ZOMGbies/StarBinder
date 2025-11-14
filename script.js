@@ -189,7 +189,7 @@ function autoFormatMapName(keybindString)
 //#region Global Vars
 
 const actionMapsMasterList = [];
-let connectedGamepads = {};
+let connectedDevices = {};
 
 let bindingsProfileName = "StarBinder"
 
@@ -289,7 +289,6 @@ let filteredNames = "";
 
 let recordingActive;
 let recordTimeout = null;
-
 
 let activeCapture = null;
 let currentlySelectedKeybindElement = null;
@@ -828,8 +827,6 @@ async function init()
         clearTimeout(holdTimer);
     });
 
-    btnSwapDevices?.addEventListener("click", onClickSwapDevices)
-
 
     ///// GAMEPAD DETECTION  //////
 
@@ -840,8 +837,169 @@ async function init()
     btnSelectInput_Keyboard.click()
     ClearKeybindDescription();
     loadMappedActions();
+
     joystickProfile = await GetJoystickProfile("default")
+    window.addEventListener("gamepadconnected", (e) =>
+    {
+        mapIndexValuesToDevices();
+
+    });
+
+    window.addEventListener("gamepaddisconnected", (e) =>
+    {
+        mapIndexValuesToDevices();
+
+    });
 }
+//#endregion
+
+//#region Joystick Mapping
+
+//initial mapping
+function mapIndexValuesToDevices()
+{
+    const pads = navigator.getGamepads ? navigator.getGamepads() : [];
+
+    let logicalCounter = 1;
+
+    connectedDevices = {}; // reset
+
+    for (let pad of pads)
+    {
+        if (!pad) continue;
+
+        // pad.index is the physical device's browser index
+        const physicalIndex = pad.index;
+
+        // Assign next logical number
+        connectedDevices[physicalIndex] = logicalCounter;
+        logicalCounter++;
+    }
+    updateJoystickDeviceButtons();
+
+}
+
+function registerDeviceToIndexValue(device, index)
+{
+    // device: logical number of the device to modify
+    // index: new logical number we want to assign
+
+    let physicalOfDevice = null;
+    let physicalOfIndex = null;
+
+    // Find the physical indexes of:
+    // - the device we're modifying
+    // - the device currently using the target index
+    for (const physical in connectedDevices)
+    {
+        const logical = connectedDevices[physical];
+
+        if (logical === device)
+            physicalOfDevice = Number(physical);
+
+        if (logical === index)
+            physicalOfIndex = Number(physical);
+    }
+
+    // If device is not found, nothing to do
+    if (physicalOfDevice == null) return;
+
+    // If another device already has the desired index → swap their logical values
+    if (physicalOfIndex != null)
+    {
+        // Swap
+        connectedDevices[physicalOfIndex] = connectedDevices[physicalOfDevice];
+    }
+
+    // Assign the new index to the target device
+    connectedDevices[physicalOfDevice] = index;
+}
+
+
+function onClickAssignIndexToDevice(targetIndex = 1, btn)
+{
+    const timeout = 5000; // 5 seconds
+    const startTime = performance.now();
+
+    console.log("Listening for joystick input...");
+
+    if (btn)
+    {
+        btn.dataset.originalText = btn.textContent;
+        btn.textContent = "Press any button...";
+    }
+
+
+    function listen()
+    {
+        const pads = navigator.getGamepads ? navigator.getGamepads() : [];
+
+        for (let pad of pads)
+        {
+            if (!pad) continue;
+
+            const physicalIndex = pad.index;
+            const logicalDevice = connectedDevices[physicalIndex];
+
+            // Detect a button press
+            for (let b of pad.buttons)
+            {
+                if (b.pressed)
+                {
+                    console.log("Pressed on device:", logicalDevice);
+                    if (btn) btn.textContent = btn.dataset.originalText;
+
+                    // Assign this device the new logical index
+                    registerDeviceToIndexValue(logicalDevice, targetIndex);
+
+                    return; // stop listening
+                }
+            }
+        }
+
+        // Continue listening until timeout
+        if (performance.now() - startTime < timeout)
+        {
+            requestAnimationFrame(listen);
+        } else
+        {
+            if (btn) btn.textContent = btn.dataset.originalText;
+            console.log("No input received — assignment canceled.");
+        }
+    }
+
+    listen();
+}
+
+function updateJoystickDeviceButtons()
+{
+    const container = document.getElementById("joystickDeviceButtons");
+    container.innerHTML = ""; // clear existing buttons
+
+    // Connected devices looks like { "0":1, "1":2 }
+    // We want logical numbers sorted: 1,2,3...
+    const logicalDevices = Object.values(connectedDevices).sort((a, b) => a - b);
+
+    logicalDevices.forEach(logical =>
+    {
+        const btn = document.createElement("button");
+        btn.className = "button joystick-device-button";
+        btn.type = "button";
+        btn.textContent = `Set input ${ logical }`;
+
+        btn.dataset.displayIndex = logical;
+        btn.dataset.logicalDevice = logical;
+
+        btn.addEventListener("click", () =>
+        {
+            // Whatever UI action you want – maybe assign index?
+            onClickAssignIndexToDevice(logical, btn);
+        });
+
+        container.appendChild(btn);
+    });
+}
+
 
 //#endregion
 
@@ -2515,7 +2673,7 @@ let hasSwappedDevices = false;
 //overcomplicated solution IMO; Dear Future Me, if youre losing your shit over this just change it to a bool toggle that does/doesn't parse #1 and #2 as #2 and #1
 function onClickSwapDevices()
 {
-    hasSwappedDevices = !hasSwappedDevices;
+    onClickAssignIndexToDevice(99);
 }
 
 
@@ -2854,7 +3012,7 @@ function onShowSubcategoryTags()
     if (!currentTag) return;
 
     const subcategories = {
-        Vehicle: ["Salvage", "Mining", "Turrets", "Defences", "Weapons", "Power", "Systems", "MFDs", "Movement", "Targeting", "Vehicle - Other"],
+        Vehicle: ["Engineering", "Salvage", "Mining", "Turrets", "Defences", "Weapons", "Power", "Systems", "MFDs", "Movement", "Targeting", "Vehicle - Other"],
         "On Foot": ["EVA", "Combat", "Emotes", "Equipment", "On Foot - Other"],
         "Comms/Social": ["FOIP/VOIP", "Emotes", "Comms - Other"],
         "Other": ["MobiGlas", "Interaction", "Optical Tracking", "Spectator"]
@@ -3412,13 +3570,15 @@ function pollJoysticks()
 {
     const joysticks = navigator.getGamepads ? navigator.getGamepads() : [];
 
-    for (let gp of joysticks)
+    for (let js of joysticks)
     {
-        if (!gp) continue;
+        if (!js) continue;
+
         let joystickPollId = null;
 
-        const actualDeviceNumber = gp.index + 1;
-        let deviceNumber = gp.index + 1
+        const physicalIndex = js.index;
+        const deviceNumber = connectedDevices[physicalIndex] ?? physicalIndex + 1
+
         if (hasSwappedDevices)
         {
             if (deviceNumber === 1) deviceNumber = 2;
@@ -3432,26 +3592,26 @@ function pollJoysticks()
         });
 
         // --- Initialize previous state and slider baseline ---
-        if (!window._prevGamepadStates[gp.index])
+        if (!window._prevGamepadStates[js.index])
         {
-            window._prevGamepadStates[gp.index] = {
-                axes: [...gp.axes],
-                buttons: gp.buttons.map(b => b.pressed)
+            window._prevGamepadStates[js.index] = {
+                axes: [...js.axes],
+                buttons: js.buttons.map(b => b.pressed)
             };
         }
 
-        if (!window._sliderBaseline[gp.index])
-            window._sliderBaseline[gp.index] = gp.axes[6]; // slider resting value
+        if (!window._sliderBaseline[js.index])
+            window._sliderBaseline[js.index] = js.axes[6]; // slider resting value
 
-        const prev = window._prevGamepadStates[gp.index];
+        const prev = window._prevGamepadStates[js.index];
 
         // --- Axes: sticks, twist, hat, sliders ---
-        gp.axes.forEach((value, i) =>
+        js.axes.forEach((value, i) =>
         {
             const prevVal = prev.axes[i] || 0;
             if (Math.abs(value - prevVal) > JOYSTICKDEADZONE)
             {
-                console.log(`Device ${ gp.index }: Axis ${ i } = ${ value.toFixed(2) }`);
+                console.log(`Device ${ js.index }: Axis ${ i } = ${ value.toFixed(2) }`);
                 const axesIndex = joystickProfile == "debug" ? -1 : i;
 
                 switch (axesIndex)
@@ -3484,7 +3644,7 @@ function pollJoysticks()
                         joystickPollId = setInput(HandleJoystickAxis_Wheel(value, deviceNumber));
                         break;
                     default:
-                        const ax = gp.axes[i];
+                        const ax = js.axes[i];
                         if (Math.abs(ax) > JOYSTICKDEADZONE)
                         {
                             const stickDirection = ax > 0 ? "positive" : "negative";
@@ -3496,14 +3656,14 @@ function pollJoysticks()
         });
 
         // --- Buttons: capture on release instead of press ---
-        gp.buttons.forEach((button, i) =>
+        js.buttons.forEach((button, i) =>
         {
             const prevPressed = prev.buttons[i] || false;
             const nowPressed = button.pressed;
 
             // Log button state change
             if (nowPressed !== prevPressed)
-                console.log(`Device ${ gp.index }: Button ${ i } ${ nowPressed ? "pressed" : "released" }`);
+                console.log(`Device ${ js.index }: Button ${ i } ${ nowPressed ? "pressed" : "released" }`);
 
             // ✅ Capture only when button is released
             if (!nowPressed && prevPressed)
@@ -3514,8 +3674,8 @@ function pollJoysticks()
         });
 
         // --- Update previous state for next frame ---
-        window._prevGamepadStates[gp.index].axes = [...gp.axes];
-        window._prevGamepadStates[gp.index].buttons = gp.buttons.map(b => b.pressed);
+        window._prevGamepadStates[js.index].axes = [...js.axes];
+        window._prevGamepadStates[js.index].buttons = js.buttons.map(b => b.pressed);
 
         // --- Capture first meaningful input ---
         if (joystickPollId)

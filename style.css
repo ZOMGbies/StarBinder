@@ -81,7 +81,8 @@ CONTENT
     flex: 1 0 auto;
     flex-direction: column;
     align-self: center;
-    min-height: 0;
+    max-width: var(--maxDocWidth);
+    width: 100%;
 }
 
 .content-keybinds-wrapper {
@@ -1207,6 +1208,13 @@ MKB / CONTROLLER / JOYSTICK BUTTONS STYLE
     pointer-events: none;
 }
 
+.joystick-device-button {
+    border-radius: 0.3rem;
+    padding: 0.3rem;
+    font-size: 1rem;
+    background-color: var(--rowBackground);
+}
+
 /*==========================================*/
 /*==========================================*/
 /*==========================================*/
@@ -1846,15 +1854,22 @@ code {
     color: var(--primaryText);
 }
 
-.modal-content ol,
-p {
+.modal-content ol {
     font-family: "Aileron", sans-serif;
     font-size: 0.8rem;
     color: #ccc;
     padding-left: 3rem;
     letter-spacing: 0.03rem;
     line-height: 1.7rem;
+}
 
+.modal-content p {
+    font-family: "Aileron", sans-serif;
+    font-size: 0.8rem;
+    color: var(--secondary-text);
+    padding-left: 2rem;
+    letter-spacing: 0.03rem;
+    line-height: 1.7rem;
 }
 
 .quickstart-close-btn {
