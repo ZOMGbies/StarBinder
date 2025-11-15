@@ -28,6 +28,23 @@
 </head>
 
 <body>
+
+  <nav class="top-navbar">
+    <div class="navbar-inner">
+      <!--button class="button nav-btn" data-action="binder">Binder</button>
+      <button class="button nav-btn" data-action="finder">Finder</button-->
+      <div class="navBarItem">
+        <div class="mode-toggle" data-mode="binder">
+          <span class="label binder">BINDER</span>
+          <span class="label finder">FINDER</span>
+          <div class="knob"></div>
+        </div>
+      </div>
+      <div class="navBarItem"></div>
+      <div class="navBarItem"></div>
+    </div>
+  </nav>
+
   <div class="coffee">
     If this tool's helpful, you could always
     <a class="coffeeLink" href="https://buymeacoffee.com/zomgbies"> buy me a coffee</a>☕
@@ -67,8 +84,20 @@
 
 
 
+
   <div class="content">
+
     <img class="headerImage" src="./assets/header.webp" width="60%">
+    <div class="VKB">
+      <div class="vkb-ref">
+        <img class="vkb-logo" src="./assets/VKB_logo.png" alt="VKB-Sim Logo">
+        <span class="vkb-text">Compatible with VKB Gladiator NXT EVO</span>
+      </div>
+    </div>
+
+
+
+
     <h1 style="position:absolute; left:-9999px;">Star Binder</h1>
     <div id="tagContainer"></div>
     <div id="subTagContainer"></div>
@@ -79,6 +108,7 @@
           <div class="searchbar-container">
             <button class="searchbar-button" type="button"></button>
             <input type="text" id="keybindSearch" placeholder="Filter keybinds..." />
+            <button class="button searchbar-clear" type="button"></button>
           </div>
 
           <div class="inputType-select">

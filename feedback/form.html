@@ -17,25 +17,19 @@
         <h1>Send Feedback</h1>
 
         <div class="paragraphText">
-            <p>While Star Binder technichally supports controller and joystick binding, I fully expect it to be spotty -
-                especially with any joysticks other than a Thrustmaster.<br>
-                Most actions lack a description and only have category tags based on CIG's core keybind doc - which is
-                inconsistent.
-            </p>
-
-            <p>The kind of feedback I'm mostly hoping for right now is basic simple stuff like "no on foot ADS" (I think
-                it is shared with the vehicle ADS bind?), or "couldn't get X to work", or "I dont know how to do Y".</p>
+            <p>If you're having trouble with compatibility or bugs, make sure you try Star Binder in Chrome or Edge
+                first - Firefox has issues that I can't resolve although I am building and testing in Firefox to make it
+                work where I can.</p>
+            <p>Not knowing or not understanding how to do something is ABSOLUTELY valid feedback. Star Binder is meant
+                to be easy and intuitive, if it's not then it needs improving.</p>
         </div>
         <hr>
 
         <form id="feedbackForm" onsubmit="sendFeedback(event)">
             <label for="generalFeedback">General Feedback:</label>
             <textarea id="generalFeedback" name="generalFeedback" rows="4"
-                placeholder="Your thoughts, suggestions, or comments..." required></textarea>
-
-            <label for="missingBinds">Missing keybinds? :</label>
-            <textarea id="missingBinds" name="missingBinds" rows="4"
-                placeholder="Ensure no filters or searches are in place/confirm by searching for it directly; please give the exact action(s) name "></textarea>
+                placeholder="If you'd like a reply (no promises), be sure to include an email or some means of contact, e.g. your SC username on Spectrum."
+                required></textarea>
 
             <button type="submit">Send Feedback</button>
         </form>

@@ -6,9 +6,10 @@
     --secondary-bg: #1b2632;
     --selected-row: #152642;
     --selected-row2: #102032;
-    --lighter-bg: #123c57;
+    --lighter-bg: rgb(18, 60, 87);
     --primaryText: rgb(204, 204, 250);
     --primaryText_soft: rgb(204, 204, 250, 0.6);
+    --navBarSoft: rgb(14, 46, 66);
     --descriptionBackgroundColour: #234c7933;
     --secondaryText: #868a8c;
     --accent: #00b0ff;
@@ -71,7 +72,7 @@ CONTENT
 --------------------------------------------------------------*/
 .headerImage {
     align-self: flex-end;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
     margin-right: 1rem;
 }
 
@@ -207,7 +208,7 @@ CONTENT
 
 .side.top-right {
     top: 0;
-    right: var(--border-thickness);
+    right: calc(-1px + var(--border-thickness));
     height: var(--border-thickness);
     transform: scaleX(-1);
 }
@@ -233,7 +234,7 @@ CONTENT
 
 .side.bottom-right {
     bottom: 0;
-    right: var(--border-thickness);
+    right: calc(-1px + var(--border-thickness));
     height: var(--border-thickness);
     transform: scale(-1, -1);
 }
@@ -1063,8 +1064,8 @@ SEARCH BAR  (which also holds the input select buttons)
     max-width: 14rem;
 
     height: var(--searchHeight);
-    padding: 0 0.75rem;
-    padding-left: 2rem;
+    padding: 0 1.5rem;
+    padding-left: 1.6rem;
     font-size: 1rem;
     font-family: 'Consolas', monospace;
     background: var(--descriptionBackgroundColour);
@@ -1092,6 +1093,43 @@ SEARCH BAR  (which also holds the input select buttons)
 .searchbar-container input:focus {
     box-shadow: inset -4px -16px 48px rgba(222, 222, 255, 0.10);
 }
+
+
+/* Clear filters */
+.searchbar-clear {
+    height: var(--searchHeight);
+    flex: 0 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(143, 73, 73);
+    border: none;
+    cursor: pointer;
+
+    margin-left: -2.4rem;
+    z-index: 2;
+
+    -webkit-mask: url('./assets/button_ClearSearch.svg') no-repeat center;
+    mask: url('./assets/button_ClearSearch.svg') no-repeat center;
+
+    -webkit-mask-size: 110% 100%;
+    mask-size: 110% 100%;
+
+    position: relative;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.searchbar-clear::before {
+    content: "×";
+    font-size: 1.5rem;
+    line-height: 1;
+    color: white;
+    pointer-events: none;
+}
+
+.searchbar-clear:hover {}
 
 
 
@@ -2191,4 +2229,183 @@ code {
     font-size: 0.9rem;
     pointer-events: auto;
     /* allow hovering/clicking tooltip */
+}
+
+
+/******************************/
+/*******    Nav Bar   *********/
+/******************************/
+.top-navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: var(--navBarSoft);
+
+    background: linear-gradient(to bottom,
+            #0f304a 0%,
+            var(--navBarSoft) 50%,
+            #0c2a3f 100%);
+
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+    z-index: 9999;
+
+    border-bottom: 1px solid var(--accent2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+
+.navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    height: 2.8rem;
+    margin: 0 auto;
+}
+
+.navBarItem {
+    width: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-btn {
+    font-family: "gobold", sans-serif;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 0.1rem 0.2rem;
+}
+
+.nav-btn-selected {
+    color: var(--accent);
+}
+
+/**/
+
+.mode-toggle {
+    position: relative;
+    width: 8.1rem;
+    height: 2rem;
+    background: var(--lighter-bg);
+    color: #ccc;
+    border-radius: 2rem;
+    cursor: pointer;
+    padding: 0.125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.0625rem solid var(--accent2);
+    box-shadow:
+        inset 1px 1px 13px rgba(0, 0, 0, 0.15),
+        inset -1px -1px 13px rgba(0, 0, 0, 0.15);
+    transition: background 0.5s;
+}
+
+.mode-toggle.finder {
+    background: rgb(25, 83, 119);
+    color: var(--primary-text);
+}
+
+.label {
+    position: absolute;
+    font-family: "gobold", sans-serif;
+    letter-spacing: 0.1rem;
+    font-size: 0.8rem;
+    color: var(--primary-text);
+    text-transform: uppercase;
+    transition: opacity 0.2s;
+    pointer-events: none;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.label.finder {
+    opacity: 0;
+}
+
+.knob {
+    position: absolute;
+    left: 0.125rem;
+    /* 2px -> 0.125rem */
+    width: 1.75rem;
+    /* knob width */
+    height: 1.75rem;
+    /* make square and smaller than toggle height */
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow:
+        inset 1px 1px 13px rgba(222, 222, 255, 0.3),
+        inset -1px -1px 13px rgba(222, 222, 255, 0.3);
+
+    transition: left 0.25s;
+}
+
+/* Binder mode */
+.mode-toggle[data-mode="binder"] .label.binder {
+    opacity: 1;
+}
+
+.mode-toggle[data-mode="binder"] .label.finder {
+    opacity: 0;
+}
+
+.mode-toggle[data-mode="binder"] .knob {
+    left: 0.125rem;
+}
+
+/* Finder mode */
+.mode-toggle[data-mode="finder"] .label.binder {
+    opacity: 0;
+}
+
+.mode-toggle[data-mode="finder"] .label.finder {
+    opacity: 1;
+}
+
+.mode-toggle[data-mode="finder"] .knob {
+    left: calc(8rem - 1.75rem - 0.125rem);
+    /* toggle width - knob width - padding */
+}
+
+.VKB {
+    margin-right: 6rem;
+    margin-bottom: 1rem;
+    font-family: "Aileron", sans-serif;
+    color: var(--secondaryText);
+    font-style: italic;
+    font-size: 0.8rem;
+}
+
+.vkb-logo {
+    height: 2rem;
+}
+
+.vkb-logo-wrapper {
+    width: 2rem;
+    height: 2rem;
+    background-color: red;
+    /* desired overlay color */
+    -webkit-mask: url('./assets/VKB.png') no-repeat center / contain;
+    mask: url('./assets/VKB.png') no-repeat center / contain;
+}
+
+.vkb-text {
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.06rem;
+}
+
+.vkb-ref {
+    display: flex;
+    align-items: center;
+    gap: 0rem;
+    justify-content: flex-end;
+    align-items: flex-end;
 }

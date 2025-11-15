@@ -1,16 +1,5 @@
 //#region Keybind Values
-const keyboardkeys = {
-    LeftControl: "lctrl",
-    RightControl: "rctrl",
-    LeftShift: "lshift",
-    RightShift: "rshift",
-    LeftAlt: "lalt",
-    RightAlt: "ralt",
-    Space: "space",
-    Insert: "insert",
-    Home: "home",
-    Backslash: "backslash",
-};
+
 const mousekeys = {
     LeftClick: "mouse1",
     RightClick: "mouse2"
@@ -33,6 +22,9 @@ const keyTranslationMap = {
     "PageDown": "pgdown",
     "Quote": "apostrophe",
     "Equal": "equals",
+    "Space": "space",
+    "Tab": "tab",
+    "Escape": "escape",
 
     // Mouse
     "MouseLeft": "mouse1",
@@ -52,6 +44,18 @@ const keyTranslationMap = {
     "Numpad7": "np_7",
     "Numpad8": "np_8",
     "Numpad9": "np_9",
+
+    //  numbers
+    "Digit0": "0",
+    "Digit1": "1",
+    "Digit2": "2",
+    "Digit3": "3",
+    "Digit4": "4",
+    "Digit5": "5",
+    "Digit6": "6",
+    "Digit7": "7",
+    "Digit8": "8",
+    "Digit9": "9",
 
     //Arrows
     "ArrowUp": "up",
@@ -191,14 +195,19 @@ function autoFormatMapName(keybindString)
 const actionMapsMasterList = [];
 let connectedDevices = {};
 
+let bindMode = "binder";
+
 let bindingsProfileName = "StarBinder"
 
 const keybindSearch = document.getElementById(`keybindSearch`);
 
 const btnKeybindSearch = document.querySelector('.searchbar-button');
+const btnKeybindSearchClear = document.querySelector('.searchbar-clear');
 const rowContainer = document.querySelector('.content-keybinds');
 const tagContainer = document.getElementById('tagContainer')
 const subTagContainer = document.getElementById('subTagContainer')
+
+const navBar = document.querySelector('.top-navbar');
 
 const btnSelectInput_Keyboard = document.querySelector('.button-inputSelect-keyboard');
 const btnSelectInput_Controller = document.querySelector('.button-inputSelect-controller');
@@ -280,7 +289,16 @@ showHelpButton.addEventListener("click", () =>
     }
 });
 
-
+//prevent ALT key from selecting top menu in window.
+window.addEventListener("keyup", function (e)
+{
+    if (e.key === "Alt")
+    {
+        e.preventDefault();
+        // e.stopPropagation();
+        return false;
+    }
+}, true); // use capture mode
 
 
 //filter tags at the top
@@ -775,6 +793,7 @@ async function init()
 
     // Button click triggers search
     btnKeybindSearch.addEventListener('click', performSearch);
+    btnKeybindSearchClear.addEventListener('click', clearAllFilters);
 
     // Pressing Enter in input triggers search
     keybindSearch.addEventListener('keydown', (e) =>
@@ -793,6 +812,18 @@ async function init()
     document.querySelector('.button--clear').addEventListener("click", onClickClearAllKeybinds)
     document.querySelector('.button--export').addEventListener('click', onClickExportKeybinds)
     document.querySelector('.button--import').addEventListener('click', onClickImportKeybinds)
+
+    const modeToggle = document.querySelector(".mode-toggle");
+
+    modeToggle.addEventListener("click", () =>
+    {
+        const mode = modeToggle.dataset.mode === "binder" ? "finder" : "binder";
+        modeToggle.dataset.mode = mode;
+        modeToggle.classList.toggle('finder', mode === 'finder');
+        SetBindMode(mode);
+    });
+
+
     rowContainer?.addEventListener("click", onClickSelectActivationMode);
     rowContainer?.addEventListener("click", onClickKeybindElement)
     document.addEventListener("click", onClickAnywhereDeselectKeybind);
@@ -850,6 +881,8 @@ async function init()
         mapIndexValuesToDevices();
 
     });
+    const btnBinder = navBar.querySelector('[data-action="binder"]')
+    SetBindMode("binder", btnBinder);
 }
 //#endregion
 
@@ -916,55 +949,75 @@ function registerDeviceToIndexValue(device, index)
 }
 
 
+// When listening starts, capture baseline values once
+const baselineAxes = {};
+let listeningForInputAssignment = false
+
 function onClickAssignIndexToDevice(targetIndex = 1, btn)
 {
-    const timeout = 5000; // 5 seconds
+    if (listeningForInputAssignment) return;
+    const timeout = 5000;
     const startTime = performance.now();
-
-    console.log("Listening for joystick input...");
 
     if (btn)
     {
         btn.dataset.originalText = btn.textContent;
-        btn.textContent = "Press any button...";
+        btn.textContent = "Move an axis or press a button...";
     }
 
-
+    // Capture baseline values for all pads ONCE
+    const pads = navigator.getGamepads();
+    for (let pad of pads)
+    {
+        if (!pad) continue;
+        baselineAxes[pad.index] = [...pad.axes];
+    }
+    listeningForInputAssignment = true;
     function listen()
     {
-        const pads = navigator.getGamepads ? navigator.getGamepads() : [];
+
+        const pads = navigator.getGamepads();
 
         for (let pad of pads)
         {
             if (!pad) continue;
 
-            const physicalIndex = pad.index;
-            const logicalDevice = connectedDevices[physicalIndex];
+            const logicalDevice = connectedDevices[pad.index];
 
-            // Detect a button press
-            for (let b of pad.buttons)
+            // button detection
+            if (pad.buttons.some(b => b.pressed))
             {
-                if (b.pressed)
+                if (btn) btn.textContent = btn.dataset.originalText;
+                registerDeviceToIndexValue(logicalDevice, targetIndex);
+                listeningForInputAssignment = false;
+                return;
+            }
+
+            // axis movement detection (delta-based)
+            const base = baselineAxes[pad.index] || pad.axes;
+            for (let i = 0; i < pad.axes.length; i++)
+            {
+                const delta = Math.abs(pad.axes[i] - base[i]);
+
+                // movement threshold (0.15 works great)
+                if (delta > 0.15)
                 {
-                    console.log("Pressed on device:", logicalDevice);
                     if (btn) btn.textContent = btn.dataset.originalText;
-
-                    // Assign this device the new logical index
+                    listeningForInputAssignment = false;
                     registerDeviceToIndexValue(logicalDevice, targetIndex);
-
-                    return; // stop listening
+                    return;
                 }
             }
         }
 
-        // Continue listening until timeout
         if (performance.now() - startTime < timeout)
         {
             requestAnimationFrame(listen);
-        } else
+        }
+        else if (btn)
         {
-            if (btn) btn.textContent = btn.dataset.originalText;
-            console.log("No input received — assignment canceled.");
+            btn.textContent = btn.dataset.originalText;
+            listeningForInputAssignment = false;
         }
     }
 
@@ -1623,78 +1676,114 @@ function updatefilteredNames()
 
     let filtered = [...actionMapsMasterList];
 
-    // --- Bound/Unbound filtering ---
-    if (showBoundActionsState === 1)
+    // --- Input  filtering ---
+    if (inputFilter && inputFilter.input != "")
     {
+        function matchesInput(b, d, inputFilter)
+        {
+            if (!b) return false;
+            const modifierAliases = {
+                "alt": ["lalt", "ralt"],
+                "control": ["lctrl", "rctrl"],
+                "shift": ["lshift", "rshift"]
+            };
+            if (InputState.current === InputModeSelection.JOYSTICK && !modifierAliases[inputFilter.input] && d != inputFilter.device) return false;
+            const controllerStickAliases = {
+                "thumbl": ["thumbl_up", "thumbl_down", "thumbl_right", "thumbl_left", "thumbl"],
+                "thumbr": ["thumbr_up", "thumbr_down", "thumbr_right", "thumbr_left", "thumbr"],
+            };
+            const filter = inputFilter?.input?.trim();
+
+            // Expand filter to all acceptable matches
+            const validInputs = modifierAliases[filter] || controllerStickAliases[filter] || [filter];
+
+            // if b contains multiple inputs, split it
+            const parts = b.includes("+") ? b.split("+") : [b];
+            return parts.some(p => validInputs.includes(p.trim()));
+        }
+
         filtered = filtered.filter(item =>
         {
             const b = item.getBind();
-            return typeof b === "string" && b.trim().length > 0;
-        });
-
-    } else if (showBoundActionsState === 2)
-    {
-        // Unbound: null, undefined, empty string, or whitespace
-        filtered = filtered.filter(item =>
-        {
-            const b = item.getBind();
-            return !b || !b.trim();
+            const d = item.getBindDevice();
+            return typeof b === "string" && b.trim().length > 0 && matchesInput(b, d, inputFilter);
         });
     }
 
-    // --- Tag filtering ---
-    if (selectedTags.length > 0)
+    else
     {
-        const normalizedTags = selectedTags.map(t => t.toLowerCase());
-        filtered = filtered.filter(item =>
-            item.getKeywords().some(k => normalizedTags.includes(k?.toLowerCase()))
-        );
-    }
-
-    // --- Search filtering ---
-    if (searchQuery)
-    {
-
-        if (fuse)
-        {
-            const results = fuse.search(searchQuery);
-            const searchMatches = results.map(r =>
-                actionMapsMasterList.find(a => a.getActionName() === r.item.actionName)
-            );
-            filtered = filtered.filter(f => searchMatches.includes(f));
-        } else
+        // --- Bound/Unbound filtering ---
+        if (showBoundActionsState === 1)
         {
             filtered = filtered.filter(item =>
             {
-                const name = item.getActionName().toLowerCase();
-                const desc = item.getDescription().toLowerCase();
-                const keywords = item.getKeywords().map(k => k.toLowerCase());
-                return name.includes(searchQuery) ||
-                    desc.includes(searchQuery) ||
-                    keywords.some(k => k.includes(searchQuery));
+                const b = item.getBind();
+                return typeof b === "string" && b.trim().length > 0;
+            });
+
+        } else if (showBoundActionsState === 2)
+        {
+            // Unbound: null, undefined, empty string, or whitespace
+            filtered = filtered.filter(item =>
+            {
+                const b = item.getBind();
+                return !b || !b.trim();
             });
         }
-    }
 
-    if (conflictsToggle?.checked)
-    {
-        // Step 1: Group items by trimmed keybind
-        const bindGroups = new Map();
-        filtered.forEach(item =>
+        // --- Tag filtering ---
+        if (selectedTags.length > 0)
         {
-            const key = item.getBind()?.trim();
-            if (!key) return; // skip unbound
-            if (!bindGroups.has(key)) bindGroups.set(key, []);
-            bindGroups.get(key).push(item);
-        });
+            const normalizedTags = selectedTags.map(t => t.toLowerCase());
+            filtered = filtered.filter(item =>
+                item.getKeywords().some(k => normalizedTags.includes(k?.toLowerCase()))
+            );
+        }
 
-        // Step 2: Keep only groups with conflicts (more than 1 item)
-        const conflictGroups = Array.from(bindGroups.values()).filter(group => group.length > 1);
+        // --- Search filtering ---
+        if (searchQuery)
+        {
 
-        // Step 3: Flatten the groups back into filtered list, grouped by keybind
-        filtered = conflictGroups.flat();
+            if (fuse)
+            {
+                const results = fuse.search(searchQuery);
+                const searchMatches = results.map(r =>
+                    actionMapsMasterList.find(a => a.getActionName() === r.item.actionName)
+                );
+                filtered = filtered.filter(f => searchMatches.includes(f));
+            } else
+            {
+                filtered = filtered.filter(item =>
+                {
+                    const name = item.getActionName().toLowerCase();
+                    const desc = item.getDescription().toLowerCase();
+                    const keywords = item.getKeywords().map(k => k.toLowerCase());
+                    return name.includes(searchQuery) ||
+                        desc.includes(searchQuery) ||
+                        keywords.some(k => k.includes(searchQuery));
+                });
+            }
+        }
+
+        if (conflictsToggle?.checked)
+        {
+            // Step 1: Group items by trimmed keybind
+            const bindGroups = new Map();
+            filtered.forEach(item =>
+            {
+                const key = item.getBind()?.trim();
+                if (!key) return; // skip unbound
+                if (!bindGroups.has(key)) bindGroups.set(key, []);
+                bindGroups.get(key).push(item);
+            });
+
+            // Step 2: Keep only groups with conflicts (more than 1 item)
+            const conflictGroups = Array.from(bindGroups.values()).filter(group => group.length > 1);
+
+            // Step 3: Flatten the groups back into filtered list, grouped by keybind
+            filtered = conflictGroups.flat();
+        }
     }
-
     filteredNames = filtered.map(item => item.getActionName());
 
     showAllBinds(filtered);
@@ -1818,7 +1907,6 @@ document.addEventListener('keydown', e =>
 
     const rowDiv = activeCapture.closest('.keybind__row');
     const valueDiv = rowDiv?.querySelector('.keybind__value');
-
     //this line
     if (valueDiv)
     {
@@ -2667,13 +2755,6 @@ function cancelRecordBind()
             break;
     }
     finalizeCapture_Controller();
-}
-
-let hasSwappedDevices = false;
-//overcomplicated solution IMO; Dear Future Me, if youre losing your shit over this just change it to a bool toggle that does/doesn't parse #1 and #2 as #2 and #1
-function onClickSwapDevices()
-{
-    onClickAssignIndexToDevice(99);
 }
 
 
@@ -3579,12 +3660,6 @@ function pollJoysticks()
         const physicalIndex = js.index;
         const deviceNumber = connectedDevices[physicalIndex] ?? physicalIndex + 1
 
-        if (hasSwappedDevices)
-        {
-            if (deviceNumber === 1) deviceNumber = 2;
-            else if (deviceNumber === 2) deviceNumber = 1;
-        }
-
         // Helper to assign input consistently
         const setInput = (input) => ({
             device: deviceNumber,
@@ -3703,6 +3778,24 @@ function pollJoysticks()
 }
 
 
+//controler axis parsing
+function HandleLeftThumbStick_X(value)
+{
+    return "thumbl";
+}
+function HandleLeftThumbStick_Y(value)
+{
+    return "thumbl";
+}
+function HandleRightThumbStick_X(value)
+{
+    return "thumbr";
+}
+function HandleRightThumbStick_Y(value)
+{
+    return "thumbr";
+}
+//joystick axis parsing
 function HandleJoystickAxis_X(value)
 {
     return "x"
@@ -3935,3 +4028,345 @@ async function loadAndMergeMappedActions()
     return actionMapsMasterList;
 }
 
+//#region Binder or Finder
+
+function SetBindMode(mode = "binder", btn)
+{
+    bindMode = mode;
+    navBar.querySelectorAll('button[data-action]').forEach(b => b.classList.remove('selected'));
+    if (btn) btn.classList.add('selected');
+    if (bindMode === "finder")
+    {
+        switch (InputState.current)
+        {
+            case InputModeSelection.CONTROLLER:
+                findFromInput_Controller();
+                break;
+            case InputModeSelection.JOYSTICK:
+                findFromInput_Joystick();
+                break;
+            case InputModeSelection.KEYBOARD:
+            default:
+                findFromInput_MouseKeyboard();
+                break;
+        }
+    }
+    else if (bindMode === "binder")
+    {
+        if (inputFilter)
+        {
+            Object.assign(inputFilter, { input: "", device: "" });
+        }
+
+    }
+}
+
+let inputFilter = {
+    input: "",
+    device: ""
+};
+
+const previousButtonStates = {};
+const baselineAxes_finder = {}; // initial baseline
+const prevAxesValues = {};      // per-frame previous value
+let lastInputTime = 0;
+const DEBOUNCE_MS = 100;
+
+function findFromInput_Joystick()
+{
+    enableKeyboardFinder();
+
+    function listen()
+    {
+        const now = performance.now();
+        const pads = navigator.getGamepads();
+
+        for (let pad of pads)
+        {
+            if (!pad) continue;
+            const logicalDevice = connectedDevices[pad.index];
+
+            if (!previousButtonStates[pad.index])
+            {
+                previousButtonStates[pad.index] = pad.buttons.map(b => b.pressed);
+            }
+
+            if (!baselineAxes_finder[pad.index])
+            {
+                baselineAxes_finder[pad.index] = [...pad.axes];
+            }
+
+            if (!prevAxesValues[pad.index])
+            {
+                prevAxesValues[pad.index] = [...pad.axes];
+            }
+
+            // --- Buttons ---
+            for (let i = 0; i < pad.buttons.length; i++)
+            {
+                const b = pad.buttons[i];
+                const wasPressed = previousButtonStates[pad.index][i];
+
+                if (wasPressed && !b.pressed && (now - lastInputTime > DEBOUNCE_MS))
+                {
+                    inputFilter.input = `button${ i + 1 }`;
+                    inputFilter.device = logicalDevice;
+                    lastInputTime = now;
+                    updatefilteredNames();
+                }
+
+                previousButtonStates[pad.index][i] = b.pressed;
+            }
+
+            // --- Axes ---
+            for (let i = 0; i < pad.axes.length; i++)
+            {
+                const value = pad.axes[i];
+                const isDynamic = (i === 2 || i === 6); // slider/trigger axes
+                const delta = Math.abs(value - (isDynamic ? prevAxesValues[pad.index][i] : baselineAxes_finder[pad.index][i]));
+                if (((isDynamic && delta > 0.001) || (!isDynamic && delta > 0.15)) && (now - lastInputTime > DEBOUNCE_MS)) 
+                {
+                    inputFilter.device = logicalDevice;
+
+                    switch (i)
+                    {
+                        case joystickProfile.x: inputFilter.input = HandleJoystickAxis_X(value); break;
+                        case joystickProfile.y: inputFilter.input = HandleJoystickAxis_Y(value); break;
+                        case joystickProfile.z: inputFilter.input = HandleJoystickAxis_Z(value); break;
+                        case joystickProfile.Rx: inputFilter.input = HandleJoystickAxis_Rx(value); break;
+                        case joystickProfile.Ry: inputFilter.input = HandleJoystickAxis_Ry(value); break;
+                        case joystickProfile.Rz: inputFilter.input = HandleJoystickAxis_Rz(value); break;
+                        case joystickProfile.hat: inputFilter.input = HandleJoystickAxis_Hat(value, logicalDevice); break;
+                        case joystickProfile.slider: inputFilter.input = HandleJoystickAxis_Slider(value, logicalDevice); break;
+                    }
+
+                    lastInputTime = now;
+                    updatefilteredNames();
+                }
+
+                // Update previous axes value for next frame
+                prevAxesValues[pad.index][i] = value;
+            }
+        }
+
+        if (bindMode === "finder") requestAnimationFrame(listen);
+        else
+        {
+            disableKeyboardFinder();
+            Object.assign(inputFilter, { input: "", device: "" });
+        }
+    }
+
+    listen();
+}
+
+
+function enableKeyboardFinder()
+{
+    window.addEventListener("keydown", keyboardFinderHandler);
+}
+
+function disableKeyboardFinder()
+{
+    window.removeEventListener("keydown", keyboardFinderHandler);
+}
+
+function keyboardFinderHandler(e)
+{
+    e.preventDefault();
+    if (e.repeat) return; // ignore held-down repeats
+
+    if (e.key === "Control" || e.key === "Shift" || e.key === "Alt")
+    {
+        // If you want it included in inputFilter:
+        inputFilter.input = e.key.toLowerCase(); // "control" / "shift" / "alt"
+        inputFilter.device = "keyboard";
+
+        updatefilteredNames();
+    }
+}
+
+
+
+
+function findFromInput_Controller()
+{
+    function listen()
+    {
+        const now = performance.now();
+        const pads = navigator.getGamepads();
+
+        for (let pad of pads)
+        {
+            if (!pad) continue;
+            const logicalDevice = connectedDevices[pad.index];
+
+            if (!previousButtonStates[pad.index])
+            {
+                previousButtonStates[pad.index] = pad.buttons.map(b => b.pressed);
+            }
+
+            if (!baselineAxes_finder[pad.index])
+            {
+                baselineAxes_finder[pad.index] = [...pad.axes];
+            }
+
+            if (!prevAxesValues[pad.index])
+            {
+                prevAxesValues[pad.index] = [...pad.axes];
+            }
+
+            // --- Buttons ---
+            for (let i = 0; i < pad.buttons.length; i++)
+            {
+                const b = pad.buttons[i];
+                const wasPressed = previousButtonStates[pad.index][i];
+
+                if (wasPressed && !b.pressed && (now - lastInputTime > DEBOUNCE_MS))
+                {
+                    inputFilter.input = parseGamepadInputToStarCitizenBind(`${ i }`);
+                    inputFilter.device = logicalDevice;
+                    lastInputTime = now;
+                    updatefilteredNames();
+                }
+
+                previousButtonStates[pad.index][i] = b.pressed;
+            }
+
+            // --- Axes ---
+            for (let i = 0; i < pad.axes.length; i++)
+            {
+                const value = pad.axes[i];
+                const delta = Math.abs(value - baselineAxes_finder[pad.index][i]);
+                if ((delta > 0.15) && (now - lastInputTime > DEBOUNCE_MS)) 
+                {
+                    inputFilter.device = logicalDevice;
+
+                    switch (i)
+                    {
+                        case 0: inputFilter.input = HandleLeftThumbStick_X(value); break;
+                        case 1: inputFilter.input = HandleLeftThumbStick_Y(value); break;
+                        case 2: inputFilter.input = HandleRightThumbStick_X(value); break;
+                        case 3: inputFilter.input = HandleRightThumbStick_Y(value); break;
+                    }
+
+                    lastInputTime = now;
+                    updatefilteredNames();
+                }
+
+                // Update previous axes value for next frame
+                prevAxesValues[pad.index][i] = value;
+            }
+        }
+
+        if (bindMode === "finder") requestAnimationFrame(listen);
+        else
+        {
+            Object.assign(inputFilter, { input: "", device: "" });
+        }
+    }
+
+    listen();
+}
+function findFromInput_MouseKeyboard()
+{
+    const DEBOUNCE_MS = 100;
+
+    function handleKeyDown(e)
+    {
+        if (e.repeat) return;
+        e.preventDefault();
+        const now = performance.now();
+        if (now - lastInputTime < DEBOUNCE_MS) return;
+
+        let input = keyTranslationMap[e.code] || e.code;
+        if (input.startsWith("Key")) input = input.slice(3).toLowerCase();
+        inputFilter.input = input.toLowerCase();
+        inputFilter.device = "keyboard";
+
+        lastInputTime = now;
+        updatefilteredNames();
+    }
+
+    function handleKeyUp(e)
+    {
+        inputFilter.input = "";
+        inputFilter.device = "";
+    }
+
+    function handleMouseDown(e)
+    {
+        const now = performance.now();
+        if (now - lastInputTime < DEBOUNCE_MS) return;
+
+        let buttonName;
+        switch (e.button)
+        {
+            case 0: buttonName = "mouse1"; break;
+            case 1: buttonName = "mouse3"; break;
+            case 2: buttonName = "mouse2"; break;
+            default: buttonName = `mouse${ e.button }`; break;
+        }
+        if (buttonName !== "mouse1")
+        {
+            inputFilter.input = buttonName;
+            inputFilter.device = 1;
+            lastInputTime = now;
+            updatefilteredNames();
+        }
+    }
+
+    function handleMouseUp(e)
+    {
+        inputFilter.input = "";
+        inputFilter.device = "";
+    }
+
+    function handleWheel(e)
+    {
+        const now = performance.now();
+        if (now - lastInputTime < DEBOUNCE_MS) return;
+
+        inputFilter.input = e.deltaY < 0 ? "mwheel_up" : "mwheel_down";
+        inputFilter.device = 1;
+        lastInputTime = now;
+        updatefilteredNames();
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
+    window.addEventListener("mousedown", handleMouseDown);
+    window.addEventListener("mouseup", handleMouseUp);
+    window.addEventListener("wheel", handleWheel);
+
+    // Cleanup function
+    function disableMouseKeyboardFinder()
+    {
+        window.removeEventListener("keydown", handleKeyDown);
+        window.removeEventListener("keyup", handleKeyUp);
+        window.removeEventListener("mousedown", handleMouseDown);
+        window.removeEventListener("mouseup", handleMouseUp);
+        window.removeEventListener("wheel", handleWheel);
+        Object.assign(inputFilter, { input: "", device: "" });
+    }
+
+    // Monitoring loop to auto-cleanup
+    function monitor()
+    {
+        if (bindMode === "binder" || InputState.current !== InputModeSelection.KEYBOARD)
+        {
+            disableMouseKeyboardFinder();
+        } else
+        {
+            requestAnimationFrame(monitor);
+        }
+    }
+    requestAnimationFrame(monitor);
+
+    return disableMouseKeyboardFinder;
+}
+
+
+
+
+//#endregion
