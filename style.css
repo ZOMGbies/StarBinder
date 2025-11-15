@@ -2384,21 +2384,17 @@ code {
     font-size: 0.8rem;
 }
 
-.vkb-logo {
-    height: 2rem;
+.vkb-logo-wrapper {
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--accent2);
+    -webkit-mask: url('./assets/VKB_logo.png') no-repeat center / contain;
+    mask: url('./assets/VKB_logo.png') no-repeat center / contain;
 }
 
-.vkb-logo-wrapper {
-    width: 2rem;
-    height: 2rem;
-    background-color: red;
-    /* desired overlay color */
-    -webkit-mask: url('./assets/VKB.png') no-repeat center / contain;
-    mask: url('./assets/VKB.png') no-repeat center / contain;
-}
 
 .vkb-text {
-    margin-bottom: 0.2rem;
+    margin-bottom: 1rem;
     letter-spacing: 0.06rem;
 }
 
