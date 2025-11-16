@@ -6,7 +6,7 @@
         "italian": "",
         "spanish": "Asiento de salida de emergencia",
         "chinese": "紧急出口座位",
-        "japanese": "",
+        "japanese": "緊急脱出シート",
         "korean": "비상 탈출 좌석",
         "ukrainian": "Аварiйне покидання крiсло"
     },
@@ -17,7 +17,7 @@
         "italian": "",
         "spanish": "Eyectar",
         "chinese": "弹射",
-        "japanese": "",
+        "japanese": "脱出",
         "korean": "사출",
         "ukrainian": "Катапультування"
     },
@@ -28,7 +28,7 @@
         "italian": "",
         "spanish": "Mirar hacia atrás",
         "chinese": "向后看",
-        "japanese": "",
+        "japanese": "後ろを見る",
         "korean": "후방 보기",
         "ukrainian": "Обернутися назад"
     },
@@ -193,7 +193,7 @@
         "italian": "",
         "spanish": "Entrar en torreta remota",
         "chinese": "进入远程炮塔",
-        "japanese": "",
+        "japanese": "リモートタレット1を使う",
         "korean": "포탑 원격 제어실 들어가기",
         "ukrainian": ""
     },
@@ -204,7 +204,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "リモートタレット2を使う",
         "korean": "",
         "ukrainian": ""
     },
@@ -215,7 +215,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "リモートタレット3を使う",
         "korean": "",
         "ukrainian": ""
     },
@@ -226,7 +226,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "次のオペレーターモード",
         "korean": "",
         "ukrainian": ""
     },
@@ -237,7 +237,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "前のオペレーターモード",
         "korean": "",
         "ukrainian": ""
     },
@@ -248,7 +248,7 @@
         "italian": "",
         "spanish": "Autodestruir",
         "chinese": "自毁",
-        "japanese": "",
+        "japanese": "自爆",
         "korean": "자폭",
         "ukrainian": "Самознищення"
     },
@@ -259,7 +259,7 @@
         "italian": "",
         "spanish": "Aumentar potencia del radiador",
         "chinese": "增加冷却率",
-        "japanese": "",
+        "japanese": "冷却速度を上げる",
         "korean": "냉각기 속도 증가",
         "ukrainian": "Збiльшити швидкiсть охолодження"
     },
@@ -270,7 +270,7 @@
         "italian": "",
         "spanish": "Reducir potencia del radiador",
         "chinese": "降低冷却率",
-        "japanese": "",
+        "japanese": "冷却速度を下げる",
         "korean": "냉각기 속도 감소",
         "ukrainian": "Зменшити швидкiсть охолодження"
     },
@@ -281,7 +281,7 @@
         "italian": "",
         "spanish": "Vuelo/sistemas listos",
         "chinese": "飞行/系统准备就绪",
-        "japanese": "",
+        "japanese": "航行 / システムの準備",
         "korean": "비행/시스템을 준비합니다.",
         "ukrainian": "Полiт / Системи готовi"
     },
@@ -292,7 +292,7 @@
         "italian": "",
         "spanish": "Abrir/cerrar puertas (alternar)",
         "chinese": "开/关门（开关）",
-        "japanese": "",
+        "japanese": "ドアを開ける / 閉じる（トグル）",
         "korean": "출입문 열기/닫기 (토글)",
         "ukrainian": "Вiдчинити/зачинити люки (Перемикач)"
     },
@@ -303,7 +303,7 @@
         "italian": "",
         "spanish": "Abrir todas las puertas",
         "chinese": "开启所有门",
-        "japanese": "",
+        "japanese": "すべてのドアを開ける",
         "korean": "모든 출입문 개방",
         "ukrainian": "Вiдчинити всi люки"
     },
@@ -314,7 +314,7 @@
         "italian": "",
         "spanish": "Cerrar todas las puertas",
         "chinese": "关闭所有门",
-        "japanese": "",
+        "japanese": "すべてのドアを閉める",
         "korean": "모든 출입문 닫기",
         "ukrainian": "Зачинити всi люки"
     },
@@ -325,7 +325,7 @@
         "italian": "",
         "spanish": "Bloquear/desbloquear puertas (alternar)",
         "chinese": "锁门/开门锁（开关）",
-        "japanese": "",
+        "japanese": "ドアを施錠 / 解錠（トグル）",
         "korean": "출입문 잠금/해제 (토글)",
         "ukrainian": "Заблокувати / Розблокувати люки (перемик.)"
     },
@@ -336,7 +336,7 @@
         "italian": "",
         "spanish": "Bloquear todas las puertas",
         "chinese": "锁起所有门",
-        "japanese": "",
+        "japanese": "すべてのドアを施錠する",
         "korean": "모든 출입문 잠금 설정",
         "ukrainian": "Замкнути всi люки"
     },
@@ -347,7 +347,7 @@
         "italian": "",
         "spanish": "Desbloquear todas las puertas",
         "chinese": "全部开锁",
-        "japanese": "",
+        "japanese": "すべてのドアを解錠する",
         "korean": "모든 출입문 잠금 해제",
         "ukrainian": "Розблокувати всi люки"
     },
@@ -358,7 +358,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "すべてのポートをロック（切り替え）",
         "korean": "",
         "ukrainian": "Port Lock Toggle All"
     },
@@ -369,7 +369,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "すべてのポートをロック",
         "korean": "",
         "ukrainian": "Port Lock All"
     },
@@ -380,7 +380,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "すべてのポートをアンロック",
         "korean": "",
         "ukrainian": "Port Unlock All"
     },
@@ -391,7 +391,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページ切り替え - 次のページ（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -402,7 +402,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページ切り替え - 次のページ（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -413,7 +413,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページ切り替え - 前のページ（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -424,7 +424,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページ切り替え - 前のページ（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -435,7 +435,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 移動 - 上（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -446,7 +446,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 移動 - 上（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -457,7 +457,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 移動 - 下（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -468,7 +468,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 移動 - 下（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -479,7 +479,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 移動 - 左（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -490,7 +490,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 移動 - 左（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -501,7 +501,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 移動 - 右（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -512,7 +512,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 移動 - 右（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -523,7 +523,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - プライマリ（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -534,7 +534,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - プライマリ（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -545,7 +545,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - 左を選択（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -556,7 +556,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - 左を選択（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -567,7 +567,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - 右を選択（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -578,7 +578,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - 右を選択（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -589,7 +589,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 1（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -600,7 +600,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 1（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -611,7 +611,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 2（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -622,7 +622,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 2（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -633,7 +633,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 3（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -644,7 +644,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 3（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -655,7 +655,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 4（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -666,7 +666,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 4（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -677,7 +677,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 5（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -688,7 +688,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 5（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -699,7 +699,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 6（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -710,7 +710,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 6（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -721,7 +721,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 7（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -732,7 +732,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 7（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -743,7 +743,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 8（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -754,7 +754,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 8（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -765,7 +765,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 9（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -776,7 +776,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 9（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -787,7 +787,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 10（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -798,7 +798,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - 選択 - MFD 10（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -809,7 +809,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページを設定 - 機体ステータス（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -820,7 +820,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページを設定 - 機体ステータス（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -831,7 +831,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページを設定 - 目標ステータス（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -842,7 +842,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページを設定 - 目標ステータス（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -853,7 +853,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページを設定 - スキャン（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -864,7 +864,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページを設定 - スキャン（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -875,7 +875,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページを設定 - 機体設定（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -886,7 +886,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページを設定 - 機体設定（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -897,7 +897,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページを設定 - 通信（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -908,7 +908,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページを設定 - 通信（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -919,7 +919,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページを設定 - IFCS（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -930,7 +930,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページを設定 - IFCS（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -941,7 +941,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページを設定 - 診断（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -952,7 +952,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページを設定 - 診断（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -963,7 +963,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページを設定 - リソースネットワーク（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -974,7 +974,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "MFD - ページを設定 - リソースネットワーク（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -985,7 +985,7 @@
         "italian": "",
         "spanish": "Mirar a la izquierda",
         "chinese": "向左看",
-        "japanese": "",
+        "japanese": "左を見る",
         "korean": "왼쪽 보기",
         "ukrainian": "Подивитись влiво"
     },
@@ -996,7 +996,7 @@
         "italian": "",
         "spanish": "Mirar a la derecha",
         "chinese": "向右看",
-        "japanese": "",
+        "japanese": "右を見る",
         "korean": "오른쪽 보기",
         "ukrainian": "Подивитись вправо"
     },
@@ -1007,7 +1007,7 @@
         "italian": "",
         "spanish": "Mirar a la izquierda/derecha",
         "chinese": "向左/右看",
-        "japanese": "",
+        "japanese": "左を見る / 右を見る",
         "korean": "왼쪽/오른쪽 보기",
         "ukrainian": "Дивитись влiво / вправо"
     },
@@ -1018,7 +1018,7 @@
         "italian": "",
         "spanish": "Mirar hacia arriba",
         "chinese": "向上看",
-        "japanese": "",
+        "japanese": "上を見る",
         "korean": "위쪽 보기",
         "ukrainian": "Подивитись вгору"
     },
@@ -1029,7 +1029,7 @@
         "italian": "",
         "spanish": "Mirar hacia abajo",
         "chinese": "向下看",
-        "japanese": "",
+        "japanese": "下を見る",
         "korean": "아래쪽 보기",
         "ukrainian": "Подивитись вниз"
     },
@@ -1040,7 +1040,7 @@
         "italian": "",
         "spanish": "Mirar hacia arriba/abajo",
         "chinese": "向上/下看",
-        "japanese": "",
+        "japanese": "上を見る／下を見る",
         "korean": "위쪽/아래쪽 보기",
         "ukrainian": "Дивитись вгору / вниз"
     },
@@ -1051,7 +1051,7 @@
         "italian": "",
         "spanish": "Rotar entre vistas de cámara",
         "chinese": "循环视角",
-        "japanese": "",
+        "japanese": "カメラ視点の切り替え",
         "korean": "카메라 시점 순환",
         "ukrainian": "Змiна виду камери"
     },
@@ -1062,7 +1062,7 @@
         "italian": "",
         "spanish": "Rotar entre modos de cámara orbital",
         "chinese": "循环视角（环绕模式）",
-        "japanese": "",
+        "japanese": "カメラの切り替え - オービットモード",
         "korean": "궤도 카메라 모드 순환",
         "ukrainian": "Змiна орбiтального режиму камери"
     },
@@ -1073,7 +1073,7 @@
         "italian": "",
         "spanish": "Acercar (vista en tercera persona)",
         "chinese": "放大（第三人称视角）",
-        "japanese": "",
+        "japanese": "ズームイン（3人称視点）",
         "korean": "확대 (3인칭 시점)",
         "ukrainian": "Приблизити (вiд 3 особи)"
     },
@@ -1084,7 +1084,7 @@
         "italian": "",
         "spanish": "Alejar (vista en tercera persona)",
         "chinese": "缩小（第三人称视角）",
-        "japanese": "",
+        "japanese": "ズームアウト(3人称視点)",
         "korean": "축소 (3인칭 시점)",
         "ukrainian": "Вiддалити (вiд 3 особи)"
     },
@@ -1095,7 +1095,7 @@
         "italian": "",
         "spanish": "Vista libre (mantener)",
         "chinese": "自由查看（长按）",
-        "japanese": "",
+        "japanese": "フリールック（ホールド）",
         "korean": "자유 시점 (길게 누르기)",
         "ukrainian": "Огляд (утрим.)"
     },
@@ -1106,7 +1106,7 @@
         "italian": "",
         "spanish": "Acercar y alejar zoom dinámico (rel.)",
         "chinese": "动态缩放（相对值）",
-        "japanese": "",
+        "japanese": "ダイナミックズームイン/アウト（相対値）",
         "korean": "동적 확대 및 축소 (상대)",
         "ukrainian": "Динамiчне збiльшення (вiдн.)"
     },
@@ -1117,7 +1117,7 @@
         "italian": "",
         "spanish": "Acercar zoom dinámico (rel.)",
         "chinese": "动态放大（相对值）",
-        "japanese": "",
+        "japanese": "ダイナミックズームイン（相対値）",
         "korean": "동적 확대 (상대)",
         "ukrainian": "Динамiчне збiльшення (вiдн.)"
     },
@@ -1128,7 +1128,7 @@
         "italian": "",
         "spanish": "Alejar zoom dinámico (rel.)",
         "chinese": "动态缩小（相对值）",
-        "japanese": "",
+        "japanese": "ダイナミックズームアウト（相対値）",
         "korean": "동적 축소 (상대)",
         "ukrainian": "Динамiчне зменшення (вiдн.)"
     },
@@ -1139,7 +1139,7 @@
         "italian": "",
         "spanish": "Acercar y alejar zoom dinámico (abs.)",
         "chinese": "动态放大和缩小（绝对值）",
-        "japanese": "",
+        "japanese": "ダイナミックズームイン/アウト（絶対値）",
         "korean": "동적 줌 모드 (절대)",
         "ukrainian": "Динамiчне збiльшення та зменшення (абс.)"
     },
@@ -1150,7 +1150,7 @@
         "italian": "",
         "spanish": "Activar zoom dinámico (abs.)",
         "chinese": "动态缩放切换（绝对值）",
-        "japanese": "",
+        "japanese": "ダイナミックズームトグル（絶対値）",
         "korean": "동적 줌 모드 토글 (절대)",
         "ukrainian": "Перемикач динамiчного збiльшення (абс.)"
     },
@@ -1205,7 +1205,7 @@
         "italian": "",
         "spanish": "Cabeceo hacia arriba",
         "chinese": "上仰",
-        "japanese": "",
+        "japanese": "ピッチ上",
         "korean": "피치 회전 위로",
         "ukrainian": "Тангаж вгору"
     },
@@ -1216,7 +1216,7 @@
         "italian": "",
         "spanish": "Cabeceo hacia abajo",
         "chinese": "下俯",
-        "japanese": "",
+        "japanese": "ピッチ下",
         "korean": "피치 회전 아래로",
         "ukrainian": "Тангаж вниз"
     },
@@ -1227,7 +1227,7 @@
         "italian": "",
         "spanish": "Cabeceo",
         "chinese": "纵摇",
-        "japanese": "",
+        "japanese": "ピッチ",
         "korean": "피치 회전",
         "ukrainian": "Тангаж"
     },
@@ -1238,7 +1238,7 @@
         "italian": "",
         "spanish": "Guiñada a la izquierda",
         "chinese": "左摆",
-        "japanese": "",
+        "japanese": "左ヨー",
         "korean": "요 회전 좌로",
         "ukrainian": "Рискання влiво"
     },
@@ -1249,7 +1249,7 @@
         "italian": "",
         "spanish": "Guiñada a la derecha",
         "chinese": "右摆",
-        "japanese": "",
+        "japanese": "右ヨー",
         "korean": "요 회전 우로",
         "ukrainian": "Рискання вправо"
     },
@@ -1260,7 +1260,7 @@
         "italian": "",
         "spanish": "Guiñada",
         "chinese": "首摇",
-        "japanese": "",
+        "japanese": "ヨー",
         "korean": "요 회전",
         "ukrainian": "Рискання"
     },
@@ -1271,7 +1271,7 @@
         "italian": "",
         "spanish": "Alabeo a la izquierda",
         "chinese": "左翻滚",
-        "japanese": "",
+        "japanese": "ロールレフト",
         "korean": "롤 회전 좌로",
         "ukrainian": "Крен влiво"
     },
@@ -1282,7 +1282,7 @@
         "italian": "",
         "spanish": "Alabeo a la derecha",
         "chinese": "右翻滚",
-        "japanese": "",
+        "japanese": "ロールライト",
         "korean": "롤 회전 우로",
         "ukrainian": "Крен вправо"
     },
@@ -1293,7 +1293,7 @@
         "italian": "",
         "spanish": "Rodar",
         "chinese": "翻滚",
-        "japanese": "",
+        "japanese": "ロール",
         "korean": "구르기",
         "ukrainian": "Крен"
     },
@@ -1304,7 +1304,7 @@
         "italian": "",
         "spanish": "Rotar modo del ratón (VJoy/relativo)",
         "chinese": "循环鼠标模式（VJoy/相对值）",
-        "japanese": "",
+        "japanese": "マウスモードの切り替え（VJoy / 相対）",
         "korean": "마우스 모드 순환 (가상 조이스틱/상대)",
         "ukrainian": "Перебiр режимiв мишi (Вiрт.Джой / Вiдн.)"
     },
@@ -1315,7 +1315,7 @@
         "italian": "",
         "spanish": "Intercambiar guiñada/alabeo (alternar)",
         "chinese": "交换首摇/翻滚（切换）",
-        "japanese": "",
+        "japanese": "入れ替え ヨー / ロール（切り替え）",
         "korean": "요 회전/롤 회전 전환 (토글)",
         "ukrainian": "Помiняти рискання / крен (перемик.)"
     },
@@ -1326,7 +1326,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "平行移動 上（絶対）",
         "korean": "",
         "ukrainian": "Змiщення вгору (абс.)"
     },
@@ -1337,7 +1337,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "平行移動 下（絶対）",
         "korean": "",
         "ukrainian": "Змiщення вниз (абс.)"
     },
@@ -1348,7 +1348,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "平行移動 上 / 下（絶対）",
         "korean": "",
         "ukrainian": "Змiщення вгору / вниз (абс.)"
     },
@@ -1359,7 +1359,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "平行移動 左（絶対）",
         "korean": "",
         "ukrainian": "Змiщення влiво (абс.)"
     },
@@ -1370,7 +1370,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "平行移動 右（絶対）",
         "korean": "",
         "ukrainian": "Змiщення вправо (абс.)"
     },
@@ -1381,7 +1381,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "平行移動 左 / 右（絶対）",
         "korean": "",
         "ukrainian": "Змiщення влiво / вправо (абс.)"
     },
@@ -1392,7 +1392,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "スロットル - 増加",
         "korean": "",
         "ukrainian": ""
     },
@@ -1403,7 +1403,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "スロットル - 減少",
         "korean": "",
         "ukrainian": ""
     },
@@ -1414,7 +1414,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "スロットル - 前進 / 後退",
         "korean": "",
         "ukrainian": ""
     },
@@ -1425,7 +1425,7 @@
         "italian": "",
         "spanish": "Invertir desplazamiento adelante/atrás",
         "chinese": "前/后扫射反转",
-        "japanese": "",
+        "japanese": "スロットル 前進 / 後退 反転",
         "korean": "앞으로/뒤로 이동 반전",
         "ukrainian": "Змiщення вперед / назад iнвертувати"
     },
@@ -1436,7 +1436,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "スロットル - クルーズモード - 切り替え",
         "korean": "",
         "ukrainian": ""
     },
@@ -1447,7 +1447,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "スロットル - クルーズモード - 有効化",
         "korean": "",
         "ukrainian": ""
     },
@@ -1458,7 +1458,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "スロットル - クルーズモード - 無効化",
         "korean": "",
         "ukrainian": ""
     },
@@ -1469,7 +1469,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "スロットル - トリム - 設定（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1480,7 +1480,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "スロットル - トリム - 設定（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1491,7 +1491,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "スロットル - トリム - 100%に設定（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1502,7 +1502,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "スロットル - トリム - 100%に設定（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1513,7 +1513,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "スロットル - トリム - 50%に設定（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1524,7 +1524,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "スロットル - トリム - 50%に設定（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1535,7 +1535,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "スロットル - トリム - リリース（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1546,7 +1546,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "スロットル - トリム - リリース（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1590,7 +1590,7 @@
         "italian": "",
         "spanish": "Turbo",
         "chinese": "加速",
-        "japanese": "",
+        "japanese": "ブースト",
         "korean": "부스트",
         "ukrainian": "Прискорення"
     },
@@ -1601,7 +1601,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "速度リミッター - 増加（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1612,7 +1612,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "速度リミッター - 減少（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1623,7 +1623,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "速度リミッター - ステップアップ（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1634,7 +1634,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "速度リミッター - ステップダウン（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1645,7 +1645,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "速度リミッター（相対）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1656,7 +1656,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "速度リミッター（絶対）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1667,7 +1667,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "速度リミッター - 有効化 / 無効化",
         "korean": "",
         "ukrainian": ""
     },
@@ -1678,7 +1678,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "スピードリミッター - 有効化",
         "korean": "",
         "ukrainian": ""
     },
@@ -1689,7 +1689,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "スピードリミッター - 無効化",
         "korean": "",
         "ukrainian": ""
     },
@@ -1700,7 +1700,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "加速度リミッター - 増加（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1711,7 +1711,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "加速度リミッター - 減少（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1722,7 +1722,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "加速度リミッター - ステップアップ（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1733,7 +1733,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "加速度リミッター - ステップダウン（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1744,7 +1744,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "加速度リミッター（相対）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1755,7 +1755,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "加速度リミッター（絶対）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1766,7 +1766,7 @@
         "italian": "",
         "spanish": "Freno espacial",
         "chinese": "空间制动器",
-        "japanese": "",
+        "japanese": "スペースブレーキ",
         "korean": "공간 제동",
         "ukrainian": "Гальмування"
     },
@@ -1777,7 +1777,7 @@
         "italian": "",
         "spanish": "Fijar cabeceo/guiñada (alternar/mantener)",
         "chinese": "锁定纵摇/首摇活动（切换/长按）",
-        "japanese": "",
+        "japanese": "ピッチ／ヨー動作のロック（トグル／ホールド）",
         "korean": "피치/요 회전 잠금 (토글/길게 누르기)",
         "ukrainian": "Фiксацiя рухiв тангаж/рискання (перемик./ утрим.)"
     },
@@ -1788,7 +1788,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "G-Forceセーフティ オン",
         "korean": "",
         "ukrainian": ""
     },
@@ -1799,7 +1799,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "G-Forceセーフティ オフ",
         "korean": "",
         "ukrainian": ""
     },
@@ -1810,7 +1810,7 @@
         "italian": "",
         "spanish": "Apagar/encender seguro de fuerza g (alternar/mantener)",
         "chinese": "重力安全开/关（切换/长按）",
-        "japanese": "",
+        "japanese": "G-Force Safety オン/オフ（切り替え/長押し）",
         "korean": "중력 가속도 안전장치 켜기/끄기 (토글/길게 누르기)",
         "ukrainian": "Запобiжник перегрузок (G-Safe) - Увiмк. / Вимк. (перемик. / утрим.)"
     },
@@ -1821,7 +1821,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "E.S.P. オン/オフ切り替え",
         "korean": "",
         "ukrainian": "П.Т.С. - Вкл./викл (Натиснс)"
     },
@@ -1832,7 +1832,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "E.S.P. - 一時的に有効化（保持）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1843,7 +1843,7 @@
         "italian": "",
         "spanish": "Sistema de aterrizaje (alternar)",
         "chinese": "着陆系统（开关）",
-        "japanese": "",
+        "japanese": "着陸システム（切り替え）",
         "korean": "착륙 시스템 (토글)",
         "ukrainian": "Посадкова система (перемик.)"
     },
@@ -1854,7 +1854,7 @@
         "italian": "",
         "spanish": "Sistema de aterrizaje (desplegar)",
         "chinese": "着陆系统（部署）",
-        "japanese": "",
+        "japanese": "着陸システム（展開）",
         "korean": "착륙 시스템 (전개)",
         "ukrainian": "Посадкова система (Розгорнути)"
     },
@@ -1865,7 +1865,7 @@
         "italian": "",
         "spanish": "Sistema de aterrizaje (retraer)",
         "chinese": "着陆系统（收回）",
-        "japanese": "",
+        "japanese": "着陸システム（格納）",
         "korean": "착륙 시스템 (수납)",
         "ukrainian": "Посадкова система (Згорнути)"
     },
@@ -1876,7 +1876,7 @@
         "italian": "",
         "spanish": "Activar ADAV",
         "chinese": "开关垂直起降",
-        "japanese": "",
+        "japanese": "VTOL の切り替え",
         "korean": "수직 이착륙 (토글)",
         "ukrainian": ""
     },
@@ -1909,7 +1909,7 @@
         "italian": "",
         "spanish": "Expandir configuración",
         "chinese": "扩展配置",
-        "japanese": "",
+        "japanese": "展開形態への移行",
         "korean": "외장 전개",
         "ukrainian": "Розгорнути конфiгурацiю"
     },
@@ -1920,7 +1920,7 @@
         "italian": "",
         "spanish": "Reducir configuración",
         "chinese": "收回配置",
-        "japanese": "",
+        "japanese": "格納形態への移行",
         "korean": "외장 수납",
         "ukrainian": "Згорнути конфiгурацiю"
     },
@@ -1931,7 +1931,7 @@
         "italian": "",
         "spanish": "Rotar configuración",
         "chinese": "循环配置",
-        "japanese": "",
+        "japanese": "設定の切り替え",
         "korean": "외장 순환",
         "ukrainian": "Cycle Configuration"
     },
@@ -1942,7 +1942,7 @@
         "italian": "",
         "spanish": "Aterrizaje automático",
         "chinese": "自动着陆",
-        "japanese": "",
+        "japanese": "自動着陸",
         "korean": "자동 착륙",
         "ukrainian": "Автопосадка"
     },
@@ -1953,7 +1953,7 @@
         "italian": "",
         "spanish": "Solicitar aterrizaje",
         "chinese": "请求着陆",
-        "japanese": "",
+        "japanese": "着陸の申請",
         "korean": "착륙 요청",
         "ukrainian": "Запит на посадку"
     },
@@ -1964,7 +1964,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "貨物の積み降ろしを申請する",
         "korean": "",
         "ukrainian": ""
     },
@@ -1986,7 +1986,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "Master Mode  切り替え（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -1997,7 +1997,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "マスターモードを Nav に設定",
         "korean": "",
         "ukrainian": ""
     },
@@ -2008,7 +2008,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "マスターモードを SCM に設定",
         "korean": "",
         "ukrainian": ""
     },
@@ -2019,7 +2019,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "ジャンプドライブ - ジャンプリクエスト",
         "korean": "",
         "ukrainian": "Jump Drive - Request Jump"
     },
@@ -2030,7 +2030,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "重力補正 - 切り替え（トグル）",
         "korean": "",
         "ukrainian": ""
     },
@@ -2041,7 +2041,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "重力補正-有効化",
         "korean": "",
         "ukrainian": ""
     },
@@ -2052,7 +2052,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "重力補正-無効化",
         "korean": "",
         "ukrainian": ""
     },
@@ -2063,7 +2063,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "自動精密モード - 切り替え",
         "korean": "",
         "ukrainian": ""
     },
@@ -2074,7 +2074,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "自動精密モード - 有効化",
         "korean": "",
         "ukrainian": ""
     },
@@ -2085,7 +2085,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "自動精密モード - 無効化",
         "korean": "",
         "ukrainian": ""
     },
@@ -2228,7 +2228,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "航行加速度計をリセット",
         "korean": "",
         "ukrainian": ""
     },
@@ -2239,7 +2239,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "高機能HUD - トグル切り替え",
         "korean": "",
         "ukrainian": ""
     },
@@ -2250,7 +2250,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "高機能HUD - オン",
         "korean": "",
         "ukrainian": ""
     },
@@ -2261,7 +2261,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "高機能HUD - オフ",
         "korean": "",
         "ukrainian": ""
     },
@@ -2272,7 +2272,7 @@
         "italian": "",
         "spanish": "Activar acelerador cuántico (mantener)",
         "chinese": "启动量子驱动（长按）",
-        "japanese": "",
+        "japanese": "Quantum drive の起動（長押し）",
         "korean": "퀀텀 드라이브 작동 (길게 누르기)",
         "ukrainian": "Увiмкнути квантумний двинун (утримувати)"
     },
@@ -2283,7 +2283,7 @@
         "italian": "",
         "spanish": "Activar modo de atraque",
         "chinese": "切换对接模式",
-        "japanese": "",
+        "japanese": "ドッキングモード切り替え",
         "korean": "도킹 모드 토글",
         "ukrainian": "Перемикач режиму стикування"
     },
@@ -2294,7 +2294,7 @@
         "italian": "",
         "spanish": "Solicitar atraque",
         "chinese": "调用对接",
-        "japanese": "",
+        "japanese": "ドッキング起動",
         "korean": "도킹 요청",
         "ukrainian": "Викликати стикування"
     },
@@ -2305,7 +2305,7 @@
         "italian": "",
         "spanish": "Alternar cámara de atraque",
         "chinese": "切换飞行镜头",
-        "japanese": "",
+        "japanese": "ドッキングカメラ切り替え",
         "korean": "도킹 카메라 토글",
         "ukrainian": "Перемикач камери стикування"
     },
@@ -2316,7 +2316,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "自動ターゲット - オン/オフを切り替え（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -2327,7 +2327,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "自動ターゲット - オン/オフを切り替え（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -2338,7 +2338,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "自動ターゲット - オンに切り替え（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -2349,7 +2349,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "自動ターゲット - オンに切り替え（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -2360,7 +2360,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "自動ターゲット - オフに切り替え（短押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -2371,7 +2371,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "自動ターゲット - オフに切り替え（長押し）",
         "korean": "",
         "ukrainian": ""
     },
@@ -2382,7 +2382,7 @@
         "italian": "",
         "spanish": "Marcar índice 1: fijar/desfijar objetivo marcado",
         "chinese": "探测指数1-锁定/解锁已探测目标",
-        "japanese": "",
+        "japanese": "ピンインデックス1 - 固定されたターゲットのロック/ロック解除",
         "korean": "표식 목록 1 - 표식 설정 대상 잠금/해제",
         "ukrainian": "Помiтка 1 - Фiксацiя помiченоï цiлi (перемик.)"
     },
@@ -2393,7 +2393,7 @@
         "italian": "",
         "spanish": "Marcar índice 2: fijar/desfijar objetivo marcado",
         "chinese": "探测指数2-锁定/解锁已探测目标",
-        "japanese": "",
+        "japanese": "ピンインデックス2 - 固定されたターゲットのロック/アンロック",
         "korean": "표식 목록 2 - 표식 설정 대상 잠금/해제",
         "ukrainian": "Помiтка 2 - Фiксацiя помiченоï цiлi (перемик.)"
     },
@@ -2404,7 +2404,7 @@
         "italian": "",
         "spanish": "Marcar índice 3: fijar/desfijar objetivo marcado",
         "chinese": "探测指数3-锁定/解锁已探测目标",
-        "japanese": "",
+        "japanese": "ピンインデックス3 - 固定されたターゲットのロック/アンロック",
         "korean": "표식 목록 3 - 표식 설정 대상 잠금/해제",
         "ukrainian": "Помiтка 3 - Фiксацiя помiченоï цiлi (перемик.)"
     },
@@ -2415,7 +2415,7 @@
         "italian": "",
         "spanish": "Marcar índice 1: marcar/desmarcar objetivo seleccionado",
         "chinese": "探测指数1-探测/解除探测所选目标",
-        "japanese": "",
+        "japanese": "ピンインデックス1 - 選択されたターゲットのピン/アンピン",
         "korean": "표식 목록 1 - 선택 대상 표식 설정/해제",
         "ukrainian": "Помiтка 1 - Помiчати обрану цiль  (перемик.)"
     },
@@ -2426,7 +2426,7 @@
         "italian": "",
         "spanish": "Marcar índice 2: marcar/desmarcar objetivo seleccionado",
         "chinese": "探测指数2-探测/解除探测所选目标",
-        "japanese": "",
+        "japanese": "ピンインデックス2 - 選択されたターゲットのピン/アンピン",
         "korean": "표식 목록 2 - 선택 대상 표식 설정/해제",
         "ukrainian": "Помiтка 2 - Помiчати обрану цiль  (перемик.)"
     },
@@ -2437,7 +2437,7 @@
         "italian": "",
         "spanish": "Marcar índice 3: marcar/desmarcar objetivo seleccionado",
         "chinese": "探测指数3-探测/解除探测所选目标",
-        "japanese": "",
+        "japanese": "ピンインデックス3 - 選択されたターゲットのピン/アンピン",
         "korean": "표식 목록 3 - 선택 대상 표식 설정/해제",
         "ukrainian": "Помiтка 3 - Помiчати обрану цiль  (перемик.)"
     },
@@ -2448,7 +2448,7 @@
         "italian": "",
         "spanish": "Marcar índice 1: marcar/desmarcar objetivo seleccionado (mantener)",
         "chinese": "探测指数1-探测/解除探测所选目标（长按）",
-        "japanese": "",
+        "japanese": "ピンインデックス1 - ピン/アンピン選択ターゲット(ホールド)",
         "korean": "표식 목록 1 - 선택 대상 표식 설정/해제 (길게 누르기)",
         "ukrainian": "Помiтка 1 - Помiчати обрану цiль  (перемик., утрим.)"
     },
@@ -2459,7 +2459,7 @@
         "italian": "",
         "spanish": "Marcar índice 2: marcar/desmarcar objetivo seleccionado (mantener)",
         "chinese": "探测指数2-探测/解除探测所选目标（长按）",
-        "japanese": "",
+        "japanese": "ピンインデックス2 - ピン/アンピン選択ターゲット(ホールド)",
         "korean": "표식 목록 2 - 선택 대상 표식 설정/해제 (길게 누르기)",
         "ukrainian": "Помiтка 2 - Помiчати обрану цiль  (перемик., утрим.)"
     },
@@ -2470,7 +2470,7 @@
         "italian": "",
         "spanish": "Marcar índice 3: marcar/desmarcar objetivo seleccionado (mantener)",
         "chinese": "探测指数3-探测/解除探测所选目标（长按）",
-        "japanese": "",
+        "japanese": "ピンインデックス3 - ピン/アンピン選択ターゲット(ホールド)",
         "korean": "표식 목록 3 - 선택 대상 표식 설정/해제 (길게 누르기)",
         "ukrainian": "Помiтка 3 - Помiчати обрану цiль  (перемик., утрим.)"
     },
@@ -2481,7 +2481,7 @@
         "italian": "",
         "spanish": "Marcar objetivo seleccionado",
         "chinese": "探测所选目标",
-        "japanese": "",
+        "japanese": "ピン選択されたターゲット",
         "korean": "선택한 목표물 표식 설정",
         "ukrainian": "Помiтити обрану цiль"
     },
@@ -2492,7 +2492,7 @@
         "italian": "",
         "spanish": "Desmarcar objetivo seleccionado (mantener pulsado)",
         "chinese": "取消探测所选目标",
-        "japanese": "",
+        "japanese": "選択したターゲットのアンピン",
         "korean": "선택한 목표물 표식 해제",
         "ukrainian": "Зняти помiтку з обраноï цiлi"
     },
@@ -2503,7 +2503,7 @@
         "italian": "",
         "spanish": "Marcar objetivo seleccionado (mantener)",
         "chinese": "探测所选目标（长按）",
-        "japanese": "",
+        "japanese": "ピンセレクトターゲット（ホールド）",
         "korean": "선택한 목표물 표식 설정 (길게 누르기)",
         "ukrainian": "Помiтити обрану цiль (утрим.)"
     },
@@ -2514,7 +2514,7 @@
         "italian": "",
         "spanish": "Desmarcar objetivo seleccionado (mantener)",
         "chinese": "取消探测所选目标（长按）",
-        "japanese": "",
+        "japanese": "アンピンセレクトターゲット(Hold)",
         "korean": "선택한 목표물 표식 해제 (길게 누르기)",
         "ukrainian": "Зняти помiтку з обраноï цiлi (утрим.)"
     },
@@ -2525,7 +2525,7 @@
         "italian": "",
         "spanish": "Quitar todos los objetivos marcados",
         "chinese": "移除所有已探测目标",
-        "japanese": "",
+        "japanese": "ピン留めされているすべてのターゲットを削除する",
         "korean": "목표물 표식 모두 제거",
         "ukrainian": "Видалити всi помiтки цiлей"
     },
@@ -2536,7 +2536,7 @@
         "italian": "",
         "spanish": "Fijar objetivo seleccionado",
         "chinese": "锁定所选目标",
-        "japanese": "",
+        "japanese": "選択したターゲットをロックする",
         "korean": "선택 대상을 잠금으로 설정합니다.",
         "ukrainian": "Фiксацiя  обраноï цiлi"
     },
@@ -2547,7 +2547,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "ターゲットのロック解除",
         "korean": "",
         "ukrainian": ""
     },
@@ -2558,7 +2558,7 @@
         "italian": "",
         "spanish": "Activar/desactivar vista delantera",
         "chinese": "启用/禁用向前看",
-        "japanese": "",
+        "japanese": "ルックアヘッドを有効/無効にする",
         "korean": "전방 보기 활성화/비활성화",
         "ukrainian": "Спостереження увiмк./вимк."
     },
@@ -2569,7 +2569,7 @@
         "italian": "",
         "spanish": "Activar/desactivar fijado de objetivo (alternar, mantener)",
         "chinese": "启用/禁用目标挂锁（切换、长按）。",
-        "japanese": "",
+        "japanese": "ターゲットパドロックの有効化／無効化（トグル、ホールド）",
         "korean": "목표물 시선 고정 활성화/비활성화 (토글, 길게 누르기)",
         "ukrainian": "Вiдстеження цiлi увiмк./вимк. (перемик., утрим.)"
     },
@@ -2580,7 +2580,7 @@
         "italian": "",
         "spanish": "Activar/desactivar el zoom automático en e objetivo seleccionado (alternar, mantener pulsado)",
         "chinese": "打开/关闭选定目标的自动缩放（开关、长按）",
-        "japanese": "",
+        "japanese": "Auto Zoom On Selected Target On / Off (トグル、ホールド)",
         "korean": "선택한 대상으로 자동 화면 이동 켜기/끄기 (토글, 길게 누르기)",
         "ukrainian": "Автозум на обрану цiль увiмк. / вимк. (перемик., Утрим.)"
     },
@@ -2591,7 +2591,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "レティクル内ターゲットのロックオン",
         "korean": "",
         "ukrainian": ""
     },
@@ -2602,7 +2602,7 @@
         "italian": "",
         "spanish": "Rotar entre fijados (a la vista, atrás)",
         "chinese": "",
-        "japanese": "",
+        "japanese": "サイクルロック - インビュー - バック",
         "korean": "",
         "ukrainian": "Перебiр цiлей - У полi зору - Попередня"
     },
@@ -2613,7 +2613,7 @@
         "italian": "",
         "spanish": "Rotar entre fijados (a la vista, adelante)",
         "chinese": "循环锁定-视角-前",
-        "japanese": "",
+        "japanese": "サイクルロック-インビュー-フォワード",
         "korean": "순환 잠금 - 시야 내 - 앞으로",
         "ukrainian": "Перебiр цiлей - У полi зору - Наступна"
     },
@@ -2624,7 +2624,7 @@
         "italian": "",
         "spanish": "Rotar entre fijados (a la vista, en la retícula)",
         "chinese": "循环锁定-视角-准星视角下",
-        "japanese": "",
+        "japanese": "サイクルロック - インビュー - レチクルの下",
         "korean": "순환 잠금 - 시야 내 - 조준선 상",
         "ukrainian": "Перебiр цiлей - У полi зору - Пiд маркером"
     },
@@ -2635,7 +2635,7 @@
         "italian": "",
         "spanish": "Rotar entre elementos marcados (anterior)",
         "chinese": "循环锁定-已探测-后",
-        "japanese": "",
+        "japanese": "サイクルロック-ピン留め-背面",
         "korean": "순환 잠금 - 표식 - 뒤로",
         "ukrainian": "Перебiр цiлей - Помiченi - Попередня"
     },
@@ -2646,7 +2646,7 @@
         "italian": "",
         "spanish": "Rotar entre elementos marcados (siguiente)",
         "chinese": "循环锁定-已探测-前",
-        "japanese": "",
+        "japanese": "サイクルロック-ピン留め-フォワード",
         "korean": "순환 잠금 - 표식 - 앞으로",
         "ukrainian": "Перебiр цiлей - Помiченi - Наступна"
     },
@@ -2657,7 +2657,7 @@
         "italian": "",
         "spanish": "Rotar entre elementos marcados (volver al primero)",
         "chinese": "循环锁定-已探测-重置为第一目标",
-        "japanese": "",
+        "japanese": "サイクルロック-ピンチ-ファーストにリセット",
         "korean": "순환 잠금 - 표식 - 첫 번째로 재설정",
         "ukrainian": "Перебiр цiлей - Помiченi - Скинути на першу"
     },
@@ -2668,7 +2668,7 @@
         "italian": "",
         "spanish": "Rotar entre atacantes (siguiente)",
         "chinese": "循环锁定-攻击者-后",
-        "japanese": "",
+        "japanese": "サイクルロック-アタッカー-バック",
         "korean": "순환 잠금 - 공격자 - 뒤로",
         "ukrainian": "Перебiр цiлей - Нападники - Попередня"
     },
@@ -2679,7 +2679,7 @@
         "italian": "",
         "spanish": "Rotar entre atacantes (anterior)",
         "chinese": "循环锁定-攻击者-前",
-        "japanese": "",
+        "japanese": "サイクルロック-アタッカー-フォワード",
         "korean": "순환 잠금 - 공격자 - 앞으로",
         "ukrainian": "Перебiр цiлей - Нападники - Наступна"
     },
@@ -2690,7 +2690,7 @@
         "italian": "",
         "spanish": "Rotar entre atacantes (más cercano)",
         "chinese": "循环锁定-攻击者-重置为最近",
-        "japanese": "",
+        "japanese": "サイクルロック - アタッカー - 最も近くにリセットする",
         "korean": "순환 잠금 - 공격자 - 최근접 대상으로 재설정",
         "ukrainian": "Перебiр цiлей - Нападники - Скинути на найближчу"
     },
@@ -2701,7 +2701,7 @@
         "italian": "",
         "spanish": "Rotar entre hostiles (anterior)",
         "chinese": "循环锁定-敌军-后",
-        "japanese": "",
+        "japanese": "サイクルロック - 敵対者 - 背面",
         "korean": "순환 잠금 - 적대 - 뒤로",
         "ukrainian": "Перебiр цiлей - Ворожi - Попередня"
     },
@@ -2712,7 +2712,7 @@
         "italian": "",
         "spanish": "Rotar entre hostiles (siguiente)",
         "chinese": "循环锁定-敌军-前",
-        "japanese": "",
+        "japanese": "サイクルロック-敵対者-前進",
         "korean": "순환 잠금 - 적대 - 앞으로",
         "ukrainian": "Перебiр цiлей - Ворожi - Наступна"
     },
@@ -2723,7 +2723,7 @@
         "italian": "",
         "spanish": "Rotar entre hostiles (más cercano)",
         "chinese": "循环锁定-敌军-重置为最近",
-        "japanese": "",
+        "japanese": "サイクルロック-敵対者-最接近に戻す",
         "korean": "순환 잠금 - 적대 - 최근접 대상으로 재설정",
         "ukrainian": "Перебiр цiлей - Ворожi - Скинути на найближчу"
     },
@@ -2734,7 +2734,7 @@
         "italian": "",
         "spanish": "Rotar entre aliados (anterior)",
         "chinese": "循环锁定-友军-后",
-        "japanese": "",
+        "japanese": "サイクルロック - フレンドリー - バック",
         "korean": "순환 잠금 - 우호 - 뒤로",
         "ukrainian": "Перебiр цiлей - Дружнi - Попередня"
     },
@@ -2745,7 +2745,7 @@
         "italian": "",
         "spanish": "Rotar entre aliados (siguiente)",
         "chinese": "循环锁定-友军-前",
-        "japanese": "",
+        "japanese": "サイクルロック - フレンドリー - フォワード",
         "korean": "순환 잠금 - 우호 - 앞으로",
         "ukrainian": "Перебiр цiлей - Дружнi - Наступна"
     },
@@ -2756,7 +2756,7 @@
         "italian": "",
         "spanish": "Rotar entre aliados (más cercano)",
         "chinese": "循环锁定-友军-重置为最近",
-        "japanese": "",
+        "japanese": "サイクルロック - フレンドリー - リセットトゥクローズ",
         "korean": "순환 잠금 - 우호 - 최근접 대상으로 재설정",
         "ukrainian": "Перебiр цiлей - Дружнi - Скинути на найближчу"
     },
@@ -2767,7 +2767,7 @@
         "italian": "",
         "spanish": "Rotar entre todos los elementos (anterior)",
         "chinese": "循环锁定-全部-后",
-        "japanese": "",
+        "japanese": "ロック切り替え - すべて - 後方",
         "korean": "순환 잠금 - 전체 - 뒤로",
         "ukrainian": "Перебiр цiлей - Всi - Попередня"
     },
@@ -2778,7 +2778,7 @@
         "italian": "",
         "spanish": "Rotar entre todos los elementos (siguiente)",
         "chinese": "循环锁定-全部-前",
-        "japanese": "",
+        "japanese": "ロック切り替え - すべて - 前方",
         "korean": "순환 잠금 - 전체 - 앞으로",
         "ukrainian": "Перебiр цiлей - Всi - Наступна"
     },
@@ -2789,7 +2789,7 @@
         "italian": "",
         "spanish": "Rotar entre todos los elementos (más cercano)",
         "chinese": "循环锁定-全部-重置为最近",
-        "japanese": "",
+        "japanese": "ロック切り替え - すべて - 最も近いものにリセット",
         "korean": "순환 잠금 - 전체 - 최근접 대상으로 재설정",
         "ukrainian": "Перебiр цiлей - Всi - Скинути на найближчу"
     },
@@ -2800,7 +2800,7 @@
         "italian": "",
         "spanish": "Rotar entre subobjetivos marcados (anterior)",
         "chinese": "循环锁定-子目标-后",
-        "japanese": "",
+        "japanese": "サイクルロック-サブターゲット-バック",
         "korean": "순환 잠금 - 하위 목표물 - 뒤로",
         "ukrainian": "Перебiр цiлей - Субцiль - Попередня"
     },
@@ -2811,7 +2811,7 @@
         "italian": "",
         "spanish": "Rotar entre subobjetivos marcados (siguiente)",
         "chinese": "循环锁定-子目标-前",
-        "japanese": "",
+        "japanese": "サイクルロック-サブターゲット-フォワード",
         "korean": "순환 잠금 - 하위 목표물 - 앞으로",
         "ukrainian": "Перебiр цiлей - Субцiль - Наступна"
     },
@@ -2822,7 +2822,7 @@
         "italian": "",
         "spanish": "Rotar entre subobjetivos marcados (volver a objetivo principal)",
         "chinese": "循环锁定-子目标-重置为主目标",
-        "japanese": "",
+        "japanese": "サイクルロック-サブターゲット-メインターゲットへのリセット",
         "korean": "순환 잠금 - 주요 목표물로 재설정",
         "ukrainian": "Перебiр цiлей - Субцiль - Скинути на головну"
     },
@@ -2833,7 +2833,7 @@
         "italian": "",
         "spanish": "Hacer contacto con objetivo",
         "chinese": "问候目标",
-        "japanese": "",
+        "japanese": "ヘイルターゲット",
         "korean": "대상 호출",
         "ukrainian": "Привiтати цiль"
     },
@@ -2844,7 +2844,7 @@
         "italian": "",
         "spanish": "Activar centella",
         "chinese": "激活Ping",
-        "japanese": "",
+        "japanese": "Pingの有効化",
         "korean": "핑 활성화",
         "ukrainian": "Активувати iмпульс (утрим. i вiдпустити)"
     },
@@ -2855,7 +2855,7 @@
         "italian": "",
         "spanish": "Activar escaneado",
         "chinese": "启动扫描",
-        "japanese": "",
+        "japanese": "スキャニングを有効にする",
         "korean": "스캐닝 활성화",
         "ukrainian": "Активацiя сканера"
     },
@@ -2866,7 +2866,7 @@
         "italian": "",
         "spanish": "Aumentar el ángulo de escaneo",
         "chinese": "扩大扫描角度",
-        "japanese": "",
+        "japanese": "スキャン角度を大きくする",
         "korean": "스캐닝 투사각 확장",
         "ukrainian": "Збiльшення кута сканування"
     },
@@ -2877,7 +2877,7 @@
         "italian": "",
         "spanish": "Reducir el ángulo de escaneo",
         "chinese": "缩小扫描角度",
-        "japanese": "",
+        "japanese": "走査角度を小さくする",
         "korean": "스캐닝 투사각 축소",
         "ukrainian": "Зменшення кута сканування"
     },
@@ -2888,7 +2888,7 @@
         "italian": "",
         "spanish": "Disparar láser de minería (alternar)",
         "chinese": "发射开采激光（开关）",
-        "japanese": "",
+        "japanese": "マイニングレーザー 照射（トグル）",
         "korean": "채광 레이저를 발사합니다. (토글)",
         "ukrainian": "Видобувний лазер (перемик.)"
     },
@@ -2899,7 +2899,7 @@
         "italian": "",
         "spanish": "Cambiar láser de minería (alternar)",
         "chinese": "切换开采激光（开关）",
-        "japanese": "",
+        "japanese": "マイニングレーザー 切り替え（トグル）",
         "korean": "채광 레이저를 전환합니다. (토글)",
         "ukrainian": "Змiна режиму видобувного лазера (перемик.)"
     },
@@ -2910,7 +2910,7 @@
         "italian": "",
         "spanish": "Aumentar potencia del láser de minería",
         "chinese": "增大开采激光功率",
-        "japanese": "",
+        "japanese": "採掘レーザー 出力上昇",
         "korean": "채광 레이저의 위력이 증가합니다.",
         "ukrainian": "Пiдвищити потужнiсть видобувного лазера"
     },
@@ -2921,7 +2921,7 @@
         "italian": "",
         "spanish": "Reduce la potencia del láser de minería.",
         "chinese": "减小开采激光功率",
-        "japanese": "",
+        "japanese": "採掘レーザー 出力低下",
         "korean": "채광 레이저의 위력이 감소합니다.",
         "ukrainian": "Знизити потужнiсть видобувного лазера"
     },
@@ -2932,7 +2932,7 @@
         "italian": "",
         "spanish": "Aumenta o reduce la potencia del láser de minería.",
         "chinese": "增大/减小开采激光功率",
-        "japanese": "",
+        "japanese": "採掘レーザー 出力上昇 / 低下",
         "korean": "채광 레이저 위력이 증가하거나 감소합니다.",
         "ukrainian": "Пiдвищити / знизити потужнiсть видобувного лазера"
     },
@@ -2943,7 +2943,7 @@
         "italian": "",
         "spanish": "Activar módulo de minería (ranura 1)",
         "chinese": "激活挖矿配件（槽1）",
-        "japanese": "",
+        "japanese": "採掘モジュール（スロット1）の起動",
         "korean": "채광 모듈 활성화 (슬롯 1)",
         "ukrainian": "Увiмкнути видобувний модуль (Слот 1)"
     },
@@ -2954,7 +2954,7 @@
         "italian": "",
         "spanish": "Activar módulo de minería (ranura 2)",
         "chinese": "激活挖矿配件（槽2）",
-        "japanese": "",
+        "japanese": "採掘モジュール（スロット2）の起動",
         "korean": "채광 모듈 활성화 (슬롯 2)",
         "ukrainian": "Увiмкнути видобувний модуль (Слот 2)"
     },
@@ -2965,7 +2965,7 @@
         "italian": "",
         "spanish": "Activar módulo de minería (ranura 3)",
         "chinese": "激活挖矿配件（槽3）",
-        "japanese": "",
+        "japanese": "採掘モジュール（スロット3）の起動",
         "korean": "채광 모듈 활성화 (슬롯 3)",
         "ukrainian": "Увiмкнути видобувний модуль (Слот 3)"
     },
@@ -2976,7 +2976,7 @@
         "italian": "",
         "spanish": "Deshacerse de la carga",
         "chinese": "杰蒂森货运",
-        "japanese": "",
+        "japanese": "カーゴのジェットソン",
         "korean": "화물 버리기",
         "ukrainian": "Скинути вантаж"
     },
@@ -3064,7 +3064,7 @@
         "italian": "",
         "spanish": "Alternar cardán de modo recuperación",
         "chinese": "打捞模式转台切换",
-        "japanese": "",
+        "japanese": "サルベージモードジンバル（切り替え）",
         "korean": "인양 모드 짐벌 (토글)",
         "ukrainian": "Режим утилiзацiï рухомого шарнiру (перемикач)"
     },
@@ -3075,7 +3075,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "サルベージモードジンバルのリセット",
         "korean": "",
         "ukrainian": ""
     },
@@ -3086,7 +3086,7 @@
         "italian": "",
         "spanish": "Aumentar dispersión de rayo",
         "chinese": "增加梁间距",
-        "japanese": "",
+        "japanese": "ビーム間隔を増やす",
         "korean": "빔 간격 확장",
         "ukrainian": "Збiльшення вiдстанi мiж променями"
     },
@@ -3097,7 +3097,7 @@
         "italian": "",
         "spanish": "Reducir dispersión de rayo",
         "chinese": "减少梁间距",
-        "japanese": "",
+        "japanese": "ビーム間隔を減らす",
         "korean": "빔 간격 축소",
         "ukrainian": "Зменшення вiдстанi мiж променями"
     },
@@ -3108,7 +3108,7 @@
         "italian": "",
         "spanish": "Dispersión de rayo relativa",
         "chinese": "梁间距相对值",
-        "japanese": "",
+        "japanese": "相対ビーム間隔",
         "korean": "빔 간격 (상대)",
         "ukrainian": "Вiдносна вiдстань мiж променями"
     },
@@ -3119,7 +3119,7 @@
         "italian": "",
         "spanish": "Dispersión de rayo absoluta",
         "chinese": "梁间距绝对值",
-        "japanese": "",
+        "japanese": "絶対ビーム間隔",
         "korean": "빔 간격 (절대)",
         "ukrainian": "Абсолютна вiдстань мiж променями"
     },
@@ -3130,7 +3130,7 @@
         "italian": "",
         "spanish": "Eje del rayo de recuperación (alternar)",
         "chinese": "打捞模式打捞梁轴切换",
-        "japanese": "",
+        "japanese": "サルベージビーム軸（切り替え）",
         "korean": "",
         "ukrainian": "Вiсь утилiзацiйного променя (перемикач)"
     },
@@ -3152,7 +3152,7 @@
         "italian": "",
         "spanish": "Rotar entre modificadores de recuperación izquierdos",
         "chinese": "左侧循环修改器",
-        "japanese": "",
+        "japanese": "左のサルベージモディファイアを切り替え",
         "korean": "",
         "ukrainian": "Cycle Left Salvage Modifiers"
     },
@@ -3163,7 +3163,7 @@
         "italian": "",
         "spanish": "Rotar entre modificadores de recuperación derechos",
         "chinese": "右侧循环修改器",
-        "japanese": "",
+        "japanese": "右のサルベージモディファイアを切り替え",
         "korean": "",
         "ukrainian": "Cycle Right Salvage Modifiers"
     },
@@ -3328,7 +3328,7 @@
         "italian": "",
         "spanish": "Alternar movimiento con ratón en torreta (VJoy, primera persona)",
         "chinese": "切换炮塔鼠标活动（VJoy，FPS风格）",
-        "japanese": "",
+        "japanese": "タレットマウス移動のトグル（VJoy、FPSスタイル）",
         "korean": "포탑 마우스 동작 토글 (가상 조이스틱, FPS 방식)",
         "ukrainian": "Перемикач рухiв туреллю мишою (Вiрт.Джой, огляд)"
     },
@@ -3383,7 +3383,7 @@
         "italian": "",
         "spanish": "Abandonar torreta remota",
         "chinese": "退出远程炮塔",
-        "japanese": "",
+        "japanese": "リモートタレットから離れる",
         "korean": "원격 포탑 나가기",
         "ukrainian": "Покинути безпiлотну турель"
     },
@@ -3394,7 +3394,7 @@
         "italian": "",
         "spanish": "Estabilización giroscópica de torreta (alternar)",
         "chinese": "炮塔陀螺稳定（开关）",
-        "japanese": "",
+        "japanese": "タレットジャイロスタビライゼーション（トグル式）",
         "korean": "포탑의 자이로를 안정화합니다. (토글)",
         "ukrainian": "Гiроскопiчна стабiлiзацiя турелi (перемик.)"
     },
@@ -3405,7 +3405,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "次のリモートタレット",
         "korean": "",
         "ukrainian": ""
     },
@@ -3416,7 +3416,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "前のリモートタレット",
         "korean": "",
         "ukrainian": ""
     },
@@ -3427,7 +3427,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "E.S.P.のオン/オフのトグル",
         "korean": "",
         "ukrainian": "Турель П.Т.С. Перемикач увiмк/вимк"
     },
@@ -3438,7 +3438,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "タレット E.S.P. - 一時的に有効化（ホールド）",
         "korean": "",
         "ukrainian": "Турель П.Т.С.. - тимчасово увiмкнено (Утримувати)"
     },
@@ -3449,7 +3449,7 @@
         "italian": "",
         "spanish": "Centrar torreta (mantener pulsado)",
         "chinese": "后座炮塔（长按）",
-        "japanese": "",
+        "japanese": "タレットリセンター（ホールド）",
         "korean": "포탑 카메라 중앙 재설정(길게 누르기)",
         "ukrainian": "Центровка турелi (утрим.)"
     },
@@ -3460,7 +3460,7 @@
         "italian": "",
         "spanish": "Limitador de velocidad de torreta: encendido/apagado (mantener/alternar)",
         "chinese": "转台-限速器-开/关（长按/切换）",
-        "japanese": "",
+        "japanese": "タレット-スピードリミッター-オン/オフ（ホールド/トグル）",
         "korean": "포탑 - 속도 제한 - 켜기/끄기 (길게 누르기/토글)",
         "ukrainian": "Турель - Обмежувач швидкостi - Увiмк. / Вимк. (утрим., перемик.)"
     },
@@ -3471,7 +3471,7 @@
         "italian": "",
         "spanish": "Limitador de velocidad de torreta (rel.)Reduce o aumenta la",
         "chinese": "炮塔-限速器（相对值）",
-        "japanese": "",
+        "japanese": "タレット - 速度リミッター（相対）",
         "korean": "포탑 - 속도 제한 (상대)",
         "ukrainian": "Турель - Обмежувач швидкостi (вiдн.)"
     },
@@ -3482,7 +3482,7 @@
         "italian": "",
         "spanish": "Limitador de velocidad de torreta: incrementar (rel.)",
         "chinese": "炮塔-限速器-调高（相对）",
-        "japanese": "",
+        "japanese": "タレット - 速度リミッター - 増加（相対）",
         "korean": "포탑 - 속도 제한 - 증가 (상대)",
         "ukrainian": "Турель - Обмежувач швидкостi - Збiльшити (вiдн.)"
     },
@@ -3493,7 +3493,7 @@
         "italian": "",
         "spanish": "Limitador de velocidad de torreta: reducir (rel.)",
         "chinese": "炮塔-限速器-调低（相对）",
-        "japanese": "",
+        "japanese": "タレット - 速度リミッター - 減少（相対）",
         "korean": "포탑 - 속도 제한 - 감소 (상대)",
         "ukrainian": "Турель - Обмежувач швидкостi - Зменшити (вiдн.)"
     },
@@ -3504,7 +3504,7 @@
         "italian": "",
         "spanish": "Limitador de velocidad de torreta (abs.)",
         "chinese": "炮塔-限速器（绝对值）",
-        "japanese": "",
+        "japanese": "タレット - 速度リミッター（絶対）",
         "korean": "포탑 - 속도 제한 (절대)",
         "ukrainian": "Турель - Обмежувач швидкостi (абс.)"
     },
@@ -3515,7 +3515,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "タレット位置の変更",
         "korean": "",
         "ukrainian": ""
     },
@@ -3647,7 +3647,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "エイムアシスト抑制（ホールド）",
         "korean": "",
         "ukrainian": "Suppress Aim Assists (Hold)"
     },
@@ -3658,7 +3658,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "機体予測 PIP / 着弾予測 PIP の切り替え",
         "korean": "",
         "ukrainian": "Toggle Lead / Lag PIPs"
     },
@@ -3669,7 +3669,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "着弾予測 PIP に設定",
         "korean": "",
         "ukrainian": "Set Lag PIPs"
     },
@@ -3680,7 +3680,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "機体予測 PIP に設定",
         "korean": "",
         "ukrainian": "Set Lead PIPs"
     },
@@ -3691,7 +3691,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "PIPコンビネーションタイプ：切り替え",
         "korean": "",
         "ukrainian": "PIP Combination Type: Toggle"
     },
@@ -3702,7 +3702,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "PIPコンビネーションタイプ：武器ごとに1つのPIPを設定する",
         "korean": "",
         "ukrainian": "PIP Combination Type: Set One PIP Per Weapon"
     },
@@ -3713,7 +3713,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "PIPコンビネーションタイプ：同じ武器種ごとに 1 つの PIP",
         "korean": "",
         "ukrainian": "PIP Combination Type: Set One PIP Per Weapon Type"
     },
@@ -3724,7 +3724,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "PIP 精密ライン 切り替え",
         "korean": "",
         "ukrainian": ""
     },
@@ -3735,7 +3735,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "PIP 精密ライン オン",
         "korean": "",
         "ukrainian": ""
     },
@@ -3746,7 +3746,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "PIP 精密ライン オフ",
         "korean": "",
         "ukrainian": ""
     },
@@ -3757,7 +3757,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "PIP のフェード消失 切り替え（トグル）",
         "korean": "",
         "ukrainian": ""
     },
@@ -3768,7 +3768,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "PIP のフェード消失 オン",
         "korean": "",
         "ukrainian": ""
     },
@@ -3779,7 +3779,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "PIP のフェード消失 オフ",
         "korean": "",
         "ukrainian": ""
     },
@@ -3790,7 +3790,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "砲主 UI の拡大 切り替え",
         "korean": "",
         "ukrainian": ""
     },
@@ -3801,7 +3801,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "砲主 UI の拡大 オン",
         "korean": "",
         "ukrainian": ""
     },
@@ -3812,7 +3812,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "砲主 UI の拡大 オフ",
         "korean": "",
         "ukrainian": ""
     },
@@ -3823,7 +3823,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "手動集束距離（相対）",
         "korean": "",
         "ukrainian": "Manual Convergence Distance (rel.)"
     },
@@ -3834,7 +3834,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "手動集束距離 - 増加",
         "korean": "",
         "ukrainian": "Manual Convergence Distance - Increase"
     },
@@ -3845,7 +3845,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "手動集束距離 - 減少",
         "korean": "",
         "ukrainian": "Manual Convergence Distance - Decrease"
     },
@@ -3856,7 +3856,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "手動集束距離（絶対）",
         "korean": "",
         "ukrainian": "Manual Convergence Distance (abs.)"
     },
@@ -3867,7 +3867,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "手動集束距離 - リセット",
         "korean": "",
         "ukrainian": "Manual Convergence Distance - Reset"
     },
@@ -3878,7 +3878,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "兵装プリセット - 射撃",
         "korean": "",
         "ukrainian": ""
     },
@@ -3889,7 +3889,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "兵装プリセット - 銃砲グループ 1 を発砲",
         "korean": "",
         "ukrainian": ""
     },
@@ -3900,7 +3900,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "兵装プリセット - 銃砲グループ 2 を発砲",
         "korean": "",
         "ukrainian": ""
     },
@@ -3911,7 +3911,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "兵装プリセット - 銃砲グループ 3 を発砲",
         "korean": "",
         "ukrainian": ""
     },
@@ -3922,7 +3922,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "兵装プリセット - 銃砲グループ 4 を発砲",
         "korean": "",
         "ukrainian": ""
     },
@@ -3933,7 +3933,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "兵装プリセット - 次",
         "korean": "",
         "ukrainian": ""
     },
@@ -3944,7 +3944,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "兵装プリセット - 前",
         "korean": "",
         "ukrainian": ""
     },
@@ -3955,7 +3955,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "兵装プリセット - 次へ（オーバーフロー）",
         "korean": "",
         "ukrainian": ""
     },
@@ -3966,7 +3966,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "兵装プリセット - 前へ（オーバーフロー）",
         "korean": "",
         "ukrainian": ""
     },
@@ -3977,7 +3977,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "兵装プリセット - 銃砲グループ 1 に設定",
         "korean": "",
         "ukrainian": ""
     },
@@ -3988,7 +3988,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "兵装プリセット - 銃砲グループ 2 に設定",
         "korean": "",
         "ukrainian": ""
     },
@@ -3999,7 +3999,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "兵装プリセット - 銃砲グループ 3 に設定",
         "korean": "",
         "ukrainian": ""
     },
@@ -4010,7 +4010,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "兵装プリセット - 銃砲グループ 4 に設定",
         "korean": "",
         "ukrainian": ""
     },
@@ -4021,7 +4021,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "兵装プリセット - EMPを設定",
         "korean": "",
         "ukrainian": ""
     },
@@ -4032,7 +4032,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "兵装プリセット - Quantum Jammer（短距離）を設定",
         "korean": "",
         "ukrainian": ""
     },
@@ -4043,7 +4043,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "兵装プリセット - Quantum Snare / パルス（長距離）を設定",
         "korean": "",
         "ukrainian": ""
     },
@@ -4054,7 +4054,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "兵装プリセット - QIDを設定",
         "korean": "",
         "ukrainian": ""
     },
@@ -4065,7 +4065,7 @@
         "italian": "",
         "spanish": "Lanzar misiles (tocar)",
         "chinese": "发射导弹（轻触）",
-        "japanese": "",
+        "japanese": "ミサイル発射（タップ）",
         "korean": "미사일 발사 (누르기)",
         "ukrainian": "Запустити ракети (натисн.)"
     },
@@ -4076,7 +4076,7 @@
         "italian": "",
         "spanish": "Lanzar misil (mantener)",
         "chinese": "发射导弹（长按）",
-        "japanese": "",
+        "japanese": "ミサイル発射（長押し）",
         "korean": "미사일 발사 (길게 누르기)",
         "ukrainian": "Запустити ракети (утрим.)"
     },
@@ -4087,7 +4087,7 @@
         "italian": "",
         "spanish": "Rotar al tipo de misil siguiente",
         "chinese": "循环下一导弹类型",
-        "japanese": "",
+        "japanese": "次のミサイルに切り替え",
         "korean": "다음 미사일 유형 순환",
         "ukrainian": "Циклiчне перемик. до наступного типу ракет"
     },
@@ -4098,7 +4098,7 @@
         "italian": "",
         "spanish": "Rotar al tipo de misil anterior",
         "chinese": "循环前一导弹类型",
-        "japanese": "",
+        "japanese": "前のミサイルに切り替え",
         "korean": "이전 미사일 유형 순환",
         "ukrainian": "Циклiчне перемик. до попереднього типу ракет"
     },
@@ -4109,7 +4109,7 @@
         "italian": "",
         "spanish": "Aumentar cantidad de misiles armados",
         "chinese": "增加武装导弹数量",
-        "japanese": "",
+        "japanese": "ミサイル発射数を増やす",
         "korean": "탑재 미사일 수 증가",
         "ukrainian": "Збiльшити к-сть озброeних ракет"
     },
@@ -4120,7 +4120,7 @@
         "italian": "",
         "spanish": "Reducir cantidad de misiles armados",
         "chinese": "减少武装导弹数量",
-        "japanese": "",
+        "japanese": "ミサイル発射数を減らす",
         "korean": "탑재 미사일 수 감소",
         "ukrainian": "Зменшити к-сть озброeних ракет"
     },
@@ -4131,7 +4131,7 @@
         "italian": "",
         "spanish": "Restablecer cantidad de misiles armados",
         "chinese": "重置武装导弹数量",
-        "japanese": "",
+        "japanese": "ミサイル発射数のリセット",
         "korean": "탑재 미사일 수 초기화",
         "ukrainian": "Скинути к-сть озброeних ракет"
     },
@@ -4164,7 +4164,7 @@
         "italian": "",
         "spanish": "Bombas: aumentar alcance del HUD",
         "chinese": "炸弹-增大透明面板范围",
-        "japanese": "",
+        "japanese": "爆弾 - HUDの射程距離の増加",
         "korean": "폭탄 - HUD 범위 증가",
         "ukrainian": "Бомби - Збiльшити зону"
     },
@@ -4175,7 +4175,7 @@
         "italian": "",
         "spanish": "Bombas: reducir alcance del HUD",
         "chinese": "炸弹-缩小透明面板范围",
-        "japanese": "",
+        "japanese": "爆弾 - HUDの射程距離の減少",
         "korean": "폭탄 - HUD 범위 감소",
         "ukrainian": "Бомби - Зменшити зону"
     },
@@ -4186,7 +4186,7 @@
         "italian": "",
         "spanish": "Bombas: reiniciar alcance del HUD",
         "chinese": "炸弹-重置透明面板范围",
-        "japanese": "",
+        "japanese": "爆弾 - HUD射程距離のリセット",
         "korean": "폭탄 - HUD 범위 초기화",
         "ukrainian": "Бомби - Скинути зону"
     },
@@ -4219,7 +4219,7 @@
         "italian": "",
         "spanish": "Señuelo: lanzar ráfaga (tocar), preparar y lanzar ráfaga (mantener)",
         "chinese": "诱饵-发起爆破（轻触），设置及发起爆破（长按）",
-        "japanese": "",
+        "japanese": "デコイ - バースト発射（タップ）、設定とバースト発射（ホールド）",
         "korean": "유인체 - 방출(누르기), 준비 및 방출(길게 누르기)",
         "ukrainian": "Тепл. пастки - Запустити серiю (натисн.), Вибрати та запустити серiю (утрим.)"
     },
@@ -4230,7 +4230,7 @@
         "italian": "",
         "spanish": "Señuelo: aumentar tamaño de ráfaga (tocar)",
         "chinese": "诱饵-增加爆破大小（轻触）",
-        "japanese": "",
+        "japanese": "デコイ - バーストの弾数増加（タップ）",
         "korean": "유인체 - 방출 크기 증가 (누르기)",
         "ukrainian": "Тепл. пастки - Збiльшити серiю (натиснiть)"
     },
@@ -4241,7 +4241,7 @@
         "italian": "",
         "spanish": "Señuelo: reducir tamaño de ráfaga (tocar)",
         "chinese": "诱饵-减小爆破大小（轻触）",
-        "japanese": "",
+        "japanese": "デコイ - バーストの弾数減少（タップ）",
         "korean": "유인체 - 방출 크기 감소 (누르기)",
         "ukrainian": "Тепл. пастки - Зменшити серiю (натиснiть)"
     },
@@ -4252,7 +4252,7 @@
         "italian": "",
         "spanish": "Señuelo: lanzamiento de urgencia (tocar)",
         "chinese": "诱饵-恐慌发射（轻触）",
-        "japanese": "",
+        "japanese": "デコイ - 緊急射出（タップ）",
         "korean": "유인체 - 긴급 대량 발사 (누르기)",
         "ukrainian": "Тепл. пастки - Панiчна серiя (натиснiть)"
     },
@@ -4263,7 +4263,7 @@
         "italian": "",
         "spanish": "Ruido: emitir (tocar)",
         "chinese": "噪音-部署（轻触）",
-        "japanese": "",
+        "japanese": "ノイズ - Deploy (Tap)",
         "korean": "노이즈 - 전개 (누르기)",
         "ukrainian": "Шум. пастки - Розгортання (натисн.)"
     },
@@ -4274,7 +4274,7 @@
         "italian": "",
         "spanish": "Subir nivel de escudo frontal",
         "chinese": "护盾前部等级提升",
-        "japanese": "",
+        "japanese": "前部シールド強化",
         "korean": "전면 방어막 수준 상승",
         "ukrainian": "Пiдняти рiвень переднього щита"
     },
@@ -4285,7 +4285,7 @@
         "italian": "",
         "spanish": "Subir nivel de escudo trasero",
         "chinese": "护盾后部等级提升",
-        "japanese": "",
+        "japanese": "背面シールド強化",
         "korean": "후면 방어막 수준 상승",
         "ukrainian": "Пiдняти рiвень заднього щита"
     },
@@ -4296,7 +4296,7 @@
         "italian": "",
         "spanish": "Subir nivel de escudo izquierdo",
         "chinese": "护盾左侧等级提升",
-        "japanese": "",
+        "japanese": "左舷シールド強化",
         "korean": "좌현 방어막 수준 상승",
         "ukrainian": "Пiдняти рiвень лiвого щита"
     },
@@ -4307,7 +4307,7 @@
         "italian": "",
         "spanish": "Subir nivel de escudo derecho",
         "chinese": "护盾右侧等级提升",
-        "japanese": "",
+        "japanese": "右舷シールド強化",
         "korean": "우현 방어막 수준 상승",
         "ukrainian": "Пiдняти рiвень правого щита"
     },
@@ -4318,7 +4318,7 @@
         "italian": "",
         "spanish": "Subir nivel de escudo superior",
         "chinese": "护盾顶部等级提升",
-        "japanese": "",
+        "japanese": "上部シールド強化",
         "korean": "상단 방어막 수준 상승",
         "ukrainian": "Пiдняти рiвень верхнього щита"
     },
@@ -4329,7 +4329,7 @@
         "italian": "",
         "spanish": "Subir nivel de escudo inferior",
         "chinese": "护盾底部等级提升",
-        "japanese": "",
+        "japanese": "底面シールド強化",
         "korean": "하단 방어막 수준 상승",
         "ukrainian": "Пiдняти рiвень нижнього щита"
     },
@@ -4340,7 +4340,7 @@
         "italian": "",
         "spanish": "Restablecer niveles de escudo",
         "chinese": "护盾等级重置",
-        "japanese": "",
+        "japanese": "シールドリセットレベル",
         "korean": "방어막 수준 초기화",
         "ukrainian": "Скинути рiвнi щитiв"
     },
@@ -4351,7 +4351,7 @@
         "italian": "",
         "spanish": "Alternar energía: todo",
         "chinese": "切换能源-全部",
-        "japanese": "",
+        "japanese": "電源の切り替え - すべて",
         "korean": "모든 동력을 켜거나 끄기",
         "ukrainian": "Перемикач живлення - Все"
     },
@@ -4362,7 +4362,7 @@
         "italian": "",
         "spanish": "Activar energía",
         "chinese": "设置开启能源",
-        "japanese": "",
+        "japanese": "電源オン",
         "korean": "동력을 켭니다.",
         "ukrainian": "Увiмкнення живлення"
     },
@@ -4373,7 +4373,7 @@
         "italian": "",
         "spanish": "Desactivar energía",
         "chinese": "设置关闭能源",
-        "japanese": "",
+        "japanese": "電源オフ",
         "korean": "동력을 끕니다.",
         "ukrainian": "Вимкнення живлення"
     },
@@ -4384,7 +4384,7 @@
         "italian": "",
         "spanish": "Alternar energía: propulsores",
         "chinese": "开关能源-推进器",
-        "japanese": "",
+        "japanese": "電源の切り替え - スラスター",
         "korean": "동력 토글 - 추진기",
         "ukrainian": "Живлення дигунiв (перемик.)"
     },
@@ -4395,7 +4395,7 @@
         "italian": "",
         "spanish": "Activar propulsores",
         "chinese": "设置开启推进器能源",
-        "japanese": "",
+        "japanese": "スラスター用電源 オン",
         "korean": "추진기 동력을 켭니다.",
         "ukrainian": "Увiмкнення живлення двигунiв"
     },
@@ -4406,7 +4406,7 @@
         "italian": "",
         "spanish": "Desactivar propulsores",
         "chinese": "设置关闭推进器能源",
-        "japanese": "",
+        "japanese": "スラスター用電源 オフ",
         "korean": "추진기 동력을 끕니다.",
         "ukrainian": "Вимкнення живлення двигунiв"
     },
@@ -4417,7 +4417,7 @@
         "italian": "",
         "spanish": "Alternar energía: escudos",
         "chinese": "开关能源-护盾",
-        "japanese": "",
+        "japanese": "電源の切り替え - シールド",
         "korean": "동력 토글 - 방어막",
         "ukrainian": "Живлення щитiв (перемик.)"
     },
@@ -4428,7 +4428,7 @@
         "italian": "",
         "spanish": "Activar escudos",
         "chinese": "设置开启护盾能源",
-        "japanese": "",
+        "japanese": "シールド用電源オン",
         "korean": "방어막 동력을 켭니다.",
         "ukrainian": "Увiмкнення живлення щитiв"
     },
@@ -4439,7 +4439,7 @@
         "italian": "",
         "spanish": "Desactivar escudos",
         "chinese": "设置关闭护盾能源",
-        "japanese": "",
+        "japanese": "シールド用電源オフ",
         "korean": "방어막 동력을 끕니다.",
         "ukrainian": "Вимкнення живлення щитiв"
     },
@@ -4450,7 +4450,7 @@
         "italian": "",
         "spanish": "Alternar energía: armas",
         "chinese": "开关能源-武器",
-        "japanese": "",
+        "japanese": "電源の切り替え - 兵装",
         "korean": "동력 토글 - 무기",
         "ukrainian": "Живлення зброï (перемик.)"
     },
@@ -4461,7 +4461,7 @@
         "italian": "",
         "spanish": "Activar armas",
         "chinese": "设置开启武器能源",
-        "japanese": "",
+        "japanese": "兵装用電源オン",
         "korean": "무기 동력을 켭니다.",
         "ukrainian": "Увiмкнення живлення озброeння"
     },
@@ -4472,7 +4472,7 @@
         "italian": "",
         "spanish": "Desactivar armas",
         "chinese": "设置关闭武器能源",
-        "japanese": "",
+        "japanese": "兵装用電源オフ",
         "korean": "무기 동력을 끕니다.",
         "ukrainian": "Вимкнення живлення озброeння"
     },
@@ -4483,7 +4483,7 @@
         "italian": "",
         "spanish": "Reducir aceleración",
         "chinese": "减小油门",
-        "japanese": "",
+        "japanese": "スロットル減少",
         "korean": "스로틀 축소",
         "ukrainian": "Зменшити тягу"
     },
@@ -4494,7 +4494,7 @@
         "italian": "",
         "spanish": "Reducir aceleración al mín.",
         "chinese": "减速至最低",
-        "japanese": "",
+        "japanese": "スロットル最小化",
         "korean": "스로틀 최소로 축소",
         "ukrainian": "Зменшити тягу до мiн."
     },
@@ -4505,7 +4505,7 @@
         "italian": "",
         "spanish": "Aumentar aceleración",
         "chinese": "加大油门",
-        "japanese": "",
+        "japanese": "スロットル増加",
         "korean": "스로틀 확장",
         "ukrainian": "Збiльшити тягу"
     },
@@ -4516,7 +4516,7 @@
         "italian": "",
         "spanish": "Aumentar aceleración al máx.",
         "chinese": "加速至最高",
-        "japanese": "",
+        "japanese": "スロットル最大化",
         "korean": "스로틀 최대로 확장",
         "ukrainian": "Збiльшити тягу до макс."
     },
@@ -4527,7 +4527,7 @@
         "italian": "",
         "spanish": "Motores: aumentar (tocar)",
         "chinese": "引擎-增加（轻触）",
-        "japanese": "",
+        "japanese": "エンジン - 増加（タップ）",
         "korean": "엔진 - 증가(누르기)",
         "ukrainian": "Двигуни - Збiльшити прiоритет (натисн.)"
     },
@@ -4538,7 +4538,7 @@
         "italian": "",
         "spanish": "Motores: reducir (tocar)",
         "chinese": "引擎-减少（轻触）",
-        "japanese": "",
+        "japanese": "エンジン - 減少（タップ）",
         "korean": "엔진 - 감소(누르기)",
         "ukrainian": "Двигуни - Зменшити прiоритет (натисн.)"
     },
@@ -4571,7 +4571,7 @@
         "italian": "",
         "spanish": "Escudos: aumentar (tocar)",
         "chinese": "护盾-增加（轻触）",
-        "japanese": "",
+        "japanese": "シールド - 増加（タップ）",
         "korean": "방어막 - 증가(누르기)",
         "ukrainian": "Щити - Збiльшити прiоритет (натисн.)"
     },
@@ -4582,7 +4582,7 @@
         "italian": "",
         "spanish": "Escudos: reducir (tocar)",
         "chinese": "护盾-减少（轻触）",
-        "japanese": "",
+        "japanese": "シールド - 減少（タップ）",
         "korean": "방어막 - 감소(누르기)",
         "ukrainian": "Щити - Зменшити прiоритет (натисн.)"
     },
@@ -4615,7 +4615,7 @@
         "italian": "",
         "spanish": "Armas: aumentar (tocar)",
         "chinese": "武器-增加（轻触）",
-        "japanese": "",
+        "japanese": "武器 - 増加（タップ）",
         "korean": "무기 - 증가 (누르기)",
         "ukrainian": "Зброя - Збiльшити прiоритет (натисн.)"
     },
@@ -4626,7 +4626,7 @@
         "italian": "",
         "spanish": "Armas: reducir (tocar)",
         "chinese": "武器-减少（轻触）",
-        "japanese": "",
+        "japanese": "武器 - 減少（タップ）",
         "korean": "무기 - 감소 (누르기)",
         "ukrainian": "Зброя - Зменшити прiоритет (натисн.)"
     },
@@ -4659,7 +4659,7 @@
         "italian": "",
         "spanish": "Restablecer asignaciones",
         "chinese": "分配重置",
-        "japanese": "",
+        "japanese": "リセットの割り当て",
         "korean": "할당 초기화",
         "ukrainian": "Скинути налаштування прiоритетiв"
     },
@@ -4670,7 +4670,7 @@
         "italian": "",
         "spanish": "Rotar entre modos de horizonte artificial",
         "chinese": "循环纵摇阶梯模式",
-        "japanese": "",
+        "japanese": "ピッチラダーモード切り替え",
         "korean": "피치 래더 모드 순환",
         "ukrainian": "Cycle Pitch Ladder Mode"
     },
@@ -4681,7 +4681,7 @@
         "italian": "",
         "spanish": "mobiGlas (alternar)",
         "chinese": "莫比手环（开关）",
-        "japanese": "",
+        "japanese": "mobiGlas (トグル)",
         "korean": "모비글라스 (토글)",
         "ukrainian": "mobiGlas (перемикач)"
     },
@@ -4692,7 +4692,7 @@
         "italian": "",
         "spanish": "Marcador",
         "chinese": "积分榜",
-        "japanese": "",
+        "japanese": "スコアボード",
         "korean": "득점판",
         "ukrainian": "Табло рахунку"
     },
@@ -4703,7 +4703,7 @@
         "italian": "",
         "spanish": "Mapa",
         "chinese": "地图",
-        "japanese": "",
+        "japanese": "マップ",
         "korean": "지도",
         "ukrainian": "Мапа"
     },
@@ -4714,7 +4714,7 @@
         "italian": "",
         "spanish": "Limpiar visor del casco",
         "chinese": "擦拭头盔面板",
-        "japanese": "",
+        "japanese": "ヘルメットバイザー拭き",
         "korean": "헬멧 바이저 닦기",
         "ukrainian": "Витерти вiзор шолома"
     },
@@ -4725,7 +4725,7 @@
         "italian": "",
         "spanish": "Faros (alternar)",
         "chinese": "前灯（开关）",
-        "japanese": "",
+        "japanese": "ヘッドライト（切り替え）",
         "korean": "전조등 (토글)",
         "ukrainian": "Фари (перемик.)"
     },
@@ -4736,7 +4736,7 @@
         "italian": "",
         "spanish": "Faros\\n(activar)",
         "chinese": "前灯\\n（启用）",
-        "japanese": "",
+        "japanese": "ヘッドライト（オン）",
         "korean": "전조등\\n(사용함)",
         "ukrainian": "Фари\\n(увiмк.)"
     },
@@ -4747,7 +4747,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "リセット（長押し）",
         "korean": "",
         "ukrainian": "Скидання (тривале утримання)"
     },
@@ -4758,7 +4758,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "開始 / 一時停止（短押し）",
         "korean": "",
         "ukrainian": "Пуск / Пауза (коротке натискання)"
     },
@@ -4769,7 +4769,7 @@
         "italian": "",
         "spanish": "Moverse (izquierda)",
         "chinese": "左移",
-        "japanese": "",
+        "japanese": "左に移動",
         "korean": "왼쪽으로 이동",
         "ukrainian": "Крок влiво"
     },
@@ -4780,7 +4780,7 @@
         "italian": "",
         "spanish": "Moverse (derecha)",
         "chinese": "右移",
-        "japanese": "",
+        "japanese": "右へ移動",
         "korean": "오른쪽으로 이동",
         "ukrainian": "Крок вправо"
     },
@@ -4791,7 +4791,7 @@
         "italian": "",
         "spanish": "Moverse (adelante)",
         "chinese": "前移",
-        "japanese": "",
+        "japanese": "前進",
         "korean": "앞으로 이동",
         "ukrainian": "Крок вперед"
     },
@@ -4802,7 +4802,7 @@
         "italian": "",
         "spanish": "Moverse (atrás)",
         "chinese": "后退",
-        "japanese": "",
+        "japanese": "後退",
         "korean": "뒤로 이동",
         "ukrainian": "Крок назад"
     },
@@ -4813,7 +4813,7 @@
         "italian": "",
         "spanish": "Mover a la izquierda/derecha",
         "chinese": "左/右移",
-        "japanese": "",
+        "japanese": "左右移動",
         "korean": "좌로/우로 이동",
         "ukrainian": "Рух влiво / вправо"
     },
@@ -4824,7 +4824,7 @@
         "italian": "",
         "spanish": "Mover hacia adelante/atrás",
         "chinese": "前进/后退",
-        "japanese": "",
+        "japanese": "前進 / 後退",
         "korean": "앞으로/뒤로 이동",
         "ukrainian": "Рух вперед / назад"
     },
@@ -4835,7 +4835,7 @@
         "italian": "",
         "spanish": "Mirar (guiñada)",
         "chinese": "查看（首摇）",
-        "japanese": "",
+        "japanese": "視点移動（ヨー）",
         "korean": "보기 (요)",
         "ukrainian": "Огляд (Горизонталь)"
     },
@@ -4846,7 +4846,7 @@
         "italian": "",
         "spanish": "Mirar (cabeceo)",
         "chinese": "查看（纵摇）",
-        "japanese": "",
+        "japanese": "視点移動（ピッチ）",
         "korean": "보기 (피치)",
         "ukrainian": "Огляд (Вертикаль)"
     },
@@ -4857,7 +4857,7 @@
         "italian": "",
         "spanish": "Saltar",
         "chinese": "跃迁",
-        "japanese": "",
+        "japanese": "ジャンプ",
         "korean": "점프",
         "ukrainian": "Стрибок"
     },
@@ -4890,7 +4890,7 @@
         "italian": "",
         "spanish": "Agacharse",
         "chinese": "蹲下",
-        "japanese": "",
+        "japanese": "しゃがむ",
         "korean": "앉기",
         "ukrainian": "Пригнутись"
     },
@@ -4901,7 +4901,7 @@
         "italian": "",
         "spanish": "Tumbarse",
         "chinese": "卧倒",
-        "japanese": "",
+        "japanese": "伏せる",
         "korean": "엎드리기",
         "ukrainian": "Лягти"
     },
@@ -4912,7 +4912,7 @@
         "italian": "",
         "spanish": "Correr",
         "chinese": "冲刺",
-        "japanese": "",
+        "japanese": "スプリント",
         "korean": "전력 질주",
         "ukrainian": "Спринт"
     },
@@ -4923,7 +4923,7 @@
         "italian": "",
         "spanish": "Andar",
         "chinese": "行走",
-        "japanese": "",
+        "japanese": "歩く",
         "korean": "걷기",
         "ukrainian": "Ходьба"
     },
@@ -4934,7 +4934,7 @@
         "italian": "",
         "spanish": "Inclinarse a la izquierda",
         "chinese": "左倾",
-        "japanese": "",
+        "japanese": "リーン 左",
         "korean": "왼쪽으로 숙이기",
         "ukrainian": "Нахил влiво"
     },
@@ -4945,7 +4945,7 @@
         "italian": "",
         "spanish": "Inclinar a la derecha",
         "chinese": "右倾",
-        "japanese": "",
+        "japanese": "リーン 右",
         "korean": "오른쪽으로 숙이기",
         "ukrainian": "Нахил вправо"
     },
@@ -4967,7 +4967,7 @@
         "italian": "",
         "spanish": "Arma de fuego: atacar",
         "chinese": "射击武器-攻击",
-        "japanese": "",
+        "japanese": "火器 - 攻撃",
         "korean": "화기 - 공격",
         "ukrainian": "Вогнепальна зброя - Атака"
     },
@@ -4989,7 +4989,7 @@
         "italian": "",
         "spanish": "Cuerpo a cuerpo: ataque ligero a la izquierda",
         "chinese": "近战-左侧轻攻击",
-        "japanese": "",
+        "japanese": "近接攻撃 - 左弱攻撃",
         "korean": "근접 - 왼손 약 공격",
         "ukrainian": "Рукопашний бiй - Легка атака лiвою"
     },
@@ -5000,7 +5000,7 @@
         "italian": "",
         "spanish": "Cuerpo a cuerpo: ataque ligero a la derecha",
         "chinese": "近战-右侧轻攻击",
-        "japanese": "",
+        "japanese": "近接攻撃・右弱攻撃",
         "korean": "근접 - 오른손 약 공격",
         "ukrainian": "Рукопашний бiй - Легка атака правою"
     },
@@ -5011,7 +5011,7 @@
         "italian": "",
         "spanish": "Cuerpo a cuerpo: ataque pesado a la izquierda (mantener)",
         "chinese": "近战-左侧重攻击（长按）",
-        "japanese": "",
+        "japanese": "近接攻撃 - 左強攻撃（ホールド）",
         "korean": "근접 - 왼손 강 공격 (길게 누르기)",
         "ukrainian": "Рукопашний бiй - Важка атака лiвою (Утрим.)"
     },
@@ -5022,7 +5022,7 @@
         "italian": "",
         "spanish": "Cuerpo a cuerpo: ataque pesado a la derecha (mantener)",
         "chinese": "近战-右侧重攻击（长按）",
-        "japanese": "",
+        "japanese": "近接攻撃 - 右強攻撃（ホールド）",
         "korean": "근접 - 오른손 강 공격 (길게 누르기)",
         "ukrainian": "Рукопашний бiй - Важка атака правою (Утрим.)"
     },
@@ -5033,7 +5033,7 @@
         "italian": "",
         "spanish": "Cuerpo a cuerpo: bloquear (mantener)",
         "chinese": "近战-格挡（长按）",
-        "japanese": "",
+        "japanese": "近接攻撃 - ブロック（ホールド）",
         "korean": "근접 - 막기 (길게 누르기)",
         "ukrainian": "Рукопашна - блок (Утрим.)"
     },
@@ -5044,7 +5044,7 @@
         "italian": "",
         "spanish": "MediPen: inyectar otra",
         "chinese": "医疗笔-注射其他",
-        "japanese": "",
+        "japanese": "メディカルペン - 他者へ注射",
         "korean": "메디펜 - 다른 대상에 주사",
         "ukrainian": "Медичний шприц - Уколоти iншого"
     },
@@ -5055,7 +5055,7 @@
         "italian": "",
         "spanish": "Esquivar a la izquierda",
         "chinese": "向左躲避",
-        "japanese": "",
+        "japanese": "回避・左",
         "korean": "왼쪽으로 피하기",
         "ukrainian": "Ухилитись влiво"
     },
@@ -5066,7 +5066,7 @@
         "italian": "",
         "spanish": "Esquivar a la derecha",
         "chinese": "向右躲避",
-        "japanese": "",
+        "japanese": "回避・右",
         "korean": "오른쪽으로 피하기",
         "ukrainian": "Ухилитись вправо"
     },
@@ -5077,7 +5077,7 @@
         "italian": "",
         "spanish": "Esquivar hacia atrás",
         "chinese": "后退躲避",
-        "japanese": "",
+        "japanese": "回避・後",
         "korean": "뒤로 피하기",
         "ukrainian": "Ухилитись назад"
     },
@@ -5088,7 +5088,7 @@
         "italian": "",
         "spanish": "Cuerpo a cuerpo: atacar (arma a distancia y derribos)",
         "chinese": "近战-攻击（远程武器+击倒）",
-        "japanese": "",
+        "japanese": "近接攻撃（射撃武器装備時とテイクダウン）",
         "korean": "근접 - 공격 (원거리 무기 + 테이크다운)",
         "ukrainian": "Рукопашний бiй - Атака (Зi зброeю i знешкодженнями)"
     },
@@ -5099,7 +5099,7 @@
         "italian": "",
         "spanish": "Arrojar: por encima del hombro y con dos manos",
         "chinese": "投掷-过肩和双手",
-        "japanese": "",
+        "japanese": "投擲（とうてき）-オーバーアーム",
         "korean": "던지기 - 오버 스로우 및 양손 던지기",
         "ukrainian": "Кидок - над головою i дворучний"
     },
@@ -5110,7 +5110,7 @@
         "italian": "",
         "spanish": "Arrojar: por debajo del brazo",
         "chinese": "投掷-低手",
-        "japanese": "",
+        "japanese": "スロー - 脇の下",
         "korean": "던지기 - 언더 스로우",
         "ukrainian": "Кидок - знизу"
     },
@@ -5121,7 +5121,7 @@
         "italian": "",
         "spanish": "Apuntar con mira",
         "chinese": "开镜瞄准",
-        "japanese": "",
+        "japanese": "照準器を覗く",
         "korean": "조준 사격",
         "ukrainian": "Дивитись через прицiл"
     },
@@ -5143,7 +5143,7 @@
         "italian": "",
         "spanish": "Posición del arma (alternar)",
         "chinese": "武器姿势（切换）",
-        "japanese": "",
+        "japanese": "ウェポンスタンス (トグル)",
         "korean": "무기 자세 (토글)",
         "ukrainian": "Стойка зi зброeю (Перемик.)"
     },
@@ -5154,7 +5154,7 @@
         "italian": "",
         "spanish": "Seleccionar arma principal",
         "chinese": "选择主武器",
-        "japanese": "",
+        "japanese": "プライマリー武器を選択",
         "korean": "주 무기 선택",
         "ukrainian": "Вибiр головноï зброï"
     },
@@ -5165,7 +5165,7 @@
         "italian": "",
         "spanish": "Seleccionar arma secundaria",
         "chinese": "选择副武器",
-        "japanese": "",
+        "japanese": "セカンダリー武器を選択",
         "korean": "보조 무기 선택",
         "ukrainian": "Вибiр другоï зброï"
     },
@@ -5176,7 +5176,7 @@
         "italian": "",
         "spanish": "Seleccionar arma de mano",
         "chinese": "选择随身武器",
-        "japanese": "",
+        "japanese": "サイドアームを選択",
         "korean": "보조 무기 선택",
         "ukrainian": "Вибрати особисту зброю"
     },
@@ -5187,7 +5187,7 @@
         "italian": "",
         "spanish": "Selecciona un arma de combate cuerpo a cuerpo.",
         "chinese": "选择近战武器",
-        "japanese": "",
+        "japanese": "近接武器を選択",
         "korean": "근접 무기 선택",
         "ukrainian": "В рукопашну"
     },
@@ -5198,7 +5198,7 @@
         "italian": "",
         "spanish": "Seleccionar gadget",
         "chinese": "选择小工具",
-        "japanese": "",
+        "japanese": "ガジェットを選択",
         "korean": "가젯 선택",
         "ukrainian": "Вибiр гаджету"
     },
@@ -5209,7 +5209,7 @@
         "italian": "",
         "spanish": "Combate sin armas",
         "chinese": "徒手格斗",
-        "japanese": "",
+        "japanese": "素手での格闘",
         "korean": "맨손 전투",
         "ukrainian": "Бiй без зброï"
     },
@@ -5220,7 +5220,7 @@
         "italian": "",
         "spanish": "Arma siguiente",
         "chinese": "下一武器",
-        "japanese": "",
+        "japanese": "次の武器",
         "korean": "다음 무기",
         "ukrainian": "Наступна зброя"
     },
@@ -5231,7 +5231,7 @@
         "italian": "",
         "spanish": "Arma anterior",
         "chinese": "前一武器",
-        "japanese": "",
+        "japanese": "前の武器",
         "korean": "이전 무기",
         "ukrainian": "Попередня зброя"
     },
@@ -5242,7 +5242,7 @@
         "italian": "",
         "spanish": "Recargar",
         "chinese": "重装",
-        "japanese": "",
+        "japanese": "リロード",
         "korean": "재장전",
         "ukrainian": "Перезарядка"
     },
@@ -5275,7 +5275,7 @@
         "italian": "",
         "spanish": "Enfundar arma",
         "chinese": "收起武器",
-        "japanese": "",
+        "japanese": "武器をしまう",
         "korean": "무기 수납",
         "ukrainian": "Сховати зброю"
     },
@@ -5286,7 +5286,7 @@
         "italian": "",
         "spanish": "Soltar objeto",
         "chinese": "放下物品",
-        "japanese": "",
+        "japanese": "アイテムを落とす",
         "korean": "아이템을 버립니다.",
         "ukrainian": "Кинути предмет"
     },
@@ -5297,7 +5297,7 @@
         "italian": "",
         "spanish": "Inspeccionar objeto",
         "chinese": "检查物品",
-        "japanese": "",
+        "japanese": "アイテムの観察",
         "korean": "아이템을 살펴봅니다.",
         "ukrainian": "Оглянути предмет"
     },
@@ -5308,7 +5308,7 @@
         "italian": "",
         "spanish": "Personalizar arma",
         "chinese": "自定义武器",
-        "japanese": "",
+        "japanese": "武器のカスタマイズ",
         "korean": "무기를 커스터마이징합니다.",
         "ukrainian": "Налаштування зброï"
     },
@@ -5319,7 +5319,7 @@
         "italian": "",
         "spanish": "Aguantar respiración (mira)",
         "chinese": "屏住呼吸（ADS）",
-        "japanese": "",
+        "japanese": "息を止める（ADS）",
         "korean": "숨 참기 (조준 사격)",
         "ukrainian": "Затримати подих (прицiл)"
     },
@@ -5330,7 +5330,7 @@
         "italian": "",
         "spanish": "Acción de cañón inferior en primera persona",
         "chinese": "FPS枪管下挂动作",
-        "japanese": "",
+        "japanese": "FPSアンダーバレルアタッチメントのアクション",
         "korean": "FPS 하부 총열 부착물 기능",
         "ukrainian": "Пристрiй для пiдствольного крiплення FPS"
     },
@@ -5341,7 +5341,7 @@
         "italian": "",
         "spanish": "Cambiar modo de disparo",
         "chinese": "更改开火模式",
-        "japanese": "",
+        "japanese": "射撃モードの変更",
         "korean": "사격 모드 변경",
         "ukrainian": "Змiнити режим вогню"
     },
@@ -5352,7 +5352,7 @@
         "italian": "",
         "spanish": "Reducir ajuste de mira",
         "chinese": "减少武器归零",
-        "japanese": "",
+        "japanese": "武器 ゼロイン減少",
         "korean": "무기 영점 조절 감소",
         "ukrainian": "Weapon Zeroing Decrease"
     },
@@ -5363,7 +5363,7 @@
         "italian": "",
         "spanish": "Aumentar/automatizar ajuste de mira",
         "chinese": "增加/自动武器归零",
-        "japanese": "",
+        "japanese": "武器 自動ゼロイン",
         "korean": "무기 영점 조절 증가/자동",
         "ukrainian": "Weapon Zeroing Increase / Auto"
     },
@@ -5374,7 +5374,7 @@
         "italian": "",
         "spanish": "Aumentar velocidad de movimiento por defecto",
         "chinese": "增加默认移动速度",
-        "japanese": "",
+        "japanese": "デフォルトの移動速度増加",
         "korean": "기본 이동 속도 증가",
         "ukrainian": "Збiльшення швидкостi перемiщення"
     },
@@ -5385,7 +5385,7 @@
         "italian": "",
         "spanish": "Reducir velocidad de movimiento por defecto",
         "chinese": "降低默认移动速度",
-        "japanese": "",
+        "japanese": "デフォルトの移動速度減少",
         "korean": "기본 이동 속도 감소",
         "ukrainian": "Зменшення швидкостi перемiщення"
     },
@@ -5396,7 +5396,7 @@
         "italian": "",
         "spanish": "Solicitar rescate (con incapacidad)",
         "chinese": "请求救援（失去行动能力时）",
-        "japanese": "",
+        "japanese": "救助の要請（行動不能時）",
         "korean": "구조 요청 (행동 불능 시)",
         "ukrainian": "Запит на порятунок (поки недieздатний)"
     },
@@ -5407,7 +5407,7 @@
         "italian": "",
         "spanish": "Linterna (alternar)",
         "chinese": "照明电筒（开关）",
-        "japanese": "",
+        "japanese": "フラッシュライト（トグル）",
         "korean": "손전등 (토글)",
         "ukrainian": "Лiхтар (Перемик.)"
     },
@@ -5418,7 +5418,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "ヘルメットの装備を切り替える",
         "korean": "",
         "ukrainian": "Toggle Equip Helmet"
     },
@@ -5429,7 +5429,7 @@
         "italian": "",
         "spanish": "Casco\\n(equipar)",
         "chinese": "头盔\\n（装备）",
-        "japanese": "",
+        "japanese": "ヘルメット\\n（装備）",
         "korean": "헬멧\\n(장착)",
         "ukrainian": "Шолом\\n(одягти)"
     },
@@ -5440,7 +5440,7 @@
         "italian": "",
         "spanish": "Vista en tercera persona (alternar)",
         "chinese": "第三人称视角（开关）",
-        "japanese": "",
+        "japanese": "3人称視点(トグル)",
         "korean": "3인칭 시점 (토글)",
         "ukrainian": "Вид вiд третьоï особи (Перемик.)"
     },
@@ -5451,7 +5451,7 @@
         "italian": "",
         "spanish": "Cámara de vista libre (mantener)",
         "chinese": "自由视角镜头（长按）",
-        "japanese": "",
+        "japanese": "フリービューカメラ（ホールド）",
         "korean": "자유 시점 카메라 (길게 누르기)",
         "ukrainian": "Вiльна камера (утрим.)"
     },
@@ -5484,7 +5484,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "直近の船/車両を再度呼び出す",
         "korean": "",
         "ukrainian": ""
     },
@@ -5495,7 +5495,7 @@
         "italian": "",
         "spanish": "Descartar marcador de cadáveres",
         "chinese": "解除尸体标记",
-        "japanese": "",
+        "japanese": "死体マーカーの消去",
         "korean": "시체 표시 제거",
         "ukrainian": "Приховати мiтку трупа"
     },
@@ -5506,7 +5506,7 @@
         "italian": "",
         "spanish": "Interactuar con modificación de puerto",
         "chinese": "端口修改互动",
-        "japanese": "",
+        "japanese": "ポートモディフィケーションインタラクト",
         "korean": "포트 변경 상호작용",
         "ukrainian": "Взаeмодiя з роз'eмом модифiкацiй"
     },
@@ -5517,7 +5517,7 @@
         "italian": "",
         "spanish": "Forzar reaparición (AEV/a pie)",
         "chinese": "强制重生（E.V.A./步行）",
-        "japanese": "",
+        "japanese": "強制リスポーン（E.V.A. / On Foot）",
         "korean": "강제 부활 (선외 활동/도보)",
         "ukrainian": "Суïцид (E.V.A./Пiшки)"
     },
@@ -5528,7 +5528,7 @@
         "italian": "",
         "spanish": "Rodar a la izquierda (en el suelo)",
         "chinese": "右滚（卧倒时）",
-        "japanese": "",
+        "japanese": "左へ転がる（伏せ状態中）",
         "korean": "왼쪽으로 구르기 (엎드린 자세)",
         "ukrainian": "Перекид влiво (Лежачи)"
     },
@@ -5539,7 +5539,7 @@
         "italian": "",
         "spanish": "Rodar a la derecha (en el suelo)",
         "chinese": "左滚（卧倒时）",
-        "japanese": "",
+        "japanese": "右へ転がる（伏せ状態中）",
         "korean": "오른쪽으로 구르기 (엎드린 자세)",
         "ukrainian": "Перекид вправо (Лежачи)"
     },
@@ -5550,7 +5550,7 @@
         "italian": "",
         "spanish": "Rayo tractor: aumentar distancia",
         "chinese": "牵引光束-增加距离",
-        "japanese": "",
+        "japanese": "Tractor Beam - 距離を増加させる",
         "korean": "트랙터 빔 - 거리 증가",
         "ukrainian": "Тяговий промiнь - Збiльшити вiдстань"
     },
@@ -5561,7 +5561,7 @@
         "italian": "",
         "spanish": "Rayo tractor - Reducir distancia",
         "chinese": "牵引光束-缩短距离",
-        "japanese": "",
+        "japanese": "トラクタービーム - 距離を縮める",
         "korean": "트랙터 빔 - 거리 감소",
         "ukrainian": "Тяговий промiнь - Зменшити вiдстань"
     },
@@ -5583,7 +5583,7 @@
         "italian": "",
         "spanish": "Regeneración (con incapacidad)",
         "chinese": "再生（失去行动能力时）",
-        "japanese": "",
+        "japanese": "再生（行動不能時）",
         "korean": "부활 (행동 불능 시)",
         "ukrainian": "Regen (while Incapacitated)"
     },
@@ -5594,7 +5594,7 @@
         "italian": "",
         "spanish": "Ver a la izquierda",
         "chinese": "朝左视角",
-        "japanese": "",
+        "japanese": "視点移動・左",
         "korean": "왼쪽 보기",
         "ukrainian": "Подивитися влiво"
     },
@@ -5605,7 +5605,7 @@
         "italian": "",
         "spanish": "Ver a la derecha",
         "chinese": "朝右视角",
-        "japanese": "",
+        "japanese": "視点移動・右",
         "korean": "오른쪽 보기",
         "ukrainian": "Подивитися вправо"
     },
@@ -5616,7 +5616,7 @@
         "italian": "",
         "spanish": "Ver a la izquierda/derecha",
         "chinese": "朝左/右视角",
-        "japanese": "",
+        "japanese": "視点・左 / 右",
         "korean": "왼쪽/오른쪽 보기",
         "ukrainian": "Подивитися влiво / вправо"
     },
@@ -5627,7 +5627,7 @@
         "italian": "",
         "spanish": "Ver hacia arriba",
         "chinese": "朝上视角",
-        "japanese": "",
+        "japanese": "視点移動・上",
         "korean": "위쪽 보기",
         "ukrainian": "Подивитися вгору"
     },
@@ -5638,7 +5638,7 @@
         "italian": "",
         "spanish": "Ver hacia abajo",
         "chinese": "朝下视角",
-        "japanese": "",
+        "japanese": "視点移動・下",
         "korean": "아래쪽 보기",
         "ukrainian": "Подивитися вниз"
     },
@@ -5649,7 +5649,7 @@
         "italian": "",
         "spanish": "Ver hacia arriba/abajo",
         "chinese": "朝上/下视角",
-        "japanese": "",
+        "japanese": "視点 上 / 下",
         "korean": "위쪽/아래쪽 보기",
         "ukrainian": "Подивитися вгору / вниз"
     },
@@ -5660,7 +5660,7 @@
         "italian": "",
         "spanish": "Alabeo a la izquierda",
         "chinese": "左翻滚",
-        "japanese": "",
+        "japanese": "左ロール",
         "korean": "좌로 롤 회전",
         "ukrainian": "Крен влiво"
     },
@@ -5671,7 +5671,7 @@
         "italian": "",
         "spanish": "Alabeo a la derecha",
         "chinese": "右翻滚",
-        "japanese": "",
+        "japanese": "右ロール",
         "korean": "우로 롤 회전",
         "ukrainian": "Крен вправо"
     },
@@ -5682,7 +5682,7 @@
         "italian": "",
         "spanish": "Alabeo a la izquierda/derecha",
         "chinese": "左/右翻滚",
-        "japanese": "",
+        "japanese": "ロール 左 / 右",
         "korean": "좌로/우로 롤 회전",
         "ukrainian": "Крен влiво/вправо"
     },
@@ -5693,7 +5693,7 @@
         "italian": "",
         "spanish": "Desplazarse hacia arriba",
         "chinese": "上扫射",
-        "japanese": "",
+        "japanese": "平行移動・上",
         "korean": "위로 이동",
         "ukrainian": "Змiщення вгору"
     },
@@ -5704,7 +5704,7 @@
         "italian": "",
         "spanish": "Desplazarse hacia abajo",
         "chinese": "下扫射",
-        "japanese": "",
+        "japanese": "平行移動・下",
         "korean": "아래로 이동",
         "ukrainian": "Змiщення вниз"
     },
@@ -5715,7 +5715,7 @@
         "italian": "",
         "spanish": "Desplazarse hacia arriba/abajo",
         "chinese": "上/下扫射",
-        "japanese": "",
+        "japanese": "平行移動・上 / 下",
         "korean": "위로/아래로 이동",
         "ukrainian": "Змiщення вгору / вниз"
     },
@@ -5726,7 +5726,7 @@
         "italian": "",
         "spanish": "Desplazarse a la izquierda",
         "chinese": "向左平移",
-        "japanese": "",
+        "japanese": "平行移動・左",
         "korean": "\\n      \\n      \\n        \\n      \\n      \\n        \\n      \\n    \\n    \\n      \\n        desplazarse a la derecha",
         "ukrainian": "Змiщення влiво"
     },
@@ -5737,7 +5737,7 @@
         "italian": "",
         "spanish": "Desplazarse a la derecha",
         "chinese": "向右平移",
-        "japanese": "",
+        "japanese": "平行移動・右",
         "korean": "\\n      \\n      \\n        向右平移",
         "ukrainian": "Змiщення вправо"
     },
@@ -5748,7 +5748,7 @@
         "italian": "",
         "spanish": "Desplazarse a la izquierda/derecha",
         "chinese": "左/右扫射",
-        "japanese": "",
+        "japanese": "平行移動・左 / 右",
         "korean": "좌로/우로 이동",
         "ukrainian": "Змiщення влiво / вправо"
     },
@@ -5759,7 +5759,7 @@
         "italian": "",
         "spanish": "Desplazarse hacia adelante",
         "chinese": "向前平移",
-        "japanese": "",
+        "japanese": "平行移動・前",
         "korean": "\\n      \\n      \\n        向前平移",
         "ukrainian": "Змiщення вперед"
     },
@@ -5770,7 +5770,7 @@
         "italian": "",
         "spanish": "Desplazarse hacia atrás",
         "chinese": "向后平移",
-        "japanese": "",
+        "japanese": "平行移動・後",
         "korean": "\\n      \\n      \\n        向后平移",
         "ukrainian": "Змiщення назад"
     },
@@ -5781,7 +5781,7 @@
         "italian": "",
         "spanish": "Desplazarse hacia delante/atrás",
         "chinese": "前/后扫射",
-        "japanese": "",
+        "japanese": "平行移動・前 / 後",
         "korean": "앞으로/뒤로 이동",
         "ukrainian": "Змiщення вперед / назад"
     },
@@ -5792,7 +5792,7 @@
         "italian": "",
         "spanish": "Frenar",
         "chinese": "刹车",
-        "japanese": "",
+        "japanese": "ブレーキ",
         "korean": "제동",
         "ukrainian": "Гальмування"
     },
@@ -5803,7 +5803,7 @@
         "italian": "",
         "spanish": "Turbo",
         "chinese": "加速",
-        "japanese": "",
+        "japanese": "ブースト",
         "korean": "부스트",
         "ukrainian": "Прискорення"
     },
@@ -5814,7 +5814,7 @@
         "italian": "",
         "spanish": "Vista libre (mantener)",
         "chinese": "自由查看（长按）",
-        "japanese": "",
+        "japanese": "フリールック（ホールド）",
         "korean": "자유 시점 (길게 누르기)",
         "ukrainian": "Огляд (Утрмувати)"
     },
@@ -5825,7 +5825,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "表面から離れる",
         "korean": "",
         "ukrainian": ""
     },
@@ -5836,7 +5836,7 @@
         "italian": "",
         "spanish": "",
         "chinese": "",
-        "japanese": "",
+        "japanese": "表面から離れる",
         "korean": "",
         "ukrainian": ""
     },
@@ -5847,7 +5847,7 @@
         "italian": "",
         "spanish": "Bocina",
         "chinese": "喇叭",
-        "japanese": "",
+        "japanese": "ホーン",
         "korean": "경적",
         "ukrainian": "Звук. сигнал"
     },
@@ -5858,7 +5858,7 @@
         "italian": "",
         "spanish": "Avanzar",
         "chinese": "向前行驶",
-        "japanese": "",
+        "japanese": "前進",
         "korean": "앞으로 주행",
         "ukrainian": "Ïхати вперед"
     },
@@ -5869,7 +5869,7 @@
         "italian": "",
         "spanish": "Retroceder",
         "chinese": "向后行驶",
-        "japanese": "",
+        "japanese": "後退",
         "korean": "뒤로 주행",
         "ukrainian": "Заднiй хiд"
     },
@@ -5880,7 +5880,7 @@
         "italian": "",
         "spanish": "Avanzar/retroceder",
         "chinese": "向前/后行驶",
-        "japanese": "",
+        "japanese": "前進 / 後退",
         "korean": "앞으로/뒤로 주행",
         "ukrainian": "Ïхати вперед / назад"
     },
@@ -5891,7 +5891,7 @@
         "italian": "",
         "spanish": "Girar a la izquierda",
         "chinese": "左转",
-        "japanese": "",
+        "japanese": "左折",
         "korean": "좌로 회전",
         "ukrainian": "Повертати лiворуч"
     },
@@ -5902,7 +5902,7 @@
         "italian": "",
         "spanish": "Girar a la derecha",
         "chinese": "右转",
-        "japanese": "",
+        "japanese": "右折",
         "korean": "우로 회전",
         "ukrainian": "Повертати праворуч"
     },
@@ -5913,7 +5913,7 @@
         "italian": "",
         "spanish": "Guiñada a la izquierda/derecha (eje/HOTAS)",
         "chinese": "左/右摆（轴/飞行摇杆）",
-        "japanese": "",
+        "japanese": "ヨー 左 / 右（Axis / HOTAS）",
         "korean": "좌로/우로 요 회전 (축/호타스)",
         "ukrainian": "Крен влiво / вправо (Вiсь / HOTAS)"
     },
@@ -5924,7 +5924,7 @@
         "italian": "",
         "spanish": "Guiñada a izquierda/derecha (ratón)",
         "chinese": "左/右摆（鼠标）",
-        "japanese": "",
+        "japanese": "ヨー 左 / 右（マウス）",
         "korean": "좌로/우로 요 회전을 합니다. (마우스)",
         "ukrainian": "Рискання Лiворуч / Праворуч (Миша)"
     },
@@ -5957,7 +5957,7 @@
         "italian": "",
         "spanish": "Cabeceo arriba/abajo (eje/HOTAS)",
         "chinese": "上仰/下俯（轴/飞行摇杆）",
-        "japanese": "",
+        "japanese": "ピッチ 上 / 下（Axis / HOTAS）",
         "korean": "위로/아래로 피치 회전 (축/호타스)",
         "ukrainian": "Крен вгору / вниз (Вiсь / HOTAS)"
     },
@@ -5968,7 +5968,7 @@
         "italian": "",
         "spanish": "Cabeceo arriba/abajo (ratón)",
         "chinese": "上仰/下俯（鼠标）",
-        "japanese": "",
+        "japanese": "ピッチ 上 / 下（マウス）",
         "korean": "위로/아래로 피치 회전을 합니다. (마우스)",
         "ukrainian": "Крен вгору / вниз (Миша)"
     },
@@ -5979,7 +5979,7 @@
         "italian": "",
         "spanish": "Frenar",
         "chinese": "刹车",
-        "japanese": "",
+        "japanese": "ブレーキ",
         "korean": "제동",
         "ukrainian": "Гальмування"
     },
@@ -6012,7 +6012,7 @@
         "italian": "",
         "spanish": "Objetivo en la cámara de espectador (siguiente)",
         "chinese": "旁观镜头目标（后一个）",
-        "japanese": "",
+        "japanese": "観戦カメラ ターゲット（次へ）",
         "korean": "관전 카메라 대상 (다음)",
         "ukrainian": "Цiль камери глядача (далi)"
     },
@@ -6023,7 +6023,7 @@
         "italian": "",
         "spanish": "Objetivo en la cámara de espectador (anterior)",
         "chinese": "旁观镜头目标（前一个）",
-        "japanese": "",
+        "japanese": "観戦カメラ ターゲット（前へ）",
         "korean": "관전 카메라 대상 (이전)",
         "ukrainian": "Цiль камери глядача (назад)"
     },
@@ -6034,7 +6034,7 @@
         "italian": "",
         "spanish": "Cámara de espectador con objetivo fijado",
         "chinese": "旁观镜头锁定目标",
-        "japanese": "",
+        "japanese": "観戦カメラロック対象",
         "korean": "관전 카메라 대상 잠금",
         "ukrainian": "Камера глядача - Фiксацiя цiлi"
     },
@@ -6045,7 +6045,7 @@
         "italian": "",
         "spanish": "Zoom de la cámara de espectador",
         "chinese": "旁观镜头缩放",
-        "japanese": "",
+        "japanese": "観戦カメラ ズーム",
         "korean": "관전 카메라 이동",
         "ukrainian": "Зум камери глядача"
     },
@@ -6056,7 +6056,7 @@
         "italian": "",
         "spanish": "Acercar cámara de espectador",
         "chinese": "旁观镜头放大",
-        "japanese": "",
+        "japanese": "観戦カメラ ズームイン",
         "korean": "관전 카메라 확대",
         "ukrainian": "Наблизити камеру глядача"
     },
@@ -6067,7 +6067,7 @@
         "italian": "",
         "spanish": "Alejar cámara de espectador",
         "chinese": "旁观镜头缩小",
-        "japanese": "",
+        "japanese": "観戦カメラ ズームアウト",
         "korean": "관전 카메라 축소",
         "ukrainian": "Вiддалити камеру глядача"
     },
@@ -6078,7 +6078,7 @@
         "italian": "",
         "spanish": "Rotación de cámara de espectador (guiñada)",
         "chinese": "旁观镜头旋转首摇",
-        "japanese": "",
+        "japanese": "観戦カメラ回転・ヨー",
         "korean": "관전 카메라 요 회전",
         "ukrainian": "Камера глядача - рискання"
     },
@@ -6089,7 +6089,7 @@
         "italian": "",
         "spanish": "Rotación de cámara de espectador (cabeceo)",
         "chinese": "旁观镜头旋转纵摇",
-        "japanese": "",
+        "japanese": "観戦カメラ回転・ピッチ",
         "korean": "관전 카메라 피치 회전",
         "ukrainian": "Камера глядача - тангаж"
     },
@@ -6100,7 +6100,7 @@
         "italian": "",
         "spanish": "Cámara de espectador en el HUD (alternar)",
         "chinese": "旁观镜头透明面板（开关）",
-        "japanese": "",
+        "japanese": "観戦カメラHUD（トグル）",
         "korean": "관전 카메라 HUD (토글)",
         "ukrainian": "Камера глядача HUD (перемик.)"
     },
@@ -6111,7 +6111,7 @@
         "italian": "",
         "spanish": "Modo de la cámara de espectador (siguiente)",
         "chinese": "旁观镜头模式（后一个）",
-        "japanese": "",
+        "japanese": "観戦カメラモード（次へ）",
         "korean": "관전 카메라 모드 (다음)",
         "ukrainian": "Режим камери глядача (далi)"
     },
@@ -6122,7 +6122,7 @@
         "italian": "",
         "spanish": "Modo de la cámara de espectador (anterior)",
         "chinese": "旁观镜头模式（前一个）",
-        "japanese": "",
+        "japanese": "観戦カメラモード（前へ）",
         "korean": "관전 카메라 모드 (이전)",
         "ukrainian": "Режим камери глядача (назад)"
     },
@@ -6133,7 +6133,7 @@
         "italian": "",
         "spanish": "Reaparecer",
         "chinese": "重生",
-        "japanese": "",
+        "japanese": "リスポーン",
         "korean": "부활",
         "ukrainian": "Вiдродження"
     },
@@ -6144,7 +6144,7 @@
         "italian": "",
         "spanish": "Dejar asiento",
         "chinese": "退出座位",
-        "japanese": "",
+        "japanese": "座席を立つ",
         "korean": "좌석 나가기",
         "ukrainian": "Встати з крiсло"
     },
@@ -6177,7 +6177,7 @@
         "italian": "",
         "spanish": "Aplicación CommLink (alternar)",
         "chinese": "星链通App（切换）",
-        "japanese": "",
+        "japanese": "CommLinkアプリ (トグル)",
         "korean": "콤링크 앱 (토글)",
         "ukrainian": "Зв'язок (перемик.)"
     },
@@ -6188,7 +6188,7 @@
         "italian": "",
         "spanish": "Ventana del chat (alternar)",
         "chinese": "聊天窗口（切换）",
-        "japanese": "",
+        "japanese": "チャットウィンドウ（トグル）",
         "korean": "채팅 창 (토글)",
         "ukrainian": "Вiкно чату (перемик.)"
     },
@@ -6210,7 +6210,7 @@
         "italian": "",
         "spanish": "Centrar ventana de chat",
         "chinese": "聊天窗口特别关心",
-        "japanese": "",
+        "japanese": "チャットウィンドウのフォーカス",
         "korean": "채팅 창 초점",
         "ukrainian": "Фокус на вiкно чату"
     },
@@ -6221,7 +6221,7 @@
         "italian": "",
         "spanish": "Aceptar invitación",
         "chinese": "接受邀请",
-        "japanese": "",
+        "japanese": "招待を受ける",
         "korean": "초대 수락",
         "ukrainian": "Прийняти запрошення"
     },
@@ -6232,7 +6232,7 @@
         "italian": "",
         "spanish": "Rechazar invitación",
         "chinese": "拒绝邀请",
-        "japanese": "",
+        "japanese": "招待を拒否する",
         "korean": "초대 거부",
         "ukrainian": "Вiдхилити запрошення"
     },
@@ -6243,7 +6243,7 @@
         "italian": "",
         "spanish": "Ignorar invitación (mantener)",
         "chinese": "忽略邀请（长按）",
-        "japanese": "",
+        "japanese": "招待を無視する（長押し）",
         "korean": "초대 무시 (길게 누르기)",
         "ukrainian": "Iгнорувати запрошення (утрим.)"
     },
@@ -6254,7 +6254,7 @@
         "italian": "",
         "spanish": "Adelante",
         "chinese": "前进",
-        "japanese": "",
+        "japanese": "前進",
         "korean": "앞으로",
         "ukrainian": "Вперед"
     },
@@ -6265,7 +6265,7 @@
         "italian": "",
         "spanish": "Izquierda",
         "chinese": "向左",
-        "japanese": "",
+        "japanese": "左",
         "korean": "왼쪽으로",
         "ukrainian": "Лiворуч"
     },
@@ -6276,7 +6276,7 @@
         "italian": "",
         "spanish": "Derecha",
         "chinese": "对",
-        "japanese": "",
+        "japanese": "右",
         "korean": "아, 그렇지.",
         "ukrainian": "Праворуч"
     },
@@ -6287,7 +6287,7 @@
         "italian": "",
         "spanish": "Alto",
         "chinese": "停下",
-        "japanese": "",
+        "japanese": "止める",
         "korean": "멈춰요.",
         "ukrainian": "Стоп"
     },
@@ -6298,7 +6298,7 @@
         "italian": "",
         "spanish": "Sí",
         "chinese": "对。",
-        "japanese": "",
+        "japanese": "同意",
         "korean": "맞아.",
         "ukrainian": "Так"
     },
@@ -6309,7 +6309,7 @@
         "italian": "",
         "spanish": "No",
         "chinese": "否",
-        "japanese": "",
+        "japanese": "拒否",
         "korean": "아니요",
         "ukrainian": "Нi"
     },
@@ -6320,7 +6320,7 @@
         "italian": "",
         "spanish": "De acuerdo",
         "chinese": "同意。",
-        "japanese": "",
+        "japanese": "うなずく",
         "korean": "동의해.",
         "ukrainian": "Згода"
     },
@@ -6331,7 +6331,7 @@
         "italian": "",
         "spanish": "Enfado",
         "chinese": "生气",
-        "japanese": "",
+        "japanese": "怒る",
         "korean": "버럭",
         "ukrainian": "Гнiв"
     },
@@ -6342,7 +6342,7 @@
         "italian": "Riposo.",
         "spanish": "Calma",
         "chinese": "免礼",
-        "japanese": "",
+        "japanese": "休め",
         "korean": "쉬어.",
         "ukrainian": "Вiльно"
     },
@@ -6353,7 +6353,7 @@
         "italian": "",
         "spanish": "Atención",
         "chinese": "注意",
-        "japanese": "",
+        "japanese": "注目",
         "korean": "차렷",
         "ukrainian": "Увага"
     },
@@ -6364,7 +6364,7 @@
         "italian": "",
         "spanish": "Meh",
         "chinese": "闲扯",
-        "japanese": "",
+        "japanese": "不満",
         "korean": "구시렁",
         "ukrainian": "Бла-бла"
     },
@@ -6375,7 +6375,7 @@
         "italian": "",
         "spanish": "Aburrimiento",
         "chinese": "无聊",
-        "japanese": "",
+        "japanese": "退屈",
         "korean": "지루",
         "ukrainian": "Нудно"
     },
@@ -6386,7 +6386,7 @@
         "italian": "",
         "spanish": "Reverencia",
         "chinese": "鞠躬",
-        "japanese": "",
+        "japanese": "お辞儀",
         "korean": "인사",
         "ukrainian": "Уклiн"
     },
@@ -6397,7 +6397,7 @@
         "italian": "",
         "spanish": "Eructo",
         "chinese": "打嗝",
-        "japanese": "",
+        "japanese": "ゲップ",
         "korean": "트림",
         "ukrainian": "Вiдрижка"
     },
@@ -6408,7 +6408,7 @@
         "italian": "",
         "spanish": "Ánimo",
         "chinese": "欢呼",
-        "japanese": "",
+        "japanese": "応援",
         "korean": "환호",
         "ukrainian": "Ура"
     },
@@ -6419,7 +6419,7 @@
         "italian": "",
         "spanish": "Gallina",
         "chinese": "鸡舞",
-        "japanese": "",
+        "japanese": "鶏の真似",
         "korean": "꼬꼬댁",
         "ukrainian": "Курка"
     },
@@ -6430,7 +6430,7 @@
         "italian": "",
         "spanish": "Aplauso",
         "chinese": "拍手",
-        "japanese": "",
+        "japanese": "拍手",
         "korean": "박수",
         "ukrainian": "Оплески"
     },
@@ -6441,7 +6441,7 @@
         "italian": "",
         "spanish": "Ven",
         "chinese": "来吧",
-        "japanese": "",
+        "japanese": "招く",
         "korean": "이리 와",
         "ukrainian": "Кликати"
     },
@@ -6452,7 +6452,7 @@
         "italian": "",
         "spanish": "Llanto",
         "chinese": "哭泣",
-        "japanese": "",
+        "japanese": "泣く",
         "korean": "고함",
         "ukrainian": "Плач"
     },
@@ -6463,7 +6463,7 @@
         "italian": "",
         "spanish": "Baile",
         "chinese": "跳舞",
-        "japanese": "",
+        "japanese": "踊る",
         "korean": "춤",
         "ukrainian": "Танець"
     },
@@ -6474,7 +6474,7 @@
         "italian": "",
         "spanish": "En desacuerdo",
         "chinese": "不同意",
-        "japanese": "",
+        "japanese": "反対",
         "korean": "반대",
         "ukrainian": "Незгода"
     },
@@ -6485,7 +6485,7 @@
         "italian": "",
         "spanish": "Fracaso",
         "chinese": "失败",
-        "japanese": "",
+        "japanese": "落胆",
         "korean": "실패",
         "ukrainian": "Невдача"
     },
@@ -6496,7 +6496,7 @@
         "italian": "",
         "spanish": "Flexión",
         "chinese": "秀肌肉",
-        "japanese": "",
+        "japanese": "筋肉自慢",
         "korean": "몸풀기",
         "ukrainian": "Сила"
     },
@@ -6507,7 +6507,7 @@
         "italian": "",
         "spanish": "Coqueteo",
         "chinese": "调情",
-        "japanese": "",
+        "japanese": "戯れる",
         "korean": "추파",
         "ukrainian": "Флiрт"
     },
@@ -6518,7 +6518,7 @@
         "italian": "",
         "spanish": "Sorpresa",
         "chinese": "喘气",
-        "japanese": "",
+        "japanese": "息を飲む",
         "korean": "헉",
         "ukrainian": "Зiтхання"
     },
@@ -6529,7 +6529,7 @@
         "italian": "",
         "spanish": "Alarde",
         "chinese": "得意",
-        "japanese": "",
+        "japanese": "ほくそ笑む",
         "korean": "흐뭇",
         "ukrainian": "Зловтiха"
     },
@@ -6540,7 +6540,7 @@
         "italian": "",
         "spanish": "Saludo",
         "chinese": "打招呼",
-        "japanese": "",
+        "japanese": "挨拶",
         "korean": "환영",
         "ukrainian": "Вiтання"
     },
@@ -6551,7 +6551,7 @@
         "italian": "",
         "spanish": "Risa",
         "chinese": "大笑",
-        "japanese": "",
+        "japanese": "笑う",
         "korean": "웃음",
         "ukrainian": "Смiх"
     },
@@ -6562,7 +6562,7 @@
         "italian": "",
         "spanish": "Confirmar lanzamiento",
         "chinese": "确认启动",
-        "japanese": "",
+        "japanese": "打ち上げ確認",
         "korean": "출격 확정",
         "ukrainian": "Пiдтвердити запуск"
     },
@@ -6573,7 +6573,7 @@
         "italian": "",
         "spanish": "Señalar",
         "chinese": "指点",
-        "japanese": "",
+        "japanese": "指をさす",
         "korean": "지적",
         "ukrainian": "Вказати"
     },
@@ -6584,7 +6584,7 @@
         "italian": "",
         "spanish": "Grosería",
         "chinese": "无礼",
-        "japanese": "",
+        "japanese": "あざける",
         "korean": "무례",
         "ukrainian": "Хамити"
     },
@@ -6595,7 +6595,7 @@
         "italian": "",
         "spanish": "Saludo",
         "chinese": "敬礼",
-        "japanese": "",
+        "japanese": "敬礼",
         "korean": "경계",
         "ukrainian": "Честь"
     },
@@ -6606,7 +6606,7 @@
         "italian": "",
         "spanish": "Sentarse",
         "chinese": "坐下",
-        "japanese": "",
+        "japanese": "座る",
         "korean": "앉기",
         "ukrainian": "Сiсти"
     },
@@ -6617,7 +6617,7 @@
         "italian": "",
         "spanish": "Dormir",
         "chinese": "睡觉",
-        "japanese": "",
+        "japanese": "寝る",
         "korean": "잠",
         "ukrainian": "Спати"
     },
@@ -6628,7 +6628,7 @@
         "italian": "",
         "spanish": "Oler",
         "chinese": "闻闻",
-        "japanese": "",
+        "japanese": "鼻をつまむ",
         "korean": "냄새",
         "ukrainian": "Сморiд"
     },
@@ -6639,7 +6639,7 @@
         "italian": "",
         "spanish": "Provocar",
         "chinese": "嘲讽",
-        "japanese": "",
+        "japanese": "挑発",
         "korean": "조롱",
         "ukrainian": "Дражнити"
     },
@@ -6650,7 +6650,7 @@
         "italian": "",
         "spanish": "Amenaza",
         "chinese": "威胁",
-        "japanese": "",
+        "japanese": "脅す",
         "korean": "위협",
         "ukrainian": "Погроза"
     },
@@ -6661,7 +6661,7 @@
         "italian": "",
         "spanish": "Espera",
         "chinese": "等待",
-        "japanese": "",
+        "japanese": "待て",
         "korean": "대기",
         "ukrainian": "Чекати"
     },
@@ -6672,7 +6672,7 @@
         "italian": "",
         "spanish": "Saludo con la mano",
         "chinese": "摆手",
-        "japanese": "",
+        "japanese": "腕を振る",
         "korean": "손 흔들기",
         "ukrainian": "Махати"
     },
@@ -6683,7 +6683,7 @@
         "italian": "",
         "spanish": "Silbar",
         "chinese": "吹哨",
-        "japanese": "",
+        "japanese": "口笛",
         "korean": "휘파람",
         "ukrainian": "Свист"
     },
@@ -6694,7 +6694,7 @@
         "italian": "",
         "spanish": "Activar seguimiento de la cabeza (alternar)",
         "chinese": "启用头部追踪（开关）",
-        "japanese": "",
+        "japanese": "ヘッドトラッキングの有効化（トグル）",
         "korean": "머리 추적 활성화 (토글)",
         "ukrainian": "Вiдстеження голови (Перекл.)"
     },
@@ -6705,7 +6705,7 @@
         "italian": "",
         "spanish": "Seguimiento de la cabeza (alternar)",
         "chinese": "头部追踪（长按）",
-        "japanese": "",
+        "japanese": "ヘッドトラッキング（ホールド）",
         "korean": "머리 추적 (토글)",
         "ukrainian": "Вiдстеження голови (Утрим.)"
     },
@@ -6716,7 +6716,7 @@
         "italian": "",
         "spanish": "Centrar dispositivo de seguimiento de la cabeza (excepto TrackIR)",
         "chinese": "重新定位头部追踪设备焦点（TrackIR除外）",
-        "japanese": "",
+        "japanese": "リカーヘッド・トラッキング・デバイス（TrackIRを除く）",
         "korean": "머리 추적 장치 중앙 재설정 (머리 추적 입력장치 제외)",
         "ukrainian": "Центрувати пристрiй вiдстеження головки (крiм TrackIR)"
     },
@@ -6727,7 +6727,7 @@
         "italian": "",
         "spanish": "Activar/desactivar el seguimiento de la cabeza en tercera persona (alternar)",
         "chinese": "启用/禁用第三人称视角头部追踪（开关）",
-        "japanese": "",
+        "japanese": "三人称視点カメラのヘッドトラッキングを有効／無効にする（トグル）",
         "korean": "3인칭 카메라에 대한 머리 추적 활성화/비활성화 (토글)",
         "ukrainian": "Увiмк. / Вимкн. вiдстеження голови для камери вiд 3 особи (Перемик.)"
     },
@@ -6738,7 +6738,7 @@
         "italian": "",
         "spanish": "Pulsar para hablar con VOIP",
         "chinese": "VOIP一键通话",
-        "japanese": "",
+        "japanese": "VOIP プッシュトゥトーク",
         "korean": "VOIP 반이중 교신을 할 수 있습니다.",
         "ukrainian": "Голос - Активацiя при утриманнi"
     },
@@ -6749,7 +6749,7 @@
         "italian": "",
         "spanish": "Pulsar para hablar con VOIP (solo en proximidad)",
         "chinese": "VOIP一键通话（仅限邻近区域）",
-        "japanese": "",
+        "japanese": "VOIP プッシュトゥトーク（近接チャットのみ）",
         "korean": "VOIP 반이중 교신을 할 수 있습니다. (주변 한정)",
         "ukrainian": "Голос - Активацiя при утриманнi  (тiльки поряд)"
     },
@@ -6760,7 +6760,7 @@
         "italian": "",
         "spanish": "Cámara selfi FOIP",
         "chinese": "FOIP自拍镜头",
-        "japanese": "",
+        "japanese": "FOIPセルフィーカメラ",
         "korean": "FOIP 셀프 카메라입니다.",
         "ukrainian": "Камера селфi FOIP"
     },
@@ -6771,7 +6771,7 @@
         "italian": "",
         "spanish": "Recalibrar FOIP",
         "chinese": "FOIP重新校准",
-        "japanese": "",
+        "japanese": "FOIP 再調整",
         "korean": "FOIP 재조정",
         "ukrainian": "Калiбрування FOIP"
     },
@@ -6782,7 +6782,7 @@
         "italian": "",
         "spanish": "Rotar entre canales de sonido",
         "chinese": "循环音频频道",
-        "japanese": "",
+        "japanese": "オーディオチャンネルを切り替える",
         "korean": "오디오 채널을 순환합니다.",
         "ukrainian": "Прокрутка аудiоканалiв"
     },
@@ -6793,7 +6793,7 @@
         "italian": "",
         "spanish": "Modo interacción",
         "chinese": "互动模式",
-        "japanese": "",
+        "japanese": "インタラクションモード",
         "korean": "상호작용 모드",
         "ukrainian": "Режим взаeмодiï"
     },
@@ -6804,7 +6804,7 @@
         "italian": "",
         "spanish": "Activar pensamiento",
         "chinese": "启用内心独白",
-        "japanese": "",
+        "japanese": "Inner Thoughtの起動",
         "korean": "내적 사고 활성화",
         "ukrainian": "Activate Inner Thought"
     },
@@ -6815,7 +6815,7 @@
         "italian": "",
         "spanish": "Enfoque.",
         "chinese": "聚焦",
-        "japanese": "",
+        "japanese": "フォーカス",
         "korean": "주시",
         "ukrainian": "Фокус"
     },
@@ -6826,7 +6826,7 @@
         "italian": "",
         "spanish": "Acercar cámara de interacción",
         "chinese": "互动模式放大",
-        "japanese": "",
+        "japanese": "インタラクションモード ズームイン",
         "korean": "상호작용 모드 확대",
         "ukrainian": "Режим взаeмодiï - наблизити"
     },
@@ -6837,7 +6837,7 @@
         "italian": "",
         "spanish": "Alejar cámara de interacción",
         "chinese": "互动模式缩小",
-        "japanese": "",
+        "japanese": "インタラクションモード ズームアウト",
         "korean": "상호작용 모드 축소",
         "ukrainian": "Режим взаeмодiï - вiддалити"
     },
@@ -6848,7 +6848,7 @@
         "italian": "",
         "spanish": "PMF hacia la izquierda",
         "chinese": "多功能屏左移",
-        "japanese": "",
+        "japanese": "MFD 左",
         "korean": "MFD 좌로",
         "ukrainian": "MFD влiво"
     },
@@ -6859,7 +6859,7 @@
         "italian": "",
         "spanish": "PMF hacia la derecha",
         "chinese": "多功能屏右移",
-        "japanese": "",
+        "japanese": "MFD 右",
         "korean": "MFD 우로",
         "ukrainian": "MFD вправо"
     },
@@ -6870,7 +6870,7 @@
         "italian": "",
         "spanish": "PMF hacia arriba",
         "chinese": "多功能屏上移",
-        "japanese": "",
+        "japanese": "MFD 上",
         "korean": "MFD 위로",
         "ukrainian": "MFD вгору"
     },
@@ -6881,7 +6881,7 @@
         "italian": "",
         "spanish": "PMF hacia abajo",
         "chinese": "多功能屏下移",
-        "japanese": "",
+        "japanese": "MFD 下",
         "korean": "MFD 아래로",
         "ukrainian": "MFD вниз"
     },
@@ -6892,7 +6892,7 @@
         "italian": "",
         "spanish": "Pensamiento (PEN)",
         "chinese": "个人内心独白（PIT）",
-        "japanese": "",
+        "japanese": "Personal Inner Thought (PIT)",
         "korean": "개인 내적 사고(PIT)",
         "ukrainian": "Радiальне Iнтерактивне Меню (РIМ)"
     },
@@ -6914,7 +6914,7 @@
         "italian": "",
         "spanish": "Salir",
         "chinese": "出口",
-        "japanese": "",
+        "japanese": "閉じる",
         "korean": "종료",
         "ukrainian": "Вихiд"
     },
@@ -6925,7 +6925,7 @@
         "italian": "",
         "spanish": "Inventario de objetos personales (alternar)",
         "chinese": "个人商品物品栏（开关）",
-        "japanese": "",
+        "japanese": "パーソナル・コモディティ・インベントリー (トグル)",
         "korean": "개인 물자 인벤토리 (토글)",
         "ukrainian": "Особистий iнвентар (перемик.)"
     },
@@ -6958,7 +6958,7 @@
         "italian": "",
         "spanish": "Almacenar todas las mercancías",
         "chinese": "储存所有商品",
-        "japanese": "",
+        "japanese": "すべての商品を格納",
         "korean": "모든 물자 보관",
         "ukrainian": "Скласти весь крам"
     },
@@ -6969,7 +6969,7 @@
         "italian": "",
         "spanish": "Acciones de personaje: categoría del selector de PEN",
         "chinese": "玩家行动-PIT类别",
-        "japanese": "",
+        "japanese": "プレイヤーアクション - PIT メニュー",
         "korean": "플레이어 행동 - 내적 사고 범주",
         "ukrainian": "Дiï гравця- PIT категорiя"
     },
@@ -6980,7 +6980,7 @@
         "italian": "",
         "spanish": "Gestos: categoría del selector de PEN",
         "chinese": "表情-PIT类别",
-        "japanese": "",
+        "japanese": "エモート - ホイールメニュー",
         "korean": "감정 표현 - 내적 사고 범주",
         "ukrainian": "Емоцiï - PIT категорiï"
     },
@@ -6991,7 +6991,7 @@
         "italian": "",
         "spanish": "Sistemas de naves: categoría del selector de PEN",
         "chinese": "船舰系统-PIT类别",
-        "japanese": "",
+        "japanese": "船舶システム - PITカテゴリー",
         "korean": "함선 시스템 - 내적 사고 범주",
         "ukrainian": "Судновi системи - PIT категорiя"
     },
@@ -7002,7 +7002,7 @@
         "italian": "",
         "spanish": "Sistemas de vuelo: categoría del selector de PEN",
         "chinese": "飞行系统-PIT类别",
-        "japanese": "",
+        "japanese": "フライトシステム - PITカテゴリー",
         "korean": "비행 시스템 - 내적 사고 범주",
         "ukrainian": "Системи польоту - PIT Категорiя"
     },
@@ -7013,7 +7013,7 @@
         "italian": "",
         "spanish": "Acciones de vehículos:categoría del selector de PEN",
         "chinese": "载具行动-PIT类别",
-        "japanese": "",
+        "japanese": "車種別アクション - PITカテゴリー",
         "korean": "탑승물 작동 - 내적 사고 범주",
         "ukrainian": "Дiï транспорту - PIT Категорiя"
     },
@@ -7024,7 +7024,7 @@
         "italian": "",
         "spanish": "Sistemas de armas: categoría del selector de PEN",
         "chinese": "武器系统-PIT类别",
-        "japanese": "",
+        "japanese": "武器システム - PITカテゴリー",
         "korean": "무기 시스템 - 내적 사고 범주",
         "ukrainian": "Системи озброeння - PIT Категорiя"
     },
@@ -7035,7 +7035,7 @@
         "italian": "",
         "spanish": "Torreta remota: categoría del selector de PEN",
         "chinese": "远程炮塔-PIT类别",
-        "japanese": "",
+        "japanese": "リモートタレット - PITカテゴリー",
         "korean": "원격 포탑 - 내적 사고 범주",
         "ukrainian": "Безпiлотна турель - PIT категорiя"
     },
@@ -7046,7 +7046,7 @@
         "italian": "",
         "spanish": "Acciones de objetos: categoría del selector de PEN",
         "chinese": "物品行动-PIT类别",
-        "japanese": "",
+        "japanese": "アイテム選択 - ホイールメニュー",
         "korean": "아이템 작동 - 내적 사고 범주",
         "ukrainian": "Дiï з предметами - PIT Категорiя"
     },
@@ -7057,7 +7057,7 @@
         "italian": "",
         "spanish": "Armas: categoría del selector de PEN",
         "chinese": "武器选择-PIT类别",
-        "japanese": "",
+        "japanese": "武器選択 - PITカテゴリー",
         "korean": "무기 선택 - 내적 사고 범주",
         "ukrainian": "Вибiр зброï - PIT Категорiя"
     },
@@ -7068,7 +7068,7 @@
         "italian": "",
         "spanish": "Acciones de mobiGlas: categoría del selector de PEN",
         "chinese": "莫比手环行动-PIT类别",
-        "japanese": "",
+        "japanese": "Mobiglasアクション - ホイールメニュー",
         "korean": "모비글라스 작동 - 내적 사고 범주",
         "ukrainian": "Дiï в mobiGlas - PIT категорiя"
     },
@@ -7079,7 +7079,7 @@
         "italian": "",
         "spanish": "Acciones de minería: categoría del selector de PEN",
         "chinese": "挖矿模式行动-PIT类别",
-        "japanese": "",
+        "japanese": "採掘モードアクション - ホイールメニュー",
         "korean": "채광 모드 작동 - 내적 사고 범주",
         "ukrainian": "Дiï у Гiрничому режимi - PIT Category"
     },
@@ -7090,7 +7090,7 @@
         "italian": "",
         "spanish": "Menú radial de selección de arma",
         "chinese": "武器选择轮盘菜单",
-        "japanese": "",
+        "japanese": "武器選択 ホイールメニュー",
         "korean": "무기 선택 메뉴",
         "ukrainian": "Радiальне Меню Вибору Зброï"
     },
@@ -7101,7 +7101,7 @@
         "italian": "",
         "spanish": "Menú radial de selección de objeto arrojadizo",
         "chinese": "投掷物选择轮盘菜单",
-        "japanese": "",
+        "japanese": "投擲物選択 ホイールメニュー",
         "korean": "투척물 선택 메뉴",
         "ukrainian": "Throwable Select Radial Menu"
     },
@@ -7123,7 +7123,7 @@
         "italian": "",
         "spanish": "Modificador de controles de cámara avanzados (mantener)",
         "chinese": "高级镜头控制修改器（长按）",
-        "japanese": "",
+        "japanese": "高度なカメラコントロールの修飾キー（ホールド）",
         "korean": "고급 카메라 제어 변경자 (길게 누르기)",
         "ukrainian": "Модифiкатор розширеного керування камерою (тримати)"
     },
@@ -7134,7 +7134,7 @@
         "italian": "",
         "spanish": "Guardar vista 1",
         "chinese": "保存视角1",
-        "japanese": "",
+        "japanese": "ビュー1をセーブ",
         "korean": "시점 1 저장하기",
         "ukrainian": "Зберегти вид 1"
     },
@@ -7145,7 +7145,7 @@
         "italian": "",
         "spanish": "Guardar vista 2",
         "chinese": "保存视角2",
-        "japanese": "",
+        "japanese": "ビュー2をセーブ",
         "korean": "시점 2 저장하기",
         "ukrainian": "Зберегти вид 2"
     },
@@ -7156,7 +7156,7 @@
         "italian": "",
         "spanish": "Guardar vista 3",
         "chinese": "保存视角3",
-        "japanese": "",
+        "japanese": "ビュー3をセーブ",
         "korean": "시점 3 저장하기",
         "ukrainian": "Зберегти вид 3"
     },
@@ -7167,7 +7167,7 @@
         "italian": "",
         "spanish": "Guardar vista 4",
         "chinese": "保存视角4",
-        "japanese": "",
+        "japanese": "ビュー4をセーブ",
         "korean": "시점 4 저장하기",
         "ukrainian": "Зберегти вид 4"
     },
@@ -7178,7 +7178,7 @@
         "italian": "",
         "spanish": "Guardar vista 5",
         "chinese": "保存视角5",
-        "japanese": "",
+        "japanese": "ビュー5をセーブ",
         "korean": "시점 5 저장하기",
         "ukrainian": "Зберегти вид 5"
     },
@@ -7189,7 +7189,7 @@
         "italian": "",
         "spanish": "Guardar vista 6",
         "chinese": "保存视角6",
-        "japanese": "",
+        "japanese": "ビュー6をセーブ",
         "korean": "시점 6 저장하기",
         "ukrainian": "Зберегти вид 6"
     },
@@ -7200,7 +7200,7 @@
         "italian": "",
         "spanish": "Guardar vista 7",
         "chinese": "保存视角7",
-        "japanese": "",
+        "japanese": "ビュー7をセーブ",
         "korean": "시점 7 저장하기",
         "ukrainian": "Зберегти вид 7"
     },
@@ -7211,7 +7211,7 @@
         "italian": "",
         "spanish": "Guardar vista 8",
         "chinese": "保存视角8",
-        "japanese": "",
+        "japanese": "ビュー8をセーブ",
         "korean": "시점 8 저장하기",
         "ukrainian": "Зберегти вид 8"
     },
@@ -7222,7 +7222,7 @@
         "italian": "",
         "spanish": "Guardar vista 9",
         "chinese": "保存视角9",
-        "japanese": "",
+        "japanese": "ビュー9をセーブ",
         "korean": "시점 9 저장하기",
         "ukrainian": "Зберегти вид 9"
     },
@@ -7233,7 +7233,7 @@
         "italian": "",
         "spanish": "Cargar vista 1",
         "chinese": "加载视角1",
-        "japanese": "",
+        "japanese": "ビュー1をロード",
         "korean": "시점 1 불러오기",
         "ukrainian": "Завантажити вид 1"
     },
@@ -7244,7 +7244,7 @@
         "italian": "",
         "spanish": "Cargar vista 2",
         "chinese": "加载视角2",
-        "japanese": "",
+        "japanese": "ビュー2をロード",
         "korean": "시점 2 불러오기",
         "ukrainian": "Завантажити вид 2"
     },
@@ -7255,7 +7255,7 @@
         "italian": "",
         "spanish": "Cargar vista 3",
         "chinese": "加载视角3",
-        "japanese": "",
+        "japanese": "ビュー3をロード",
         "korean": "시점 3 불러오기",
         "ukrainian": "Завантажити вид 3"
     },
@@ -7266,7 +7266,7 @@
         "italian": "",
         "spanish": "Cargar vista 4",
         "chinese": "加载视角4",
-        "japanese": "",
+        "japanese": "ビュー4をロード",
         "korean": "시점 4 불러오기",
         "ukrainian": "Завантажити вид 4"
     },
@@ -7277,7 +7277,7 @@
         "italian": "",
         "spanish": "Cargar vista 5",
         "chinese": "加载视角5",
-        "japanese": "",
+        "japanese": "ビュー5をロード",
         "korean": "시점 5 불러오기",
         "ukrainian": "Завантажити вид 5"
     },
@@ -7288,7 +7288,7 @@
         "italian": "",
         "spanish": "Cargar vista 6",
         "chinese": "加载视角6",
-        "japanese": "",
+        "japanese": "ビュー6をロード",
         "korean": "시점 6 불러오기",
         "ukrainian": "Завантажити вид 6"
     },
@@ -7299,7 +7299,7 @@
         "italian": "",
         "spanish": "Cargar vista 7",
         "chinese": "加载视角7",
-        "japanese": "",
+        "japanese": "ビュー7をロード",
         "korean": "시점 7 불러오기",
         "ukrainian": "Завантажити вид 7"
     },
@@ -7310,7 +7310,7 @@
         "italian": "",
         "spanish": "Cargar vista 8",
         "chinese": "加载视角8",
-        "japanese": "",
+        "japanese": "ビュー8をロード",
         "korean": "시점 8 불러오기",
         "ukrainian": "Завантажити вид 8"
     },
@@ -7321,7 +7321,7 @@
         "italian": "",
         "spanish": "Cargar vista 9",
         "chinese": "加载视角9",
-        "japanese": "",
+        "japanese": "ビュー9をロード",
         "korean": "시점 9 불러오기",
         "ukrainian": "Завантажити вид 9"
     },
@@ -7332,7 +7332,7 @@
         "italian": "",
         "spanish": "Borrar vista guardada",
         "chinese": "清除已保存视角",
-        "japanese": "",
+        "japanese": "保存されたビューのクリア",
         "korean": "저장된 시점 지우기",
         "ukrainian": "Скинути збережений вид"
     },
@@ -7343,7 +7343,7 @@
         "italian": "",
         "spanish": "Compensación positiva de X",
         "chinese": "X轴正偏移",
-        "japanese": "",
+        "japanese": "X オフセット 正方向",
         "korean": "X축 오차 긍정",
         "ukrainian": "Додатнiй зсув по X"
     },
@@ -7354,7 +7354,7 @@
         "italian": "",
         "spanish": "Compensación negativa de X",
         "chinese": "X轴负偏移",
-        "japanese": "",
+        "japanese": "X オフセット負方向",
         "korean": "X축 오차 부정",
         "ukrainian": "Вiд’eмний зсув по X"
     },
@@ -7365,7 +7365,7 @@
         "italian": "",
         "spanish": "Compensación positiva de Y/punto focal de cámara libre de espectador (adelante)",
         "chinese": "Y轴正偏移/自由旁观镜头焦点前移",
-        "japanese": "",
+        "japanese": "Yオフセット正方向 / 観戦フリーカメラ焦点位置前方",
         "korean": "Y축 오차 긍정 / 관전자 자유 시점 카메라 초점 앞으로",
         "ukrainian": "Додатнiй зсув по Y / Фокусна точка Freecam глядача попереду"
     },
@@ -7376,7 +7376,7 @@
         "italian": "",
         "spanish": "Compensación negativa de Y/punto focal de cámara libre de espectador (atrás)",
         "chinese": "Y轴负偏移/自由旁观镜头焦点后移",
-        "japanese": "",
+        "japanese": "Y オフセット 負方向 / 観戦フリーカメラ 焦点後方",
         "korean": "Y축 오차 부정 / 관전자 자유 시점 카메라 초점 뒤로",
         "ukrainian": "Вiд’eмний зсув по Y / Фокусна точка Freecam глядача позаду"
     },
@@ -7387,7 +7387,7 @@
         "italian": "",
         "spanish": "Compensación positiva de Z",
         "chinese": "Z轴正偏移",
-        "japanese": "",
+        "japanese": "Z オフセット 正方向",
         "korean": "Z축 오차 긍정",
         "ukrainian": "Додатнiй зсув по Z"
     },
@@ -7398,7 +7398,7 @@
         "italian": "",
         "spanish": "Compensación negativa de Z",
         "chinese": "Z轴负偏移",
-        "japanese": "",
+        "japanese": "Z オフセット負方向",
         "korean": "Z축 오차 부정",
         "ukrainian": "Вiд’eмний зсув по  Z"
     },
@@ -7409,7 +7409,7 @@
         "italian": "",
         "spanish": "Aumentar campo de visión",
         "chinese": "增加视野",
-        "japanese": "",
+        "japanese": "視野角の増加",
         "korean": "시야각 확장",
         "ukrainian": "Збiльшити поле зору (FoV)"
     },
@@ -7420,7 +7420,7 @@
         "italian": "",
         "spanish": "Reducir campo de visión",
         "chinese": "减少视野",
-        "japanese": "",
+        "japanese": "視野角の減少",
         "korean": "시야각 축소",
         "ukrainian": "Зменшити поле зору (FoV)"
     },
@@ -7442,7 +7442,7 @@
         "italian": "",
         "spanish": "Reducir profundidad de campo",
         "chinese": "减少视野",
-        "japanese": "",
+        "japanese": "被写界深度の減少",
         "korean": "피사계 심도 축소",
         "ukrainian": "Зменшити глибину рiзкостi камери (DoF)"
     },
@@ -7453,7 +7453,7 @@
         "italian": "",
         "spanish": "Restablecer vista actual",
         "chinese": "重置当前视角",
-        "japanese": "",
+        "japanese": "現在の表示をリセットする",
         "korean": "현재 시점 초기화",
         "ukrainian": "Скинути поточний вигляд"
     }
