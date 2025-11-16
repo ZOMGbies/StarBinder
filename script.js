@@ -295,7 +295,6 @@ window.addEventListener("keyup", function (e)
     if (e.key === "Alt")
     {
         e.preventDefault();
-        // e.stopPropagation();
         return false;
     }
 }, true); // use capture mode
@@ -557,9 +556,15 @@ class MappedAction
             }
         });
 
+
         this.setDefaultBind(InputModeSelection.KEYBOARD, this.keyboardBind ?? this.mouseBind)
         this.setDefaultBind(InputModeSelection.CONTROLLER, this.gamepadBind)
         this.setDefaultBind(InputModeSelection.JOYSTICK, this.joystickBind)
+        this.setBind(InputModeSelection.KEYBOARD, this.keyboardBind ?? this.mouseBind)
+        this.setBind(InputModeSelection.CONTROLLER, this.gamepadBind)
+        this.setBind(InputModeSelection.JOYSTICK, this.joystickBind)
+
+
 
         const activtationType = this.activationMode ? this.activationMode : activationModeType.NONE;
         this.setActivationMode(activtationType, InputModeSelection.KEYBOARD)
@@ -1414,6 +1419,12 @@ smart_toggle
 - Only one activationMode applies per binding.
 - Timing thresholds (0.15 / 0.25 / 0.5 / 1.5) are in seconds.
  */
+function isDefaultBind(bindObj, inputType = InputState.current)
+{
+    if (!bindObj) return false;
+    return bindObj.getBind(inputType) === bindObj.getDefaultBind(inputType)
+}
+
 function exportMappedActionsToXML(actionMapsMasterList)
 {
     // Start root node
@@ -1430,10 +1441,10 @@ function exportMappedActionsToXML(actionMapsMasterList)
     const grouped = {};
     for (const action of actionMapsMasterList)
     {
-        const keyboardBind = action.getBind(InputModeSelection.KEYBOARD)?.trim();
-        const mouseBind = action.getBind(InputModeSelection.MOUSE)?.trim();
-        const controllerBind = action?.getBind(InputModeSelection.CONTROLLER)?.trim();
-        const joystickBind = action.getBind(InputModeSelection.JOYSTICK)?.trim();
+        const keyboardBind = !isDefaultBind(action, InputModeSelection.KEYBOARD) ? action.getBind(InputModeSelection.KEYBOARD)?.trim() : "";
+        const mouseBind = !isDefaultBind(action, InputModeSelection.MOUSE) ? action.getBind(InputModeSelection.MOUSE)?.trim() : "";
+        const controllerBind = !isDefaultBind(action, InputModeSelection.CONTROLLER) ? action?.getBind(InputModeSelection.CONTROLLER)?.trim() : "";
+        const joystickBind = !isDefaultBind(action, InputModeSelection.JOYSTICK) ? action.getBind(InputModeSelection.JOYSTICK)?.trim() : "";
         if (keyboardBind !== "" || mouseBind !== "" || controllerBind !== "" || joystickBind !== "")
         {
             if (!grouped[action.actionMapName]) grouped[action.actionMapName] = [];
@@ -1447,14 +1458,14 @@ function exportMappedActionsToXML(actionMapsMasterList)
         for (const action of actions)
         {
             xml += `  <action name="${ action.actionName }">\n`;
-            const keyboardBind = action.getBind(InputModeSelection.KEYBOARD)?.trim();
-            const mouseBind = action.getBind(InputModeSelection.MOUSE)?.trim();
-            const controllerBind = action?.getBind(InputModeSelection.CONTROLLER)?.trim();
-            const joystickBind = action.getBind(InputModeSelection.JOYSTICK)?.trim();
+            // const keyboardBind = action.getBind(InputModeSelection.KEYBOARD)?.trim();
+            const keyboardBind = !isDefaultBind(action, InputModeSelection.KEYBOARD) ? action.getBind(InputModeSelection.KEYBOARD)?.trim() : "";
+            const mouseBind = !isDefaultBind(action, InputModeSelection.MOUSE) ? action.getBind(InputModeSelection.MOUSE)?.trim() : "";
+            const controllerBind = !isDefaultBind(action, InputModeSelection.CONTROLLER) ? action?.getBind(InputModeSelection.CONTROLLER)?.trim() : "";
+            const joystickBind = !isDefaultBind(action, InputModeSelection.JOYSTICK) ? action.getBind(InputModeSelection.JOYSTICK)?.trim() : "";
 
             if (keyboardBind && keyboardBind?.trim() != "")
             {
-
                 const deviceIndex = "kb" + action.getBindDevice(InputModeSelection.KEYBOARD) + "_";
                 xml += `   <rebind input="${ deviceIndex }${ keyboardBind }"`;
                 if (action.getActivationMode(InputModeSelection.KEYBOARD) && action.getActivationMode(InputModeSelection.KEYBOARD) != activationModeType.NONE) xml += ` activationMode="${ action.getActivationMode(InputModeSelection.KEYBOARD) }"`;
@@ -2031,7 +2042,7 @@ async function finalizeCapture_Keyboard(input, deviceIndex = 1)
             const actionName = bindVal.actionName;
             const actionObj = actionMapsMasterList.find(a => a.getActionName() === actionName);
             valueDiv.innerHTML = ''; // clear previous
-            valueDiv.appendChild(renderKeybindKeys(actionObj.getBind()));
+            valueDiv.appendChild(renderKeybindKeys(actionObj.getBind(), actionObj.getBind() === actionObj.getDefaultBind()));
             valueDiv.classList.remove('awaiting');
             adjustFontSizeBasedOnWidth(valueDiv);
         }
@@ -2181,19 +2192,12 @@ async function renderBindRow(b)
     wrapper.classList.add('button-wrapper');
 
     const icon = document.createElement('span');
-
-    const tooltip = document.createElement('span');
-    tooltip.classList.add('tooltip-text');
-    tooltip.textContent = 'Click to set whether bind is a double tap.';
-
     wrapper.appendChild(icon);
-    wrapper.appendChild(tooltip);
     activationModeIconDiv.appendChild(wrapper);
     setActivationModeButtonIcon(activationModeIconDiv, b)
 
     const consoleInputDiv = document.createElement('div');
     addConsoleInputField(b, consoleInputDiv);
-
 
     newRow.appendChild(typeDiv);
     newRow.appendChild(valueDiv);
@@ -2219,9 +2223,12 @@ function updateBindRow(bindRow = currentlySelectedKeybindElement)
             bindValueDiv.innerHTML = ''; // clear previous
             if (bindValue)
             {
-                bindValueDiv.appendChild(renderKeybindKeys(bindValue ? `Device ${ bindDevice }: ${ bindValue }` : ``));
-                bindValueDiv.classList.remove('awaiting');
+                const isDefaultBind = (bindValue === bind.getDefaultBind());
+                bindValueDiv.appendChild(renderKeybindKeys(bindValue ? `Device ${ bindDevice }: ${ bindValue }` : ``, isDefaultBind));
+                if (bindValueDiv.classList.contains('awaiting')) bindValueDiv.classList.remove('awaiting');
                 adjustFontSizeBasedOnWidth(bindValueDiv);
+
+                // bindValueDiv.classList.toggle('default',)
             }
         }
 
@@ -2290,7 +2297,7 @@ function generateMainCategoryTags()
  * @param {string} keybindStr
  * @returns {DocumentFragment} - can be appended to a container
  */
-function renderKeybindKeys(keybindString)
+function renderKeybindKeys(keybindString, isDefaultBind)
 {
     // Example: "Device 1: AltLeft+Insert+ControlRight"
     if (!keybindString) return document.createElement('span');
@@ -2404,6 +2411,11 @@ function renderKeybindKeys(keybindString)
         if (display?.trim() !== '')
         {
             keyDiv.classList.add('key');
+            if (isDefaultBind)
+            {
+                keyDiv.classList.add('default', isDefaultBind);
+            }
+
             display = display[0].toUpperCase() + display.slice(1);
             const side = display.endsWith('Left') ? leftIndicator :
                 display.endsWith('Right') ? rightIndicator : '';

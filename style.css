@@ -58,7 +58,7 @@ html,
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     background-color: var(--default-bg);
     color: var(--primaryText);
     display: flex;
@@ -962,6 +962,12 @@ KEY STYLES
     font-family: 'Consolas', monospace;
     font-size: 1rem;
     gap: 0.2rem;
+}
+
+.key.default {
+    color: var(--secondaryText);
+    border-color: var(--default-bg);
+    opacity: 0.6;
 }
 
 .key .side-indicator {
@@ -2377,7 +2383,7 @@ code {
 
 .VKB {
     margin-right: 6rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-family: "Aileron", sans-serif;
     color: var(--secondaryText);
     font-style: italic;
@@ -2386,7 +2392,7 @@ code {
 
 .vkb-logo-wrapper {
     width: 4rem;
-    height: 4rem;
+    height: 2rem;
     background-color: var(--accent2);
     -webkit-mask: url('./assets/VKB_logo.png') no-repeat center / contain;
     mask: url('./assets/VKB_logo.png') no-repeat center / contain;
@@ -2394,7 +2400,7 @@ code {
 
 
 .vkb-text {
-    margin-bottom: 1rem;
+    margin-bottom: 0.2rem;
     letter-spacing: 0.06rem;
 }
 
