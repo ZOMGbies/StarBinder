@@ -2260,7 +2260,7 @@ code {
     z-index: 9999;
 
     border-bottom: 1px solid var(--accent2);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -2271,6 +2271,16 @@ code {
     width: 60%;
     height: 2.8rem;
     margin: 0 auto;
+}
+
+.navBarItem:first-child {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navBarItem:last-child {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .navBarItem {
@@ -2298,7 +2308,7 @@ code {
     position: relative;
     width: 8.1rem;
     height: 2rem;
-    background: var(--lighter-bg);
+    background: var(--secondary-bg);
     color: #ccc;
     border-radius: 2rem;
     cursor: pointer;
@@ -2306,11 +2316,15 @@ code {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 0.0625rem solid var(--accent2);
+    border: 1px solid var(--accent2);
     box-shadow:
         inset 1px 1px 13px rgba(0, 0, 0, 0.15),
         inset -1px -1px 13px rgba(0, 0, 0, 0.15);
     transition: background 0.5s;
+}
+
+.mode-toggle:hover {
+    border: 1px solid var(--accent);
 }
 
 .mode-toggle.finder {
@@ -2340,11 +2354,8 @@ code {
 .knob {
     position: absolute;
     left: 0.125rem;
-    /* 2px -> 0.125rem */
     width: 1.75rem;
-    /* knob width */
     height: 1.75rem;
-    /* make square and smaller than toggle height */
     background: var(--accent);
     border-radius: 50%;
     box-shadow:
@@ -2379,6 +2390,26 @@ code {
 .mode-toggle[data-mode="finder"] .knob {
     left: calc(8rem - 1.75rem - 0.125rem);
     /* toggle width - knob width - padding */
+}
+
+#languageSelector {
+    background: var(--secondary-bg) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5"><polygon points="0,0 10,0 5,5" fill="white"/></svg>') no-repeat right 10px center;
+    background-size: 10px 5px;
+    color: var(--secondary-text);
+    border: 1px solid var(--accent2);
+    border-radius: 0.5rem;
+    padding: 4px 30px 4px 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 2rem;
+}
+
+
+#languageSelector:hover {
+    border-color: var(--accent);
 }
 
 .VKB {

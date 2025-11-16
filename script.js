@@ -194,6 +194,9 @@ function autoFormatMapName(keybindString)
 
 const actionMapsMasterList = [];
 let connectedDevices = {};
+let localisationData = null;
+let localisedLanguage = "english"
+
 
 let bindMode = "binder";
 
@@ -208,6 +211,7 @@ const tagContainer = document.getElementById('tagContainer')
 const subTagContainer = document.getElementById('subTagContainer')
 
 const navBar = document.querySelector('.top-navbar');
+const modeToggle = document.querySelector(".mode-toggle");
 
 const btnSelectInput_Keyboard = document.querySelector('.button-inputSelect-keyboard');
 const btnSelectInput_Controller = document.querySelector('.button-inputSelect-controller');
@@ -779,7 +783,6 @@ async function init()
     });
 
 
-
     tagContainer.classList.add('tag-container');
     subTagContainer.classList.add('subTag-container');
 
@@ -791,7 +794,7 @@ async function init()
     // await loadAndParseDataminedXML();
     await initActionMaps();
 
-    initFuse();       // <--- Fuse.js initialized after XML loads
+
 
     // then show binds
     generateMainCategoryTags();
@@ -810,6 +813,9 @@ async function init()
         }
     });
 
+    await loadLocalisationJSON();
+    initFuse();       // <--- Fuse.js initialized after XML loads
+
     boundActionsToggle.dataset.state = showBoundActionsState;
     boundActionsToggle.addEventListener('click', onToggleFilter_BoundActions)
     conflictsToggle.addEventListener('change', onToggleFilter_Conflicts)
@@ -818,15 +824,7 @@ async function init()
     document.querySelector('.button--export').addEventListener('click', onClickExportKeybinds)
     document.querySelector('.button--import').addEventListener('click', onClickImportKeybinds)
 
-    const modeToggle = document.querySelector(".mode-toggle");
-
-    modeToggle.addEventListener("click", () =>
-    {
-        const mode = modeToggle.dataset.mode === "binder" ? "finder" : "binder";
-        modeToggle.dataset.mode = mode;
-        modeToggle.classList.toggle('finder', mode === 'finder');
-        SetBindMode(mode);
-    });
+    modeToggle.addEventListener("click", () => onClickBindModeToggle());
 
 
     rowContainer?.addEventListener("click", onClickSelectActivationMode);
@@ -1072,6 +1070,7 @@ function setInputMode(mode)
 {
     if (activeCapture) return
     InputState.set(mode);
+    onClickBindModeToggle("binder")
 
     // Loop through all buttons and toggle the 'selected' class
     Object.entries(inputButtons).forEach(([key, btn]) =>
@@ -1663,6 +1662,7 @@ function initFuse()
 {
     const list = actionMapsMasterList.map(a => ({
         actionName: a.getActionName(),
+        localName: getLocalisedLabel(a),
         parsedLabel: getActionLabel(a.getActionName()),
         description: a.getDescription(),
         keywords: a.getKeywords().join(' ')
@@ -1671,6 +1671,7 @@ function initFuse()
     fuse = new Fuse(list, {
         keys: [
             { name: 'actionName', weight: 0.5 },
+            { name: 'localName', weight: 0.7 },
             { name: 'parsedLabel', weight: 0.3 },
             { name: 'description', weight: 0.2 },
             { name: 'keywords', weight: 0.4 }
@@ -1769,7 +1770,11 @@ function updatefilteredNames()
                     const name = item.getActionName().toLowerCase();
                     const desc = item.getDescription().toLowerCase();
                     const keywords = item.getKeywords().map(k => k.toLowerCase());
+
+                    const localizedName = getLocalisedLabel(item).toLowerCase();
+
                     return name.includes(searchQuery) ||
+                        localizedName.includes(searchQuery) ||
                         desc.includes(searchQuery) ||
                         keywords.some(k => k.includes(searchQuery));
                 });
@@ -1829,6 +1834,7 @@ function onToggleFilter_Conflicts()
 function clearAllFilters()
 {
     keybindSearch.value = null;
+    inputFilter.input = "";
     showBoundActionsState = 0;
     // Gather all tags of all types
     const allTagDivs = [
@@ -2164,7 +2170,8 @@ async function showAllBinds(filtered)
 
 async function renderBindRow(b)
 {
-    const parsedName = getActionLabel(b.getActionName()) || b.getActionName();
+    const parsedName = getLocalisedLabel(b);
+    // const parsedName = getActionLabel(b.getActionName()) || b.getActionName();
 
     // --- Primary row ---
     const newRow = document.createElement('div');
@@ -3303,6 +3310,13 @@ async function promptExportKeybinds(defaultName = "CustomKeybinds")
     });
 }
 
+function onClickBindModeToggle(assignedMode)
+{
+    const mode = assignedMode || (modeToggle.dataset.mode === "binder" ? "finder" : "binder");
+    modeToggle.dataset.mode = mode;
+    modeToggle.classList.toggle('finder', mode === 'finder');
+    SetBindMode(mode);
+}
 
 async function onClickClearAllKeybinds()
 {
@@ -4090,6 +4104,11 @@ function findFromInput_Joystick()
 
     function listen()
     {
+        if (document.activeElement === keybindSearch)
+        {
+            requestAnimationFrame(listen);
+            return;
+        }
         const now = performance.now();
         const pads = navigator.getGamepads();
 
@@ -4185,6 +4204,11 @@ function disableKeyboardFinder()
 
 function keyboardFinderHandler(e)
 {
+    if (document.activeElement === keybindSearch)
+    {
+        requestAnimationFrame(listen);
+        return;
+    }
     e.preventDefault();
     if (e.repeat) return; // ignore held-down repeats
 
@@ -4205,6 +4229,11 @@ function findFromInput_Controller()
 {
     function listen()
     {
+        if (document.activeElement === keybindSearch)
+        {
+            requestAnimationFrame(listen);
+            return;
+        }
         const now = performance.now();
         const pads = navigator.getGamepads();
 
@@ -4286,6 +4315,7 @@ function findFromInput_MouseKeyboard()
 
     function handleKeyDown(e)
     {
+        if (document.activeElement === keybindSearch) return; // <-- ignore if search is focused
         if (e.repeat) return;
         e.preventDefault();
         const now = performance.now();
@@ -4302,12 +4332,14 @@ function findFromInput_MouseKeyboard()
 
     function handleKeyUp(e)
     {
+        if (document.activeElement === keybindSearch) return; // <-- ignore if search is focused
         inputFilter.input = "";
         inputFilter.device = "";
     }
 
     function handleMouseDown(e)
     {
+        if (document.activeElement === keybindSearch) return; // <-- ignore if search is focused
         const now = performance.now();
         if (now - lastInputTime < DEBOUNCE_MS) return;
 
@@ -4330,12 +4362,14 @@ function findFromInput_MouseKeyboard()
 
     function handleMouseUp(e)
     {
+        if (document.activeElement === keybindSearch) return; // <-- ignore if search is focused
         inputFilter.input = "";
         inputFilter.device = "";
     }
 
     function handleWheel(e)
     {
+        if (document.activeElement === keybindSearch) return; // <-- ignore if search is focused
         const now = performance.now();
         if (now - lastInputTime < DEBOUNCE_MS) return;
 
@@ -4382,3 +4416,58 @@ function findFromInput_MouseKeyboard()
 
 
 //#endregion
+
+async function loadLocalisationJSON()
+{
+    try
+    {
+        const response = await fetch("./localisation.json");
+        if (!response.ok) throw new Error(`HTTP ${ response.status }`);
+        localisationData = await response.json();
+        console.log("Loaded localisation.json");
+    } catch (err)
+    {
+        console.error("Failed to load localisation.json:", err);
+    }
+}
+function getLocalisedLabel(bindObject)
+{
+    const key = bindObject.label
+    const fallbackName = getActionLabel(bindObject.getActionName()) || bindObject.getActionName();
+    const cleanedKey = key.startsWith("@")
+        ? key.substring(1)
+        : key;
+    if (localisedLanguage === "english")
+    {
+        //this if() is here to force (if in english) the display of my curated keybinds.json names instead of 1:1 showing the in-game English labels
+        return fallbackName || cleanedKey;
+
+    }
+    if (!localisationData) return bindObject?.getActionName() || cleanedKey;
+    if (!localisationData[cleanedKey]) return bindObject?.getActionName() || cleanedKey;
+
+    const value = localisationData[cleanedKey][localisedLanguage];
+    if (value && value.trim() !== "")
+    {
+        return value;
+    }
+
+    // fallback to bindObject.getActionName()
+    return fallbackName || cleanedKey;
+}
+
+
+
+const languageSelector = document.getElementById("languageSelector");
+
+languageSelector.addEventListener("change", (e) =>
+{
+    localisedLanguage = e.target.value; // your global var for current language
+    console.log("Language changed to:", localisedLanguage);
+
+    // If using Fuse, rebuild it for the new language:
+    initFuse();
+
+    // Optionally, re-render UI bindings with new localized labels
+    showAllBinds(actionMapsMasterList);
+});
