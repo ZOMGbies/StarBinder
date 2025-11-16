@@ -4459,6 +4459,7 @@ function getLocalisedLabel(bindObject)
 
 
 const languageSelector = document.getElementById("languageSelector");
+const langDisclaimer = document.getElementById("langDisclaimer");
 
 languageSelector.addEventListener("change", (e) =>
 {
@@ -4471,3 +4472,17 @@ languageSelector.addEventListener("change", (e) =>
     // Optionally, re-render UI bindings with new localized labels
     showAllBinds(actionMapsMasterList);
 });
+
+
+languageSelector.addEventListener("change", () =>
+{
+    if (languageSelector.value !== "english")
+    {
+        langDisclaimer.style.display = "inline";
+    } else
+    {
+        langDisclaimer.style.display = "none";
+    }
+});
+
+languageSelector.dispatchEvent(new Event("change"));
