@@ -2222,7 +2222,7 @@ function updateBindRow(bindRow = currentlySelectedKeybindElement)
         const consoleInputField = bindRow.querySelector('.keybind__consoleInput');
         const bind = actionMapsMasterList?.find(a => a?.getActionName() === bindRow?.dataset.actionName);
 
-        const bindValue = bind.getBind();
+        const bindValue = bind.getBind() ? bind.getBind() : bind.getDefaultBind().trim();
         const bindDevice = bind.getBindDevice();
 
         if (bindValueDiv)
@@ -2234,8 +2234,6 @@ function updateBindRow(bindRow = currentlySelectedKeybindElement)
                 bindValueDiv.appendChild(renderKeybindKeys(bindValue ? `Device ${ bindDevice }: ${ bindValue }` : ``, isDefaultBind));
                 if (bindValueDiv.classList.contains('awaiting')) bindValueDiv.classList.remove('awaiting');
                 adjustFontSizeBasedOnWidth(bindValueDiv);
-
-                // bindValueDiv.classList.toggle('default',)
             }
         }
 
@@ -4351,7 +4349,7 @@ function findFromInput_MouseKeyboard()
             case 2: buttonName = "mouse2"; break;
             default: buttonName = `mouse${ e.button }`; break;
         }
-        if (buttonName !== "mouse1")
+        if (buttonName !== "mouse1" || buttonName == "mouse1")
         {
             inputFilter.input = buttonName;
             inputFilter.device = 1;
@@ -4459,7 +4457,6 @@ function getLocalisedLabel(bindObject)
 
 
 const languageSelector = document.getElementById("languageSelector");
-const langDisclaimer = document.getElementById("langDisclaimer");
 
 languageSelector.addEventListener("change", (e) =>
 {
@@ -4471,18 +4468,6 @@ languageSelector.addEventListener("change", (e) =>
 
     // Optionally, re-render UI bindings with new localized labels
     showAllBinds(actionMapsMasterList);
-});
-
-
-languageSelector.addEventListener("change", () =>
-{
-    if (languageSelector.value !== "english")
-    {
-        langDisclaimer.style.display = "inline";
-    } else
-    {
-        langDisclaimer.style.display = "none";
-    }
 });
 
 languageSelector.dispatchEvent(new Event("change"));
