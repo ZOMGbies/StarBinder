@@ -1110,7 +1110,7 @@ SEARCH BAR  (which also holds the input select buttons)
     justify-content: center;
     align-items: center;
 
-    background-color: rgb(143, 73, 73);
+    background-color: #2b2831;
     border: none;
     cursor: pointer;
 
@@ -1127,15 +1127,19 @@ SEARCH BAR  (which also holds the input select buttons)
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
-.searchbar-clear::before {
+.button.searchbar-clear::before {
     content: "×";
     font-size: 1.5rem;
     line-height: 1;
-    color: white;
     pointer-events: none;
+
+    /* -webkit-text-fill-color: rgb(245, 166, 166); */
 }
 
-.searchbar-clear:hover {}
+
+.searchbar-clear:hover {
+    background-color: #492831;
+}
 
 
 

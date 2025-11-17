@@ -1421,7 +1421,8 @@ smart_toggle
 function isDefaultBind(bindObj, inputType = InputState.current)
 {
     if (!bindObj) return false;
-    return bindObj.getBind(inputType) === bindObj.getDefaultBind(inputType)
+
+    return ((bindObj.getBind(inputType) === bindObj.getDefaultBind(inputType)) && (bindObj.getActivationMode() === bindObj.getDefaultActivationMode()))
 }
 
 function exportMappedActionsToXML(actionMapsMasterList)
@@ -1691,6 +1692,7 @@ function updatefilteredNames()
     // --- Input  filtering ---
     if (inputFilter && inputFilter.input != "")
     {
+        //helper function
         function matchesInput(b, d, inputFilter)
         {
             if (!b) return false;
@@ -1716,7 +1718,7 @@ function updatefilteredNames()
 
         filtered = filtered.filter(item =>
         {
-            const b = item.getBind();
+            const b = item.getBind() ? item.getBind() : item.getDefaultBind();
             const d = item.getBindDevice();
             return typeof b === "string" && b.trim().length > 0 && matchesInput(b, d, inputFilter);
         });
@@ -2230,7 +2232,7 @@ function updateBindRow(bindRow = currentlySelectedKeybindElement)
             bindValueDiv.innerHTML = ''; // clear previous
             if (bindValue)
             {
-                const isDefaultBind = (bindValue === bind.getDefaultBind());
+                const isDefaultBind = (bindValue === bind.getDefaultBind() && bind.getActivationMode() === bind.getDefaultActivationMode());
                 bindValueDiv.appendChild(renderKeybindKeys(bindValue ? `Device ${ bindDevice }: ${ bindValue }` : ``, isDefaultBind));
                 if (bindValueDiv.classList.contains('awaiting')) bindValueDiv.classList.remove('awaiting');
                 adjustFontSizeBasedOnWidth(bindValueDiv);
@@ -2778,10 +2780,6 @@ function cancelRecordBind()
 
 function onClickSelectActivationMode(e)
 {
-    // const selectedRow = document.querySelector('.keybind__row--selected');
-    // const thisRow = e.target.closest('.keybind__row');
-    // if (thisRow !== selectedRow) return;
-
     const btn = e.target.closest('.button-activationMode');
     if (!btn) return;
 
@@ -2852,6 +2850,7 @@ function onClickSelectActivationMode(e)
                 bindObject.setActivationMode(selectedActivationMode, InputState.current);
                 onUserChangedBind(bindObject);
                 setActivationModeButtonIcon(btn, bindObject);
+                updateBindRow();
             }
 
             cleanup();
@@ -4349,7 +4348,7 @@ function findFromInput_MouseKeyboard()
             case 2: buttonName = "mouse2"; break;
             default: buttonName = `mouse${ e.button }`; break;
         }
-        if (buttonName !== "mouse1" || buttonName == "mouse1")
+        if (buttonName !== "mouse1")
         {
             inputFilter.input = buttonName;
             inputFilter.device = 1;
