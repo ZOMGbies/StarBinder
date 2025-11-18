@@ -21,7 +21,7 @@
   <!-- Preload Fonts -->
   <link rel="stylesheet" href="./style.css" />
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
-  <script defer src="./script.js"></script>
+  <script type="module" defer src="./script.js"></script>
 
   <link rel="icon" type="image/png" sizes="256x256" href="./assets/favicon_256.png">
   <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon_192.png">
@@ -44,7 +44,7 @@
           </div>
         </div>
         <div class="navBarItem">
-          <!--button class="button presetsButton">Keybind Presets</button-->
+          <button class="button presetsButton">Keybind Presets</button>
         </div>
         <div class="navBarItem">
           <div class="navBarItem">
@@ -63,51 +63,38 @@
           </div>
         </div>
     </nav>
-    <!--div class="popout-navbar">
+    <div class="popout-navbar">
       <div class="popout-navbar-inner">
 
-        <div class="button-sections">
+        <div class="button-sections" id="presetSections">
 
-          <div class="button-section">
-            <h3>CIG Presets</h3>
-            <button class="button preset-btn" data-desc="Description for Preset 9">VKB Gladiator NXT EVO Premium
-              Dual</button>
-            <button class="button preset-btn" data-desc="Description for Preset 9">VKB Gladiator SCG Premium
-              Dual</button>
-            <button class="button preset-btn" data-desc="Description for Preset 1">HOTAS G940</button>
-            <button class="button preset-btn" data-desc="Description for Preset 2">HOTAS Warthog</button>
-            <button class="button preset-btn" data-desc="Description for Preset 3">HOTAS Warthog Pedals</button>
-            <button class="button preset-btn" data-desc="Description for Preset 4">HOTAS X52</button>
-            <button class="button preset-btn" data-desc="Description for Preset 5">HOTAS x52 Pro</button>
-            <button class="button preset-btn" data-desc="Description for Preset 6">HOTAS x55</button>
-            <button class="button preset-btn" data-desc="Description for Preset 6">HOTAS x56</button>
-            <button class="button preset-btn" data-desc="Description for Preset 7">Thrustmaster T16 Dual</button>
-            <button class="button preset-btn" data-desc="Description for Preset 7">Thrustmaster T16 TWCS</button>
-            <button class="button preset-btn" data-desc="Description for Preset 8">Tflight Hotas X</button>
+          <div class="section-wrapper">
+            <h3>Defaults</h3>
+            <div class="button-section" data-section="CIG">
+              <!-- buttons go here -->
+            </div>
           </div>
 
-          <div class="button-section">
+          <div class="section-wrapper">
             <h3>BuzZKiller</h3>
-            <button class="button preset-btn" data-desc="Description for Preset 4">Preset 4</button>
-            <button class="button preset-btn" data-desc="Description for Preset 5">Preset 5</button>
-            <button class="button preset-btn" data-desc="Description for Preset 6">Preset 6</button>
+            <div class="button-section" data-section="Buzzkiller">
+              <!-- buttons go here -->
+            </div>
           </div>
 
-          <div class="button-section">
-            <h3>StarBinder</h3>
-            <button class="button preset-btn" data-desc="Description for Preset 7">Preset 7</button>
-            <button class="button preset-btn" data-desc="Description for Preset 8">Preset 8</button>
-            <button class="button preset-btn" data-desc="Description for Preset 9">Preset 9</button>
-          </div>
+          <!--div class="section-wrapper">
+            <h3>Other</h3>
+            <div class="button-section" data-section="Other">
+             </div>
+        </div-->
 
         </div>
 
-        <div class="description-section">
-          <p class="preset-description"></p>
-        </div>
+        <div class="preset-description">THIS SECTION IS GONE</div>
 
       </div>
-    </div-->
+    </div>
+
 
   </div>
 

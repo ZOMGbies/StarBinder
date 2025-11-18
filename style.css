@@ -10,6 +10,7 @@
     --primaryText: rgb(204, 204, 250);
     --primaryText_soft: rgb(204, 204, 250, 0.6);
     --navBarSoft: rgb(14, 46, 66);
+    --popoutNavBar: rgb(10, 34, 49);
     --descriptionBackgroundColour: #234c7933;
     --secondaryText: #868a8c;
     --accent: #00b0ff;
@@ -1833,7 +1834,7 @@ code {
     height: 2rem;
     font-size: 0.75rem;
     color: var(--primaryText);
-    font-family: "Gobold", sans-serif;
+    font-family: 'Gobold', sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.09rem;
     margin-top: 0.1rem;
@@ -2277,7 +2278,7 @@ code {
     align-items: center;
     justify-content: space-between;
     width: 60%;
-    height: 2.8rem;
+    height: 3rem;
     margin: 0 auto;
 }
 
@@ -2299,7 +2300,7 @@ code {
 }
 
 .nav-btn {
-    font-family: "gobold", sans-serif;
+    font-family: 'Gobold', sans-serif;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
     font-size: 0.9rem;
@@ -2311,13 +2312,27 @@ code {
 }
 
 /**/
+.presetsButton {
+    height: 100%;
+    width: auto;
+    border-radius: 0.8rem;
+
+    transition: all 0.2s ease;
+}
+
+.presetsButton.active {
+    background-color: var(--popoutNavBar);
+    border-radius: 0;
+    box-shadow: none;
+    transition: all 0.2s ease;
+}
 
 .popout-navbar {
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    background: var(--navBarSoft);
+    background: var(--popoutNavBar);
     overflow: hidden;
     height: 0;
     padding: 0 0.5rem;
@@ -2325,15 +2340,16 @@ code {
     align-items: flex-start;
     z-index: 9998;
     border-bottom: 1px solid var(--accent2);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transition: height 0.25s ease, opacity 0.25s ease, padding 0.25s ease;
+    box-shadow:
+        0 4px 4px rgba(0, 0, 0, 0.3);
+    /* inset 0 2px 15px rgba(0, 0, 0, 0.3); */
+    opacity: 1;
+    transition: height 0.25s ease, padding 0.25s ease;
 }
 
 .popout-navbar.open {
     opacity: 1;
     padding: 1rem 0.5rem;
-
 }
 
 
@@ -2345,43 +2361,67 @@ code {
 .popout-navbar-inner {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 100%;
+    height: auto;
     margin: 0 auto;
-
     transition: opacity 0.15s ease;
 }
 
+
 .popout-navbar-inner.fade-out {
     opacity: 0;
+    transition: opacity 0.15s ease;
+    pointer-events: none;
+}
+
+.popout-navbar-inner.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 
-/* Horizontal container for button sections */
+.section-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0rem;
+}
+
+.section-wrapper h3 {
+    margin: 0.3rem 0;
+    font-family: 'Gobold', sans-serif;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    color: var(--primary-text);
+}
+
 .button-sections {
     display: flex;
-    justify-content: space-between;
-    gap: 2rem;
+    justify-content: center;
+    gap: 1rem;
     margin-bottom: 1rem;
 }
 
-/* Each section holds its buttons vertically */
 .button-section {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    flex: 1;
-    padding: 1rem 1rem;
-    background-color: var(--secondary-bg);
+    gap: 1rem;
+    max-height: 22rem;
+    overflow-y: auto;
+    /* background-color: var(--rowBackground); */
+    box-shadow:
+        inset 0 -40px 25px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
     align-items: center;
+    width: 20rem;
 }
-
 
 .preset-btn {
     cursor: pointer;
     padding: 0.8rem;
-    width: 80%;
+    width: 100%;
     height: auto;
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 .preset-btn:hover {
@@ -2389,12 +2429,16 @@ code {
 }
 
 /* Description section */
-.description-section {
-    width: 100%;
-    min-height: 1rem;
+.preset-description {
+    width: 70%;
+    min-height: 4rem;
     text-align: center;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.85);
+    align-self: center;
+
+    font-family: 'Aileron', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+    color: var(--secondaryText)
 }
 
 .preset-item {
@@ -2449,7 +2493,7 @@ code {
 
 .label {
     position: absolute;
-    font-family: "gobold", sans-serif;
+    font-family: 'Gobold', sans-serif;
     letter-spacing: 0.1rem;
     font-size: 0.8rem;
     color: var(--primary-text);
@@ -2556,9 +2600,4 @@ code {
     gap: 0rem;
     justify-content: flex-end;
     align-items: flex-end;
-}
-
-.presetsButton {
-    height: 2rem;
-    width: 12rem;
 }

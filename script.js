@@ -1,3 +1,4 @@
+import { presetData } from './presets/presets.js';
 //#region Keybind Values
 
 const mousekeys = {
@@ -213,18 +214,18 @@ const subTagContainer = document.getElementById('subTagContainer')
 const navBar = document.querySelector('.top-navbar');
 const modeToggle = document.querySelector(".mode-toggle");
 const btnBinder = navBar.querySelector('[data-action="binder"]')
-const btnPresets = document.querySelector('.presetsButton')
-const popoutInner = document.querySelector('.popout-navbar-inner');
-const presetDescription = document.querySelector('.preset-description');
+const btnPresets = navBar.querySelector('.presetsButton');
+
 const popout = document.querySelector('.popout-navbar');
-const toggleBtn = document.querySelector('.presetsButton');
+const popoutInner = document.querySelector('.popout-navbar-inner');
+const presetSections = document.getElementById('presetSections');
+const presetDescription = document.querySelector('.preset-description');
 
 const btnSelectInput_Keyboard = document.querySelector('.button-inputSelect-keyboard');
 const btnSelectInput_Controller = document.querySelector('.button-inputSelect-controller');
 const btnSelectInput_Joystick = document.querySelector('.button-inputSelect-joystick');
-const btnSelectInput_JoystickModelSelect = document.querySelector('.button-inputSelect-joystickModelSelect');
+// const btnSelectInput_JoystickModelSelect = document.querySelector('.button-inputSelect-joystickModelSelect');
 
-const btnSwapDevices = document.querySelector('.swapDevices');
 
 const joystickDropdownRow = document.querySelector('.joystick-dropdown-row');
 
@@ -832,6 +833,23 @@ async function init()
 
     navBar?.addEventListener("click", onClickNavBar)
 
+    presetSections.addEventListener('mouseover', (e) =>
+    {
+        const btn = e.target.closest('.preset-btn');
+        if (!btn) return;
+
+        presetDescription.textContent = btn.dataset.desc || '';
+    });
+
+    presetSections.addEventListener('mouseout', (e) =>
+    {
+        const btn = e.target.closest('.preset-btn');
+        if (!btn) return;
+
+        presetDescription.textContent = '';
+    });
+    presetSections.addEventListener('click', (e) => { onClickLoadPreset(e) });
+
     popoutInner?.addEventListener('mouseenter', (e) =>
     {
         onHoverPresets(e)
@@ -843,6 +861,7 @@ async function init()
     }, true);
 
     SetBindMode("binder", btnBinder);
+    renderPresetButtons();
 
 
     rowContainer?.addEventListener("click", onClickSelectActivationMode);
@@ -1639,7 +1658,7 @@ async function importCustomKeybindsXML(fileOrUrl)
             }
             else
             {
-                console.log("keybind not found");
+                console.log("Keybind not found: " + importActionName);
             }
 
         });
@@ -2815,44 +2834,106 @@ function onClickPresetsButton()
     {
         openPresetsPopout()
     }
+
 }
+
+
 function openPresetsPopout()
 {
-    popout.style.height = "0px";
-    popout.classList.add("open");
+    if (!popout || !popoutInner) return;
 
-    // Use requestAnimationFrame to let the DOM update first
+    // Ensure content is visible
+    popoutInner.classList.remove('hidden');
+    btnPresets.classList.add('active')
+
+    // Reset height for animation
+    popout.style.height = "0px";
+    popout.style.padding = "1rem 0.5rem";
+    popout.classList.add('open');
+
+    // Animate height to content
     requestAnimationFrame(() =>
     {
-        const totalHeight = popout.scrollHeight + 30; // includes content
+        const totalHeight = popout.scrollHeight;
         popout.style.height = totalHeight + "px";
     });
 }
+
 function closePresetsPopout()
 {
-    popoutInner?.classList.add("fade-out");
+    if (!popout || !popoutInner) return;
+
+    // Fade out buttons first
+    popoutInner.classList.add('hidden');
+    btnPresets.classList.remove('active')
 
     setTimeout(() =>
     {
-        if (popout)
-        {
-            popout.style.height = "0px";
-            popout.classList.remove("open");
-        }
-        if (popoutInner)
-        {
-            popoutInner.classList.remove("fade-out");
-        }
-    }, 150);
+        // Collapse popout
+        popout.style.height = "0px";
+        popout.classList.remove('open');
+
+        // Reset padding if needed
+        popout.style.padding = "0 0.5rem";
+    }, 150); // matches fade duration
 }
-// Reset classes after slide up completes
+
+
+
+// Cleanup after popout collapse finishes
 popout?.addEventListener('transitionend', (e) =>
 {
-    if (e.propertyName === 'transform' && popout.classList.contains('closing'))
-    {
-        popout.classList.remove('open', 'closing');
+    if (e.propertyName === "height")
+    { // watch height, not transform
+        if (popout.style.height === "0px")
+        {
+            popout.classList.remove("open");
+            popoutInner?.classList.remove("fade-out");
+        }
     }
 });
+
+function renderPresetButtons()
+{
+    function equalizeSectionHeights()
+    {
+        const sections = document.querySelectorAll('.button-section');
+        let maxHeight = 0;
+
+        // Reset heights first
+        sections.forEach(section => section.style.height = 'auto');
+
+        // Find tallest
+        sections.forEach(section =>
+        {
+            const h = section.scrollHeight;
+            if (h > maxHeight) maxHeight = h;
+        });
+
+        // Apply tallest height to all
+        sections.forEach(section => section.style.height = maxHeight + 'px');
+    }
+
+    Object.entries(presetData).forEach(([sectionName, presets]) =>
+    {
+        const sectionEl = presetSections.querySelector(`[data-section="${ sectionName }"]`);
+        if (!sectionEl) return;
+
+        presets.forEach(preset =>
+        {
+            const btn = document.createElement('button');
+            btn.className = "button preset-btn";
+            btn.textContent = preset.text;
+            btn.dataset.desc = preset.desc;
+            btn.dataset.file = preset.file; // stored for later use
+
+            sectionEl.appendChild(btn);
+        });
+    });
+    equalizeSectionHeights();
+}
+
+
 
 function onHoverPresets(e)
 {
@@ -2866,6 +2947,17 @@ function onLeaveHoverPresets(e)
     const btn = e.target.closest('.preset-btn');
     if (!btn) return;
     presetDescription.textContent = 'Hover over a button to see its description';
+}
+
+async function onClickLoadPreset(e)
+{
+    const btn = e.target.closest('.preset-btn');
+    if (!btn) return; // clicked outside a button
+
+    const filePath = btn.dataset.file;
+    await importCustomKeybindsXML(filePath)
+    showAllBinds();
+    closePresetsPopout();
 }
 //#endregion
 
