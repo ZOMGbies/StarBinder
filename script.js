@@ -1265,8 +1265,8 @@ async function loadAndParseDataminedXML()
                 !actionName ||
                 seenActionNames.has(actionName) ||
                 // !UICategory ||
-                actionName.startsWith('flashui') ||
-                (!label && !description && !category)
+                actionName.startsWith('flashui')
+                || (!label && !description && !category)
             ) return;
 
 
@@ -1664,8 +1664,6 @@ async function importCustomKeybindsXML(fileOrUrl)
         });
     });
 }
-
-
 //#endregion
 
 
@@ -4629,7 +4627,7 @@ function getLocalisedLabel(bindObject)
 {
     const key = bindObject.label
     const fallbackName = getActionLabel(bindObject.getActionName()) || bindObject.getActionName();
-    const cleanedKey = key.startsWith("@")
+    const cleanedKey = key?.startsWith("@")
         ? key.substring(1)
         : key;
     if (localisedLanguage === "english")

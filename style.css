@@ -2287,6 +2287,11 @@ code {
     justify-content: flex-start;
 }
 
+.navBarItem:nth-child(2) {
+    display: flex;
+    justify-content: center;
+}
+
 .navBarItem:last-child {
     display: flex;
     justify-content: flex-end;
@@ -2294,6 +2299,7 @@ code {
 
 .navBarItem {
     width: 20rem;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2313,18 +2319,19 @@ code {
 
 /**/
 .presetsButton {
-    height: 100%;
+    height: 2.2rem;
     width: auto;
     border-radius: 0.8rem;
-
-    transition: all 0.2s ease;
+    margin: 0;
+    transition: all 0.3s ease;
 }
 
 .presetsButton.active {
     background-color: var(--popoutNavBar);
     border-radius: 0;
     box-shadow: none;
-    transition: all 0.2s ease;
+    transform: translateY(0.6rem);
+    transition: all 0.3s ease;
 }
 
 .popout-navbar {
