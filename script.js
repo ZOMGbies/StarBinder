@@ -212,6 +212,12 @@ const subTagContainer = document.getElementById('subTagContainer')
 
 const navBar = document.querySelector('.top-navbar');
 const modeToggle = document.querySelector(".mode-toggle");
+const btnBinder = navBar.querySelector('[data-action="binder"]')
+const btnPresets = document.querySelector('.presetsButton')
+const popoutInner = document.querySelector('.popout-navbar-inner');
+const presetDescription = document.querySelector('.preset-description');
+const popout = document.querySelector('.popout-navbar');
+const toggleBtn = document.querySelector('.presetsButton');
 
 const btnSelectInput_Keyboard = document.querySelector('.button-inputSelect-keyboard');
 const btnSelectInput_Controller = document.querySelector('.button-inputSelect-controller');
@@ -824,12 +830,25 @@ async function init()
     document.querySelector('.button--export').addEventListener('click', onClickExportKeybinds)
     document.querySelector('.button--import').addEventListener('click', onClickImportKeybinds)
 
-    modeToggle.addEventListener("click", () => onClickBindModeToggle());
+    navBar?.addEventListener("click", onClickNavBar)
+
+    popoutInner?.addEventListener('mouseenter', (e) =>
+    {
+        onHoverPresets(e)
+    }, true); // use capture to catch mouseenter properly
+
+    popoutInner?.addEventListener('mouseleave', (e) =>
+    {
+        onLeaveHoverPresets
+    }, true);
+
+    SetBindMode("binder", btnBinder);
 
 
     rowContainer?.addEventListener("click", onClickSelectActivationMode);
     rowContainer?.addEventListener("click", onClickKeybindElement)
     document.addEventListener("click", onClickAnywhereDeselectKeybind);
+    document.addEventListener("click", onClickAnywhereClosePresets);
     rowContainer?.addEventListener("dblclick", onClickRecordKeybind);
     rowContainer?.addEventListener("keydown", function (e)
     {
@@ -843,18 +862,7 @@ async function init()
     rowContainer?.addEventListener("focusin", onFocusConsoleInput)
     rowContainer?.addEventListener("focusout", onLoseFocusConsoleInput)
     keybindDescriptionTags.addEventListener("click", onClickFilterTag);
-    rowContainer.addEventListener("mousedown", (e) =>
-    {
-        const targetRow = e.target.closest(".keybind__row");
-
-        if (targetRow === currentlySelectedKeybindElement)
-        {
-            holdTimer = setTimeout(() =>
-            {
-                onClickClearKeybind();
-            }, 500);
-        }
-    });
+    rowContainer.addEventListener("mousedown", onHoldClearKeybind)
 
     rowContainer.addEventListener("mouseup", () =>
     {
@@ -884,8 +892,8 @@ async function init()
         mapIndexValuesToDevices();
 
     });
-    const btnBinder = navBar.querySelector('[data-action="binder"]')
-    SetBindMode("binder", btnBinder);
+
+
 }
 //#endregion
 
@@ -2244,7 +2252,7 @@ function updateBindRow(bindRow = currentlySelectedKeybindElement)
             consoleInputField.value = "";
             if (bindValue)
             {
-                consoleInputField.placeholder = bind.getBind() ? bind.getBindDevice() + ":" + bindValue : "";
+                consoleInputField.placeholder = bindValue ? bind.getBindDevice() + ":" + bindValue : "";
             }
             else
             {
@@ -2652,32 +2660,44 @@ function onClickAnywhereDeselectKeybind(e)
 {
     // Ignore clicks inside a keybind row or when recording is active
     if (e.target.closest('#conflictsToggle, label[for="conflictsToggle"], .slider')) return;
-
-
     if (recordingActive) return;
-    if (e &&
-        (e.target.closest(".keybind__row") ||
+
+    const isBody = e.target === document.body;
+    const inContent = e.target.closest(".content");
+    const inFooter = e.target.closest(".footer__keybind-info");
+    const inWrapper = e.target.closest(".content-keybinds-absolute-wrapper");
+
+    if ((isBody || (inContent && !inWrapper)) && !inFooter)
+    {
+        if (e &&
             e.target.closest(".inputType-select") ||
             e.target.closest(".searchbar-container ")
-        )) return;
-    const keepSelectedIf = e?.target.closest('.slider');
-    if (e.targe)
-    {
-        return;
-    }
-    const tagEl = e?.target.closest('.tag, .sub-tag, .descriptionTag');
-    if (tagEl)
-    {
-        const elKeyword = tagEl.dataset.keyword?.trim().toLowerCase();
-        const selectedKeywords = currentKeyBind?.getKeywords() || [];
+        ) return;
 
-        // If the clicked tag matches any selected keyword, do nothing
-        if (selectedKeywords.some(kw => kw.toLowerCase() === elKeyword)) return;
+        const tagEl = e?.target.closest('.tag, .sub-tag, .descriptionTag');
+        if (tagEl)
+        {
+            const elKeyword = tagEl.dataset.keyword?.trim().toLowerCase();
+            const selectedKeywords = currentKeyBind?.getKeywords() || [];
+
+            // If the clicked tag matches any selected keyword, do nothing
+            if (selectedKeywords.some(kw => kw.toLowerCase() === elKeyword)) return;
+        }
+        // Otherwise, deselect current keybind
+        ClearKeybindDescription();
+        document.querySelector('.keybind__row--selected')?.classList.remove('keybind__row--selected');
+        currentlySelectedKeybindElement = null;
     }
-    // Otherwise, deselect current keybind
-    ClearKeybindDescription();
-    document.querySelector('.keybind__row--selected')?.classList.remove('keybind__row--selected');
-    currentlySelectedKeybindElement = null;
+}
+function onClickAnywhereClosePresets(e)
+{
+    const inPopoutNavBar = e.target.closest(".popout-navbar.open");
+    const inPresetsButton = e.target.closest(".presetsButton");
+
+    if (!inPopoutNavBar && !inPresetsButton)
+    {
+        closePresetsPopout();
+    }
 }
 
 function onClickRecordKeybind(e)
@@ -2775,7 +2795,79 @@ function cancelRecordBind()
     }
     finalizeCapture_Controller();
 }
+//#region NavBar Buttons
 
+function onClickNavBar(e)
+{
+    if (e)
+    {
+        if (e.target.closest('.presetsButton')) onClickPresetsButton();
+        else if (e.target.closest('.mode-toggle')) onClickBindModeToggle();
+    }
+}
+
+function onClickPresetsButton()
+{
+    if (popout.classList.contains('open'))
+    {
+        closePresetsPopout()
+    } else
+    {
+        openPresetsPopout()
+    }
+}
+function openPresetsPopout()
+{
+    popout.style.height = "0px";
+    popout.classList.add("open");
+
+    // Use requestAnimationFrame to let the DOM update first
+    requestAnimationFrame(() =>
+    {
+        const totalHeight = popout.scrollHeight + 30; // includes content
+        popout.style.height = totalHeight + "px";
+    });
+}
+function closePresetsPopout()
+{
+    popoutInner?.classList.add("fade-out");
+
+    setTimeout(() =>
+    {
+        if (popout)
+        {
+            popout.style.height = "0px";
+            popout.classList.remove("open");
+        }
+        if (popoutInner)
+        {
+            popoutInner.classList.remove("fade-out");
+        }
+    }, 150);
+}
+// Reset classes after slide up completes
+popout?.addEventListener('transitionend', (e) =>
+{
+    if (e.propertyName === 'transform' && popout.classList.contains('closing'))
+    {
+        popout.classList.remove('open', 'closing');
+    }
+});
+
+function onHoverPresets(e)
+{
+    const btn = e.target.closest('.preset-btn');
+    if (!btn) return; // ignore if not a button
+    const desc = btn.dataset.desc || '';
+    presetDescription.textContent = desc;
+}
+function onLeaveHoverPresets(e)
+{
+    const btn = e.target.closest('.preset-btn');
+    if (!btn) return;
+    presetDescription.textContent = 'Hover over a button to see its description';
+}
+//#endregion
 
 
 function onClickSelectActivationMode(e)
@@ -2952,7 +3044,22 @@ function setActivationModeButtonIcon(buttonObject, bindObject)
     // Add to the div
     buttonObject.appendChild(icon);
 }
-
+function onHoldClearKeybind(e)
+{
+    //make it so hold to clear ignores console input, activation mode button
+    const targetRow = e.target.closest(".keybind__row");
+    if (e &&
+        (e.target.closest(".keybind__consoleInput") ||
+            e.target.closest(".activation-icon")
+        )) return;
+    if (targetRow === currentlySelectedKeybindElement)
+    {
+        holdTimer = setTimeout(() =>
+        {
+            onClickClearKeybind();
+        }, 500);
+    }
+}
 function onClickClearKeybind()
 {
     const bind = actionMapsMasterList?.find(a => a?.getActionName() === currentlySelectedKeybindElement?.dataset.actionName);
@@ -4421,7 +4528,6 @@ async function loadLocalisationJSON()
         const response = await fetch("./localisation.json");
         if (!response.ok) throw new Error(`HTTP ${ response.status }`);
         localisationData = await response.json();
-        console.log("Loaded localisation.json");
     } catch (err)
     {
         console.error("Failed to load localisation.json:", err);
@@ -4460,7 +4566,6 @@ const languageSelector = document.getElementById("languageSelector");
 languageSelector.addEventListener("change", (e) =>
 {
     localisedLanguage = e.target.value; // your global var for current language
-    console.log("Language changed to:", localisedLanguage);
 
     // If using Fuse, rebuild it for the new language:
     initFuse();

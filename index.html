@@ -33,37 +33,83 @@
 </head>
 
 <body>
-
-  <nav class="top-navbar">
-    <div class="navbar-inner">
-      <div class="navBarItem">
-        <div class="mode-toggle" data-mode="binder">
-          <span class="label binder">BINDER</span>
-          <span class="label finder">FINDER</span>
-          <div class="knob"></div>
-        </div>
-      </div>
-      <div class="navBarItem"></div>
-      <div class="navBarItem">
+  <div class="sticky-navbar-container">
+    <nav class="top-navbar">
+      <div class="navbar-inner">
         <div class="navBarItem">
-          <select id="languageSelector">
-            <option value="english">🇬🇧  EN</option>
-            <option value="french">🇫🇷  FR</option>
-            <option value="german">🇩🇪  DE</option>
-            <option value="italian">🇮🇹  IT</option>
-            <option value="spanish">🇪🇸  ES</option>
-            <option value="chinese">🇨🇳 中文</option>
-            <option value="japanese">🇯🇵 日</option>
-            <option value="korean">🇰🇷 한</option>
-            <option value="ukrainian">🇺🇦 УКР</option>
-          </select>
+          <div class="mode-toggle" data-mode="binder">
+            <span class="label binder">BINDER</span>
+            <span class="label finder">FINDER</span>
+            <div class="knob"></div>
+          </div>
+        </div>
+        <div class="navBarItem">
+          <!--button class="button presetsButton">Keybind Presets</button-->
+        </div>
+        <div class="navBarItem">
+          <div class="navBarItem">
+            <select id="languageSelector">
+              <option value="english">🇬🇧  EN</option>
+              <option value="french">🇫🇷  FR</option>
+              <option value="german">🇩🇪  DE</option>
+              <option value="italian">🇮🇹  IT</option>
+              <option value="spanish">🇪🇸  ES</option>
+              <option value="brazillian">🇧🇷  PT</option>
+              <option value="chinese">🇨🇳 中文</option>
+              <option value="japanese">🇯🇵 日</option>
+              <option value="korean">🇰🇷 한</option>
+              <option value="ukrainian">🇺🇦 УКР</option>
+            </select>
+          </div>
+        </div>
+    </nav>
+    <!--div class="popout-navbar">
+      <div class="popout-navbar-inner">
+
+        <div class="button-sections">
+
+          <div class="button-section">
+            <h3>CIG Presets</h3>
+            <button class="button preset-btn" data-desc="Description for Preset 9">VKB Gladiator NXT EVO Premium
+              Dual</button>
+            <button class="button preset-btn" data-desc="Description for Preset 9">VKB Gladiator SCG Premium
+              Dual</button>
+            <button class="button preset-btn" data-desc="Description for Preset 1">HOTAS G940</button>
+            <button class="button preset-btn" data-desc="Description for Preset 2">HOTAS Warthog</button>
+            <button class="button preset-btn" data-desc="Description for Preset 3">HOTAS Warthog Pedals</button>
+            <button class="button preset-btn" data-desc="Description for Preset 4">HOTAS X52</button>
+            <button class="button preset-btn" data-desc="Description for Preset 5">HOTAS x52 Pro</button>
+            <button class="button preset-btn" data-desc="Description for Preset 6">HOTAS x55</button>
+            <button class="button preset-btn" data-desc="Description for Preset 6">HOTAS x56</button>
+            <button class="button preset-btn" data-desc="Description for Preset 7">Thrustmaster T16 Dual</button>
+            <button class="button preset-btn" data-desc="Description for Preset 7">Thrustmaster T16 TWCS</button>
+            <button class="button preset-btn" data-desc="Description for Preset 8">Tflight Hotas X</button>
+          </div>
+
+          <div class="button-section">
+            <h3>BuzZKiller</h3>
+            <button class="button preset-btn" data-desc="Description for Preset 4">Preset 4</button>
+            <button class="button preset-btn" data-desc="Description for Preset 5">Preset 5</button>
+            <button class="button preset-btn" data-desc="Description for Preset 6">Preset 6</button>
+          </div>
+
+          <div class="button-section">
+            <h3>StarBinder</h3>
+            <button class="button preset-btn" data-desc="Description for Preset 7">Preset 7</button>
+            <button class="button preset-btn" data-desc="Description for Preset 8">Preset 8</button>
+            <button class="button preset-btn" data-desc="Description for Preset 9">Preset 9</button>
+          </div>
 
         </div>
 
-
+        <div class="description-section">
+          <p class="preset-description"></p>
+        </div>
 
       </div>
-  </nav>
+    </div-->
+
+  </div>
 
   <div class="coffee">
     If this tool's helpful, you could always
@@ -106,7 +152,6 @@
 
 
   <div class="content">
-
     <img class="headerImage" src="./assets/header.png" width="60%">
     <div class="VKB">
       <div class="vkb-ref">
@@ -256,21 +301,25 @@
         just about any key combination imaginable, plus you can choose between a bunch of activation modes, not just
         "double tap".<br><br>
 
-        Star Binder lets you export to an XML file which can then be ported directly into Star Citizen using the in-game
+        Star Binder lets you export to an XML file which can then be ported directly into Star Citizen using the
+        in-game
         menu.
         You can also import a Star Citizen-compatible keybind XML.
       </p>
       <hr>
       <h3>Star Binder Features</h3>
       <ul class="bullet-list">
-        <li><b>Search & Filter</b>: Use the search or filter matching actions based on keywords, the action name, and
+        <li><b>Search & Filter</b>: Use the search or filter matching actions based on keywords, the action name,
+          and
           the
           categories it
           appears in. Clear the text and search again to show all keybinds again.</li>
-        <li><b>Finder</b>: When toggled into "Finder" mode, you can search for actions using inputs. e.g. press spacebar
+        <li><b>Finder</b>: When toggled into "Finder" mode, you can search for actions using inputs. e.g. press
+          spacebar
           and it will instantly filter to any actions bound to that key such as 'Jump' and 'Strafe Up'.</li>
         <li><b>Advanced bind info</b>: The footer will have further information about the keybind when available -
-          such as a description of how the action works or what it's for. This may not always be reliable as the game
+          such as a description of how the action works or what it's for. This may not always be reliable as the
+          game
           changes.
         </li>
         <li><b>Bind</b>: Double-click any action to record a new input. Hold a selected action with left-click to
@@ -303,15 +352,19 @@
         There is also a console command: <code>pp_RebindKeys [filename]</code>.
       </p>
       <p><strong>Will my existing keybinds be overwritten?</strong><br>
-        Potentially. My understanding is that the imported keybinds will replace any non-default keybinds. Therefore it
-        is a good idea to export your keybinds from SC, import them here, <i>then</i> modify them in Star Binder - this
+        Potentially. My understanding is that the imported keybinds will replace any non-default keybinds. Therefore
+        it
+        is a good idea to export your keybinds from SC, import them here, <i>then</i> modify them in Star Binder -
+        this
         way your exported keybinds will include everything.
       </p>
       <p><strong>The primary joystick is recording in Star Binder as the secondary and vice versa, what can I
           do?</strong><br>
-        When in Joystick input mode, buttons appear below the 'Joystick' button which can be used to assign the inputs.
+        When in Joystick input mode, buttons appear below the 'Joystick' button which can be used to assign the
+        inputs.
         For example, you click "Set Input 2" and wiggle
-        the joystick that you want to be Input #2. <br> Furthermore, you can edit the numeric prefix in the manual bind
+        the joystick that you want to be Input #2. <br> Furthermore, you can edit the numeric prefix in the manual
+        bind
         textbox to override the device
         index.<br>
         e.g. <code>2:lctrl+button1</code> will bind to the 2nd device. <code>99:lctrl+button1</code> will bind it to
@@ -325,7 +378,8 @@
         <li>Browser choice matters -- I have always built to try and support Firefox but ultimately true Chromium
           browsers work best. e.g. Google Chrome and Microsoft Edge.</li>
 
-        <li>Recording some inputs will inevitably also perform actions in your browser. Such as 'Mouse4' and 'Mouse5'
+        <li>Recording some inputs will inevitably also perform actions in your browser. Such as 'Mouse4' and
+          'Mouse5'
           use the manual input.</li>
 
         <li>Certain activation modes may be incompatible with some actions. Use 'default' if unsure.</li>
@@ -334,7 +388,8 @@
           than character limit. You could set "Eject" to "The Cake is a lie 🍰" and it won't stop or correct you
           - use responsibly.</li>
 
-        <li>You may find you can record inputs and even see them in the in-game keybind UI - whether they work depends
+        <li>You may find you can record inputs and even see them in the in-game keybind UI - whether they work
+          depends
           on whether Star Citizen supports it. e.g. 'F23' or 'contextmenu' do not currently work.</li>
 
         <li><b>Joystick Support:</b> Star Binder should work with all/most sticks and flight devices. Let me know if

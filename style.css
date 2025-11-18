@@ -20,7 +20,7 @@
     --buttonSize: 2.2rem;
 
     --rowBackground: #0f2c3e;
-    --minDocWidth: 100px;
+    --minDocWidth: 700px;
     --maxDocWidth: 1400px;
 
     --descriptionTag-bg: #1d4c92;
@@ -63,7 +63,7 @@ body {
     color: var(--primaryText);
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: auto;
     margin: 0;
 }
 
@@ -330,7 +330,7 @@ img,
     text-transform: uppercase;
     color: var(--primaryText);
     font-size: 1.1rem;
-    letter-spacing: 0.08rem;
+    letter-spacing: 0.09rem;
 
     padding: 0.8rem;
     line-height: 1.5rem;
@@ -2245,9 +2245,13 @@ code {
 /******************************/
 /*******    Nav Bar   *********/
 /******************************/
-.top-navbar {
+.sticky-navbar-container {
     position: sticky;
     top: 0;
+    z-index: 9999;
+}
+
+.top-navbar {
     left: 0;
     width: 100%;
     height: auto;
@@ -2304,6 +2308,113 @@ code {
 
 .nav-btn-selected {
     color: var(--accent);
+}
+
+/**/
+
+.popout-navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--navBarSoft);
+    overflow: hidden;
+    height: 0;
+    padding: 0 0.5rem;
+    display: flex;
+    align-items: flex-start;
+    z-index: 9998;
+    border-bottom: 1px solid var(--accent2);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: height 0.25s ease, opacity 0.25s ease, padding 0.25s ease;
+}
+
+.popout-navbar.open {
+    opacity: 1;
+    padding: 1rem 0.5rem;
+
+}
+
+
+.popout-navbar.closing {
+    transform: scaleY(0);
+    opacity: 0;
+}
+
+.popout-navbar-inner {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 auto;
+
+    transition: opacity 0.15s ease;
+}
+
+.popout-navbar-inner.fade-out {
+    opacity: 0;
+}
+
+
+/* Horizontal container for button sections */
+.button-sections {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Each section holds its buttons vertically */
+.button-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    padding: 1rem 1rem;
+    background-color: var(--secondary-bg);
+    align-items: center;
+}
+
+
+.preset-btn {
+    cursor: pointer;
+    padding: 0.8rem;
+    width: 80%;
+    height: auto;
+    font-size: 0.8rem;
+}
+
+.preset-btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Description section */
+.description-section {
+    width: 100%;
+    min-height: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.preset-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.preset-item p {
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 0.2s ease, max-height 0.2s ease;
+}
+
+.preset-item:hover p {
+    opacity: 1;
+    max-height: 50px;
 }
 
 /**/
@@ -2445,4 +2556,9 @@ code {
     gap: 0rem;
     justify-content: flex-end;
     align-items: flex-end;
+}
+
+.presetsButton {
+    height: 2rem;
+    width: 12rem;
 }
