@@ -244,6 +244,7 @@ const conflictsToggle = document.getElementById('conflictsToggle');
 const boundActionsToggle = document.getElementById('boundActionsToggle');
 let showBoundActionsState = 0;
 
+const attributionsSection = document.getElementById("attributions");
 
 const showHelpButton = document.querySelector('.info-toggle')
 const infoClass = document.querySelector('.info-section')
@@ -912,7 +913,7 @@ async function init()
 
     });
 
-
+    attributionsSection.addEventListener("click", onClickToggleAttributions);
 }
 //#endregion
 
@@ -1525,8 +1526,15 @@ function exportMappedActionsToXML(actionMapsMasterList)
     return xml;
 }
 // ========== CUSTOM KEYBINDS IMPORTER ==========
-async function importCustomKeybindsXML(fileOrUrl)
+// importCustomKeybindsXML(file, "preserve");
+async function importCustomKeybindsXML(fileOrUrl, importMethod = "overwrite")
 {
+    if (importMethod == "clear")
+    {
+        actionMapsMasterList.forEach(a => a.clearBind(InputModeSelection.JOYSTICK));
+        actionMapsMasterList.forEach(a => a.clearBind(InputModeSelection.KEYBOARD));
+        actionMapsMasterList.forEach(a => a.clearBind(InputModeSelection.CONTROLLER));
+    }
     let text;
     try
     {
@@ -1633,24 +1641,28 @@ async function importCustomKeybindsXML(fileOrUrl)
             {
                 if (importKeyboardBind && !importKeyboardBind.every(v => v === null))
                 {
+                    if (importMethod == "preserve" && mappedActionObj.getBind(InputModeSelection.KEYBOARD)) return;
                     mappedActionObj.setBind(InputModeSelection.KEYBOARD, importKeyboardBind[1]);
                     mappedActionObj.setBindDevice(InputModeSelection.KEYBOARD, importKeyboardBind[0])
                     mappedActionObj.setActivationMode(importKeyboardBind[2], InputModeSelection.KEYBOARD);
                 }
                 if (importControllerBind && !importControllerBind.every(v => v === null))
                 {
+                    if (importMethod == "preserve" && mappedActionObj.getBind(InputModeSelection.CONTROLLER)) return;
                     mappedActionObj.setBind(InputModeSelection.CONTROLLER, importControllerBind[1]);
                     mappedActionObj.setBindDevice(InputModeSelection.CONTROLLER, importControllerBind[0])
                     mappedActionObj.setActivationMode(importControllerBind[2], InputModeSelection.CONTROLLER);
                 }
                 if (importJoystickBind && !importJoystickBind.every(v => v === null))
                 {
+                    if (importMethod == "preserve" && mappedActionObj.getBind(InputModeSelection.JOYSTICK)) return;
                     mappedActionObj.setBind(InputModeSelection.JOYSTICK, importJoystickBind[1]);
                     mappedActionObj.setBindDevice(InputModeSelection.JOYSTICK, importJoystickBind[0])
                     mappedActionObj.setActivationMode(importJoystickBind[2], InputModeSelection.JOYSTICK);
                 }
                 if (importMouseBind && !importMouseBind.every(v => v === null))
                 {
+                    if (importMethod == "preserve" && mappedActionObj.getBind(InputModeSelection.MOUSE)) return;
                     mappedActionObj.setBind(InputModeSelection.MOUSE, importMouseBind[1]);
                     mappedActionObj.setBindDevice(InputModeSelection.MOUSE, importMouseBind[0])
                     mappedActionObj.setActivationMode(importMouseBind[2], InputModeSelection.MOUSE);
@@ -2121,9 +2133,9 @@ async function finalizeCapture_Joystick(input, deviceIndex = 1)
     if (!input) return;
     recordingActive = false;
 
-
     // Always re-enable the button
-    input.disabled = false;
+    //i think this can just... go?
+    // input.disabled = false;
 
     const rowDiv = currentlySelectedKeybindElement.closest('.keybind__row');
 
@@ -2955,18 +2967,130 @@ function onLeaveHoverPresets(e)
     presetDescription.textContent = 'Hover over a button to see its description';
 }
 
+// async function onClickLoadPreset(e)
+// {
+//     const btn = e.target.closest('.preset-btn');
+//     if (!btn) return; // clicked outside a button
+
+//     const filePath = btn.dataset.file;
+//     await importCustomKeybindsXML(filePath)
+//     showAllBinds();
+//     closePresetsPopout();
+// }
+
+
+let presetLoading = false;
+
 async function onClickLoadPreset(e)
 {
+    if (presetLoading) return; // prevent double triggering
+    presetLoading = true;
+
     const btn = e.target.closest('.preset-btn');
-    if (!btn) return; // clicked outside a button
+    if (!btn)
+    {
+        presetLoading = false;
+        return;
+    }
 
     const filePath = btn.dataset.file;
-    await importCustomKeybindsXML(filePath)
-    showAllBinds();
+    const titleText = btn.textContent;
+
+    const result = await showConfirmModal(titleText);
     closePresetsPopout();
+
+    if (result === "overwrite")
+        await importCustomKeybindsXML(filePath);
+
+    else if (result === "preserve")
+        await importCustomKeybindsXML(filePath, "preserve");
+
+    else if (result === "clear")
+        await importCustomKeybindsXML(filePath, "clear");
+
+    // cancelled → do nothing
+
+    showAllBinds();
+    presetLoading = false;
 }
+
+//this is modular but ill probably forget and make a dozen more
+function showConfirmModal(titleText)
+{
+    return new Promise(resolve =>
+    {
+
+        const modal = document.createElement('div');
+        modal.className = 'confirm-modal';
+        modal.innerHTML = `
+            <div class="confirm-box">
+                <h3>${ titleText }</h3>
+                <p>How do you wish to apply this preset?</p>
+
+                <div class="confirm-buttons">
+                    <button class="btn-option" data-mode="overwrite">
+                        Overwrite existing binds
+                    </button>
+
+                    <button class="btn-option" data-mode="preserve">
+                        Preserve existing binds
+                    </button>
+
+                    <button class="btn-option" data-mode="clear">
+                        Clear ALL binds before applying
+                    </button>
+
+                    <button class="btn-cancel">Cancel</button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // Handle the option buttons
+        modal.querySelectorAll('.btn-option').forEach(btn =>
+        {
+            btn.addEventListener('click', () =>
+            {
+                const mode = btn.dataset.mode;
+                modal.remove();
+                resolve(mode);   // return "overwrite" / "preserve" / "clear"
+            });
+        });
+
+        modal.querySelector('.btn-cancel').addEventListener('click', () =>
+        {
+            modal.remove();
+            resolve(false);
+        });
+    });
+}
+
+
+
 //#endregion
 
+function onClickToggleAttributions(e)
+{
+    if (e && e.target.closest('.attribution-text')) return
+    const isClosed = attributionsSection.classList.contains("closed");
+    attributionsSection.classList.toggle("closed");
+
+    if (isClosed)
+    {
+        // Get the distance from top of the document to the bottom of the div
+        const rect = attributionsSection.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const margin = 30;
+
+        const targetScroll = scrollTop + rect.bottom + margin - window.innerHeight;
+
+        window.scrollTo({
+            top: targetScroll,
+            behavior: 'smooth'
+        });
+    }
+}
 
 function onClickSelectActivationMode(e)
 {

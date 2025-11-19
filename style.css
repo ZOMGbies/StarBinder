@@ -1552,7 +1552,7 @@ MKB / CONTROLLER / JOYSTICK BUTTONS STYLE
 /* ====================================== */
 /* MODAL */
 /* ====================================== */
-.confirm-modal {
+/* .confirm-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -1593,15 +1593,84 @@ MKB / CONTROLLER / JOYSTICK BUTTONS STYLE
     cursor: pointer;
     font-family: inherit;
     transition: filter 0.15s ease;
+} */
+.confirm-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 10, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(2px);
+    color: var(--primaryText);
 }
 
-.confirm-buttons button:hover {
-    filter: brightness(1.15);
+.confirm-box {
+    background: var(--secondary-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 380px;
+    max-width: 90vw;
+    border: 1px solid var(--accent2);
+}
+
+.confirm-box h3 {
+    font-family: 'Gobold', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    margin-top: 0.3rem;
+}
+
+.confirm-box p {
+    font-family: 'Aileron', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.07rem;
+    text-align: center;
+}
+
+.confirm-buttons {
+    font-family: 'Aileron', sans-serif;
+    letter-spacing: 0.1rem;
+    font-weight: 300;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    transition: all 0.2s ease;
+}
+
+.confirm-buttons button {
+    background: var(--accent2, #3478f6);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    font-family: inherit;
+    letter-spacing: inherit;
+    font-weight: inherit;
+
+
+    transition: filter 0.15s ease;
 }
 
 .confirm-buttons .btn-cancel {
     background: #444;
+    margin-top: 1rem;
+    font-family: inherit;
+    letter-spacing: inherit;
+    font-weight: inherit;
 }
+
+.confirm-buttons button:hover {
+    filter: brightness(1.15);
+    text-shadow: 0 0 4px rgba(204, 204, 250, 0.3);
+    transition: all 0.2s ease;
+}
+
+
 
 /* ====================================== */
 /* DROPDOWN */
@@ -1763,71 +1832,29 @@ code {
 }
 
 /* ////////// */
-.feedback-link {
-    display: block;
-    width: 100%;
-    height: 100%;
-    font-size: 2rem;
-    line-height: 5rem;
+.navbar-link {
+    display: inline-block;
+    font-size: 0.9rem;
     text-align: center;
-    font-family: 'Aileron', sans-serif;
-    font-size: 1.2rem;
-    color: rgb(204, 204, 250);
-    background-color: #0a1d29;
+    font-family: 'Consolas', monospace;
+    text-transform: uppercase;
+    color: var(--secondaryText);
     text-decoration: none;
-    transition: all 0.3s ease;
-    letter-spacing: 0.2rem;
-    /* margin-bottom: 2rem; */
+    letter-spacing: 0.15rem;
+    transition: all 0.5s ease;
 }
 
-.feedback-link:hover {
+.navbar-link:hover {
     color: var(--accent);
-    background-color: #0d2b3f;
+    letter-spacing: 0.2rem;
+    text-shadow: 0 0 4px rgba(204, 204, 250, 0.5);
+    transition: all 0.5s ease;
 }
 
 /* ////////// */
 
 .bullet-list li {
     margin-bottom: 0.8em;
-}
-
-/* ////////// */
-
-
-
-.coffee,
-.coffeeLink {
-    font-family: 'Consolas', sans-serif;
-    font-size: 1rem;
-    color: var(--primaryText);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 0.1rem;
-}
-
-.coffee {
-    font-family: 'Consolas', sans-serif;
-    gap: 0.25em;
-    padding: 1rem;
-    background-image: linear-gradient(to right,
-            var(--default-bg) 0%,
-            var(--default-bg) 25%,
-            var(--secondary-bg) 35%,
-            var(--secondary-bg) 65%,
-            var(--default-bg) 75%,
-            var(--default-bg) 100%);
-    box-shadow: inset 0px -8px 20px var(--default-bg);
-}
-
-.coffee a:hover {
-    color: var(--accent);
-    text-decoration-line: underline;
-    text-decoration-color: var(--accent);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 3px;
-
-    font-weight: 700;
 }
 
 .swapDevices {
@@ -2284,16 +2311,19 @@ code {
 
 .navBarItem:first-child {
     display: flex;
+    left: 40%;
     justify-content: flex-start;
 }
 
 .navBarItem:nth-child(2) {
     display: flex;
+    left: 50%;
     justify-content: center;
 }
 
-.navBarItem:last-child {
+.navBarItem:nth-child(3) {
     display: flex;
+    left: 60%;
     justify-content: flex-end;
 }
 
@@ -2315,6 +2345,22 @@ code {
 
 .nav-btn-selected {
     color: var(--accent);
+}
+
+.nav-feedback {
+    position: absolute;
+    right: 0%;
+    display: flex;
+    justify-content: center;
+    width: 15rem;
+}
+
+.nav-buyMeACoffee {
+    position: absolute;
+    left: 0%;
+    display: flex;
+    justify-content: center;
+    width: 15rem;
 }
 
 /**/
@@ -2648,4 +2694,128 @@ code {
     gap: 0rem;
     justify-content: flex-end;
     align-items: flex-end;
+}
+
+.attributions {
+    position: relative;
+    width: 40%;
+    align-self: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Aileron', sans-serif;
+    font-size: 0.8rem;
+    color: var(--secondaryText);
+    text-align: center;
+
+    border-radius: 0.8rem;
+
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    padding-top: 2rem;
+
+    background-color: rgba(10, 10, 20, 0.1);
+    box-shadow:
+        inset 8px 4px 32px rgba(0, 0, 0, 0.03),
+        inset -8px -4px 32px rgba(0, 0, 0, 0.03);
+
+    overflow: hidden;
+    cursor: pointer;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.attributions a {
+    text-decoration: none;
+}
+
+.attributions.closed {
+    max-height: 2rem;
+    padding: 0.5rem;
+    background-color: transparent;
+    box-shadow: none;
+    margin: 0rem;
+
+}
+
+.attributions.closed .title {
+    display: inline;
+    display: inline-block;
+    font-size: 0.9rem;
+    text-align: center;
+    font-family: 'Consolas', monospace;
+    text-transform: uppercase;
+    color: var(--secondaryText);
+    text-decoration: none;
+    letter-spacing: 0.15rem;
+    transition: all 0.5s ease;
+}
+
+.attributions.closed .title:hover {
+    color: var(--accent);
+    letter-spacing: 0.2rem;
+    text-shadow: 0 0 4px rgba(204, 204, 250, 0.5);
+    transition: all 0.5s ease;
+}
+
+.attributions:not(.closed) .title {
+    display: none;
+}
+
+
+.close-symbol {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: var(--accent);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: none;
+    text-align: center;
+}
+
+.close-symbol:hover {
+    text-shadow: 0 0 4px rgba(204, 204, 250, 0.5);
+    transition: all 0.5s ease;
+}
+
+.attributions:not(.closed) .close-symbol {
+    display: block;
+}
+
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.attributions.closed .content-wrapper {
+    display: none;
+}
+
+.attributions:not(.closed) .content-wrapper {
+    display: flex;
+}
+
+.icon-link {
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0.2rem;
+    text-decoration: none;
+}
+
+.icon-link-vkb {
+    width: auto;
+    height: 2rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.2rem;
+    padding-bottom: 0.4rem;
+    text-decoration: none;
 }

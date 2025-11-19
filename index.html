@@ -36,6 +36,7 @@
   <div class="sticky-navbar-container">
     <nav class="top-navbar">
       <div class="navbar-inner">
+
         <div class="navBarItem">
           <div class="mode-toggle" data-mode="binder">
             <span class="label binder">BINDER</span>
@@ -47,20 +48,24 @@
           <button class="button presetsButton">Keybind Presets</button>
         </div>
         <div class="navBarItem">
-          <div class="navBarItem">
-            <select id="languageSelector">
-              <option value="english">🇬🇧  EN</option>
-              <option value="french">🇫🇷  FR</option>
-              <option value="german">🇩🇪  DE</option>
-              <option value="italian">🇮🇹  IT</option>
-              <option value="spanish">🇪🇸  ES</option>
-              <option value="brazillian">🇧🇷  PT</option>
-              <option value="chinese">🇨🇳 中文</option>
-              <option value="japanese">🇯🇵 日</option>
-              <option value="korean">🇰🇷 한</option>
-              <option value="ukrainian">🇺🇦 УКР</option>
-            </select>
-          </div>
+          <select id="languageSelector">
+            <option value="english">🇬🇧  EN</option>
+            <option value="french">🇫🇷  FR</option>
+            <option value="german">🇩🇪  DE</option>
+            <option value="italian">🇮🇹  IT</option>
+            <option value="spanish">🇪🇸  ES</option>
+            <option value="brazillian">🇧🇷  PT</option>
+            <option value="chinese">🇨🇳 中文</option>
+            <option value="japanese">🇯🇵 日</option>
+            <option value="korean">🇰🇷 한</option>
+            <option value="ukrainian">🇺🇦 УКР</option>
+          </select>
+        </div>
+        <div class="navBarItem nav-buyMeACoffee">
+          💗<a class="navbar-link" href="https://buymeacoffee.com/zomgbies"> Buy me a coffee </a>☕
+        </div>
+        <div class="navBarItem nav-feedback">
+          <a class="navbar-link" href="./feedback/form.html">Feedback / Issue</a>
         </div>
     </nav>
     <div class="popout-navbar">
@@ -78,7 +83,7 @@
           </div>
 
           <div class="section-wrapper">
-            <h3>BuzZKiller</h3>
+            <h3>BuzZzKiller</h3>
             <div class="button-section-wrapper">
               <div class="presetsBackground presetsBackground-buzzkiller"></div>
               <div class="button-section" data-section="Buzzkiller">
@@ -102,11 +107,6 @@
     </div>
 
 
-  </div>
-
-  <div class="coffee">
-    If this tool's helpful, you could always
-    <a class="coffeeLink" href="https://buymeacoffee.com/zomgbies"> buy me a coffee</a>☕
   </div>
 
 
@@ -462,7 +462,34 @@
   </script-->
 
 
-  <a href="./feedback/form.html" class="feedback-link">[ SEND FEEDBACK / REPORT ISSUE ]</a>
+  <div id="attributions" class="attributions closed">
+    <span class="title">ATTRIBUTIONS</span>
+    <span class="close-symbol" title="Close">×</span>
+    <div class="content-wrapper">
+      <span class="attribution-text">
+        BuzZzKiller presets created by BuzZzKiller
+        <a href="https://www.youtube.com/@BuzZzKiller" target="_blank" rel="noopener noreferrer"
+          title="Visit BuzZzKiller on YouTube">
+          <img src="./assets/icons/icon_youtube.png" alt="YouTube" class="icon-link">
+        </a>
+        <a href="https://robertsspaceindustries.com/spectrum/community/SC/forum/50174/thread/buzzz-killer-s-recommended-exported-bindings"
+          target="_blank" rel="noopener noreferrer" title="Visit BuzZkiller's Spectrum thread">
+          <img src="./assets/icons/icon_spectrum.png" alt="Spectrum" class="icon-link">
+        </a>
+      </span>
+
+
+      <span class="attribution-text">
+        Special thanks to <a href="https://flightsimcontrols.com/" target="_blank" rel="noopener noreferrer"
+          title="VKB Flight Sim Controls"><img src="./assets/VKB_logo.png" alt="VKB Flight Sim Controls"
+            class="icon-link-vkb"></a>VKB Flight Sim Controls for help with initial testing of Star
+        Binder and to the citizens who
+        helped test various
+        devices.</span>
+    </div>
+  </div>
+
+
 </body>
 
 </html>
