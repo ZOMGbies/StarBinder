@@ -1,4 +1,5 @@
 import { presetData } from './presets/presets.js';
+const SPLASH_VERSION = "0.0.1";
 //#region Keybind Values
 
 const mousekeys = {
@@ -1141,23 +1142,36 @@ const SplashHelpImages = {
     6: { file: "customkeybindbuilder.webp", title: "Bespoke bind editing" }
 }
 
+function compareVersion(v1, v2)
+{
+    const a = v1.split('.').map(Number);
+    const b = v2.split('.').map(Number);
+
+    for (let i = 0; i < Math.max(a.length, b.length); i++)
+    {
+        const x = a[i] || 0;
+        const y = b[i] || 0;
+        if (x < y) return -1;
+        if (x > y) return 1;
+    }
+    return 0;
+}
+
+
 function showSplashModal()
 {
-    // ✅ Move this code here — not inside another DOMContentLoaded
     const closeBtn = document.getElementById('closeModal');
 
-    // Check localStorage
-    const hideModal = localStorage.getItem('hideSplashModal');
+    const storedVersion = localStorage.getItem('splashVersion') || "0.0.0";
 
-    if (!hideModal)
+    if (compareVersion(storedVersion, SPLASH_VERSION) < 0)
     {
+        helpModalCheckbox.checked = false;                // reset checkbox
         splashModalMain.style.display = 'flex';
 
-
         closeBtn.addEventListener('click', onClickCloseHelpModal);
-
-
         splashModal.addEventListener('click', onClickNavHelpImage);
+
         showHelpImage(1);
     }
 }
@@ -1166,10 +1180,13 @@ function onClickCloseHelpModal()
 {
     if (helpModalCheckbox.checked)
     {
-        localStorage.setItem('hideSplashModal', 'true');
+        localStorage.setItem('splashVersion', SPLASH_VERSION);
     }
+
     splashModalMain.style.display = 'none';
 }
+
+
 function onClickNavHelpImage(e)
 {
     if (e.target.classList.contains('left'))
