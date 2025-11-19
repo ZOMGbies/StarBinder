@@ -1675,6 +1675,7 @@ async function importCustomKeybindsXML(fileOrUrl, importMethod = "overwrite")
 
         });
     });
+    saveUserChanges();
 }
 //#endregion
 
