@@ -2818,13 +2818,18 @@ function onClickNavBar(e)
 {
     if (e)
     {
-        if (e.target.closest('.presetsButton')) onClickPresetsButton();
+        if (e.target.closest('.presetsButton'))
+        {
+            e.stopPropagation();
+            onClickPresetsButton(e);
+        }
         else if (e.target.closest('.mode-toggle')) onClickBindModeToggle();
     }
 }
 
-function onClickPresetsButton()
+function onClickPresetsButton(e)
 {
+    e?.stopPropagation(e);
     if (popout.classList.contains('open'))
     {
         closePresetsPopout()
@@ -2842,7 +2847,7 @@ function openPresetsPopout()
 
     // Ensure content is visible
     popoutInner.classList.remove('hidden');
-    btnPresets.classList.add('active')
+    btnPresets.classList.add('selected')
 
     // Reset height for animation
     popout.style.height = "0px";
@@ -2863,7 +2868,8 @@ function closePresetsPopout()
 
     // Fade out buttons first
     popoutInner.classList.add('hidden');
-    btnPresets.classList.remove('active')
+
+
 
     setTimeout(() =>
     {
@@ -2885,6 +2891,8 @@ popout?.addEventListener('transitionend', (e) =>
     { // watch height, not transform
         if (popout.style.height === "0px")
         {
+            btnPresets.classList.remove('selected')
+
             popout.classList.remove("open");
             popoutInner?.classList.remove("fade-out");
         }
