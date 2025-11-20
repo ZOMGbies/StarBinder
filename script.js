@@ -1188,7 +1188,7 @@ function onClickCloseHelpModal()
 }
 
 
-function onClickNavHelpImage(e, dir = "right")
+function onClickNavHelpImage(e, dir)
 {
     const maxIndex = Object.keys(SplashHelpImages).length;
 
