@@ -4775,4 +4775,7 @@ function LoadFullQualityImages()
             img.classList.remove('lazy-img');
         });
     });
+
+    document.querySelectorAll('.presetsBackground[data-bg]').forEach(el => el.style.backgroundImage = `url("${ el.dataset.bg }")`);
 };
+

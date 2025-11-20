@@ -2499,11 +2499,11 @@ code {
 
 /* only change the image per section */
 .presetsBackground-buzzkiller {
-    background-image: url("./assets/presetImages/buzzkillerlogo.png");
+    background-image: url("./assets/presetImages/buzzkillerlogo_lowQ.png");
 }
 
 .presetsBackground-cig {
-    background-image: url("./assets/presetImages/starcitizenlogo.png");
+    background-image: url("./assets/presetImages/starcitizenlogo_lowQ.png");
 }
 
 
