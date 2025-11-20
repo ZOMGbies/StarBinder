@@ -686,23 +686,29 @@ class MappedAction
     {
         this.bind[state].defaultActivationMode = mode;
     }
-    clearBind()
+    clearBind(inputType = InputState.current, shouldSave = false)
     {
         //sets to a space so it's cleared in SC
-        this.setBind(InputState.current, " ")
-        this.setBindDevice(InputState.current, "1")
-        this.setActivationMode(this.getDefaultActivationMode(InputState.current), InputState.current)
-        onUserChangedBind(this)
+        this.setBind(inputType, " ")
+        this.setBindDevice(inputType, "1")
+        this.setActivationMode(this.getDefaultActivationMode(inputType), inputType)
+        if (shouldSave) onUserChangedBind(this)
+
     }
-    resetBind()
+    resetBind(inputType = InputState.current, shouldSave = false)
     {
         //clears it entirely so it's not exported, leaving it to default
-        this.setBind(InputState.current, "")
-        this.setBindDevice(InputState.current, "1")
-        this.setActivationMode(this.getDefaultActivationMode(InputState.current), InputState.current)
-        onUserChangedBind(this)
+        this.setBind(inputType, "")
+        this.setBindDevice(inputType, "1")
+        this.setActivationMode(this.getDefaultActivationMode(inputType), inputType)
+        if (shouldSave) onUserChangedBind(this)
     }
-
+    resetAllBinds()
+    {
+        this.resetBind(InputModeSelection.KEYBOARD, false);
+        this.resetBind(InputModeSelection.CONTROLLER, false);
+        this.resetBind(InputModeSelection.JOYSTICK, false);
+    }
     //========================================
 
     /**
@@ -1559,9 +1565,7 @@ async function importCustomKeybindsXML(fileOrUrl, importMethod = "overwrite")
 {
     if (importMethod == "clear")
     {
-        actionMapsMasterList.forEach(a => a.clearBind(InputModeSelection.JOYSTICK));
-        actionMapsMasterList.forEach(a => a.clearBind(InputModeSelection.KEYBOARD));
-        actionMapsMasterList.forEach(a => a.clearBind(InputModeSelection.CONTROLLER));
+        actionMapsMasterList.forEach(a => a.resetAllBinds());
     }
     let text;
     try
@@ -3274,7 +3278,7 @@ function onClickClearKeybind()
 
         // Update the displayed value
         const valueDiv = rowDiv.querySelector('.keybind__value');
-        bind.clearBind();
+        bind.clearBind(InputState.current, true);
 
         // If this row was currently capturing, cancel it
         if (activeCapture && activeCapture.closest('.keybind__row') === rowDiv)
@@ -3632,8 +3636,9 @@ async function onClickClearAllKeybinds()
     const ok = await confirmClearAllKeybinds(`Are you sure you want to clear all ${ InputState.current } binds?`);
     if (!ok) return;
 
-    actionMapsMasterList.forEach(a => a.resetBind());
+    actionMapsMasterList.forEach(a => a.resetBind(InputState.current, false));
     updatefilteredNames();
+    saveUserChanges();
 }
 
 async function confirmClearAllKeybinds(message)
@@ -4732,34 +4737,6 @@ languageSelector.dispatchEvent(new Event("change"));
 ////////////////////////////
 // Lazy loading images//////
 ////////////////////////////
-
-// const imgTargets = document.querySelectorAll('img[data-src]');
-
-// function loadImg(entries, observer)
-// {
-//     const [entry] = entries;
-
-//     if (!entry.isIntersecting) return;
-
-//     // Replace src with data-src
-//     entry.target.src = entry.target.dataset.src;
-
-//     entry.target.addEventListener('load', function ()
-//     {
-//         entry.target.classList.remove('lazy-img');
-//     });
-
-//     observer.unobserve(entry.target);
-// };
-
-// const imgObserver = new IntersectionObserver(loadImg, {
-//     root: null,
-//     threshold: 0,
-//     rootMargin: '200px',
-// });
-
-// imgTargets.forEach(img => imgObserver.observe(img));
-
 
 function LoadFullQualityImages()
 {
