@@ -1,4 +1,7 @@
 import { presetData } from './presets/presets.js';
+import { mappedActionSource } from './MappedActions.js';
+// import { MappedAction } from './classes/MappedAction.js';
+
 const SPLASH_VERSION = "0.0.1";
 //#region Keybind Values
 
@@ -146,7 +149,6 @@ function getActionDescription(key)
     return desc;
 }
 
-
 function getActionKeywords(key)
 {
     return actionMapDictionary[key]?.keywords ?? [];
@@ -194,7 +196,7 @@ function autoFormatMapName(keybindString)
 
 //#region Global Vars
 
-const actionMapsMasterList = [];
+// const actionMapsMasterList = [];
 let connectedDevices = {};
 let localisationData = null;
 let localisedLanguage = "english"
@@ -549,11 +551,9 @@ class MappedAction
         Object.assign(this, arguments[0]);
         this.actionMapName = mapName;
 
-
         if (this.mapName) getOrCreateActionKeywords(this.actionName).push(this.mapName);
         if (this.category) getOrCreateActionKeywords(this.actionName).push(this.category);
         if (this.UICategory) getOrCreateActionKeywords(this.actionName).push(this.UICategory);
-
 
         const keywords = new Set(resolveKeywords(getActionKeywords(this.actionName), "Action: " + this.actionName));
 
@@ -587,20 +587,18 @@ class MappedAction
         this.setDefaultActivationMode(activtationType, InputModeSelection.CONTROLLER)
         this.setDefaultActivationMode(activtationType, InputModeSelection.JOYSTICK)
 
-        this.setDescription();
-
         // Find index of existing entry with the same actionName
-        const existingIndex = actionMapsMasterList.findIndex(a => a.actionName === this.actionName);
+        // const existingIndex = actionMapsMasterList.findIndex(a => a.actionName === this.actionName);
 
-        if (existingIndex >= 0)
-        {
-            // Replace existing entry in-place
-            actionMapsMasterList[existingIndex] = this;
-        } else
-        {
-            // Push new entry
-            actionMapsMasterList.push(this);
-        }
+        // if (existingIndex >= 0)
+        // {
+        //     // Replace existing entry in-place
+        //     actionMapsMasterList[existingIndex] = this;
+        // } else
+        // {
+        //     // Push new entry
+        //     actionMapsMasterList.push(this);
+        // }
 
     }
 
@@ -624,7 +622,6 @@ class MappedAction
     getDescription() { return this.description; }
     setDescription(str)
     {
-        //if str, then the description will be that, otherwise it is the one from the JSON; else default text.
         if (!str)
         {
             str = getActionDescription(this.getActionName());
@@ -641,17 +638,15 @@ class MappedAction
         }
         keywords.push(this.getActionMapName())
         this.keywordTags = keywords;
-
     }
 
     getBind(state = InputState.current)
     {
         return this.bind[state].input;
-        // return this.bind[state][0];
     }
     setBind(state = InputState.current, bindString)
     {
-        this.bind[state].input = bindString.trim();
+        this.bind[state].input = bindString;
     }
     getDefaultBind(state = InputState.current)
     {
@@ -693,6 +688,15 @@ class MappedAction
     }
     clearBind()
     {
+        //sets to a space so it's cleared in SC
+        this.setBind(InputState.current, " ")
+        this.setBindDevice(InputState.current, "1")
+        this.setActivationMode(this.getDefaultActivationMode(InputState.current), InputState.current)
+        onUserChangedBind(this)
+    }
+    resetBind()
+    {
+        //clears it entirely so it's not exported, leaving it to default
         this.setBind(InputState.current, "")
         this.setBindDevice(InputState.current, "1")
         this.setActivationMode(this.getDefaultActivationMode(InputState.current), InputState.current)
@@ -728,6 +732,7 @@ class MappedAction
 
 }
 
+const actionMapsMasterList = [];
 //#endregion
 
 
@@ -743,7 +748,9 @@ async function init()
         if (!response.ok) throw new Error('Failed to load JSON');
         actionMapDictionary = await response.json();
 
-        // Now you can use actionMapDictionary as before
+        actionMapsMasterList.length = 0; // clear safely
+        mappedActionSource.forEach(entry => actionMapsMasterList.push(new MappedAction(entry)))
+
     } catch (err)
     {
         console.error("Error loading action map dictionary:", err);
@@ -777,16 +784,12 @@ async function init()
         if (e.key === "ArrowLeft")
         {
             e.preventDefault();
-            currentHelpImageIndex--;
-            if (currentHelpImageIndex < 1) currentHelpImageIndex = 6
-            showHelpImage(currentHelpImageIndex);
+            onClickNavHelpImage(e, "left");
         }
         if (e.key === "ArrowRight")
         {
             e.preventDefault();
-            currentHelpImageIndex++;
-            if (currentHelpImageIndex > 6) currentHelpImageIndex = 1
-            showHelpImage(currentHelpImageIndex);
+            onClickNavHelpImage(e, "right");
         }
 
     });
@@ -797,8 +800,6 @@ async function init()
 
     tagContainer.addEventListener('click', onClickFilterTag);
     subTagContainer.addEventListener('click', onClickFilterTag);
-
-    // now both DOM and XML load in a controlled order
 
     // await loadAndParseDataminedXML();
     await initActionMaps();
@@ -891,15 +892,13 @@ async function init()
     });
 
 
-    ///// GAMEPAD DETECTION  //////
-
     btnSelectInput_Keyboard.addEventListener("click", e => setInputMode(InputModeSelection.KEYBOARD));
     btnSelectInput_Controller.addEventListener("click", e => setInputMode(InputModeSelection.CONTROLLER));
     btnSelectInput_Joystick.addEventListener("click", e => setInputMode(InputModeSelection.JOYSTICK));
     setupJoystickDropdown();
     btnSelectInput_Keyboard.click()
     ClearKeybindDescription();
-    loadMappedActions();
+
 
     joystickProfile = await GetJoystickProfile("default")
     window.addEventListener("gamepadconnected", (e) =>
@@ -1134,12 +1133,14 @@ function setInputMode(mode)
 
 let currentHelpImageIndex = 1;
 const SplashHelpImages = {
-    1: { file: "searchandfilter.webp", title: "Search & Filter" },
-    2: { file: "inputsupport.webp", title: "Supports most devices" },
-    3: { file: "activationmodes.webp", title: "Many Activation Modes" },
-    4: { file: "importexport.webp", title: "Import & Export" },
-    5: { file: "actiondescriptions.webp", title: "Actions have descriptions" },
-    6: { file: "customkeybindbuilder.webp", title: "Bespoke bind editing" }
+    1: { file: "binderfinder.webp", title: "Binder Finder" },
+    2: { file: "presets.webp", title: "Loadable presets" },
+    3: { file: "searchandfilter.webp", title: "Search & Filter" },
+    4: { file: "inputsupport.webp", title: "Supports most devices" },
+    5: { file: "activationmodes.webp", title: "Many Activation Modes" },
+    6: { file: "importexport.webp", title: "Import & Export" },
+    7: { file: "actiondescriptions.webp", title: "Actions have descriptions" },
+    8: { file: "customkeybindbuilder.webp", title: "Bespoke bind editing" }
 }
 
 function compareVersion(v1, v2)
@@ -1187,23 +1188,33 @@ function onClickCloseHelpModal()
 }
 
 
-function onClickNavHelpImage(e)
+function onClickNavHelpImage(e, dir = "right")
 {
-    if (e.target.classList.contains('left'))
+    const maxIndex = Object.keys(SplashHelpImages).length;
+
+    // Override dir based on the clicked element (if provided)
+    if (e && e.target)
     {
-        currentHelpImageIndex--;
-        if (currentHelpImageIndex < 1) currentHelpImageIndex = 6
-        showHelpImage(currentHelpImageIndex);
-
-
-
-    } else if (e.target.classList.contains('right'))
-    {
-        currentHelpImageIndex++;
-        if (currentHelpImageIndex > 6) currentHelpImageIndex = 1
-        showHelpImage(currentHelpImageIndex);
+        if (e.target.classList.contains('left')) dir = "left";
+        if (e.target.classList.contains('right')) dir = "right";
     }
+
+    // Apply movement
+    if (dir === "left")
+    {
+        currentHelpImageIndex =
+            ((currentHelpImageIndex - 2 + maxIndex) % maxIndex) + 1;
+
+    } else if (dir === "right")
+    {
+        currentHelpImageIndex =
+            (currentHelpImageIndex % maxIndex) + 1;
+    }
+
+    showHelpImage(currentHelpImageIndex);
 }
+
+
 
 function showHelpImage(n)
 {
@@ -1216,6 +1227,7 @@ function showHelpImage(n)
 
 //#region XML PARSING
 // ========== XML Parsing ==========
+//should now be defunct.
 async function loadAndParseDataminedXML()
 {
     let text;
@@ -1486,10 +1498,10 @@ function exportMappedActionsToXML(actionMapsMasterList)
     const grouped = {};
     for (const action of actionMapsMasterList)
     {
-        const keyboardBind = !isDefaultBind(action, InputModeSelection.KEYBOARD) ? action.getBind(InputModeSelection.KEYBOARD)?.trim() : "";
-        const mouseBind = !isDefaultBind(action, InputModeSelection.MOUSE) ? action.getBind(InputModeSelection.MOUSE)?.trim() : "";
-        const controllerBind = !isDefaultBind(action, InputModeSelection.CONTROLLER) ? action?.getBind(InputModeSelection.CONTROLLER)?.trim() : "";
-        const joystickBind = !isDefaultBind(action, InputModeSelection.JOYSTICK) ? action.getBind(InputModeSelection.JOYSTICK)?.trim() : "";
+        const keyboardBind = !isDefaultBind(action, InputModeSelection.KEYBOARD) ? action.getBind(InputModeSelection.KEYBOARD) : "";
+        const mouseBind = !isDefaultBind(action, InputModeSelection.MOUSE) ? action.getBind(InputModeSelection.MOUSE) : "";
+        const controllerBind = !isDefaultBind(action, InputModeSelection.CONTROLLER) ? action?.getBind(InputModeSelection.CONTROLLER) : "";
+        const joystickBind = !isDefaultBind(action, InputModeSelection.JOYSTICK) ? action.getBind(InputModeSelection.JOYSTICK) : "";
         if (keyboardBind !== "" || mouseBind !== "" || controllerBind !== "" || joystickBind !== "")
         {
             if (!grouped[action.actionMapName]) grouped[action.actionMapName] = [];
@@ -1504,30 +1516,30 @@ function exportMappedActionsToXML(actionMapsMasterList)
         {
             xml += `  <action name="${ action.actionName }">\n`;
             // const keyboardBind = action.getBind(InputModeSelection.KEYBOARD)?.trim();
-            const keyboardBind = !isDefaultBind(action, InputModeSelection.KEYBOARD) ? action.getBind(InputModeSelection.KEYBOARD)?.trim() : "";
-            const mouseBind = !isDefaultBind(action, InputModeSelection.MOUSE) ? action.getBind(InputModeSelection.MOUSE)?.trim() : "";
-            const controllerBind = !isDefaultBind(action, InputModeSelection.CONTROLLER) ? action?.getBind(InputModeSelection.CONTROLLER)?.trim() : "";
-            const joystickBind = !isDefaultBind(action, InputModeSelection.JOYSTICK) ? action.getBind(InputModeSelection.JOYSTICK)?.trim() : "";
+            const keyboardBind = !isDefaultBind(action, InputModeSelection.KEYBOARD) ? action.getBind(InputModeSelection.KEYBOARD) : "";
+            const mouseBind = !isDefaultBind(action, InputModeSelection.MOUSE) ? action.getBind(InputModeSelection.MOUSE) : "";
+            const controllerBind = !isDefaultBind(action, InputModeSelection.CONTROLLER) ? action?.getBind(InputModeSelection.CONTROLLER) : "";
+            const joystickBind = !isDefaultBind(action, InputModeSelection.JOYSTICK) ? action.getBind(InputModeSelection.JOYSTICK) : "";
 
-            if (keyboardBind && keyboardBind?.trim() != "")
+            if (keyboardBind)
             {
                 const deviceIndex = "kb" + action.getBindDevice(InputModeSelection.KEYBOARD) + "_";
                 xml += `   <rebind input="${ deviceIndex }${ keyboardBind }"`;
-                if (action.getActivationMode(InputModeSelection.KEYBOARD) && action.getActivationMode(InputModeSelection.KEYBOARD) != activationModeType.NONE) xml += ` activationMode="${ action.getActivationMode(InputModeSelection.KEYBOARD) }"`;
+                if (keyboardBind != " " && action.getActivationMode(InputModeSelection.KEYBOARD) && action.getActivationMode(InputModeSelection.KEYBOARD) != activationModeType.NONE) xml += ` activationMode="${ action.getActivationMode(InputModeSelection.KEYBOARD) }"`;
                 xml += `/>\n`;
             }
-            if (controllerBind && controllerBind?.trim() != "")
+            if (controllerBind)
             {
                 const deviceIndex = "gp" + action.getBindDevice(InputModeSelection.CONTROLLER) + "_";
                 xml += `   <rebind input="${ deviceIndex }${ controllerBind }"`;
-                if (action.getActivationMode(InputModeSelection.CONTROLLER) && action.getActivationMode(InputModeSelection.CONTROLLER) != activationModeType.NONE) xml += ` activationMode="${ action.getActivationMode(InputModeSelection.CONTROLLER) }"`;
+                if (controllerBind != " " && action.getActivationMode(InputModeSelection.CONTROLLER) && action.getActivationMode(InputModeSelection.CONTROLLER) != activationModeType.NONE) xml += ` activationMode="${ action.getActivationMode(InputModeSelection.CONTROLLER) }"`;
                 xml += `/>\n`;
             }
-            if (joystickBind && joystickBind?.trim() != "")
+            if (joystickBind)
             {
                 const deviceIndex = "js" + action.getBindDevice(InputModeSelection.JOYSTICK) + "_";
                 xml += `   <rebind input="${ deviceIndex }${ joystickBind }"`;
-                if (action.getActivationMode(InputModeSelection.JOYSTICK) && action.getActivationMode(InputModeSelection.JOYSTICK) != activationModeType.NONE) xml += ` activationMode="${ action.getActivationMode(InputModeSelection.JOYSTICK) }"`;
+                if (joystickBind != " " && action.getActivationMode(InputModeSelection.JOYSTICK) && action.getActivationMode(InputModeSelection.JOYSTICK) != activationModeType.NONE) xml += ` activationMode="${ action.getActivationMode(InputModeSelection.JOYSTICK) }"`;
                 xml += `/>\n`;
             }
 
@@ -1629,8 +1641,8 @@ async function importCustomKeybindsXML(fileOrUrl, importMethod = "overwrite")
 
                 const { type, bind, device } = parseInput(input);
 
-                if (!type || !bind) return;
 
+                if (!type || !bind) return;
                 // Assign to appropriate const array
                 switch (type)
                 {
@@ -2107,7 +2119,6 @@ async function finalizeCapture_Keyboard(input, deviceIndex = 1)
             valueDiv.innerHTML = ''; // clear previous
             valueDiv.appendChild(renderKeybindKeys(actionObj.getBind(), actionObj.getBind() === actionObj.getDefaultBind()));
             valueDiv.classList.remove('awaiting');
-            adjustFontSizeBasedOnWidth(valueDiv);
         }
         return;
     }
@@ -2228,7 +2239,6 @@ async function showAllBinds(filtered)
 async function renderBindRow(b)
 {
     const parsedName = getLocalisedLabel(b);
-    // const parsedName = getActionLabel(b.getActionName()) || b.getActionName();
 
     // --- Primary row ---
     const newRow = document.createElement('div');
@@ -2277,9 +2287,10 @@ function updateBindRow(bindRow = currentlySelectedKeybindElement)
     {
         const bindValueDiv = bindRow.querySelector('.keybind__value');
         const consoleInputField = bindRow.querySelector('.keybind__consoleInput');
-        const bind = actionMapsMasterList?.find(a => a?.getActionName() === bindRow?.dataset.actionName);
+        const rowActionName = bindRow?.dataset.actionName
+        const bind = actionMapsMasterList?.find(a => a?.getActionName() === rowActionName);
 
-        const bindValue = bind.getBind() ? bind.getBind() : bind.getDefaultBind().trim();
+        const bindValue = bind.getBind() !== "" ? bind.getBind() : bind.getDefaultBind();
         const bindDevice = bind.getBindDevice();
 
         if (bindValueDiv)
@@ -2290,7 +2301,6 @@ function updateBindRow(bindRow = currentlySelectedKeybindElement)
                 const isDefaultBind = (bindValue === bind.getDefaultBind() && bind.getActivationMode() === bind.getDefaultActivationMode());
                 bindValueDiv.appendChild(renderKeybindKeys(bindValue ? `Device ${ bindDevice }: ${ bindValue }` : ``, isDefaultBind));
                 if (bindValueDiv.classList.contains('awaiting')) bindValueDiv.classList.remove('awaiting');
-                adjustFontSizeBasedOnWidth(bindValueDiv);
             }
         }
 
@@ -2306,7 +2316,6 @@ function updateBindRow(bindRow = currentlySelectedKeybindElement)
                 if (consoleInputField.placeholder != "") consoleInputField.placeholder = ""
             }
         }
-        ShowKeybindDescription();
 
     }
 }
@@ -2325,17 +2334,6 @@ function addConsoleInputField(bind, div)
 }
 
 
-function adjustFontSizeBasedOnWidth(valueDiv)
-{
-    let fontSize = 1.1; // rem
-    valueDiv.style.fontSize = fontSize + 'rem';
-
-    while (valueDiv.scrollWidth > valueDiv.clientWidth && fontSize > 0.6)
-    {
-        fontSize -= 0.05;
-        valueDiv.style.fontSize = fontSize + 'rem';
-    }
-}
 
 //#region Tag Generation
 function generateMainCategoryTags()
@@ -2464,12 +2462,10 @@ function renderKeybindKeys(keybindString, isDefaultBind)
         colon.textContent = ' ';
         container.appendChild(colon);
     }
-
     keys.forEach(k =>
     {
         const keyDiv = document.createElement('span');
         let display = normalizeKeybind(k) || "";
-
         if (display?.trim() !== '')
         {
             keyDiv.classList.add('key');
@@ -2484,7 +2480,7 @@ function renderKeybindKeys(keybindString, isDefaultBind)
             display = display.replace(/ControlLeft|ControlRight/, 'CTRL');
             display = display.replace(/ShiftLeft|ShiftRight/, 'Shift');
             display = display.replace(/AltLeft|AltRight/, 'Alt');
-            keyDiv.textContent = display;
+            keyDiv.textContent = display.trim();
 
             if (side)
             {
@@ -2496,7 +2492,7 @@ function renderKeybindKeys(keybindString, isDefaultBind)
             }
         } else
         {
-            keyDiv.classList.add('key', 'key--unbound');
+            // keyDiv.classList.add('key', 'key--unbound');
             keyDiv.textContent = textValue_UNBOUND;
         }
 
@@ -2530,6 +2526,7 @@ function onClickKeybindElement(e)
     currentlySelectedKeybindElement.classList.add('keybind__row--selected');
 
     const b = getCurrentBindFromSelectedRow();
+    if (!b.getDescription() || b?.getDescription().startsWith("@")) b.setDescription();
 
     if (consoleInput && document.activeElement === consoleInput)
     {
@@ -2667,6 +2664,7 @@ function onSubmitKeybindConsole(e)
         consoleInput.blur();
         consoleInput.value = null;
         consoleInput.placeholder = deviceIndex + ":" + cleanedKeybind;
+        ShowKeybindDescription();
     }
 }
 
@@ -3284,6 +3282,7 @@ function setActivationModeButtonIcon(buttonObject, bindObject)
     // Add to the div
     buttonObject.appendChild(icon);
 }
+
 function onHoldClearKeybind(e)
 {
     //make it so hold to clear ignores console input, activation mode button
@@ -3667,7 +3666,7 @@ async function onClickClearAllKeybinds()
     const ok = await confirmClearAllKeybinds(`Are you sure you want to clear all ${ InputState.current } binds?`);
     if (!ok) return;
 
-    actionMapsMasterList.forEach(a => a.clearBind());
+    actionMapsMasterList.forEach(a => a.resetBind());
     updatefilteredNames();
 }
 
@@ -4310,27 +4309,7 @@ function saveUserChanges()
     const savedActions = actionMapsMasterList.map(serializeMappedAction);
     localStorage.setItem("userMappedActions", JSON.stringify(savedActions));
 }
-async function loadMappedActions()
-{
-    const baseActions = await loadAndParseDataminedXML();
 
-    const savedJson = localStorage.getItem("userMappedActions");
-    if (savedJson)
-    {
-        const savedActions = JSON.parse(savedJson);
-
-        savedActions.forEach(saved =>
-        {
-            const action = baseActions.find(a => a.actionName === saved.actionName);
-            if (action)
-            {
-                deserializeMappedAction(saved, action);
-            }
-        });
-    }
-
-    return baseActions;
-}
 function onUserChangedBind(actionObject)
 {
     const newInput = actionObject.getBind()
@@ -4341,10 +4320,12 @@ function onUserChangedBind(actionObject)
     actionObject.bind[InputState.current].activationMode = newActivationMode;
     saveUserChanges();
 }
+
+
 async function initActionMaps()
 {
-    const actions = await loadAndParseDataminedXML();
-
+    // const actions = await loadAndParseDataminedXML();
+    const actions = actionMapsMasterList;
     const savedJson = localStorage.getItem("userMappedActions");
     if (savedJson)
     {
@@ -4354,50 +4335,26 @@ async function initActionMaps()
             const action = actions.find(a => a.actionName === saved.actionName);
             if (action)
             {
-                // Apply saved user changes
-                for (const [mode, bindData] of Object.entries(saved.binds))
-                {
-                    if (action.bind[mode])
-                    {
-                        action.bind[mode].input = bindData.input;
-                        action.bind[mode].deviceIndex = bindData.deviceIndex;
-                        action.bind[mode].activationMode = bindData.activationMode;
-                    }
-                }
+                deserializeMappedAction(saved, action);
             }
         });
     }
 
     return actions;
 }
-async function loadAndMergeMappedActions()
-{
-    // 1. Load baseline XML
-    const baseActions = await loadAndParseDataminedXML();
 
-    // 2. Merge saved user changes if available
-    const savedJson = localStorage.getItem("userMappedActions");
-    if (savedJson)
-    {
-        const savedActions = JSON.parse(savedJson);
-
-        savedActions.forEach(saved =>
-        {
-            const action = baseActions.find(a => a.actionName === saved.actionName);
-            if (action)
-            {
-                deserializeMappedAction(saved, action);
-            }
-        });
-    }
-
-    // 3. Update master list for the rest of your code to use
-    actionMapsMasterList.length = 0; // clear
-    baseActions.forEach(a => actionMapsMasterList.push(a));
-
-    return actionMapsMasterList;
-}
-
+// function deserializeMappedAction(data, existingAction)
+// {
+//     for (const [mode, bindData] of Object.entries(data.binds))
+//     {
+//         if (existingAction.bind[mode])
+//         {
+//             existingAction.bind[mode].input = bindData.input;
+//             existingAction.bind[mode].deviceIndex = bindData.deviceIndex;
+//             existingAction.bind[mode].activationMode = bindData.activationMode;
+//         }
+//     }
+// }
 //#region Binder or Finder
 
 function SetBindMode(mode = "binder", btn)

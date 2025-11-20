@@ -58,7 +58,9 @@ GLOBAL STYLES --------------------------------------------------------------*/
 html,
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Aileron', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-style: normal;
     font-size: 15px;
     background-color: var(--default-bg);
     color: var(--primaryText);
@@ -67,6 +69,14 @@ body {
     height: auto;
     margin: 0;
 }
+
+h1,
+h2,
+h3,
+button {
+    font-family: 'Gobold', sans-serif;
+}
+
 
 /*--------------------------------------------------------------
 CONTENT
@@ -2200,13 +2210,6 @@ code {
     src: url('./assets/fonts/Gobold Italic.otf') format('truetype');
     font-weight: 400;
     font-style: italic;
-}
-
-@font-face {
-    font-family: 'Gobold';
-    src: url('./assets/fonts/Gobold Bold.otf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
 }
 
 @font-face {
