@@ -904,16 +904,15 @@ async function init()
     window.addEventListener("gamepadconnected", (e) =>
     {
         mapIndexValuesToDevices();
-
     });
 
     window.addEventListener("gamepaddisconnected", (e) =>
     {
         mapIndexValuesToDevices();
-
     });
 
     attributionsSection.addEventListener("click", onClickToggleAttributions);
+    LoadFullQualityImages()
 }
 //#endregion
 
@@ -1097,10 +1096,10 @@ const inputButtons = {
 function setInputMode(mode)
 {
     if (activeCapture) return
-    InputState.set(mode);
+    InputState.current !== mode ? InputState.set(mode) : onModeChangeUpdateUI();
     onClickBindModeToggle("binder")
 
-    // Loop through all buttons and toggle the 'selected' class
+    // Loop through all 3 input selection buttons and toggle the 'selected' class
     Object.entries(inputButtons).forEach(([key, btn]) =>
     {
         if (key === mode)
@@ -2929,25 +2928,6 @@ popout?.addEventListener('transitionend', (e) =>
 
 function renderPresetButtons()
 {
-    function equalizeSectionHeights()
-    {
-        const sections = document.querySelectorAll('.button-section');
-        let maxHeight = 0;
-
-        // Reset heights first
-        sections.forEach(section => section.style.height = 'auto');
-
-        // Find tallest
-        sections.forEach(section =>
-        {
-            const h = section.scrollHeight;
-            if (h > maxHeight) maxHeight = h;
-        });
-
-        // Apply tallest height to all
-        sections.forEach(section => section.style.height = maxHeight + 'px');
-    }
-
     Object.entries(presetData).forEach(([sectionName, presets]) =>
     {
         const sectionEl = presetSections.querySelector(`[data-section="${ sectionName }"]`);
@@ -2964,7 +2944,6 @@ function renderPresetButtons()
             sectionEl.appendChild(btn);
         });
     });
-    equalizeSectionHeights();
 }
 
 
@@ -3204,83 +3183,67 @@ function onClickSelectActivationMode(e)
     }
 }
 
+const cachedActivationModeIcons = {}
+const activationModeDescriptions = {
+    [activationModeType.PRESS]: ": Press the key/button",
+    [activationModeType.PRESS_QUICKER]: ": Press or tap",
+    [activationModeType.PRESS_SHORT]: ": Like 'Press' but only if held >0.15s",
+    [activationModeType.PRESS_MEDIUM]: ": Like 'Press' but only if held >0.25s",
+    [activationModeType.PRESS_EXTRA_MEDIUM]: ": Like 'Press' but only if held >0.5s",
+    [activationModeType.PRESS_LONG]: ": Like 'Press' but only if held >1.5s",
+    [activationModeType.TAP]: ": Press & release quickly",
+    [activationModeType.TAP_QUICKER]: ": Press & release very quickly",
+    [activationModeType.DOUBLETAP_BLOCKING]: ": Tap twice, blocks initial tap if double tap is registered.",
+    [activationModeType.DOUBLETAP_NONBLOCKING]: ": Tap twice, allows initial tap.",
+    [activationModeType.HELD]: ": Hold to continue activating.",
+    [activationModeType.HOLD_SHORT]: ": Like Hold, but with a 0.25s delay.",
+    [activationModeType.HOLD_LONG]: ": Like Hold, but with a 1.5s delay.",
+    [activationModeType.HOLD_NO_RETRIGGER]: ": IDK?",
+    [activationModeType.HOLD_LONG_NO_RETRIGGER]: ": IDK?",
+    [activationModeType.ALL]: ": Any/all activation modes combined.",
+    [activationModeType.HOLD_TOGGLE]: ": Hold/Release to activate/deactivate.",
+    [activationModeType.SMART_TOGGLE]: ": Tap to toggle, hold/release to activate/deactivate.",
+};
+
 
 function setActivationModeButtonIcon(buttonObject, bindObject)
 {
-    buttonObject.innerHTML = '';
-    const activationMode = bindObject.getActivationMode() ? bindObject.getActivationMode() : bindObject.getDefaultActivationMode();
-    const icon = document.createElement('img');
-    icon.classList.add('activation-icon');
+    // buttonObject.innerHTML = '';
+    buttonObject.textContent = "";
+
+
+    const objectActivationMode = bindObject.getActivationMode();
+    const activationMode = objectActivationMode ? objectActivationMode : bindObject.getDefaultActivationMode();
+
+
 
     const iconFileName = activationMode ? activationMode : ``;
-    icon.src = iconFileName ? `./assets/tapIcons/icon_${ iconFileName }.svg` : `./assets/tapIcons/icon_all.svg`
-    let tt_text = "";
-    switch (activationMode)
+    const iconPath = `./assets/tapIcons/icon_${ iconFileName }.svg`;
+
+    // Check cache
+    if (!cachedActivationModeIcons[iconFileName])
     {
-        case activationModeType.PRESS:
-            tt_text = ": Press the key/button"
-            break;
-        case activationModeType.PRESS_QUICKER:
-            tt_text = ": Press or tap"
-            break;
-        case activationModeType.PRESS_SHORT:
-            tt_text = ": Like 'Press' but only if held >0.15s"
-            break;
-        case activationModeType.PRESS_MEDIUM:
-            tt_text = ": Like 'Press' but only if held >0.25s"
-            break;
-        case activationModeType.PRESS_EXTRA_MEDIUM:
-            tt_text = ": Like 'Press' but only if held >0.5s"
-            break;
-        case activationModeType.PRESS_LONG:
-            tt_text = ": Like 'Press' but only if held >1.5s"
-            break;
-        case activationModeType.TAP:
-            tt_text = ": Press & release quickly"
-            break;
-        case activationModeType.TAP_QUICKER:
-            tt_text = ": Press & release very quickly"
-            break;
-        case activationModeType.DOUBLETAP_BLOCKING:
-            tt_text = ": Tap twice, blocks initial tap if double tap is registered."
-            break;
-        case activationModeType.DOUBLETAP_NONBLOCKING:
-            tt_text = ": Tap twice, allows initial tap."
-            break;
-        case activationModeType.HELD:
-            tt_text = ": Hold to continue activating."
-            break;
-        case activationModeType.HOLD_SHORT:
-            tt_text = ": Like Hold, but with a 0.25s delay."
-            break;
-        case activationModeType.HOLD_LONG:
-            tt_text = ": Like Hold, but with a 1.5s delay."
-            break;
-        case activationModeType.HOLD_NO_RETRIGGER:
-            tt_text = ": IDK?"
-            break;
-        case activationModeType.HOLD_LONG_NO_RETRIGGER:
-            tt_text = ": IDK??"
-            break;
-        case activationModeType.ALL:
-            tt_text = ": Any/all activation modes combined."
-            break;
-        case activationModeType.HOLD_TOGGLE:
-            tt_text = ": Hold/Release to activate/deactivate."
-            break;
-        case activationModeType.SMART_TOGGLE:
-            tt_text = ": Tap to toggle, hold/release to activate/deactivate."
-            break;
-        default:
-            tt_text = ""
-            break;
+        const img = document.createElement('img');
+        img.classList.add('activation-icon');
+        img.src = iconPath;
+
+        // store original image
+        cachedActivationModeIcons[iconFileName] = img;
     }
+    // Clone the cached image so you don't move it around in DOM
+    const iconClone = cachedActivationModeIcons[iconFileName].cloneNode();
+    //the below line was pre cached version
+    // icon.src = iconFileName ? `./assets/tapIcons/icon_${ iconFileName }.svg` : `./assets/tapIcons/icon_all.svg`
+
+    const tt_text = activationModeDescriptions[activationMode] || "";
+
     const activationModeParsed = activationMode.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-    icon.alt = activationMode;
+
     buttonObject.title = `${ activationModeParsed }${ tt_text }`;
 
     // Add to the div
-    buttonObject.appendChild(icon);
+    // buttonObject.appendChild(icon);
+    buttonObject.appendChild(iconClone);
 }
 
 function onHoldClearKeybind(e)
@@ -3655,10 +3618,13 @@ async function promptExportKeybinds(defaultName = "CustomKeybinds")
 
 function onClickBindModeToggle(assignedMode)
 {
-    const mode = assignedMode || (modeToggle.dataset.mode === "binder" ? "finder" : "binder");
-    modeToggle.dataset.mode = mode;
-    modeToggle.classList.toggle('finder', mode === 'finder');
-    SetBindMode(mode);
+    if (bindMode !== assignedMode)
+    {
+        const mode = assignedMode || (modeToggle.dataset.mode === "binder" ? "finder" : "binder");
+        modeToggle.dataset.mode = mode;
+        modeToggle.classList.toggle('finder', mode === 'finder');
+        SetBindMode(mode);
+    }
 }
 
 async function onClickClearAllKeybinds()
@@ -4327,6 +4293,7 @@ async function initActionMaps()
     // const actions = await loadAndParseDataminedXML();
     const actions = actionMapsMasterList;
     const savedJson = localStorage.getItem("userMappedActions");
+
     if (savedJson)
     {
         const savedActions = JSON.parse(savedJson);
@@ -4343,18 +4310,6 @@ async function initActionMaps()
     return actions;
 }
 
-// function deserializeMappedAction(data, existingAction)
-// {
-//     for (const [mode, bindData] of Object.entries(data.binds))
-//     {
-//         if (existingAction.bind[mode])
-//         {
-//             existingAction.bind[mode].input = bindData.input;
-//             existingAction.bind[mode].deviceIndex = bindData.deviceIndex;
-//             existingAction.bind[mode].activationMode = bindData.activationMode;
-//         }
-//     }
-// }
 //#region Binder or Finder
 
 function SetBindMode(mode = "binder", btn)
@@ -4772,3 +4727,52 @@ languageSelector.addEventListener("change", (e) =>
 });
 
 languageSelector.dispatchEvent(new Event("change"));
+
+
+////////////////////////////
+// Lazy loading images//////
+////////////////////////////
+
+// const imgTargets = document.querySelectorAll('img[data-src]');
+
+// function loadImg(entries, observer)
+// {
+//     const [entry] = entries;
+
+//     if (!entry.isIntersecting) return;
+
+//     // Replace src with data-src
+//     entry.target.src = entry.target.dataset.src;
+
+//     entry.target.addEventListener('load', function ()
+//     {
+//         entry.target.classList.remove('lazy-img');
+//     });
+
+//     observer.unobserve(entry.target);
+// };
+
+// const imgObserver = new IntersectionObserver(loadImg, {
+//     root: null,
+//     threshold: 0,
+//     rootMargin: '200px',
+// });
+
+// imgTargets.forEach(img => imgObserver.observe(img));
+
+
+function LoadFullQualityImages()
+{
+    const imgTargets = document.querySelectorAll('img[data-src]');
+
+    imgTargets.forEach(img =>
+    {
+        const highResSrc = img.dataset.src;
+        img.src = highResSrc;
+
+        img.addEventListener('load', () =>
+        {
+            img.classList.remove('lazy-img');
+        });
+    });
+};
