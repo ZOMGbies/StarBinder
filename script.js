@@ -533,7 +533,11 @@ class MappedAction
         description,       // "@ui_CIStrafeUpDesc"
         UIdescription,       // "@ui_CIStrafeUpDesc"
         version,
-        optionGroup
+        optionGroup,
+        keyboardBindable,
+        mouseBindable,
+        gamepadBindable,
+        joystickBindable,
     })
     {
         Object.assign(this, arguments[0]);
@@ -556,22 +560,35 @@ class MappedAction
                 if (k.trim() != "") this.keywordTags.push(k)
             }
         });
+        this.bind[InputModeSelection.KEYBOARD].bindable = keyboardBindable;
+        this.bind[InputModeSelection.MOUSE].bindable = mouseBindable;
+        this.bind[InputModeSelection.CONTROLLER].bindable = gamepadBindable;
+        this.bind[InputModeSelection.JOYSTICK].bindable = joystickBindable;
+        if (keyboardBindable)
+        {
+            this.setDefaultBind(InputModeSelection.KEYBOARD, this.keyboardBind ?? this.mouseBind)
+            this.setBind(InputModeSelection.KEYBOARD, this.keyboardBind ?? this.mouseBind)
+            const activtationType = this.activationMode ? this.activationMode : activationModeType.NONE;
+            this.setActivationMode(activtationType, InputModeSelection.KEYBOARD)
+            this.setDefaultActivationMode(activtationType, InputModeSelection.KEYBOARD)
+        }
+        if (gamepadBindable)
+        {
+            this.setDefaultBind(InputModeSelection.CONTROLLER, this.gamepadBind)
+            this.setBind(InputModeSelection.CONTROLLER, this.gamepadBind)
+            const activtationType = this.activationMode ? this.activationMode : activationModeType.NONE;
+            this.setActivationMode(activtationType, InputModeSelection.CONTROLLER)
+            this.setDefaultActivationMode(activtationType, InputModeSelection.CONTROLLER)
+        }
+        if (joystickBindable)
+        {
+            this.setDefaultBind(InputModeSelection.JOYSTICK, this.joystickBind)
+            this.setBind(InputModeSelection.JOYSTICK, this.joystickBind)
+            const activtationType = this.activationMode ? this.activationMode : activationModeType.NONE;
+            this.setActivationMode(activtationType, InputModeSelection.JOYSTICK)
+            this.setDefaultActivationMode(activtationType, InputModeSelection.JOYSTICK)
+        }
 
-
-        this.setDefaultBind(InputModeSelection.KEYBOARD, this.keyboardBind ?? this.mouseBind)
-        this.setDefaultBind(InputModeSelection.CONTROLLER, this.gamepadBind)
-        this.setDefaultBind(InputModeSelection.JOYSTICK, this.joystickBind)
-        this.setBind(InputModeSelection.KEYBOARD, this.keyboardBind ?? this.mouseBind)
-        this.setBind(InputModeSelection.CONTROLLER, this.gamepadBind)
-        this.setBind(InputModeSelection.JOYSTICK, this.joystickBind)
-
-        const activtationType = this.activationMode ? this.activationMode : activationModeType.NONE;
-        this.setActivationMode(activtationType, InputModeSelection.KEYBOARD)
-        this.setActivationMode(activtationType, InputModeSelection.CONTROLLER)
-        this.setActivationMode(activtationType, InputModeSelection.JOYSTICK)
-        this.setDefaultActivationMode(activtationType, InputModeSelection.KEYBOARD)
-        this.setDefaultActivationMode(activtationType, InputModeSelection.CONTROLLER)
-        this.setDefaultActivationMode(activtationType, InputModeSelection.JOYSTICK)
 
         // Find index of existing entry with the same actionName
         // const existingIndex = actionMapsMasterList.findIndex(a => a.actionName === this.actionName);
@@ -833,8 +850,8 @@ async function init()
 
     keybindDescriptionTags.addEventListener("click", onClickFilterTag);
 
-    window.addEventListener("gamepadconnected", mapIndexValuesToDevices());
-    window.addEventListener("gamepaddisconnected", mapIndexValuesToDevices());
+    window.addEventListener("gamepadconnected", mapIndexValuesToDevices);
+    window.addEventListener("gamepaddisconnected", mapIndexValuesToDevices);
 
     attributionsSection.addEventListener("click", onClickToggleAttributions);
 
@@ -4407,6 +4424,7 @@ function findFromInput_Joystick()
                 {
                     inputFilter.input = `button${ i + 1 }`;
                     inputFilter.device = logicalDevice;
+                    console.log(logicalDevice);
                     lastInputTime = now;
                     updatefilteredNames();
                 }
