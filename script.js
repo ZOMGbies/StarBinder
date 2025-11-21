@@ -4723,7 +4723,7 @@ languageSelector.dispatchEvent(new Event("change"));
 ///////////////////////////////
 window.addEventListener("load", (event) =>
 {
-    // LoadFullQualityImages()
+    LoadFullQualityImages()
 });
 
 function LoadFullQualityImages()
