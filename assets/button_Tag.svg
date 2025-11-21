@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="TagButtonContainer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20">
-  <g id="TagButton">
-    <path d="M97.96,0c1.13,0,2.04.99,2.04,2.22v11.3c0,.59-.22,1.15-.6,1.57l-3.91,4.25c-.38.42-.9.65-1.44.65H2.04c-1.13,0-2.04-.99-2.04-2.22V2.22C0,.99.91,0,2.04,0h95.92Z" stroke-width="0"/>
-  </g>
-</svg>
