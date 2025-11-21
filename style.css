@@ -1755,6 +1755,7 @@ MKB / CONTROLLER / JOYSTICK BUTTONS STYLE
     margin-top: 1rem;
     color: #0a1d29;
     text-shadow: 0 1px 0 rgba(182, 157, 33, 0.3);
+    text-transform: uppercase;
 }
 
 .info-content ul {
@@ -2366,6 +2367,10 @@ code {
     width: 15rem;
 }
 
+.nav-buyMeACoffee b {
+    margin-bottom: 0.25rem;
+}
+
 /**/
 .presetsButton {
     height: 2.2rem;
@@ -2499,11 +2504,11 @@ code {
 
 /* only change the image per section */
 .presetsBackground-buzzkiller {
-    background-image: url("./assets/presetImages/buzzkillerlogo_lowQ.png");
+    background-image: url("./assets/presetImages/buzzkillerlogo_lowQ.webp");
 }
 
 .presetsBackground-cig {
-    background-image: url("./assets/presetImages/starcitizenlogo_lowQ.png");
+    background-image: url("./assets/presetImages/starcitizenlogo_lowQ.webp");
 }
 
 
@@ -2681,8 +2686,8 @@ code {
     width: 4rem;
     height: 2rem;
     background-color: var(--accent2);
-    -webkit-mask: url('./assets/VKB_logo.png') no-repeat center / contain;
-    mask: url('./assets/VKB_logo.png') no-repeat center / contain;
+    -webkit-mask: url('./assets/VKB_logo.webp') no-repeat center / contain;
+    mask: url('./assets/VKB_logo.webp') no-repeat center / contain;
 }
 
 
@@ -2821,4 +2826,8 @@ code {
     margin-left: 0.2rem;
     padding-bottom: 0.4rem;
     text-decoration: none;
+}
+
+body[="Star Binder"] {
+    color: green
 }

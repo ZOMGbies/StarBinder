@@ -304,17 +304,6 @@ showHelpButton.addEventListener("click", () =>
     }
 });
 
-//prevent ALT key from selecting top menu in window.
-window.addEventListener("keyup", function (e)
-{
-    if (e.key === "Alt")
-    {
-        e.preventDefault();
-        return false;
-    }
-}, true); // use capture mode
-
-
 //filter tags at the top
 const categoryTags = ["Vehicle", "On Foot", "Comms/Social", "Camera", "Other"];
 let filteredNames = "";
@@ -746,25 +735,8 @@ const actionMapsMasterList = [];
 
 async function init()
 {
-
-    //read json
-    try
-    {
-        const response = await fetch('./keybinds.json');
-        if (!response.ok) throw new Error('Failed to load JSON');
-        actionMapDictionary = await response.json();
-
-        actionMapsMasterList.length = 0; // clear safely
-        mappedActionSource.forEach(entry => actionMapsMasterList.push(new MappedAction(entry)))
-
-    } catch (err)
-    {
-        console.error("Error loading action map dictionary:", err);
-    }
     keybindSearch.value = '';
-
-    // Prevent context menu globally
-    document.addEventListener('contextmenu', e => e.preventDefault());
+    await keybindsJSON();
 
     // wait for DOM
     await new Promise(resolve =>
@@ -780,45 +752,15 @@ async function init()
 
     showSplashModal();
 
-    document.addEventListener("keydown", function (e)
-    {
-        if (e.key === "Escape")
-        {
-            e.preventDefault();
-            onClickCloseHelpModal();
-        }
-        if (e.key === "ArrowLeft")
-        {
-            e.preventDefault();
-            onClickNavHelpImage(e, "left");
-        }
-        if (e.key === "ArrowRight")
-        {
-            e.preventDefault();
-            onClickNavHelpImage(e, "right");
-        }
-
-    });
-
-
-    tagContainer.classList.add('tag-container');
-    subTagContainer.classList.add('subTag-container');
+    generateMainCategoryTags();
+    await initActionMaps();
 
     tagContainer.addEventListener('click', onClickFilterTag);
     subTagContainer.addEventListener('click', onClickFilterTag);
 
-    // await loadAndParseDataminedXML();
-    await initActionMaps();
-
-
-
-    // then show binds
-    generateMainCategoryTags();
-
     // Button click triggers search
     btnKeybindSearch.addEventListener('click', performSearch);
     btnKeybindSearchClear.addEventListener('click', clearAllFilters);
-
     // Pressing Enter in input triggers search
     keybindSearch.addEventListener('keydown', (e) =>
     {
@@ -829,10 +771,7 @@ async function init()
         }
     });
 
-    await loadLocalisationJSON();
-    initFuse();       // <--- Fuse.js initialized after XML loads
 
-    boundActionsToggle.dataset.state = showBoundActionsState;
     boundActionsToggle.addEventListener('click', onToggleFilter_BoundActions)
     conflictsToggle.addEventListener('change', onToggleFilter_Conflicts)
 
@@ -869,9 +808,7 @@ async function init()
         onLeaveHoverPresets
     }, true);
 
-    SetBindMode("binder", btnBinder);
     renderPresetButtons();
-
 
     rowContainer?.addEventListener("click", onClickSelectActivationMode);
     rowContainer?.addEventListener("click", onClickKeybindElement)
@@ -902,8 +839,7 @@ async function init()
     btnSelectInput_Controller.addEventListener("click", e => setInputMode(InputModeSelection.CONTROLLER));
     btnSelectInput_Joystick.addEventListener("click", e => setInputMode(InputModeSelection.JOYSTICK));
     setupJoystickDropdown();
-    btnSelectInput_Keyboard.click()
-    ClearKeybindDescription();
+
 
 
     joystickProfile = await GetJoystickProfile("default")
@@ -918,7 +854,21 @@ async function init()
     });
 
     attributionsSection.addEventListener("click", onClickToggleAttributions);
-    LoadFullQualityImages()
+    await loadLocalisationJSON();
+    btnSelectInput_Keyboard.click()
+    //prevent actions that interfere with Star Binder
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    window.addEventListener("keyup", function (e)
+    {
+        if (e.key === "Alt")
+        {
+            e.preventDefault();
+            return false;
+        }
+    }, true); // use capture mode
+
+    //search tool
+    initFuse();
 }
 //#endregion
 
@@ -1177,7 +1127,24 @@ function showSplashModal()
 
         closeBtn.addEventListener('click', onClickCloseHelpModal);
         splashModal.addEventListener('click', onClickNavHelpImage);
-
+        document.addEventListener("keydown", function (e)
+        {
+            if (e.key === "Escape")
+            {
+                e.preventDefault();
+                onClickCloseHelpModal();
+            }
+            if (e.key === "ArrowLeft")
+            {
+                e.preventDefault();
+                onClickNavHelpImage(e, "left");
+            }
+            if (e.key === "ArrowRight")
+            {
+                e.preventDefault();
+                onClickNavHelpImage(e, "right");
+            }
+        });
         showHelpImage(1);
     }
 }
@@ -1735,17 +1702,17 @@ function initFuse()
         actionName: a.getActionName(),
         localName: getLocalisedLabel(a),
         parsedLabel: getActionLabel(a.getActionName()),
-        description: a.getDescription(),
+        // description: a.getDescription(),
         keywords: a.getKeywords().join(' ')
     }));
 
     fuse = new Fuse(list, {
         keys: [
-            { name: 'actionName', weight: 0.5 },
+            { name: 'actionName', weight: 0.6 },
             { name: 'localName', weight: 0.7 },
             { name: 'parsedLabel', weight: 0.3 },
-            { name: 'description', weight: 0.2 },
-            { name: 'keywords', weight: 0.4 }
+            // { name: 'description', weight: 0.2 },
+            { name: 'keywords', weight: 0.3 }
         ],
         threshold: 0.2,
         includeScore: true
@@ -1828,7 +1795,8 @@ function updatefilteredNames()
         if (searchQuery)
         {
 
-            if (fuse)
+            console.log("Forced fuse off, because it isn't searching as well as it should for some reason");
+            if (fuse && !fuse)
             {
                 const results = fuse.search(searchQuery);
                 const searchMatches = results.map(r =>
@@ -1840,14 +1808,14 @@ function updatefilteredNames()
                 filtered = filtered.filter(item =>
                 {
                     const name = item.getActionName().toLowerCase();
-                    const desc = item.getDescription().toLowerCase();
+                    // const desc = item.getDescription().toLowerCase();
                     const keywords = item.getKeywords().map(k => k.toLowerCase());
 
                     const localizedName = getLocalisedLabel(item).toLowerCase();
 
                     return name.includes(searchQuery) ||
                         localizedName.includes(searchQuery) ||
-                        desc.includes(searchQuery) ||
+                        // desc.includes(searchQuery) ||
                         keywords.some(k => k.includes(searchQuery));
                 });
             }
@@ -4293,6 +4261,22 @@ function onUserChangedBind(actionObject)
 }
 
 
+async function keybindsJSON()
+{
+    try
+    {
+        const response = await fetch('./keybinds.json');
+        if (!response.ok) throw new Error('Failed to load JSON');
+        actionMapDictionary = await response.json();
+
+        actionMapsMasterList.length = 0; // clear safely
+        mappedActionSource.forEach(entry => actionMapsMasterList.push(new MappedAction(entry)))
+
+    } catch (err)
+    {
+        console.error("Error loading action map dictionary:", err);
+    }
+}
 async function initActionMaps()
 {
     // const actions = await loadAndParseDataminedXML();
@@ -4734,9 +4718,13 @@ languageSelector.addEventListener("change", (e) =>
 languageSelector.dispatchEvent(new Event("change"));
 
 
-////////////////////////////
-// Lazy loading images//////
-////////////////////////////
+///////////////////////////////
+/////    Lazy-loading    //////
+///////////////////////////////
+window.addEventListener("load", (event) =>
+{
+    // LoadFullQualityImages()
+});
 
 function LoadFullQualityImages()
 {
