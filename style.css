@@ -1756,6 +1756,7 @@ MKB / CONTROLLER / JOYSTICK BUTTONS STYLE
     color: #0a1d29;
     text-shadow: 0 1px 0 rgba(182, 157, 33, 0.3);
     text-transform: uppercase;
+    letter-spacing: 0.05rem;
 }
 
 .info-content ul {

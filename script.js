@@ -124,9 +124,6 @@ function translateKey(code)
 }
 //#endregion
 
-
-
-
 //#region Dictionaries
 
 let actionMapDictionary = {}
@@ -224,6 +221,7 @@ const popoutInner = document.querySelector('.popout-navbar-inner');
 const presetSections = document.getElementById('presetSections');
 const presetDescription = document.querySelector('.preset-description');
 
+const inputSelectButtonsDiv = document.querySelector('.inputType-select');
 const btnSelectInput_Keyboard = document.querySelector('.button-inputSelect-keyboard');
 const btnSelectInput_Controller = document.querySelector('.button-inputSelect-controller');
 const btnSelectInput_Joystick = document.querySelector('.button-inputSelect-joystick');
@@ -236,6 +234,7 @@ const footer = document.querySelector('.footer');
 const keybindDescriptionDiv = document.querySelector('.footer__keybind-info');
 const keybindDescriptionText = keybindDescriptionDiv.querySelector('.footer__keybind-text');
 const keybindDescriptionTags = keybindDescriptionDiv.querySelector('.footer__keybind-tags');
+const footerButtonsDiv = footer.querySelector('.footer__buttons');
 
 const splashModalMain = document.getElementById('splashModal');
 const splashModal = splashModalMain.querySelector('.modal-content');
@@ -566,8 +565,6 @@ class MappedAction
         this.setBind(InputModeSelection.CONTROLLER, this.gamepadBind)
         this.setBind(InputModeSelection.JOYSTICK, this.joystickBind)
 
-
-
         const activtationType = this.activationMode ? this.activationMode : activationModeType.NONE;
         this.setActivationMode(activtationType, InputModeSelection.KEYBOARD)
         this.setActivationMode(activtationType, InputModeSelection.CONTROLLER)
@@ -595,27 +592,13 @@ class MappedAction
     getActionName() { return this.actionName; }
     setActionName(n) { this.actionName = n; return this; }
 
-    getParsedName() { return this.actionParsedName; }
-    setParsedName(str)
-    {
-        this.actionParsedName = str;
-        return this;
-    }
-
-    getCustomName() { return this.actionCustomName; }
-    setCustomName(str) { this.actionCustomName = str; return this; }
-
     getActionMapName() { return this.actionMapName; }
     setActionMapName(str) { this.actionMapName = str; return this; }
 
     getDescription() { return this.description; }
-    setDescription(str)
+    setDescription(str = getActionDescription(this.getActionName()))
     {
-        if (!str)
-        {
-            str = getActionDescription(this.getActionName());
-        }
-        this.description = str;
+        if (this.description !== str) this.description = str;
     }
 
     getKeywords() { return this.keywordTags; }
@@ -625,8 +608,11 @@ class MappedAction
         {
             keywords = getActionKeywords(this.getActionName())
         }
-        keywords.push(this.getActionMapName())
-        this.keywordTags = keywords;
+        if (keywords)
+        {
+            keywords.push(this.getActionMapName())
+            this.keywordTags = keywords;
+        }
     }
 
     getBind(state = InputState.current)
@@ -644,8 +630,7 @@ class MappedAction
     }
     setDefaultBind(state = InputState.current, bindString)
     {
-        // this.bind[state] = [bindString, deviceIndex];
-        this.bind[state].defaultBind = bindString;
+        if (bindString && !this.bind[state].defaultBind && this.bind[state].defaultBind != bindString) this.bind[state].defaultBind = bindString;
     }
     getBindDevice(state = InputState.current)
     {
@@ -655,7 +640,7 @@ class MappedAction
     }
     setBindDevice(state = InputState.current, deviceIndex)
     {
-        this.bind[state].deviceIndex = deviceIndex;
+        if (deviceIndex) this.bind[state].deviceIndex = deviceIndex;
     }
 
 
@@ -678,18 +663,19 @@ class MappedAction
     clearBind(inputType = InputState.current, shouldSave = false)
     {
         //sets to a space so it's cleared in SC
-        this.setBind(inputType, " ")
-        this.setBindDevice(inputType, "1")
-        this.setActivationMode(this.getDefaultActivationMode(inputType), inputType)
+        const actMode = this.getDefaultActivationMode(inputType)
+        if (this.getBind != " ") this.setBind(inputType, " ")
+        if (this.getActivationMode(inputType) !== actMode) this.setActivationMode(actMode, inputType)
+        if (this.getBindDevice(inputType) != "1") this.setBindDevice(inputType, "1")
         if (shouldSave) onUserChangedBind(this)
-
     }
     resetBind(inputType = InputState.current, shouldSave = false)
     {
         //clears it entirely so it's not exported, leaving it to default
-        this.setBind(inputType, "")
-        this.setBindDevice(inputType, "1")
-        this.setActivationMode(this.getDefaultActivationMode(inputType), inputType)
+        const actMode = this.getDefaultActivationMode(inputType)
+        if (this.getBind !== "") this.setBind(inputType, "")
+        if (this.getActivationMode(inputType) !== actMode) this.setActivationMode(actMode, inputType)
+        if (this.getBindDevice(inputType) != "1") this.setBindDevice(inputType, "1")
         if (shouldSave) onUserChangedBind(this)
     }
     resetAllBinds()
@@ -726,8 +712,43 @@ class MappedAction
 
 
 }
-
 const actionMapsMasterList = [];
+
+
+function setupRowContainerListeners()
+{
+    rowContainer?.addEventListener("click", onClickRowContainer);
+    rowContainer?.addEventListener("dblclick", onDoubleClickRowContainer);
+    rowContainer?.addEventListener("focusin", onFocusRowContainer)
+    rowContainer?.addEventListener("focusout", onLoseFocusConsoleInput)
+    rowContainer.addEventListener("mousedown", onHoldClearKeybind)
+    rowContainer.addEventListener("mouseup", () =>
+    {
+        clearTimeout(holdTimer);
+    });
+    rowContainer?.addEventListener("keydown", function (e)
+    {
+        if (e.key === "Enter")
+        {
+            e.preventDefault();
+            onSubmitKeybindConsole(e);
+        }
+    });
+}
+function onClickRowContainer(e)
+{
+    onClickSelectActivationMode(e);
+    onClickKeybindElement(e);
+}
+function onDoubleClickRowContainer(e)
+{
+    onClickRecordKeybind(e);
+}
+function onFocusRowContainer(e)
+{
+    onClickKeybindElement(e);
+    onFocusConsoleInput(e);
+}
 //#endregion
 
 
@@ -735,6 +756,8 @@ const actionMapsMasterList = [];
 
 async function init()
 {
+    //was for when I thought I needed per-device profiles
+    // setupJoystickDropdown();
     keybindSearch.value = '';
     await keybindsJSON();
 
@@ -749,6 +772,7 @@ async function init()
             resolve();
         }
     });
+    const jsonPromise = loadLocalisationJSON();
 
     showSplashModal();
 
@@ -758,10 +782,8 @@ async function init()
     tagContainer.addEventListener('click', onClickFilterTag);
     subTagContainer.addEventListener('click', onClickFilterTag);
 
-    // Button click triggers search
     btnKeybindSearch.addEventListener('click', performSearch);
     btnKeybindSearchClear.addEventListener('click', clearAllFilters);
-    // Pressing Enter in input triggers search
     keybindSearch.addEventListener('keydown', (e) =>
     {
         if (e.key === 'Enter')
@@ -771,24 +793,23 @@ async function init()
         }
     });
 
-
+    //setup clear/import/export
+    footerButtonsDiv?.addEventListener("click", onClickFooterButtons);
     boundActionsToggle.addEventListener('click', onToggleFilter_BoundActions)
     conflictsToggle.addEventListener('change', onToggleFilter_Conflicts)
 
-    document.querySelector('.button--clear').addEventListener("click", onClickClearAllKeybinds)
-    document.querySelector('.button--export').addEventListener('click', onClickExportKeybinds)
-    document.querySelector('.button--import').addEventListener('click', onClickImportKeybinds)
+    //setup keyboard/controller/joystick buttons
+    inputSelectButtonsDiv?.addEventListener("click", onClickInputSelect);
 
     navBar?.addEventListener("click", onClickNavBar)
 
+    renderPresetButtons();
     presetSections.addEventListener('mouseover', (e) =>
     {
         const btn = e.target.closest('.preset-btn');
         if (!btn) return;
-
         presetDescription.textContent = btn.dataset.desc || '';
     });
-
     presetSections.addEventListener('mouseout', (e) =>
     {
         const btn = e.target.closest('.preset-btn');
@@ -797,65 +818,26 @@ async function init()
         presetDescription.textContent = '';
     });
     presetSections.addEventListener('click', (e) => { onClickLoadPreset(e) });
-
     popoutInner?.addEventListener('mouseenter', (e) =>
     {
         onHoverPresets(e)
-    }, true); // use capture to catch mouseenter properly
-
+    }, true);
     popoutInner?.addEventListener('mouseleave', (e) =>
     {
         onLeaveHoverPresets
     }, true);
 
-    renderPresetButtons();
-
-    rowContainer?.addEventListener("click", onClickSelectActivationMode);
-    rowContainer?.addEventListener("click", onClickKeybindElement)
     document.addEventListener("click", onClickAnywhereDeselectKeybind);
     document.addEventListener("click", onClickAnywhereClosePresets);
-    rowContainer?.addEventListener("dblclick", onClickRecordKeybind);
-    rowContainer?.addEventListener("keydown", function (e)
-    {
-        if (e.key === "Enter")
-        {
-            e.preventDefault();
-            onSubmitKeybindConsole(e);
-        }
-    });
-    rowContainer?.addEventListener("focusin", onClickKeybindElement)
-    rowContainer?.addEventListener("focusin", onFocusConsoleInput)
-    rowContainer?.addEventListener("focusout", onLoseFocusConsoleInput)
+    setupRowContainerListeners();
+
     keybindDescriptionTags.addEventListener("click", onClickFilterTag);
-    rowContainer.addEventListener("mousedown", onHoldClearKeybind)
 
-    rowContainer.addEventListener("mouseup", () =>
-    {
-        clearTimeout(holdTimer);
-    });
-
-
-    btnSelectInput_Keyboard.addEventListener("click", e => setInputMode(InputModeSelection.KEYBOARD));
-    btnSelectInput_Controller.addEventListener("click", e => setInputMode(InputModeSelection.CONTROLLER));
-    btnSelectInput_Joystick.addEventListener("click", e => setInputMode(InputModeSelection.JOYSTICK));
-    setupJoystickDropdown();
-
-
-
-    joystickProfile = await GetJoystickProfile("default")
-    window.addEventListener("gamepadconnected", (e) =>
-    {
-        mapIndexValuesToDevices();
-    });
-
-    window.addEventListener("gamepaddisconnected", (e) =>
-    {
-        mapIndexValuesToDevices();
-    });
+    window.addEventListener("gamepadconnected", mapIndexValuesToDevices());
+    window.addEventListener("gamepaddisconnected", mapIndexValuesToDevices());
 
     attributionsSection.addEventListener("click", onClickToggleAttributions);
-    await loadLocalisationJSON();
-    btnSelectInput_Keyboard.click()
+
     //prevent actions that interfere with Star Binder
     document.addEventListener('contextmenu', e => e.preventDefault());
     window.addEventListener("keyup", function (e)
@@ -869,7 +851,12 @@ async function init()
 
     //search tool
     initFuse();
+
+    if (localisedLanguage !== "english") await jsonPromise;
+    btnSelectInput_Keyboard.click()
 }
+
+
 //#endregion
 
 //#region Joystick Mapping
@@ -1013,7 +1000,7 @@ function onClickAssignIndexToDevice(targetIndex = 1, btn)
 function updateJoystickDeviceButtons()
 {
     const container = document.getElementById("joystickDeviceButtons");
-    container.innerHTML = ""; // clear existing buttons
+    container.innerHTML !== '' && (container.innerHTML = '');
 
     // Connected devices looks like { "0":1, "1":2 }
     // We want logical numbers sorted: 1,2,3...
@@ -1042,12 +1029,20 @@ function updateJoystickDeviceButtons()
 
 //#endregion
 
+function onClickInputSelect(event)
+{
+    const btn = event.target.closest("button");
+    if (!btn) return;
+    if (btn === btnSelectInput_Keyboard) setInputMode(InputModeSelection.KEYBOARD);
+    if (btn === btnSelectInput_Controller) setInputMode(InputModeSelection.CONTROLLER);
+    if (btn === btnSelectInput_Joystick) setInputMode(InputModeSelection.JOYSTICK);
+}
+
 const inputButtons = {
     [InputModeSelection.KEYBOARD]: btnSelectInput_Keyboard,
     [InputModeSelection.CONTROLLER]: btnSelectInput_Controller,
     [InputModeSelection.JOYSTICK]: btnSelectInput_Joystick
 };
-
 
 function setInputMode(mode)
 {
@@ -1969,7 +1964,7 @@ document.addEventListener('keydown', e =>
     {
         const translated = activeCapture.currentKeysOrdered.map(code => translateKey(code));
         const bindInProgress = translated.join('+');
-        valueDiv.innerHTML = ''; // clear previous
+        valueDiv.innerHTML !== '' && (valueDiv.innerHTML = '');
         valueDiv.appendChild(renderKeybindKeys(bindInProgress));
     }
 });
@@ -2087,7 +2082,7 @@ async function finalizeCapture_Keyboard(input, deviceIndex = 1)
             const bindVal = input.dataset;
             const actionName = bindVal.actionName;
             const actionObj = actionMapsMasterList.find(a => a.getActionName() === actionName);
-            valueDiv.innerHTML = ''; // clear previous
+            valueDiv.innerHTML !== '' && (valueDiv.innerHTML = '');
             valueDiv.appendChild(renderKeybindKeys(actionObj.getBind(), actionObj.getBind() === actionObj.getDefaultBind()));
             valueDiv.classList.remove('awaiting');
         }
@@ -2185,7 +2180,7 @@ function getBindPrefix(deviceNumber = 1, currentState = InputState.current)
 async function showAllBinds(filtered)
 {
     // Only clear the keybind rows container
-    rowContainer.innerHTML = '';
+    rowContainer.innerHTML !== '' && (rowContainer.innerHTML = '');
     const listToCheck = conflictsToggle?.checked ? filtered : actionMapsMasterList;
 
     // Determine which list to show
@@ -2223,7 +2218,7 @@ async function renderBindRow(b)
 
     const typeDiv = document.createElement('div');
     typeDiv.classList.add('keybind__type', 'keybind__type--defaultKeybindStyle');
-    typeDiv.textContent = parsedName;
+    typeDiv.textContent !== parsedName && (typeDiv.textContent = parsedName);
 
 
     const valueDiv = document.createElement('div');
@@ -2260,16 +2255,17 @@ function updateBindRow(bindRow = currentlySelectedKeybindElement)
         const consoleInputField = bindRow.querySelector('.keybind__consoleInput');
         const rowActionName = bindRow?.dataset.actionName
         const bind = actionMapsMasterList?.find(a => a?.getActionName() === rowActionName);
-
-        const bindValue = bind.getBind() !== "" ? bind.getBind() : bind.getDefaultBind();
+        const currentBind = bind.getBind();
+        const defaultBind = bind.getDefaultBind();
         const bindDevice = bind.getBindDevice();
+        const bindValue = currentBind !== "" ? currentBind : defaultBind;
 
         if (bindValueDiv)
         {
-            bindValueDiv.innerHTML = ''; // clear previous
+            bindValueDiv.innerHTML !== '' && (bindValueDiv.innerHTML = '');
             if (bindValue)
             {
-                const isDefaultBind = (bindValue === bind.getDefaultBind() && bind.getActivationMode() === bind.getDefaultActivationMode());
+                const isDefaultBind = (bindValue === defaultBind && bind.getActivationMode() === bind.getDefaultActivationMode());
                 bindValueDiv.appendChild(renderKeybindKeys(bindValue ? `Device ${ bindDevice }: ${ bindValue }` : ``, isDefaultBind));
                 if (bindValueDiv.classList.contains('awaiting')) bindValueDiv.classList.remove('awaiting');
             }
@@ -2280,7 +2276,7 @@ function updateBindRow(bindRow = currentlySelectedKeybindElement)
             consoleInputField.value = "";
             if (bindValue)
             {
-                consoleInputField.placeholder = bindValue ? bind.getBindDevice() + ":" + bindValue : "";
+                consoleInputField.placeholder = bindValue ? bindDevice + ":" + bindValue : "";
             }
             else
             {
@@ -2309,7 +2305,7 @@ function addConsoleInputField(bind, div)
 //#region Tag Generation
 function generateMainCategoryTags()
 {
-    tagContainer.innerHTML = '';
+    tagContainer.innerHTML !== '' && (tagContainer.innerHTML = '');
 
     categoryTags.forEach(keyword =>
     {
@@ -2541,7 +2537,7 @@ function ShowKeybindDescription()
     if (currentKeyBind)
     {
         box.textContent = desc;
-        keybindDescriptionTags.innerHTML = '';
+        keybindDescriptionTags.innerHTML !== '' && (keybindDescriptionTags.innerHTML = '');
 
         listOfKeywords.forEach(keyword =>
         {
@@ -2607,8 +2603,8 @@ function showConflictMessage(show)
 }
 function ClearKeybindDescription()
 {
-    keybindDescriptionText.textContent = "";
-    keybindDescriptionTags.innerHTML = '';
+    keybindDescriptionTags.innerHTML !== '' && (keybindDescriptionTags.innerHTML = '');
+    keybindDescriptionText.textContent !== '' && (keybindDescriptionText.textContent = '');
 }
 
 function onSubmitKeybindConsole(e)
@@ -3180,43 +3176,45 @@ const activationModeDescriptions = {
 
 function setActivationModeButtonIcon(buttonObject, bindObject)
 {
-    // buttonObject.innerHTML = '';
-    buttonObject.textContent = "";
-
-
     const objectActivationMode = bindObject.getActivationMode();
-    const activationMode = objectActivationMode ? objectActivationMode : bindObject.getDefaultActivationMode();
+    const activationMode = objectActivationMode || bindObject.getDefaultActivationMode();
+    const modeKey = activationMode || "";
 
+    // EARLY EXIT: already set
+    if (buttonObject.dataset.mode === modeKey)
+    {
+        return;
+    }
 
+    // Update tracking
+    buttonObject.dataset.mode = modeKey;
 
-    const iconFileName = activationMode ? activationMode : ``;
-    const iconPath = `./assets/tapIcons/icon_${ iconFileName }.svg`;
+    // Clear existing icon if any
+    buttonObject.innerHTML = '';
 
-    // Check cache
-    if (!cachedActivationModeIcons[iconFileName])
+    // Ensure icon exists in cache
+    if (!cachedActivationModeIcons[modeKey])
     {
         const img = document.createElement('img');
         img.classList.add('activation-icon');
-        img.src = iconPath;
-
-        // store original image
-        cachedActivationModeIcons[iconFileName] = img;
+        img.src = `./assets/tapIcons/icon_${ modeKey }.svg`;
+        cachedActivationModeIcons[modeKey] = img;
     }
-    // Clone the cached image so you don't move it around in DOM
-    const iconClone = cachedActivationModeIcons[iconFileName].cloneNode();
-    //the below line was pre cached version
-    // icon.src = iconFileName ? `./assets/tapIcons/icon_${ iconFileName }.svg` : `./assets/tapIcons/icon_all.svg`
 
+    // Clone cached icon
+    const iconClone = cachedActivationModeIcons[modeKey].cloneNode();
+
+    // Tooltip text
     const tt_text = activationModeDescriptions[activationMode] || "";
-
-    const activationModeParsed = activationMode.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-
+    const activationModeParsed = activationMode
+        .replace(/_/g, ' ')
+        .replace(/\b\w/g, c => c.toUpperCase());
     buttonObject.title = `${ activationModeParsed }${ tt_text }`;
 
-    // Add to the div
-    // buttonObject.appendChild(icon);
+    // Add icon to button
     buttonObject.appendChild(iconClone);
 }
+
 
 function onHoldClearKeybind(e)
 {
@@ -3432,7 +3430,15 @@ function onShowSubcategoryTags()
     });
 }
 
+function onClickFooterButtons(event)
+{
+    const btn = event.target.closest("button");
+    if (!btn) return;
 
+    if (btn.classList.contains("button--clear")) onClickClearAllKeybinds();
+    else if (btn.classList.contains("button--export")) onClickExportKeybinds();
+    else if (btn.classList.contains("button--import")) onClickImportKeybinds();
+}
 async function onClickExportKeybinds()
 {
     const profileName = await promptExportKeybinds();
@@ -3861,7 +3867,18 @@ window.addEventListener('keyup', e =>
     }
 });
 
-let joystickProfile;
+const joystickProfile = {
+    "x": 0,
+    "y": 1,
+    "z": 2,
+    "Rx": 3,
+    "Ry": 4,
+    "Rz": 5,
+    "slider": 6,
+    "hat": 9
+}
+
+
 let cachedProfiles = null;
 
 async function GetAllJoystickProfiles()
@@ -3874,7 +3891,7 @@ async function GetAllJoystickProfiles()
     return cachedProfiles;
 }
 
-
+//now deprecated 
 async function GetJoystickProfile(name = "Thrustmaster T16000M")
 {
     try
@@ -3891,6 +3908,7 @@ async function GetJoystickProfile(name = "Thrustmaster T16000M")
         return null;
     }
 }
+
 async function GetJoystickModelsFromJSON()
 {
     const data = await GetAllJoystickProfiles();
@@ -4254,9 +4272,11 @@ function onUserChangedBind(actionObject)
     const newInput = actionObject.getBind()
     const newDeviceIndex = actionObject.getBindDevice();
     const newActivationMode = actionObject.getActivationMode();
-    actionObject.bind[InputState.current].input = newInput;
-    actionObject.bind[InputState.current].deviceIndex = newDeviceIndex;
-    actionObject.bind[InputState.current].activationMode = newActivationMode;
+    const b = actionObject.bind[InputState.current];
+    b.input !== newInput && (b.input = newInput);
+    b.deviceIndex !== newDeviceIndex && (b.deviceIndex = newDeviceIndex);
+    b.activationMode !== newActivationMode && (b.activationMode = newActivationMode);
+
     saveUserChanges();
 }
 
@@ -4677,7 +4697,8 @@ async function loadLocalisationJSON()
 function getLocalisedLabel(bindObject)
 {
     const key = bindObject.label
-    const fallbackName = getActionLabel(bindObject.getActionName()) || bindObject.getActionName();
+    const bindActionName = bindObject.getActionName();
+    const fallbackName = getActionLabel(bindActionName) || bindActionName;
     const cleanedKey = key?.startsWith("@")
         ? key.substring(1)
         : key;
