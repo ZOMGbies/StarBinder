@@ -16,8 +16,8 @@
   <link rel="preload" href="./assets/fonts/Kiona-Regular.ttf" as="font" type="font/ttf" crossorigin>
   <!-- Preload Fonts -->
 
-  <link rel="stylesheet" href="./style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
+  <link rel="stylesheet" defer href="./style.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
   <script type="module" defer src="./script.js"></script>
 
   <link rel="icon" type="image/png" sizes="256x256" href="./assets/favicon_256.png">
@@ -144,7 +144,8 @@
 
 
   <div class="content">
-    <img class="headerImage" src="./assets/header_lowQ.webp" data-src="./assets/header.png" width="60%">
+    <img class="headerImage" src="./assets/header_lowQ.webp" data-src="./assets/header.png" width="60%"
+      alt="Star Binder">
     <!--img class="headerImage" src="./assets/header.png" width="60%"-->
     <div class="VKB">
       <div class="vkb-ref">
@@ -164,9 +165,9 @@
       <div class="content-keybinds-wrapper">
         <div class="searchbar-row">
           <div class="searchbar-container">
-            <button class="searchbar-button" type="button"></button>
+            <button class="searchbar-button" type="button" aria-label="search button"></button>
             <input type="text" id="keybindSearch" placeholder="Filter keybinds..." />
-            <button class="button searchbar-clear" type="button"></button>
+            <button class="button searchbar-clear" type="button" aria-label="Clear filters"></button>
           </div>
 
           <div class="inputType-select">
@@ -238,15 +239,15 @@
       <div class="footer__left">
         <div class="footer__buttons">
           <div class="button-wrapper">
-            <button class="button button--clear"></button>
+            <button class="button button--clear" aria-label="Clear keybinds"></button>
             <span class="tooltip-text">Clear all current binds.</span>
           </div>
           <div class="button-wrapper">
-            <button class="button button--import"></button>
+            <button class="button button--import" aria-label="Import keybinds"></button>
             <span class="tooltip-text">Load an existing keybind configuration.</span>
           </div>
           <div class="button-wrapper">
-            <button class="button button--export"></button>
+            <button class="button button--export" aria-label="Export keybinds"></button>
             <span class="tooltip-text">Create XML ready for import to SC.</span>
           </div>
           <!--div class="button-wrapper">

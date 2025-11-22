@@ -2219,6 +2219,7 @@ async function showAllBinds(filtered)
     }
 }
 
+
 async function renderBindRow(b)
 {
     const parsedName = getLocalisedLabel(b);
@@ -2313,6 +2314,8 @@ function addConsoleInputField(bind, div)
 
     consoleField.setAttribute('spellcheck', 'false');
     consoleField.maxLength = 60;
+
+    consoleField.ariaLabel = "Manual binding"
 
     div.appendChild(consoleField);
 }
@@ -3215,6 +3218,7 @@ function setActivationModeButtonIcon(buttonObject, bindObject)
         const img = document.createElement('img');
         img.classList.add('activation-icon');
         img.src = `./assets/tapIcons/icon_${ modeKey }.svg`;
+        img.alt = modeKey
         cachedActivationModeIcons[modeKey] = img;
     }
 
