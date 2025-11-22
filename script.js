@@ -3194,23 +3194,6 @@ const activationModeDescriptions = {
     [activationModeType.SMART_TOGGLE]: ": Tap to toggle, hold/release to activate/deactivate.",
 };
 
-function preloadActivationModeIcons()
-{
-    Object.values(activationModeType).forEach(modeKey =>
-    {
-        if (!cachedActivationModeIcons[modeKey])
-        {
-            const img = document.createElement('img');
-            img.classList.add('activation-icon');
-            img.src = `./assets/tapIcons/icon_${ modeKey }.svg`;
-            img.alt = modeKey;
-            img.decoding = "async";
-            img.loading = "eager";
-
-            cachedActivationModeIcons[modeKey] = img;
-        }
-    });
-}
 
 function setActivationModeButtonIcon(buttonObject, bindObject)
 {
@@ -3218,40 +3201,79 @@ function setActivationModeButtonIcon(buttonObject, bindObject)
     const activationMode = objectActivationMode || bindObject.getDefaultActivationMode();
     const modeKey = activationMode || "none";
 
-    // EARLY EXIT
-    if (buttonObject.dataset.mode === modeKey) return;
+    // EARLY EXIT: already set
+    if (buttonObject.dataset.mode === modeKey)
+    {
+        return;
+    }
 
+    // Update tracking
     buttonObject.dataset.mode = modeKey;
+
+    // Clear existing icon if any
     buttonObject.innerHTML = '';
 
-    // Grab from cache (preloaded)
-    let baseIcon = cachedActivationModeIcons[modeKey];
-
-    // Fallback if preload somehow missed it
-    if (!baseIcon)
+    // Ensure icon exists in cache
+    if (!cachedActivationModeIcons[modeKey])
     {
         const img = document.createElement('img');
         img.classList.add('activation-icon');
         img.src = `./assets/tapIcons/icon_${ modeKey }.svg`;
-        img.alt = modeKey;
+        img.alt = modeKey
         cachedActivationModeIcons[modeKey] = img;
-        baseIcon = img;
     }
 
-    // Clone for insertion
-    const iconClone = baseIcon.cloneNode();
+    // Clone cached icon
+    const iconClone = cachedActivationModeIcons[modeKey].cloneNode();
 
     // Tooltip text
     const tt_text = activationModeDescriptions[activationMode] || "";
     const activationModeParsed = activationMode
         .replace(/_/g, ' ')
         .replace(/\b\w/g, c => c.toUpperCase());
-
     buttonObject.title = `${ activationModeParsed }${ tt_text }`;
 
+    // Add icon to button
     buttonObject.appendChild(iconClone);
 }
+// function setActivationModeButtonIcon(buttonObject, bindObject)
+// {
+//     buttonObject.innerHTML !== '' && (buttonObject.innerHTML = '');
 
+
+//     const objectActivationMode = bindObject.getActivationMode();
+//     const activationMode = objectActivationMode ? objectActivationMode : bindObject.getDefaultActivationMode();
+
+
+
+//     const iconFileName = activationMode ? activationMode : `none`;
+//     const iconPath = `./assets/tapIcons/icon_${ iconFileName }.svg`;
+
+//     // Check cache
+//     if (!cachedActivationModeIcons[iconFileName])
+//     {
+//         const img = document.createElement('img');
+//         img.classList.add('activation-icon');
+//         img.src = iconPath;
+
+//         // store original image
+//         cachedActivationModeIcons[iconFileName] = img;
+//     }
+//     // Clone the cached image so you don't move it around in DOM
+//     const iconClone = cachedActivationModeIcons[iconFileName].cloneNode();
+//     //the below line was pre cached version
+//     // icon.src = iconFileName ? `./assets/tapIcons/icon_${ iconFileName }.svg` : `./assets/tapIcons/icon_all.svg`
+
+//     const tt_text = activationModeDescriptions[activationMode] || "";
+
+//     const activationModeParsed = activationMode.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
+//     buttonObject.title = `${ activationModeParsed }${ tt_text }`;
+
+//     // Add to the div
+//     // buttonObject.appendChild(icon);
+//     buttonObject.appendChild(iconClone);
+// }
 
 function onHoldClearKeybind(e)
 {
@@ -3521,6 +3543,7 @@ async function onClickImportKeybinds()
     const newKeybinds = await importCustomKeybindsXML(file);
     showAllBinds();
 }
+
 
 
 async function promptExportKeybinds(defaultName = "CustomKeybinds")
@@ -4733,7 +4756,6 @@ languageSelector.dispatchEvent(new Event("change"));
 window.addEventListener("load", (event) =>
 {
     LoadFullQualityImages()
-    preloadActivationModeIcons();
 });
 
 function LoadFullQualityImages()
